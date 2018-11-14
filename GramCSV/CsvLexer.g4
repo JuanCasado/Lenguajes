@@ -1,15 +1,15 @@
 lexer grammar CsvLexer;
 
-IDENTIFICADOR: [a-zA-Z]+ ;
 COMA: ',';
-DOBLEPUNTO: '..';
-PUNTO: '.';
 INTRO: [\r\n];
-DISCO: [a-zA-Z]':';
-BARRA: '/';
-EXTENSION: 'json'|'svg'|'dot';
-NOMBRECOSAS: IDLETRA(IDLETRA|DIGITO)*(PUNTUACION(IDLETRA|DIGITO)*)*;
-fragment IDLETRA: [a-zA-Z];
+BARRA: '/'|'\\';
+JSON_EXTENSION: '.json';
+DOT_EXTENSION: '.dot';
+SVG_EXTENSION: '.svg';
+FILE    : ((IDLETRA|DIGITO|PUNTUACION) BARRA?)+
+        | DOT DOT? BARRA?;
+fragment IDLETRA: [a-zA-ZáéíóúÁÉÍÓÚ];
 fragment DIGITO: [0-9];
-fragment PUNTUACION: '_';
+fragment PUNTUACION: '_'|' '|'-'|':';
+fragment DOT : '.';
 

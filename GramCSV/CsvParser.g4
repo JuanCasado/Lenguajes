@@ -5,26 +5,20 @@ options{
     language = Java;
 }
 
-fichero: (declaracion | sentencias)*;
+csv_file : info row+;
+info : (dir coma dir coma dir coma dir end);
+row : nombre rutafichero rutaficherosalida rutaficherografico;
 
-declaracion: (cosas* coma)* intro;
-sentencias: nombre coma rutafichero coma rutaficherosalida coma rutaficherografico intro;
+dir : (FILE bar?)+;
+json_file : FILE JSON_EXTENSION;
+svg_file : FILE SVG_EXTENSION;
+dot_file : FILE DOT_EXTENSION;
+coma : COMA;
+end : INTRO;
+bar : BARRA;
+nombre : dir coma ;
+rutafichero : dir json_file coma;
+rutaficherosalida : dir dot_file coma;
+rutaficherografico : dir svg_file end?;
 
-rutafichero: (doblepunto|punto|disco) barra? (barra (carpeta|archivo)*);
-rutaficherosalida: (doblepunto|punto|disco) barra? (barra (carpeta|archivo)*);
-rutaficherografico: (doblepunto|punto|disco) barra? (barra (carpeta|archivo)*);
 
-carpeta: nombrecarpeta;
-archivo: nombrearchivo punto extension;
-
-nombre: IDENTIFICADOR;
-cosas: IDENTIFICADOR;
-intro: INTRO;
-coma: COMA;
-barra: BARRA;
-doblepunto: DOBLEPUNTO;
-disco: DISCO;
-punto: PUNTO;
-nombrearchivo: NOMBRECOSAS;
-nombrecarpeta: NOMBRECOSAS;
-extension: EXTENSION;
