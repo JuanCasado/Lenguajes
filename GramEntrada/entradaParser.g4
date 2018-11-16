@@ -15,7 +15,7 @@ descrcom: DESCRIPTION+;
 targcom: TARGET+;
 textos: (TEXTOCOMENTARIO_ML|TEXTOCOMENTARIO_UL)+;
 
-rutafichero: (doblepunto|punto|letra dos_ptos?)* (barra variable|barra)*; //variable es el nombre del disco C/
+rutafichero: (doblepunto|punto|letra dos_ptos?|variable|barra)*; //variable es el nombre del disco C/
 
 tipo_archivo: (json|svg|dot|csv);
 json: kw_json wsci* asig wsci* rutafichero variable punto extension_json;
