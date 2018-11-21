@@ -18,49 +18,66 @@ public class entradaParser extends Parser {
 	public static final int
 		COMENTARIOABRIR=1, COMENTARIOLINEA=2, CADENA_ABRIR=3, INT=4, LETRA=5, 
 		COMA=6, DOBLEPUNTO=7, PUNTO=8, INTRO=9, OPBLT=10, OPBGT=11, SAP=12, SCP=13, 
-		ASIG=14, OPASIG=15, KW_DOS_PUNTOS=16, TERMINADOR=17, WS=18, BARRA=19, 
-		KW_JSON=20, KW_DOT=21, KW_SVG=22, KW_CSV=23, LEN=24, FONTCOLOR=25, FONTNAME=26, 
-		FONTSIZE=27, ARROWSIZE=28, ARROWCOLOR=29, PENWIDTH=30, FILLCOLOR=31, STYLE=32, 
-		SHAPE=33, EXTENSION_JSON=34, EXTENSION_SVG=35, EXTENSION_DOT=36, EXTENSION_CSV=37, 
-		IDF=38, COMENTARIOCERRAR=39, TEXTOCOMENTARIO_ML=40, AUTHOR=41, DESCRIPTION=42, 
-		TARGET=43, FINAL_COMENTARIO_UL=44, TEXTOCOMENTARIO_UL=45, CADENA_CERRAR=46, 
-		TEXTO_CADENA=47;
+		ASIG=14, OPASIG=15, BBAJA=16, COR_ABRIR=17, COR_CERRAR=18, KW_DOS_PUNTOS=19, 
+		TERMINADOR=20, WS=21, BARRA=22, KW_JSON=23, KW_DOT=24, KW_SVG=25, KW_CSV=26, 
+		LEN=27, FONTCOLOR=28, FONTNAME=29, FONTSIZE=30, ARROWSIZE=31, ARROWCOLOR=32, 
+		PENWIDTH=33, FILLCOLOR=34, STYLE=35, SHAPE=36, EXTENSION_JSON=37, EXTENSION_SVG=38, 
+		EXTENSION_DOT=39, EXTENSION_CSV=40, EDGE=41, NODE=42, RELATIONSHIP=43, 
+		CLASS=44, PROPERTY=45, INHERITANCE=46, INDERECT_USE=47, IDF=48, COMENTARIOCERRAR=49, 
+		TEXTOCOMENTARIO_ML=50, AUTHOR=51, DESCRIPTION=52, TARGET=53, FINAL_COMENTARIO_UL=54, 
+		TEXTOCOMENTARIO_UL=55, CADENA_CERRAR=56, TEXTO_CADENA=57;
 	public static final int
 		RULE_fichero = 0, RULE_comentario = 1, RULE_authorcom = 2, RULE_descrcom = 3, 
 		RULE_targcom = 4, RULE_textos = 5, RULE_rutafichero = 6, RULE_tipo_archivo = 7, 
 		RULE_json = 8, RULE_svg = 9, RULE_dot = 10, RULE_csv = 11, RULE_wsci = 12, 
 		RULE_white_space = 13, RULE_barra = 14, RULE_intro = 15, RULE_letra = 16, 
 		RULE_numero = 17, RULE_variable = 18, RULE_sap = 19, RULE_scp = 20, RULE_asig = 21, 
-		RULE_opasig = 22, RULE_coma = 23, RULE_dos_ptos = 24, RULE_punto = 25, 
-		RULE_doblepunto = 26, RULE_cadena = 27, RULE_kw_json = 28, RULE_extension_json = 29, 
-		RULE_kw_svg = 30, RULE_extension_svg = 31, RULE_kw_dot = 32, RULE_extension_dot = 33, 
-		RULE_kw_csv = 34, RULE_extension_csv = 35;
+		RULE_opasig = 22, RULE_opblt = 23, RULE_opbgt = 24, RULE_coma = 25, RULE_dos_ptos = 26, 
+		RULE_punto = 27, RULE_doblepunto = 28, RULE_cadena = 29, RULE_bbaja = 30, 
+		RULE_cor_abrir = 31, RULE_cor_Cerrar = 32, RULE_kw_json = 33, RULE_extension_json = 34, 
+		RULE_kw_svg = 35, RULE_extension_svg = 36, RULE_kw_dot = 37, RULE_extension_dot = 38, 
+		RULE_kw_csv = 39, RULE_extension_csv = 40, RULE_parametros = 41, RULE_len = 42, 
+		RULE_fontcolor = 43, RULE_fontname = 44, RULE_fontsize = 45, RULE_arrowsize = 46, 
+		RULE_arrowcolor = 47, RULE_penwidth = 48, RULE_fillcolor = 49, RULE_style = 50, 
+		RULE_shape = 51, RULE_kw_edge = 52, RULE_kw_node = 53, RULE_kw_relationship = 54, 
+		RULE_kw_class = 55, RULE_kw_property = 56, RULE_kw_inheritance = 57, RULE_kw_inderect_use = 58, 
+		RULE_kw_len = 59, RULE_kw_fontcolor = 60, RULE_kw_fontname = 61, RULE_kw_fontsize = 62, 
+		RULE_kw_arrowsize = 63, RULE_kw_arrowcolor = 64, RULE_kw_penwidth = 65, 
+		RULE_kw_fillcolor = 66, RULE_kw_style = 67, RULE_kw_shape = 68;
 	public static final String[] ruleNames = {
 		"fichero", "comentario", "authorcom", "descrcom", "targcom", "textos", 
 		"rutafichero", "tipo_archivo", "json", "svg", "dot", "csv", "wsci", "white_space", 
 		"barra", "intro", "letra", "numero", "variable", "sap", "scp", "asig", 
-		"opasig", "coma", "dos_ptos", "punto", "doblepunto", "cadena", "kw_json", 
-		"extension_json", "kw_svg", "extension_svg", "kw_dot", "extension_dot", 
-		"kw_csv", "extension_csv"
+		"opasig", "opblt", "opbgt", "coma", "dos_ptos", "punto", "doblepunto", 
+		"cadena", "bbaja", "cor_abrir", "cor_Cerrar", "kw_json", "extension_json", 
+		"kw_svg", "extension_svg", "kw_dot", "extension_dot", "kw_csv", "extension_csv", 
+		"parametros", "len", "fontcolor", "fontname", "fontsize", "arrowsize", 
+		"arrowcolor", "penwidth", "fillcolor", "style", "shape", "kw_edge", "kw_node", 
+		"kw_relationship", "kw_class", "kw_property", "kw_inheritance", "kw_inderect_use", 
+		"kw_len", "kw_fontcolor", "kw_fontname", "kw_fontsize", "kw_arrowsize", 
+		"kw_arrowcolor", "kw_penwidth", "kw_fillcolor", "kw_style", "kw_shape"
 	};
 
 	private static final String[] _LITERAL_NAMES = {
 		null, "'/*'", "'//'", null, null, null, "','", "'..'", "'.'", null, "'<'", 
-		"'>'", "'('", "')'", "'='", "':='", "':'", "';'", null, null, "'JSON'", 
-		"'DOT'", "'SVG'", "'CSV'", "'len'", "'fontcolor'", "'fontname'", "'fontsize'", 
-		"'arrowsize'", "'arrowcolor'", "'penwidth'", "'fillcolor'", "'style'", 
-		"'shape'", "'json'", "'svg'", "'dot'", "'csv'", null, "'*/'", null, null, 
-		null, null, "'\r\n'"
+		"'>'", "'('", "')'", "'='", "':='", "'_'", "'['", "']'", "':'", "';'", 
+		null, null, "'JSON'", "'DOT'", "'SVG'", "'CSV'", "'len'", "'fontcolor'", 
+		"'fontname'", "'fontsize'", "'arrowsize'", "'arrowcolor'", "'penwidth'", 
+		"'fillcolor'", "'style'", "'shape'", "'json'", "'svg'", "'dot'", "'csv'", 
+		"'edge'", "'node'", "'relationship'", "'class'", "'property'", "'inheritance'", 
+		"'inderect_use'", null, "'*/'", null, null, null, null, "'\r\n'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
 		null, "COMENTARIOABRIR", "COMENTARIOLINEA", "CADENA_ABRIR", "INT", "LETRA", 
 		"COMA", "DOBLEPUNTO", "PUNTO", "INTRO", "OPBLT", "OPBGT", "SAP", "SCP", 
-		"ASIG", "OPASIG", "KW_DOS_PUNTOS", "TERMINADOR", "WS", "BARRA", "KW_JSON", 
-		"KW_DOT", "KW_SVG", "KW_CSV", "LEN", "FONTCOLOR", "FONTNAME", "FONTSIZE", 
-		"ARROWSIZE", "ARROWCOLOR", "PENWIDTH", "FILLCOLOR", "STYLE", "SHAPE", 
-		"EXTENSION_JSON", "EXTENSION_SVG", "EXTENSION_DOT", "EXTENSION_CSV", "IDF", 
-		"COMENTARIOCERRAR", "TEXTOCOMENTARIO_ML", "AUTHOR", "DESCRIPTION", "TARGET", 
-		"FINAL_COMENTARIO_UL", "TEXTOCOMENTARIO_UL", "CADENA_CERRAR", "TEXTO_CADENA"
+		"ASIG", "OPASIG", "BBAJA", "COR_ABRIR", "COR_CERRAR", "KW_DOS_PUNTOS", 
+		"TERMINADOR", "WS", "BARRA", "KW_JSON", "KW_DOT", "KW_SVG", "KW_CSV", 
+		"LEN", "FONTCOLOR", "FONTNAME", "FONTSIZE", "ARROWSIZE", "ARROWCOLOR", 
+		"PENWIDTH", "FILLCOLOR", "STYLE", "SHAPE", "EXTENSION_JSON", "EXTENSION_SVG", 
+		"EXTENSION_DOT", "EXTENSION_CSV", "EDGE", "NODE", "RELATIONSHIP", "CLASS", 
+		"PROPERTY", "INHERITANCE", "INDERECT_USE", "IDF", "COMENTARIOCERRAR", 
+		"TEXTOCOMENTARIO_ML", "AUTHOR", "DESCRIPTION", "TARGET", "FINAL_COMENTARIO_UL", 
+		"TEXTOCOMENTARIO_UL", "CADENA_CERRAR", "TEXTO_CADENA"
 	};
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
@@ -130,6 +147,12 @@ public class entradaParser extends Parser {
 		public WsciContext wsci(int i) {
 			return getRuleContext(WsciContext.class,i);
 		}
+		public List<ParametrosContext> parametros() {
+			return getRuleContexts(ParametrosContext.class);
+		}
+		public ParametrosContext parametros(int i) {
+			return getRuleContext(ParametrosContext.class,i);
+		}
 		public FicheroContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -151,12 +174,12 @@ public class entradaParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(77);
+			setState(144);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << COMENTARIOABRIR) | (1L << COMENTARIOLINEA) | (1L << INTRO) | (1L << WS) | (1L << KW_JSON) | (1L << KW_DOT) | (1L << KW_SVG) | (1L << KW_CSV))) != 0)) {
+			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << COMENTARIOABRIR) | (1L << COMENTARIOLINEA) | (1L << INTRO) | (1L << WS) | (1L << KW_JSON) | (1L << KW_DOT) | (1L << KW_SVG) | (1L << KW_CSV) | (1L << LEN) | (1L << FONTCOLOR) | (1L << FONTNAME) | (1L << FONTSIZE) | (1L << ARROWSIZE) | (1L << ARROWCOLOR) | (1L << PENWIDTH) | (1L << FILLCOLOR) | (1L << STYLE) | (1L << SHAPE))) != 0)) {
 				{
-				setState(75);
+				setState(142);
 				_errHandler.sync(this);
 				switch (_input.LA(1)) {
 				case KW_JSON:
@@ -164,29 +187,44 @@ public class entradaParser extends Parser {
 				case KW_SVG:
 				case KW_CSV:
 					{
-					setState(72);
+					setState(138);
 					tipo_archivo();
 					}
 					break;
 				case COMENTARIOABRIR:
 				case COMENTARIOLINEA:
 					{
-					setState(73);
+					setState(139);
 					comentario();
 					}
 					break;
 				case INTRO:
 				case WS:
 					{
-					setState(74);
+					setState(140);
 					wsci();
+					}
+					break;
+				case LEN:
+				case FONTCOLOR:
+				case FONTNAME:
+				case FONTSIZE:
+				case ARROWSIZE:
+				case ARROWCOLOR:
+				case PENWIDTH:
+				case FILLCOLOR:
+				case STYLE:
+				case SHAPE:
+					{
+					setState(141);
+					parametros();
 					}
 					break;
 				default:
 					throw new NoViableAltException(this);
 				}
 				}
-				setState(79);
+				setState(146);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -255,50 +293,50 @@ public class entradaParser extends Parser {
 		enterRule(_localctx, 2, RULE_comentario);
 		int _la;
 		try {
-			setState(100);
+			setState(167);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case COMENTARIOABRIR:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(80);
+				setState(147);
 				match(COMENTARIOABRIR);
-				setState(88);
+				setState(155);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << INTRO) | (1L << TEXTOCOMENTARIO_ML) | (1L << AUTHOR) | (1L << DESCRIPTION) | (1L << TARGET) | (1L << TEXTOCOMENTARIO_UL))) != 0)) {
 					{
-					setState(86);
+					setState(153);
 					_errHandler.sync(this);
 					switch (_input.LA(1)) {
 					case TEXTOCOMENTARIO_ML:
 					case TEXTOCOMENTARIO_UL:
 						{
-						setState(81);
+						setState(148);
 						textos();
 						}
 						break;
 					case AUTHOR:
 						{
-						setState(82);
+						setState(149);
 						authorcom();
 						}
 						break;
 					case DESCRIPTION:
 						{
-						setState(83);
+						setState(150);
 						descrcom();
 						}
 						break;
 					case TARGET:
 						{
-						setState(84);
+						setState(151);
 						targcom();
 						}
 						break;
 					case INTRO:
 						{
-						setState(85);
+						setState(152);
 						match(INTRO);
 						}
 						break;
@@ -306,34 +344,34 @@ public class entradaParser extends Parser {
 						throw new NoViableAltException(this);
 					}
 					}
-					setState(90);
+					setState(157);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
-				setState(91);
+				setState(158);
 				match(COMENTARIOCERRAR);
 				}
 				break;
 			case COMENTARIOLINEA:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(92);
+				setState(159);
 				match(COMENTARIOLINEA);
-				setState(96);
+				setState(163);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==TEXTOCOMENTARIO_ML || _la==TEXTOCOMENTARIO_UL) {
 					{
 					{
-					setState(93);
+					setState(160);
 					textos();
 					}
 					}
-					setState(98);
+					setState(165);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
-				setState(99);
+				setState(166);
 				match(FINAL_COMENTARIO_UL);
 				}
 				break;
@@ -378,7 +416,7 @@ public class entradaParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(103); 
+			setState(170); 
 			_errHandler.sync(this);
 			_alt = 1;
 			do {
@@ -386,7 +424,7 @@ public class entradaParser extends Parser {
 				case 1:
 					{
 					{
-					setState(102);
+					setState(169);
 					match(AUTHOR);
 					}
 					}
@@ -394,7 +432,7 @@ public class entradaParser extends Parser {
 				default:
 					throw new NoViableAltException(this);
 				}
-				setState(105); 
+				setState(172); 
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,6,_ctx);
 			} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
@@ -437,7 +475,7 @@ public class entradaParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(108); 
+			setState(175); 
 			_errHandler.sync(this);
 			_alt = 1;
 			do {
@@ -445,7 +483,7 @@ public class entradaParser extends Parser {
 				case 1:
 					{
 					{
-					setState(107);
+					setState(174);
 					match(DESCRIPTION);
 					}
 					}
@@ -453,7 +491,7 @@ public class entradaParser extends Parser {
 				default:
 					throw new NoViableAltException(this);
 				}
-				setState(110); 
+				setState(177); 
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,7,_ctx);
 			} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
@@ -496,7 +534,7 @@ public class entradaParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(113); 
+			setState(180); 
 			_errHandler.sync(this);
 			_alt = 1;
 			do {
@@ -504,7 +542,7 @@ public class entradaParser extends Parser {
 				case 1:
 					{
 					{
-					setState(112);
+					setState(179);
 					match(TARGET);
 					}
 					}
@@ -512,7 +550,7 @@ public class entradaParser extends Parser {
 				default:
 					throw new NoViableAltException(this);
 				}
-				setState(115); 
+				setState(182); 
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,8,_ctx);
 			} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
@@ -560,7 +598,7 @@ public class entradaParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(118); 
+			setState(185); 
 			_errHandler.sync(this);
 			_alt = 1;
 			do {
@@ -568,7 +606,7 @@ public class entradaParser extends Parser {
 				case 1:
 					{
 					{
-					setState(117);
+					setState(184);
 					_la = _input.LA(1);
 					if ( !(_la==TEXTOCOMENTARIO_ML || _la==TEXTOCOMENTARIO_UL) ) {
 					_errHandler.recoverInline(this);
@@ -584,7 +622,7 @@ public class entradaParser extends Parser {
 				default:
 					throw new NoViableAltException(this);
 				}
-				setState(120); 
+				setState(187); 
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,9,_ctx);
 			} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
@@ -660,37 +698,37 @@ public class entradaParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(132);
+			setState(199);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,12,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					{
-					setState(130);
+					setState(197);
 					_errHandler.sync(this);
 					switch (_input.LA(1)) {
 					case DOBLEPUNTO:
 						{
-						setState(122);
+						setState(189);
 						doblepunto();
 						}
 						break;
 					case PUNTO:
 						{
-						setState(123);
+						setState(190);
 						punto();
 						}
 						break;
 					case LETRA:
 						{
-						setState(124);
+						setState(191);
 						letra();
-						setState(126);
+						setState(193);
 						_errHandler.sync(this);
 						_la = _input.LA(1);
 						if (_la==KW_DOS_PUNTOS) {
 							{
-							setState(125);
+							setState(192);
 							dos_ptos();
 							}
 						}
@@ -699,13 +737,13 @@ public class entradaParser extends Parser {
 						break;
 					case IDF:
 						{
-						setState(128);
+						setState(195);
 						variable();
 						}
 						break;
 					case BARRA:
 						{
-						setState(129);
+						setState(196);
 						barra();
 						}
 						break;
@@ -714,7 +752,7 @@ public class entradaParser extends Parser {
 					}
 					} 
 				}
-				setState(134);
+				setState(201);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,12,_ctx);
 			}
@@ -764,30 +802,30 @@ public class entradaParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(139);
+			setState(206);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case KW_JSON:
 				{
-				setState(135);
+				setState(202);
 				json();
 				}
 				break;
 			case KW_SVG:
 				{
-				setState(136);
+				setState(203);
 				svg();
 				}
 				break;
 			case KW_DOT:
 				{
-				setState(137);
+				setState(204);
 				dot();
 				}
 				break;
 			case KW_CSV:
 				{
-				setState(138);
+				setState(205);
 				csv();
 				}
 				break;
@@ -853,45 +891,45 @@ public class entradaParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(141);
+			setState(208);
 			kw_json();
-			setState(145);
+			setState(212);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==INTRO || _la==WS) {
 				{
 				{
-				setState(142);
+				setState(209);
 				wsci();
 				}
 				}
-				setState(147);
+				setState(214);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(148);
+			setState(215);
 			asig();
-			setState(152);
+			setState(219);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==INTRO || _la==WS) {
 				{
 				{
-				setState(149);
+				setState(216);
 				wsci();
 				}
 				}
-				setState(154);
+				setState(221);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(155);
+			setState(222);
 			rutafichero();
-			setState(156);
+			setState(223);
 			variable();
-			setState(157);
+			setState(224);
 			punto();
-			setState(158);
+			setState(225);
 			extension_json();
 			}
 		}
@@ -952,45 +990,45 @@ public class entradaParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(160);
+			setState(227);
 			kw_svg();
-			setState(164);
+			setState(231);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==INTRO || _la==WS) {
 				{
 				{
-				setState(161);
+				setState(228);
 				wsci();
 				}
 				}
-				setState(166);
+				setState(233);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(167);
+			setState(234);
 			asig();
-			setState(171);
+			setState(238);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==INTRO || _la==WS) {
 				{
 				{
-				setState(168);
+				setState(235);
 				wsci();
 				}
 				}
-				setState(173);
+				setState(240);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(174);
+			setState(241);
 			rutafichero();
-			setState(175);
+			setState(242);
 			variable();
-			setState(176);
+			setState(243);
 			punto();
-			setState(177);
+			setState(244);
 			extension_svg();
 			}
 		}
@@ -1051,45 +1089,45 @@ public class entradaParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(179);
+			setState(246);
 			kw_dot();
-			setState(183);
+			setState(250);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==INTRO || _la==WS) {
 				{
 				{
-				setState(180);
+				setState(247);
 				wsci();
 				}
 				}
-				setState(185);
+				setState(252);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(186);
+			setState(253);
 			asig();
-			setState(190);
+			setState(257);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==INTRO || _la==WS) {
 				{
 				{
-				setState(187);
+				setState(254);
 				wsci();
 				}
 				}
-				setState(192);
+				setState(259);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(193);
+			setState(260);
 			rutafichero();
-			setState(194);
+			setState(261);
 			variable();
-			setState(195);
+			setState(262);
 			punto();
-			setState(196);
+			setState(263);
 			extension_dot();
 			}
 		}
@@ -1150,45 +1188,45 @@ public class entradaParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(198);
+			setState(265);
 			kw_csv();
-			setState(202);
+			setState(269);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==INTRO || _la==WS) {
 				{
 				{
-				setState(199);
+				setState(266);
 				wsci();
 				}
 				}
-				setState(204);
+				setState(271);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(205);
+			setState(272);
 			asig();
-			setState(209);
+			setState(276);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==INTRO || _la==WS) {
 				{
 				{
-				setState(206);
+				setState(273);
 				wsci();
 				}
 				}
-				setState(211);
+				setState(278);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(212);
+			setState(279);
 			rutafichero();
-			setState(213);
+			setState(280);
 			variable();
-			setState(214);
+			setState(281);
 			punto();
-			setState(215);
+			setState(282);
 			extension_csv();
 			}
 		}
@@ -1230,18 +1268,18 @@ public class entradaParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(219);
+			setState(286);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case WS:
 				{
-				setState(217);
+				setState(284);
 				white_space();
 				}
 				break;
 			case INTRO:
 				{
-				setState(218);
+				setState(285);
 				intro();
 				}
 				break;
@@ -1283,7 +1321,7 @@ public class entradaParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(221);
+			setState(288);
 			match(WS);
 			}
 		}
@@ -1320,7 +1358,7 @@ public class entradaParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(223);
+			setState(290);
 			match(BARRA);
 			}
 		}
@@ -1357,7 +1395,7 @@ public class entradaParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(225);
+			setState(292);
 			match(INTRO);
 			}
 		}
@@ -1394,7 +1432,7 @@ public class entradaParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(227);
+			setState(294);
 			match(LETRA);
 			}
 		}
@@ -1431,7 +1469,7 @@ public class entradaParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(229);
+			setState(296);
 			match(INT);
 			}
 		}
@@ -1468,7 +1506,7 @@ public class entradaParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(231);
+			setState(298);
 			match(IDF);
 			}
 		}
@@ -1505,7 +1543,7 @@ public class entradaParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(233);
+			setState(300);
 			match(SAP);
 			}
 		}
@@ -1542,7 +1580,7 @@ public class entradaParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(235);
+			setState(302);
 			match(SCP);
 			}
 		}
@@ -1579,7 +1617,7 @@ public class entradaParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(237);
+			setState(304);
 			match(ASIG);
 			}
 		}
@@ -1616,8 +1654,82 @@ public class entradaParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(239);
+			setState(306);
 			match(OPASIG);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class OpbltContext extends ParserRuleContext {
+		public TerminalNode OPBLT() { return getToken(entradaParser.OPBLT, 0); }
+		public OpbltContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_opblt; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).enterOpblt(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).exitOpblt(this);
+		}
+	}
+
+	public final OpbltContext opblt() throws RecognitionException {
+		OpbltContext _localctx = new OpbltContext(_ctx, getState());
+		enterRule(_localctx, 46, RULE_opblt);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(308);
+			match(OPBLT);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class OpbgtContext extends ParserRuleContext {
+		public TerminalNode OPBGT() { return getToken(entradaParser.OPBGT, 0); }
+		public OpbgtContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_opbgt; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).enterOpbgt(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).exitOpbgt(this);
+		}
+	}
+
+	public final OpbgtContext opbgt() throws RecognitionException {
+		OpbgtContext _localctx = new OpbgtContext(_ctx, getState());
+		enterRule(_localctx, 48, RULE_opbgt);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(310);
+			match(OPBGT);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1649,11 +1761,11 @@ public class entradaParser extends Parser {
 
 	public final ComaContext coma() throws RecognitionException {
 		ComaContext _localctx = new ComaContext(_ctx, getState());
-		enterRule(_localctx, 46, RULE_coma);
+		enterRule(_localctx, 50, RULE_coma);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(241);
+			setState(312);
 			match(COMA);
 			}
 		}
@@ -1686,11 +1798,11 @@ public class entradaParser extends Parser {
 
 	public final Dos_ptosContext dos_ptos() throws RecognitionException {
 		Dos_ptosContext _localctx = new Dos_ptosContext(_ctx, getState());
-		enterRule(_localctx, 48, RULE_dos_ptos);
+		enterRule(_localctx, 52, RULE_dos_ptos);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(243);
+			setState(314);
 			match(KW_DOS_PUNTOS);
 			}
 		}
@@ -1723,11 +1835,11 @@ public class entradaParser extends Parser {
 
 	public final PuntoContext punto() throws RecognitionException {
 		PuntoContext _localctx = new PuntoContext(_ctx, getState());
-		enterRule(_localctx, 50, RULE_punto);
+		enterRule(_localctx, 54, RULE_punto);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(245);
+			setState(316);
 			match(PUNTO);
 			}
 		}
@@ -1760,11 +1872,11 @@ public class entradaParser extends Parser {
 
 	public final DoblepuntoContext doblepunto() throws RecognitionException {
 		DoblepuntoContext _localctx = new DoblepuntoContext(_ctx, getState());
-		enterRule(_localctx, 52, RULE_doblepunto);
+		enterRule(_localctx, 56, RULE_doblepunto);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(247);
+			setState(318);
 			match(DOBLEPUNTO);
 			}
 		}
@@ -1802,29 +1914,140 @@ public class entradaParser extends Parser {
 
 	public final CadenaContext cadena() throws RecognitionException {
 		CadenaContext _localctx = new CadenaContext(_ctx, getState());
-		enterRule(_localctx, 54, RULE_cadena);
+		enterRule(_localctx, 58, RULE_cadena);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(249);
+			setState(320);
 			match(CADENA_ABRIR);
-			setState(253);
+			setState(324);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==TEXTO_CADENA) {
 				{
 				{
-				setState(250);
+				setState(321);
 				match(TEXTO_CADENA);
 				}
 				}
-				setState(255);
+				setState(326);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(256);
+			setState(327);
 			match(CADENA_CERRAR);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class BbajaContext extends ParserRuleContext {
+		public TerminalNode BBAJA() { return getToken(entradaParser.BBAJA, 0); }
+		public BbajaContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_bbaja; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).enterBbaja(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).exitBbaja(this);
+		}
+	}
+
+	public final BbajaContext bbaja() throws RecognitionException {
+		BbajaContext _localctx = new BbajaContext(_ctx, getState());
+		enterRule(_localctx, 60, RULE_bbaja);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(329);
+			match(BBAJA);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class Cor_abrirContext extends ParserRuleContext {
+		public TerminalNode COR_ABRIR() { return getToken(entradaParser.COR_ABRIR, 0); }
+		public Cor_abrirContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_cor_abrir; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).enterCor_abrir(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).exitCor_abrir(this);
+		}
+	}
+
+	public final Cor_abrirContext cor_abrir() throws RecognitionException {
+		Cor_abrirContext _localctx = new Cor_abrirContext(_ctx, getState());
+		enterRule(_localctx, 62, RULE_cor_abrir);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(331);
+			match(COR_ABRIR);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class Cor_CerrarContext extends ParserRuleContext {
+		public TerminalNode COR_CERRAR() { return getToken(entradaParser.COR_CERRAR, 0); }
+		public Cor_CerrarContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_cor_Cerrar; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).enterCor_Cerrar(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).exitCor_Cerrar(this);
+		}
+	}
+
+	public final Cor_CerrarContext cor_Cerrar() throws RecognitionException {
+		Cor_CerrarContext _localctx = new Cor_CerrarContext(_ctx, getState());
+		enterRule(_localctx, 64, RULE_cor_Cerrar);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(333);
+			match(COR_CERRAR);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1856,11 +2079,11 @@ public class entradaParser extends Parser {
 
 	public final Kw_jsonContext kw_json() throws RecognitionException {
 		Kw_jsonContext _localctx = new Kw_jsonContext(_ctx, getState());
-		enterRule(_localctx, 56, RULE_kw_json);
+		enterRule(_localctx, 66, RULE_kw_json);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(258);
+			setState(335);
 			match(KW_JSON);
 			}
 		}
@@ -1893,11 +2116,11 @@ public class entradaParser extends Parser {
 
 	public final Extension_jsonContext extension_json() throws RecognitionException {
 		Extension_jsonContext _localctx = new Extension_jsonContext(_ctx, getState());
-		enterRule(_localctx, 58, RULE_extension_json);
+		enterRule(_localctx, 68, RULE_extension_json);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(260);
+			setState(337);
 			match(EXTENSION_JSON);
 			}
 		}
@@ -1930,11 +2153,11 @@ public class entradaParser extends Parser {
 
 	public final Kw_svgContext kw_svg() throws RecognitionException {
 		Kw_svgContext _localctx = new Kw_svgContext(_ctx, getState());
-		enterRule(_localctx, 60, RULE_kw_svg);
+		enterRule(_localctx, 70, RULE_kw_svg);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(262);
+			setState(339);
 			match(KW_SVG);
 			}
 		}
@@ -1967,11 +2190,11 @@ public class entradaParser extends Parser {
 
 	public final Extension_svgContext extension_svg() throws RecognitionException {
 		Extension_svgContext _localctx = new Extension_svgContext(_ctx, getState());
-		enterRule(_localctx, 62, RULE_extension_svg);
+		enterRule(_localctx, 72, RULE_extension_svg);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(264);
+			setState(341);
 			match(EXTENSION_SVG);
 			}
 		}
@@ -2004,11 +2227,11 @@ public class entradaParser extends Parser {
 
 	public final Kw_dotContext kw_dot() throws RecognitionException {
 		Kw_dotContext _localctx = new Kw_dotContext(_ctx, getState());
-		enterRule(_localctx, 64, RULE_kw_dot);
+		enterRule(_localctx, 74, RULE_kw_dot);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(266);
+			setState(343);
 			match(KW_DOT);
 			}
 		}
@@ -2041,11 +2264,11 @@ public class entradaParser extends Parser {
 
 	public final Extension_dotContext extension_dot() throws RecognitionException {
 		Extension_dotContext _localctx = new Extension_dotContext(_ctx, getState());
-		enterRule(_localctx, 66, RULE_extension_dot);
+		enterRule(_localctx, 76, RULE_extension_dot);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(268);
+			setState(345);
 			match(EXTENSION_DOT);
 			}
 		}
@@ -2078,11 +2301,11 @@ public class entradaParser extends Parser {
 
 	public final Kw_csvContext kw_csv() throws RecognitionException {
 		Kw_csvContext _localctx = new Kw_csvContext(_ctx, getState());
-		enterRule(_localctx, 68, RULE_kw_csv);
+		enterRule(_localctx, 78, RULE_kw_csv);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(270);
+			setState(347);
 			match(KW_CSV);
 			}
 		}
@@ -2115,11 +2338,11 @@ public class entradaParser extends Parser {
 
 	public final Extension_csvContext extension_csv() throws RecognitionException {
 		Extension_csvContext _localctx = new Extension_csvContext(_ctx, getState());
-		enterRule(_localctx, 70, RULE_extension_csv);
+		enterRule(_localctx, 80, RULE_extension_csv);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(272);
+			setState(349);
 			match(EXTENSION_CSV);
 			}
 		}
@@ -2134,95 +2357,2303 @@ public class entradaParser extends Parser {
 		return _localctx;
 	}
 
+	public static class ParametrosContext extends ParserRuleContext {
+		public LenContext len() {
+			return getRuleContext(LenContext.class,0);
+		}
+		public FontcolorContext fontcolor() {
+			return getRuleContext(FontcolorContext.class,0);
+		}
+		public FontnameContext fontname() {
+			return getRuleContext(FontnameContext.class,0);
+		}
+		public FontsizeContext fontsize() {
+			return getRuleContext(FontsizeContext.class,0);
+		}
+		public ArrowsizeContext arrowsize() {
+			return getRuleContext(ArrowsizeContext.class,0);
+		}
+		public ArrowcolorContext arrowcolor() {
+			return getRuleContext(ArrowcolorContext.class,0);
+		}
+		public PenwidthContext penwidth() {
+			return getRuleContext(PenwidthContext.class,0);
+		}
+		public FillcolorContext fillcolor() {
+			return getRuleContext(FillcolorContext.class,0);
+		}
+		public StyleContext style() {
+			return getRuleContext(StyleContext.class,0);
+		}
+		public ShapeContext shape() {
+			return getRuleContext(ShapeContext.class,0);
+		}
+		public ParametrosContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_parametros; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).enterParametros(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).exitParametros(this);
+		}
+	}
+
+	public final ParametrosContext parametros() throws RecognitionException {
+		ParametrosContext _localctx = new ParametrosContext(_ctx, getState());
+		enterRule(_localctx, 82, RULE_parametros);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(361);
+			_errHandler.sync(this);
+			switch (_input.LA(1)) {
+			case LEN:
+				{
+				setState(351);
+				len();
+				}
+				break;
+			case FONTCOLOR:
+				{
+				setState(352);
+				fontcolor();
+				}
+				break;
+			case FONTNAME:
+				{
+				setState(353);
+				fontname();
+				}
+				break;
+			case FONTSIZE:
+				{
+				setState(354);
+				fontsize();
+				}
+				break;
+			case ARROWSIZE:
+				{
+				setState(355);
+				arrowsize();
+				}
+				break;
+			case ARROWCOLOR:
+				{
+				setState(356);
+				arrowcolor();
+				}
+				break;
+			case PENWIDTH:
+				{
+				setState(357);
+				penwidth();
+				}
+				break;
+			case FILLCOLOR:
+				{
+				setState(358);
+				fillcolor();
+				}
+				break;
+			case STYLE:
+				{
+				setState(359);
+				style();
+				}
+				break;
+			case SHAPE:
+				{
+				setState(360);
+				shape();
+				}
+				break;
+			default:
+				throw new NoViableAltException(this);
+			}
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class LenContext extends ParserRuleContext {
+		public Kw_lenContext kw_len() {
+			return getRuleContext(Kw_lenContext.class,0);
+		}
+		public BbajaContext bbaja() {
+			return getRuleContext(BbajaContext.class,0);
+		}
+		public AsigContext asig() {
+			return getRuleContext(AsigContext.class,0);
+		}
+		public NumeroContext numero() {
+			return getRuleContext(NumeroContext.class,0);
+		}
+		public Kw_relationshipContext kw_relationship() {
+			return getRuleContext(Kw_relationshipContext.class,0);
+		}
+		public Kw_classContext kw_class() {
+			return getRuleContext(Kw_classContext.class,0);
+		}
+		public Kw_inheritanceContext kw_inheritance() {
+			return getRuleContext(Kw_inheritanceContext.class,0);
+		}
+		public Kw_inderect_useContext kw_inderect_use() {
+			return getRuleContext(Kw_inderect_useContext.class,0);
+		}
+		public LenContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_len; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).enterLen(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).exitLen(this);
+		}
+	}
+
+	public final LenContext len() throws RecognitionException {
+		LenContext _localctx = new LenContext(_ctx, getState());
+		enterRule(_localctx, 84, RULE_len);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(363);
+			kw_len();
+			setState(364);
+			bbaja();
+			setState(369);
+			_errHandler.sync(this);
+			switch (_input.LA(1)) {
+			case RELATIONSHIP:
+				{
+				setState(365);
+				kw_relationship();
+				}
+				break;
+			case CLASS:
+				{
+				setState(366);
+				kw_class();
+				}
+				break;
+			case INHERITANCE:
+				{
+				setState(367);
+				kw_inheritance();
+				}
+				break;
+			case INDERECT_USE:
+				{
+				setState(368);
+				kw_inderect_use();
+				}
+				break;
+			default:
+				throw new NoViableAltException(this);
+			}
+			setState(371);
+			asig();
+			setState(372);
+			numero();
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class FontcolorContext extends ParserRuleContext {
+		public Kw_fontcolorContext kw_fontcolor() {
+			return getRuleContext(Kw_fontcolorContext.class,0);
+		}
+		public List<BbajaContext> bbaja() {
+			return getRuleContexts(BbajaContext.class);
+		}
+		public BbajaContext bbaja(int i) {
+			return getRuleContext(BbajaContext.class,i);
+		}
+		public AsigContext asig() {
+			return getRuleContext(AsigContext.class,0);
+		}
+		public Kw_edgeContext kw_edge() {
+			return getRuleContext(Kw_edgeContext.class,0);
+		}
+		public Kw_nodeContext kw_node() {
+			return getRuleContext(Kw_nodeContext.class,0);
+		}
+		public Kw_relationshipContext kw_relationship() {
+			return getRuleContext(Kw_relationshipContext.class,0);
+		}
+		public Kw_classContext kw_class() {
+			return getRuleContext(Kw_classContext.class,0);
+		}
+		public Kw_inheritanceContext kw_inheritance() {
+			return getRuleContext(Kw_inheritanceContext.class,0);
+		}
+		public Kw_inderect_useContext kw_inderect_use() {
+			return getRuleContext(Kw_inderect_useContext.class,0);
+		}
+		public CadenaContext cadena() {
+			return getRuleContext(CadenaContext.class,0);
+		}
+		public VariableContext variable() {
+			return getRuleContext(VariableContext.class,0);
+		}
+		public FontcolorContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_fontcolor; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).enterFontcolor(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).exitFontcolor(this);
+		}
+	}
+
+	public final FontcolorContext fontcolor() throws RecognitionException {
+		FontcolorContext _localctx = new FontcolorContext(_ctx, getState());
+		enterRule(_localctx, 86, RULE_fontcolor);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(374);
+			kw_fontcolor();
+			setState(375);
+			bbaja();
+			setState(378);
+			_errHandler.sync(this);
+			switch (_input.LA(1)) {
+			case EDGE:
+				{
+				setState(376);
+				kw_edge();
+				}
+				break;
+			case NODE:
+				{
+				setState(377);
+				kw_node();
+				}
+				break;
+			default:
+				throw new NoViableAltException(this);
+			}
+			setState(380);
+			bbaja();
+			setState(385);
+			_errHandler.sync(this);
+			switch (_input.LA(1)) {
+			case RELATIONSHIP:
+				{
+				setState(381);
+				kw_relationship();
+				}
+				break;
+			case CLASS:
+				{
+				setState(382);
+				kw_class();
+				}
+				break;
+			case INHERITANCE:
+				{
+				setState(383);
+				kw_inheritance();
+				}
+				break;
+			case INDERECT_USE:
+				{
+				setState(384);
+				kw_inderect_use();
+				}
+				break;
+			default:
+				throw new NoViableAltException(this);
+			}
+			setState(387);
+			asig();
+			setState(390);
+			_errHandler.sync(this);
+			switch (_input.LA(1)) {
+			case CADENA_ABRIR:
+				{
+				setState(388);
+				cadena();
+				}
+				break;
+			case IDF:
+				{
+				setState(389);
+				variable();
+				}
+				break;
+			default:
+				throw new NoViableAltException(this);
+			}
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class FontnameContext extends ParserRuleContext {
+		public Kw_fontnameContext kw_fontname() {
+			return getRuleContext(Kw_fontnameContext.class,0);
+		}
+		public List<BbajaContext> bbaja() {
+			return getRuleContexts(BbajaContext.class);
+		}
+		public BbajaContext bbaja(int i) {
+			return getRuleContext(BbajaContext.class,i);
+		}
+		public AsigContext asig() {
+			return getRuleContext(AsigContext.class,0);
+		}
+		public Kw_edgeContext kw_edge() {
+			return getRuleContext(Kw_edgeContext.class,0);
+		}
+		public Kw_nodeContext kw_node() {
+			return getRuleContext(Kw_nodeContext.class,0);
+		}
+		public Kw_relationshipContext kw_relationship() {
+			return getRuleContext(Kw_relationshipContext.class,0);
+		}
+		public Kw_classContext kw_class() {
+			return getRuleContext(Kw_classContext.class,0);
+		}
+		public Kw_inheritanceContext kw_inheritance() {
+			return getRuleContext(Kw_inheritanceContext.class,0);
+		}
+		public Kw_inderect_useContext kw_inderect_use() {
+			return getRuleContext(Kw_inderect_useContext.class,0);
+		}
+		public CadenaContext cadena() {
+			return getRuleContext(CadenaContext.class,0);
+		}
+		public VariableContext variable() {
+			return getRuleContext(VariableContext.class,0);
+		}
+		public FontnameContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_fontname; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).enterFontname(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).exitFontname(this);
+		}
+	}
+
+	public final FontnameContext fontname() throws RecognitionException {
+		FontnameContext _localctx = new FontnameContext(_ctx, getState());
+		enterRule(_localctx, 88, RULE_fontname);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(392);
+			kw_fontname();
+			setState(393);
+			bbaja();
+			setState(396);
+			_errHandler.sync(this);
+			switch (_input.LA(1)) {
+			case EDGE:
+				{
+				setState(394);
+				kw_edge();
+				}
+				break;
+			case NODE:
+				{
+				setState(395);
+				kw_node();
+				}
+				break;
+			default:
+				throw new NoViableAltException(this);
+			}
+			setState(398);
+			bbaja();
+			setState(403);
+			_errHandler.sync(this);
+			switch (_input.LA(1)) {
+			case RELATIONSHIP:
+				{
+				setState(399);
+				kw_relationship();
+				}
+				break;
+			case CLASS:
+				{
+				setState(400);
+				kw_class();
+				}
+				break;
+			case INHERITANCE:
+				{
+				setState(401);
+				kw_inheritance();
+				}
+				break;
+			case INDERECT_USE:
+				{
+				setState(402);
+				kw_inderect_use();
+				}
+				break;
+			default:
+				throw new NoViableAltException(this);
+			}
+			setState(405);
+			asig();
+			setState(408);
+			_errHandler.sync(this);
+			switch (_input.LA(1)) {
+			case CADENA_ABRIR:
+				{
+				setState(406);
+				cadena();
+				}
+				break;
+			case IDF:
+				{
+				setState(407);
+				variable();
+				}
+				break;
+			default:
+				throw new NoViableAltException(this);
+			}
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class FontsizeContext extends ParserRuleContext {
+		public Kw_fontsizeContext kw_fontsize() {
+			return getRuleContext(Kw_fontsizeContext.class,0);
+		}
+		public List<BbajaContext> bbaja() {
+			return getRuleContexts(BbajaContext.class);
+		}
+		public BbajaContext bbaja(int i) {
+			return getRuleContext(BbajaContext.class,i);
+		}
+		public AsigContext asig() {
+			return getRuleContext(AsigContext.class,0);
+		}
+		public NumeroContext numero() {
+			return getRuleContext(NumeroContext.class,0);
+		}
+		public Kw_edgeContext kw_edge() {
+			return getRuleContext(Kw_edgeContext.class,0);
+		}
+		public Kw_nodeContext kw_node() {
+			return getRuleContext(Kw_nodeContext.class,0);
+		}
+		public Kw_relationshipContext kw_relationship() {
+			return getRuleContext(Kw_relationshipContext.class,0);
+		}
+		public Kw_classContext kw_class() {
+			return getRuleContext(Kw_classContext.class,0);
+		}
+		public Kw_inheritanceContext kw_inheritance() {
+			return getRuleContext(Kw_inheritanceContext.class,0);
+		}
+		public Kw_inderect_useContext kw_inderect_use() {
+			return getRuleContext(Kw_inderect_useContext.class,0);
+		}
+		public FontsizeContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_fontsize; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).enterFontsize(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).exitFontsize(this);
+		}
+	}
+
+	public final FontsizeContext fontsize() throws RecognitionException {
+		FontsizeContext _localctx = new FontsizeContext(_ctx, getState());
+		enterRule(_localctx, 90, RULE_fontsize);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(410);
+			kw_fontsize();
+			setState(411);
+			bbaja();
+			setState(414);
+			_errHandler.sync(this);
+			switch (_input.LA(1)) {
+			case EDGE:
+				{
+				setState(412);
+				kw_edge();
+				}
+				break;
+			case NODE:
+				{
+				setState(413);
+				kw_node();
+				}
+				break;
+			default:
+				throw new NoViableAltException(this);
+			}
+			setState(416);
+			bbaja();
+			setState(421);
+			_errHandler.sync(this);
+			switch (_input.LA(1)) {
+			case RELATIONSHIP:
+				{
+				setState(417);
+				kw_relationship();
+				}
+				break;
+			case CLASS:
+				{
+				setState(418);
+				kw_class();
+				}
+				break;
+			case INHERITANCE:
+				{
+				setState(419);
+				kw_inheritance();
+				}
+				break;
+			case INDERECT_USE:
+				{
+				setState(420);
+				kw_inderect_use();
+				}
+				break;
+			default:
+				throw new NoViableAltException(this);
+			}
+			setState(423);
+			asig();
+			setState(424);
+			numero();
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class ArrowsizeContext extends ParserRuleContext {
+		public Kw_arrowsizeContext kw_arrowsize() {
+			return getRuleContext(Kw_arrowsizeContext.class,0);
+		}
+		public List<BbajaContext> bbaja() {
+			return getRuleContexts(BbajaContext.class);
+		}
+		public BbajaContext bbaja(int i) {
+			return getRuleContext(BbajaContext.class,i);
+		}
+		public AsigContext asig() {
+			return getRuleContext(AsigContext.class,0);
+		}
+		public NumeroContext numero() {
+			return getRuleContext(NumeroContext.class,0);
+		}
+		public Kw_edgeContext kw_edge() {
+			return getRuleContext(Kw_edgeContext.class,0);
+		}
+		public Kw_nodeContext kw_node() {
+			return getRuleContext(Kw_nodeContext.class,0);
+		}
+		public Kw_relationshipContext kw_relationship() {
+			return getRuleContext(Kw_relationshipContext.class,0);
+		}
+		public Kw_classContext kw_class() {
+			return getRuleContext(Kw_classContext.class,0);
+		}
+		public Kw_inheritanceContext kw_inheritance() {
+			return getRuleContext(Kw_inheritanceContext.class,0);
+		}
+		public Kw_inderect_useContext kw_inderect_use() {
+			return getRuleContext(Kw_inderect_useContext.class,0);
+		}
+		public ArrowsizeContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_arrowsize; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).enterArrowsize(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).exitArrowsize(this);
+		}
+	}
+
+	public final ArrowsizeContext arrowsize() throws RecognitionException {
+		ArrowsizeContext _localctx = new ArrowsizeContext(_ctx, getState());
+		enterRule(_localctx, 92, RULE_arrowsize);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(426);
+			kw_arrowsize();
+			setState(427);
+			bbaja();
+			setState(430);
+			_errHandler.sync(this);
+			switch (_input.LA(1)) {
+			case EDGE:
+				{
+				setState(428);
+				kw_edge();
+				}
+				break;
+			case NODE:
+				{
+				setState(429);
+				kw_node();
+				}
+				break;
+			default:
+				throw new NoViableAltException(this);
+			}
+			setState(432);
+			bbaja();
+			setState(437);
+			_errHandler.sync(this);
+			switch (_input.LA(1)) {
+			case RELATIONSHIP:
+				{
+				setState(433);
+				kw_relationship();
+				}
+				break;
+			case CLASS:
+				{
+				setState(434);
+				kw_class();
+				}
+				break;
+			case INHERITANCE:
+				{
+				setState(435);
+				kw_inheritance();
+				}
+				break;
+			case INDERECT_USE:
+				{
+				setState(436);
+				kw_inderect_use();
+				}
+				break;
+			default:
+				throw new NoViableAltException(this);
+			}
+			setState(439);
+			asig();
+			setState(440);
+			numero();
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class ArrowcolorContext extends ParserRuleContext {
+		public Kw_arrowcolorContext kw_arrowcolor() {
+			return getRuleContext(Kw_arrowcolorContext.class,0);
+		}
+		public List<BbajaContext> bbaja() {
+			return getRuleContexts(BbajaContext.class);
+		}
+		public BbajaContext bbaja(int i) {
+			return getRuleContext(BbajaContext.class,i);
+		}
+		public AsigContext asig() {
+			return getRuleContext(AsigContext.class,0);
+		}
+		public Kw_edgeContext kw_edge() {
+			return getRuleContext(Kw_edgeContext.class,0);
+		}
+		public Kw_nodeContext kw_node() {
+			return getRuleContext(Kw_nodeContext.class,0);
+		}
+		public Kw_relationshipContext kw_relationship() {
+			return getRuleContext(Kw_relationshipContext.class,0);
+		}
+		public Kw_classContext kw_class() {
+			return getRuleContext(Kw_classContext.class,0);
+		}
+		public Kw_inheritanceContext kw_inheritance() {
+			return getRuleContext(Kw_inheritanceContext.class,0);
+		}
+		public Kw_inderect_useContext kw_inderect_use() {
+			return getRuleContext(Kw_inderect_useContext.class,0);
+		}
+		public CadenaContext cadena() {
+			return getRuleContext(CadenaContext.class,0);
+		}
+		public VariableContext variable() {
+			return getRuleContext(VariableContext.class,0);
+		}
+		public ArrowcolorContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_arrowcolor; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).enterArrowcolor(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).exitArrowcolor(this);
+		}
+	}
+
+	public final ArrowcolorContext arrowcolor() throws RecognitionException {
+		ArrowcolorContext _localctx = new ArrowcolorContext(_ctx, getState());
+		enterRule(_localctx, 94, RULE_arrowcolor);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(442);
+			kw_arrowcolor();
+			setState(443);
+			bbaja();
+			setState(446);
+			_errHandler.sync(this);
+			switch (_input.LA(1)) {
+			case EDGE:
+				{
+				setState(444);
+				kw_edge();
+				}
+				break;
+			case NODE:
+				{
+				setState(445);
+				kw_node();
+				}
+				break;
+			default:
+				throw new NoViableAltException(this);
+			}
+			setState(448);
+			bbaja();
+			setState(453);
+			_errHandler.sync(this);
+			switch (_input.LA(1)) {
+			case RELATIONSHIP:
+				{
+				setState(449);
+				kw_relationship();
+				}
+				break;
+			case CLASS:
+				{
+				setState(450);
+				kw_class();
+				}
+				break;
+			case INHERITANCE:
+				{
+				setState(451);
+				kw_inheritance();
+				}
+				break;
+			case INDERECT_USE:
+				{
+				setState(452);
+				kw_inderect_use();
+				}
+				break;
+			default:
+				throw new NoViableAltException(this);
+			}
+			setState(455);
+			asig();
+			setState(458);
+			_errHandler.sync(this);
+			switch (_input.LA(1)) {
+			case CADENA_ABRIR:
+				{
+				setState(456);
+				cadena();
+				}
+				break;
+			case IDF:
+				{
+				setState(457);
+				variable();
+				}
+				break;
+			default:
+				throw new NoViableAltException(this);
+			}
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class PenwidthContext extends ParserRuleContext {
+		public Kw_penwidthContext kw_penwidth() {
+			return getRuleContext(Kw_penwidthContext.class,0);
+		}
+		public List<BbajaContext> bbaja() {
+			return getRuleContexts(BbajaContext.class);
+		}
+		public BbajaContext bbaja(int i) {
+			return getRuleContext(BbajaContext.class,i);
+		}
+		public AsigContext asig() {
+			return getRuleContext(AsigContext.class,0);
+		}
+		public NumeroContext numero() {
+			return getRuleContext(NumeroContext.class,0);
+		}
+		public Kw_edgeContext kw_edge() {
+			return getRuleContext(Kw_edgeContext.class,0);
+		}
+		public Kw_nodeContext kw_node() {
+			return getRuleContext(Kw_nodeContext.class,0);
+		}
+		public Kw_relationshipContext kw_relationship() {
+			return getRuleContext(Kw_relationshipContext.class,0);
+		}
+		public Kw_classContext kw_class() {
+			return getRuleContext(Kw_classContext.class,0);
+		}
+		public Kw_inheritanceContext kw_inheritance() {
+			return getRuleContext(Kw_inheritanceContext.class,0);
+		}
+		public Kw_inderect_useContext kw_inderect_use() {
+			return getRuleContext(Kw_inderect_useContext.class,0);
+		}
+		public PenwidthContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_penwidth; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).enterPenwidth(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).exitPenwidth(this);
+		}
+	}
+
+	public final PenwidthContext penwidth() throws RecognitionException {
+		PenwidthContext _localctx = new PenwidthContext(_ctx, getState());
+		enterRule(_localctx, 96, RULE_penwidth);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(460);
+			kw_penwidth();
+			setState(461);
+			bbaja();
+			setState(464);
+			_errHandler.sync(this);
+			switch (_input.LA(1)) {
+			case EDGE:
+				{
+				setState(462);
+				kw_edge();
+				}
+				break;
+			case NODE:
+				{
+				setState(463);
+				kw_node();
+				}
+				break;
+			default:
+				throw new NoViableAltException(this);
+			}
+			setState(466);
+			bbaja();
+			setState(471);
+			_errHandler.sync(this);
+			switch (_input.LA(1)) {
+			case RELATIONSHIP:
+				{
+				setState(467);
+				kw_relationship();
+				}
+				break;
+			case CLASS:
+				{
+				setState(468);
+				kw_class();
+				}
+				break;
+			case INHERITANCE:
+				{
+				setState(469);
+				kw_inheritance();
+				}
+				break;
+			case INDERECT_USE:
+				{
+				setState(470);
+				kw_inderect_use();
+				}
+				break;
+			default:
+				throw new NoViableAltException(this);
+			}
+			setState(473);
+			asig();
+			setState(474);
+			numero();
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class FillcolorContext extends ParserRuleContext {
+		public Kw_fillcolorContext kw_fillcolor() {
+			return getRuleContext(Kw_fillcolorContext.class,0);
+		}
+		public List<BbajaContext> bbaja() {
+			return getRuleContexts(BbajaContext.class);
+		}
+		public BbajaContext bbaja(int i) {
+			return getRuleContext(BbajaContext.class,i);
+		}
+		public AsigContext asig() {
+			return getRuleContext(AsigContext.class,0);
+		}
+		public Kw_edgeContext kw_edge() {
+			return getRuleContext(Kw_edgeContext.class,0);
+		}
+		public Kw_nodeContext kw_node() {
+			return getRuleContext(Kw_nodeContext.class,0);
+		}
+		public Kw_relationshipContext kw_relationship() {
+			return getRuleContext(Kw_relationshipContext.class,0);
+		}
+		public Kw_classContext kw_class() {
+			return getRuleContext(Kw_classContext.class,0);
+		}
+		public Kw_inheritanceContext kw_inheritance() {
+			return getRuleContext(Kw_inheritanceContext.class,0);
+		}
+		public Kw_inderect_useContext kw_inderect_use() {
+			return getRuleContext(Kw_inderect_useContext.class,0);
+		}
+		public CadenaContext cadena() {
+			return getRuleContext(CadenaContext.class,0);
+		}
+		public VariableContext variable() {
+			return getRuleContext(VariableContext.class,0);
+		}
+		public FillcolorContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_fillcolor; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).enterFillcolor(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).exitFillcolor(this);
+		}
+	}
+
+	public final FillcolorContext fillcolor() throws RecognitionException {
+		FillcolorContext _localctx = new FillcolorContext(_ctx, getState());
+		enterRule(_localctx, 98, RULE_fillcolor);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(476);
+			kw_fillcolor();
+			setState(477);
+			bbaja();
+			setState(480);
+			_errHandler.sync(this);
+			switch (_input.LA(1)) {
+			case EDGE:
+				{
+				setState(478);
+				kw_edge();
+				}
+				break;
+			case NODE:
+				{
+				setState(479);
+				kw_node();
+				}
+				break;
+			default:
+				throw new NoViableAltException(this);
+			}
+			setState(482);
+			bbaja();
+			setState(487);
+			_errHandler.sync(this);
+			switch (_input.LA(1)) {
+			case RELATIONSHIP:
+				{
+				setState(483);
+				kw_relationship();
+				}
+				break;
+			case CLASS:
+				{
+				setState(484);
+				kw_class();
+				}
+				break;
+			case INHERITANCE:
+				{
+				setState(485);
+				kw_inheritance();
+				}
+				break;
+			case INDERECT_USE:
+				{
+				setState(486);
+				kw_inderect_use();
+				}
+				break;
+			default:
+				throw new NoViableAltException(this);
+			}
+			setState(489);
+			asig();
+			setState(492);
+			_errHandler.sync(this);
+			switch (_input.LA(1)) {
+			case CADENA_ABRIR:
+				{
+				setState(490);
+				cadena();
+				}
+				break;
+			case IDF:
+				{
+				setState(491);
+				variable();
+				}
+				break;
+			default:
+				throw new NoViableAltException(this);
+			}
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class StyleContext extends ParserRuleContext {
+		public Kw_styleContext kw_style() {
+			return getRuleContext(Kw_styleContext.class,0);
+		}
+		public List<BbajaContext> bbaja() {
+			return getRuleContexts(BbajaContext.class);
+		}
+		public BbajaContext bbaja(int i) {
+			return getRuleContext(BbajaContext.class,i);
+		}
+		public AsigContext asig() {
+			return getRuleContext(AsigContext.class,0);
+		}
+		public Kw_edgeContext kw_edge() {
+			return getRuleContext(Kw_edgeContext.class,0);
+		}
+		public Kw_nodeContext kw_node() {
+			return getRuleContext(Kw_nodeContext.class,0);
+		}
+		public Kw_relationshipContext kw_relationship() {
+			return getRuleContext(Kw_relationshipContext.class,0);
+		}
+		public Kw_classContext kw_class() {
+			return getRuleContext(Kw_classContext.class,0);
+		}
+		public Kw_inheritanceContext kw_inheritance() {
+			return getRuleContext(Kw_inheritanceContext.class,0);
+		}
+		public Kw_inderect_useContext kw_inderect_use() {
+			return getRuleContext(Kw_inderect_useContext.class,0);
+		}
+		public CadenaContext cadena() {
+			return getRuleContext(CadenaContext.class,0);
+		}
+		public VariableContext variable() {
+			return getRuleContext(VariableContext.class,0);
+		}
+		public StyleContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_style; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).enterStyle(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).exitStyle(this);
+		}
+	}
+
+	public final StyleContext style() throws RecognitionException {
+		StyleContext _localctx = new StyleContext(_ctx, getState());
+		enterRule(_localctx, 100, RULE_style);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(494);
+			kw_style();
+			setState(495);
+			bbaja();
+			setState(498);
+			_errHandler.sync(this);
+			switch (_input.LA(1)) {
+			case EDGE:
+				{
+				setState(496);
+				kw_edge();
+				}
+				break;
+			case NODE:
+				{
+				setState(497);
+				kw_node();
+				}
+				break;
+			default:
+				throw new NoViableAltException(this);
+			}
+			setState(500);
+			bbaja();
+			setState(505);
+			_errHandler.sync(this);
+			switch (_input.LA(1)) {
+			case RELATIONSHIP:
+				{
+				setState(501);
+				kw_relationship();
+				}
+				break;
+			case CLASS:
+				{
+				setState(502);
+				kw_class();
+				}
+				break;
+			case INHERITANCE:
+				{
+				setState(503);
+				kw_inheritance();
+				}
+				break;
+			case INDERECT_USE:
+				{
+				setState(504);
+				kw_inderect_use();
+				}
+				break;
+			default:
+				throw new NoViableAltException(this);
+			}
+			setState(507);
+			asig();
+			setState(510);
+			_errHandler.sync(this);
+			switch (_input.LA(1)) {
+			case CADENA_ABRIR:
+				{
+				setState(508);
+				cadena();
+				}
+				break;
+			case IDF:
+				{
+				setState(509);
+				variable();
+				}
+				break;
+			default:
+				throw new NoViableAltException(this);
+			}
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class ShapeContext extends ParserRuleContext {
+		public Kw_shapeContext kw_shape() {
+			return getRuleContext(Kw_shapeContext.class,0);
+		}
+		public List<BbajaContext> bbaja() {
+			return getRuleContexts(BbajaContext.class);
+		}
+		public BbajaContext bbaja(int i) {
+			return getRuleContext(BbajaContext.class,i);
+		}
+		public AsigContext asig() {
+			return getRuleContext(AsigContext.class,0);
+		}
+		public Kw_edgeContext kw_edge() {
+			return getRuleContext(Kw_edgeContext.class,0);
+		}
+		public Kw_nodeContext kw_node() {
+			return getRuleContext(Kw_nodeContext.class,0);
+		}
+		public Kw_relationshipContext kw_relationship() {
+			return getRuleContext(Kw_relationshipContext.class,0);
+		}
+		public Kw_classContext kw_class() {
+			return getRuleContext(Kw_classContext.class,0);
+		}
+		public Kw_inheritanceContext kw_inheritance() {
+			return getRuleContext(Kw_inheritanceContext.class,0);
+		}
+		public Kw_inderect_useContext kw_inderect_use() {
+			return getRuleContext(Kw_inderect_useContext.class,0);
+		}
+		public CadenaContext cadena() {
+			return getRuleContext(CadenaContext.class,0);
+		}
+		public VariableContext variable() {
+			return getRuleContext(VariableContext.class,0);
+		}
+		public ShapeContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_shape; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).enterShape(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).exitShape(this);
+		}
+	}
+
+	public final ShapeContext shape() throws RecognitionException {
+		ShapeContext _localctx = new ShapeContext(_ctx, getState());
+		enterRule(_localctx, 102, RULE_shape);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(512);
+			kw_shape();
+			setState(513);
+			bbaja();
+			setState(516);
+			_errHandler.sync(this);
+			switch (_input.LA(1)) {
+			case EDGE:
+				{
+				setState(514);
+				kw_edge();
+				}
+				break;
+			case NODE:
+				{
+				setState(515);
+				kw_node();
+				}
+				break;
+			default:
+				throw new NoViableAltException(this);
+			}
+			setState(518);
+			bbaja();
+			setState(523);
+			_errHandler.sync(this);
+			switch (_input.LA(1)) {
+			case RELATIONSHIP:
+				{
+				setState(519);
+				kw_relationship();
+				}
+				break;
+			case CLASS:
+				{
+				setState(520);
+				kw_class();
+				}
+				break;
+			case INHERITANCE:
+				{
+				setState(521);
+				kw_inheritance();
+				}
+				break;
+			case INDERECT_USE:
+				{
+				setState(522);
+				kw_inderect_use();
+				}
+				break;
+			default:
+				throw new NoViableAltException(this);
+			}
+			setState(525);
+			asig();
+			setState(528);
+			_errHandler.sync(this);
+			switch (_input.LA(1)) {
+			case CADENA_ABRIR:
+				{
+				setState(526);
+				cadena();
+				}
+				break;
+			case IDF:
+				{
+				setState(527);
+				variable();
+				}
+				break;
+			default:
+				throw new NoViableAltException(this);
+			}
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class Kw_edgeContext extends ParserRuleContext {
+		public TerminalNode EDGE() { return getToken(entradaParser.EDGE, 0); }
+		public Kw_edgeContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_kw_edge; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).enterKw_edge(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).exitKw_edge(this);
+		}
+	}
+
+	public final Kw_edgeContext kw_edge() throws RecognitionException {
+		Kw_edgeContext _localctx = new Kw_edgeContext(_ctx, getState());
+		enterRule(_localctx, 104, RULE_kw_edge);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(530);
+			match(EDGE);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class Kw_nodeContext extends ParserRuleContext {
+		public TerminalNode NODE() { return getToken(entradaParser.NODE, 0); }
+		public Kw_nodeContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_kw_node; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).enterKw_node(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).exitKw_node(this);
+		}
+	}
+
+	public final Kw_nodeContext kw_node() throws RecognitionException {
+		Kw_nodeContext _localctx = new Kw_nodeContext(_ctx, getState());
+		enterRule(_localctx, 106, RULE_kw_node);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(532);
+			match(NODE);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class Kw_relationshipContext extends ParserRuleContext {
+		public TerminalNode RELATIONSHIP() { return getToken(entradaParser.RELATIONSHIP, 0); }
+		public Kw_relationshipContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_kw_relationship; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).enterKw_relationship(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).exitKw_relationship(this);
+		}
+	}
+
+	public final Kw_relationshipContext kw_relationship() throws RecognitionException {
+		Kw_relationshipContext _localctx = new Kw_relationshipContext(_ctx, getState());
+		enterRule(_localctx, 108, RULE_kw_relationship);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(534);
+			match(RELATIONSHIP);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class Kw_classContext extends ParserRuleContext {
+		public TerminalNode CLASS() { return getToken(entradaParser.CLASS, 0); }
+		public Kw_classContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_kw_class; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).enterKw_class(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).exitKw_class(this);
+		}
+	}
+
+	public final Kw_classContext kw_class() throws RecognitionException {
+		Kw_classContext _localctx = new Kw_classContext(_ctx, getState());
+		enterRule(_localctx, 110, RULE_kw_class);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(536);
+			match(CLASS);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class Kw_propertyContext extends ParserRuleContext {
+		public TerminalNode PROPERTY() { return getToken(entradaParser.PROPERTY, 0); }
+		public Kw_propertyContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_kw_property; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).enterKw_property(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).exitKw_property(this);
+		}
+	}
+
+	public final Kw_propertyContext kw_property() throws RecognitionException {
+		Kw_propertyContext _localctx = new Kw_propertyContext(_ctx, getState());
+		enterRule(_localctx, 112, RULE_kw_property);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(538);
+			match(PROPERTY);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class Kw_inheritanceContext extends ParserRuleContext {
+		public TerminalNode INHERITANCE() { return getToken(entradaParser.INHERITANCE, 0); }
+		public Kw_inheritanceContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_kw_inheritance; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).enterKw_inheritance(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).exitKw_inheritance(this);
+		}
+	}
+
+	public final Kw_inheritanceContext kw_inheritance() throws RecognitionException {
+		Kw_inheritanceContext _localctx = new Kw_inheritanceContext(_ctx, getState());
+		enterRule(_localctx, 114, RULE_kw_inheritance);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(540);
+			match(INHERITANCE);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class Kw_inderect_useContext extends ParserRuleContext {
+		public TerminalNode INDERECT_USE() { return getToken(entradaParser.INDERECT_USE, 0); }
+		public Kw_inderect_useContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_kw_inderect_use; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).enterKw_inderect_use(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).exitKw_inderect_use(this);
+		}
+	}
+
+	public final Kw_inderect_useContext kw_inderect_use() throws RecognitionException {
+		Kw_inderect_useContext _localctx = new Kw_inderect_useContext(_ctx, getState());
+		enterRule(_localctx, 116, RULE_kw_inderect_use);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(542);
+			match(INDERECT_USE);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class Kw_lenContext extends ParserRuleContext {
+		public TerminalNode LEN() { return getToken(entradaParser.LEN, 0); }
+		public Kw_lenContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_kw_len; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).enterKw_len(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).exitKw_len(this);
+		}
+	}
+
+	public final Kw_lenContext kw_len() throws RecognitionException {
+		Kw_lenContext _localctx = new Kw_lenContext(_ctx, getState());
+		enterRule(_localctx, 118, RULE_kw_len);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(544);
+			match(LEN);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class Kw_fontcolorContext extends ParserRuleContext {
+		public TerminalNode FONTCOLOR() { return getToken(entradaParser.FONTCOLOR, 0); }
+		public Kw_fontcolorContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_kw_fontcolor; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).enterKw_fontcolor(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).exitKw_fontcolor(this);
+		}
+	}
+
+	public final Kw_fontcolorContext kw_fontcolor() throws RecognitionException {
+		Kw_fontcolorContext _localctx = new Kw_fontcolorContext(_ctx, getState());
+		enterRule(_localctx, 120, RULE_kw_fontcolor);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(546);
+			match(FONTCOLOR);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class Kw_fontnameContext extends ParserRuleContext {
+		public TerminalNode FONTNAME() { return getToken(entradaParser.FONTNAME, 0); }
+		public Kw_fontnameContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_kw_fontname; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).enterKw_fontname(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).exitKw_fontname(this);
+		}
+	}
+
+	public final Kw_fontnameContext kw_fontname() throws RecognitionException {
+		Kw_fontnameContext _localctx = new Kw_fontnameContext(_ctx, getState());
+		enterRule(_localctx, 122, RULE_kw_fontname);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(548);
+			match(FONTNAME);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class Kw_fontsizeContext extends ParserRuleContext {
+		public TerminalNode FONTSIZE() { return getToken(entradaParser.FONTSIZE, 0); }
+		public Kw_fontsizeContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_kw_fontsize; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).enterKw_fontsize(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).exitKw_fontsize(this);
+		}
+	}
+
+	public final Kw_fontsizeContext kw_fontsize() throws RecognitionException {
+		Kw_fontsizeContext _localctx = new Kw_fontsizeContext(_ctx, getState());
+		enterRule(_localctx, 124, RULE_kw_fontsize);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(550);
+			match(FONTSIZE);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class Kw_arrowsizeContext extends ParserRuleContext {
+		public TerminalNode ARROWSIZE() { return getToken(entradaParser.ARROWSIZE, 0); }
+		public Kw_arrowsizeContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_kw_arrowsize; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).enterKw_arrowsize(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).exitKw_arrowsize(this);
+		}
+	}
+
+	public final Kw_arrowsizeContext kw_arrowsize() throws RecognitionException {
+		Kw_arrowsizeContext _localctx = new Kw_arrowsizeContext(_ctx, getState());
+		enterRule(_localctx, 126, RULE_kw_arrowsize);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(552);
+			match(ARROWSIZE);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class Kw_arrowcolorContext extends ParserRuleContext {
+		public TerminalNode ARROWCOLOR() { return getToken(entradaParser.ARROWCOLOR, 0); }
+		public Kw_arrowcolorContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_kw_arrowcolor; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).enterKw_arrowcolor(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).exitKw_arrowcolor(this);
+		}
+	}
+
+	public final Kw_arrowcolorContext kw_arrowcolor() throws RecognitionException {
+		Kw_arrowcolorContext _localctx = new Kw_arrowcolorContext(_ctx, getState());
+		enterRule(_localctx, 128, RULE_kw_arrowcolor);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(554);
+			match(ARROWCOLOR);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class Kw_penwidthContext extends ParserRuleContext {
+		public TerminalNode PENWIDTH() { return getToken(entradaParser.PENWIDTH, 0); }
+		public Kw_penwidthContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_kw_penwidth; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).enterKw_penwidth(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).exitKw_penwidth(this);
+		}
+	}
+
+	public final Kw_penwidthContext kw_penwidth() throws RecognitionException {
+		Kw_penwidthContext _localctx = new Kw_penwidthContext(_ctx, getState());
+		enterRule(_localctx, 130, RULE_kw_penwidth);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(556);
+			match(PENWIDTH);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class Kw_fillcolorContext extends ParserRuleContext {
+		public TerminalNode FILLCOLOR() { return getToken(entradaParser.FILLCOLOR, 0); }
+		public Kw_fillcolorContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_kw_fillcolor; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).enterKw_fillcolor(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).exitKw_fillcolor(this);
+		}
+	}
+
+	public final Kw_fillcolorContext kw_fillcolor() throws RecognitionException {
+		Kw_fillcolorContext _localctx = new Kw_fillcolorContext(_ctx, getState());
+		enterRule(_localctx, 132, RULE_kw_fillcolor);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(558);
+			match(FILLCOLOR);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class Kw_styleContext extends ParserRuleContext {
+		public TerminalNode STYLE() { return getToken(entradaParser.STYLE, 0); }
+		public Kw_styleContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_kw_style; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).enterKw_style(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).exitKw_style(this);
+		}
+	}
+
+	public final Kw_styleContext kw_style() throws RecognitionException {
+		Kw_styleContext _localctx = new Kw_styleContext(_ctx, getState());
+		enterRule(_localctx, 134, RULE_kw_style);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(560);
+			match(STYLE);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class Kw_shapeContext extends ParserRuleContext {
+		public TerminalNode SHAPE() { return getToken(entradaParser.SHAPE, 0); }
+		public Kw_shapeContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_kw_shape; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).enterKw_shape(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).exitKw_shape(this);
+		}
+	}
+
+	public final Kw_shapeContext kw_shape() throws RecognitionException {
+		Kw_shapeContext _localctx = new Kw_shapeContext(_ctx, getState());
+		enterRule(_localctx, 136, RULE_kw_shape);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(562);
+			match(SHAPE);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\61\u0115\4\2\t\2"+
-		"\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13"+
-		"\t\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3;\u0237\4\2\t\2\4"+
+		"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t"+
+		"\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
 		"\4\23\t\23\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\4\30\t\30\4\31\t\31"+
 		"\4\32\t\32\4\33\t\33\4\34\t\34\4\35\t\35\4\36\t\36\4\37\t\37\4 \t \4!"+
-		"\t!\4\"\t\"\4#\t#\4$\t$\4%\t%\3\2\3\2\3\2\7\2N\n\2\f\2\16\2Q\13\2\3\3"+
-		"\3\3\3\3\3\3\3\3\3\3\7\3Y\n\3\f\3\16\3\\\13\3\3\3\3\3\3\3\7\3a\n\3\f\3"+
-		"\16\3d\13\3\3\3\5\3g\n\3\3\4\6\4j\n\4\r\4\16\4k\3\5\6\5o\n\5\r\5\16\5"+
-		"p\3\6\6\6t\n\6\r\6\16\6u\3\7\6\7y\n\7\r\7\16\7z\3\b\3\b\3\b\3\b\5\b\u0081"+
-		"\n\b\3\b\3\b\7\b\u0085\n\b\f\b\16\b\u0088\13\b\3\t\3\t\3\t\3\t\5\t\u008e"+
-		"\n\t\3\n\3\n\7\n\u0092\n\n\f\n\16\n\u0095\13\n\3\n\3\n\7\n\u0099\n\n\f"+
-		"\n\16\n\u009c\13\n\3\n\3\n\3\n\3\n\3\n\3\13\3\13\7\13\u00a5\n\13\f\13"+
-		"\16\13\u00a8\13\13\3\13\3\13\7\13\u00ac\n\13\f\13\16\13\u00af\13\13\3"+
-		"\13\3\13\3\13\3\13\3\13\3\f\3\f\7\f\u00b8\n\f\f\f\16\f\u00bb\13\f\3\f"+
-		"\3\f\7\f\u00bf\n\f\f\f\16\f\u00c2\13\f\3\f\3\f\3\f\3\f\3\f\3\r\3\r\7\r"+
-		"\u00cb\n\r\f\r\16\r\u00ce\13\r\3\r\3\r\7\r\u00d2\n\r\f\r\16\r\u00d5\13"+
-		"\r\3\r\3\r\3\r\3\r\3\r\3\16\3\16\5\16\u00de\n\16\3\17\3\17\3\20\3\20\3"+
-		"\21\3\21\3\22\3\22\3\23\3\23\3\24\3\24\3\25\3\25\3\26\3\26\3\27\3\27\3"+
-		"\30\3\30\3\31\3\31\3\32\3\32\3\33\3\33\3\34\3\34\3\35\3\35\7\35\u00fe"+
-		"\n\35\f\35\16\35\u0101\13\35\3\35\3\35\3\36\3\36\3\37\3\37\3 \3 \3!\3"+
-		"!\3\"\3\"\3#\3#\3$\3$\3%\3%\3%\2\2&\2\4\6\b\n\f\16\20\22\24\26\30\32\34"+
-		"\36 \"$&(*,.\60\62\64\668:<>@BDFH\2\3\4\2**//\2\u0111\2O\3\2\2\2\4f\3"+
-		"\2\2\2\6i\3\2\2\2\bn\3\2\2\2\ns\3\2\2\2\fx\3\2\2\2\16\u0086\3\2\2\2\20"+
-		"\u008d\3\2\2\2\22\u008f\3\2\2\2\24\u00a2\3\2\2\2\26\u00b5\3\2\2\2\30\u00c8"+
-		"\3\2\2\2\32\u00dd\3\2\2\2\34\u00df\3\2\2\2\36\u00e1\3\2\2\2 \u00e3\3\2"+
-		"\2\2\"\u00e5\3\2\2\2$\u00e7\3\2\2\2&\u00e9\3\2\2\2(\u00eb\3\2\2\2*\u00ed"+
-		"\3\2\2\2,\u00ef\3\2\2\2.\u00f1\3\2\2\2\60\u00f3\3\2\2\2\62\u00f5\3\2\2"+
-		"\2\64\u00f7\3\2\2\2\66\u00f9\3\2\2\28\u00fb\3\2\2\2:\u0104\3\2\2\2<\u0106"+
-		"\3\2\2\2>\u0108\3\2\2\2@\u010a\3\2\2\2B\u010c\3\2\2\2D\u010e\3\2\2\2F"+
-		"\u0110\3\2\2\2H\u0112\3\2\2\2JN\5\20\t\2KN\5\4\3\2LN\5\32\16\2MJ\3\2\2"+
-		"\2MK\3\2\2\2ML\3\2\2\2NQ\3\2\2\2OM\3\2\2\2OP\3\2\2\2P\3\3\2\2\2QO\3\2"+
-		"\2\2RZ\7\3\2\2SY\5\f\7\2TY\5\6\4\2UY\5\b\5\2VY\5\n\6\2WY\7\13\2\2XS\3"+
-		"\2\2\2XT\3\2\2\2XU\3\2\2\2XV\3\2\2\2XW\3\2\2\2Y\\\3\2\2\2ZX\3\2\2\2Z["+
-		"\3\2\2\2[]\3\2\2\2\\Z\3\2\2\2]g\7)\2\2^b\7\4\2\2_a\5\f\7\2`_\3\2\2\2a"+
-		"d\3\2\2\2b`\3\2\2\2bc\3\2\2\2ce\3\2\2\2db\3\2\2\2eg\7.\2\2fR\3\2\2\2f"+
-		"^\3\2\2\2g\5\3\2\2\2hj\7+\2\2ih\3\2\2\2jk\3\2\2\2ki\3\2\2\2kl\3\2\2\2"+
-		"l\7\3\2\2\2mo\7,\2\2nm\3\2\2\2op\3\2\2\2pn\3\2\2\2pq\3\2\2\2q\t\3\2\2"+
-		"\2rt\7-\2\2sr\3\2\2\2tu\3\2\2\2us\3\2\2\2uv\3\2\2\2v\13\3\2\2\2wy\t\2"+
-		"\2\2xw\3\2\2\2yz\3\2\2\2zx\3\2\2\2z{\3\2\2\2{\r\3\2\2\2|\u0085\5\66\34"+
-		"\2}\u0085\5\64\33\2~\u0080\5\"\22\2\177\u0081\5\62\32\2\u0080\177\3\2"+
-		"\2\2\u0080\u0081\3\2\2\2\u0081\u0085\3\2\2\2\u0082\u0085\5&\24\2\u0083"+
-		"\u0085\5\36\20\2\u0084|\3\2\2\2\u0084}\3\2\2\2\u0084~\3\2\2\2\u0084\u0082"+
-		"\3\2\2\2\u0084\u0083\3\2\2\2\u0085\u0088\3\2\2\2\u0086\u0084\3\2\2\2\u0086"+
-		"\u0087\3\2\2\2\u0087\17\3\2\2\2\u0088\u0086\3\2\2\2\u0089\u008e\5\22\n"+
-		"\2\u008a\u008e\5\24\13\2\u008b\u008e\5\26\f\2\u008c\u008e\5\30\r\2\u008d"+
-		"\u0089\3\2\2\2\u008d\u008a\3\2\2\2\u008d\u008b\3\2\2\2\u008d\u008c\3\2"+
-		"\2\2\u008e\21\3\2\2\2\u008f\u0093\5:\36\2\u0090\u0092\5\32\16\2\u0091"+
-		"\u0090\3\2\2\2\u0092\u0095\3\2\2\2\u0093\u0091\3\2\2\2\u0093\u0094\3\2"+
-		"\2\2\u0094\u0096\3\2\2\2\u0095\u0093\3\2\2\2\u0096\u009a\5,\27\2\u0097"+
-		"\u0099\5\32\16\2\u0098\u0097\3\2\2\2\u0099\u009c\3\2\2\2\u009a\u0098\3"+
-		"\2\2\2\u009a\u009b\3\2\2\2\u009b\u009d\3\2\2\2\u009c\u009a\3\2\2\2\u009d"+
-		"\u009e\5\16\b\2\u009e\u009f\5&\24\2\u009f\u00a0\5\64\33\2\u00a0\u00a1"+
-		"\5<\37\2\u00a1\23\3\2\2\2\u00a2\u00a6\5> \2\u00a3\u00a5\5\32\16\2\u00a4"+
-		"\u00a3\3\2\2\2\u00a5\u00a8\3\2\2\2\u00a6\u00a4\3\2\2\2\u00a6\u00a7\3\2"+
-		"\2\2\u00a7\u00a9\3\2\2\2\u00a8\u00a6\3\2\2\2\u00a9\u00ad\5,\27\2\u00aa"+
-		"\u00ac\5\32\16\2\u00ab\u00aa\3\2\2\2\u00ac\u00af\3\2\2\2\u00ad\u00ab\3"+
-		"\2\2\2\u00ad\u00ae\3\2\2\2\u00ae\u00b0\3\2\2\2\u00af\u00ad\3\2\2\2\u00b0"+
-		"\u00b1\5\16\b\2\u00b1\u00b2\5&\24\2\u00b2\u00b3\5\64\33\2\u00b3\u00b4"+
-		"\5@!\2\u00b4\25\3\2\2\2\u00b5\u00b9\5B\"\2\u00b6\u00b8\5\32\16\2\u00b7"+
-		"\u00b6\3\2\2\2\u00b8\u00bb\3\2\2\2\u00b9\u00b7\3\2\2\2\u00b9\u00ba\3\2"+
-		"\2\2\u00ba\u00bc\3\2\2\2\u00bb\u00b9\3\2\2\2\u00bc\u00c0\5,\27\2\u00bd"+
-		"\u00bf\5\32\16\2\u00be\u00bd\3\2\2\2\u00bf\u00c2\3\2\2\2\u00c0\u00be\3"+
-		"\2\2\2\u00c0\u00c1\3\2\2\2\u00c1\u00c3\3\2\2\2\u00c2\u00c0\3\2\2\2\u00c3"+
-		"\u00c4\5\16\b\2\u00c4\u00c5\5&\24\2\u00c5\u00c6\5\64\33\2\u00c6\u00c7"+
-		"\5D#\2\u00c7\27\3\2\2\2\u00c8\u00cc\5F$\2\u00c9\u00cb\5\32\16\2\u00ca"+
-		"\u00c9\3\2\2\2\u00cb\u00ce\3\2\2\2\u00cc\u00ca\3\2\2\2\u00cc\u00cd\3\2"+
-		"\2\2\u00cd\u00cf\3\2\2\2\u00ce\u00cc\3\2\2\2\u00cf\u00d3\5,\27\2\u00d0"+
-		"\u00d2\5\32\16\2\u00d1\u00d0\3\2\2\2\u00d2\u00d5\3\2\2\2\u00d3\u00d1\3"+
-		"\2\2\2\u00d3\u00d4\3\2\2\2\u00d4\u00d6\3\2\2\2\u00d5\u00d3\3\2\2\2\u00d6"+
-		"\u00d7\5\16\b\2\u00d7\u00d8\5&\24\2\u00d8\u00d9\5\64\33\2\u00d9\u00da"+
-		"\5H%\2\u00da\31\3\2\2\2\u00db\u00de\5\34\17\2\u00dc\u00de\5 \21\2\u00dd"+
-		"\u00db\3\2\2\2\u00dd\u00dc\3\2\2\2\u00de\33\3\2\2\2\u00df\u00e0\7\24\2"+
-		"\2\u00e0\35\3\2\2\2\u00e1\u00e2\7\25\2\2\u00e2\37\3\2\2\2\u00e3\u00e4"+
-		"\7\13\2\2\u00e4!\3\2\2\2\u00e5\u00e6\7\7\2\2\u00e6#\3\2\2\2\u00e7\u00e8"+
-		"\7\6\2\2\u00e8%\3\2\2\2\u00e9\u00ea\7(\2\2\u00ea\'\3\2\2\2\u00eb\u00ec"+
-		"\7\16\2\2\u00ec)\3\2\2\2\u00ed\u00ee\7\17\2\2\u00ee+\3\2\2\2\u00ef\u00f0"+
-		"\7\20\2\2\u00f0-\3\2\2\2\u00f1\u00f2\7\21\2\2\u00f2/\3\2\2\2\u00f3\u00f4"+
-		"\7\b\2\2\u00f4\61\3\2\2\2\u00f5\u00f6\7\22\2\2\u00f6\63\3\2\2\2\u00f7"+
-		"\u00f8\7\n\2\2\u00f8\65\3\2\2\2\u00f9\u00fa\7\t\2\2\u00fa\67\3\2\2\2\u00fb"+
-		"\u00ff\7\5\2\2\u00fc\u00fe\7\61\2\2\u00fd\u00fc\3\2\2\2\u00fe\u0101\3"+
-		"\2\2\2\u00ff\u00fd\3\2\2\2\u00ff\u0100\3\2\2\2\u0100\u0102\3\2\2\2\u0101"+
-		"\u00ff\3\2\2\2\u0102\u0103\7\60\2\2\u01039\3\2\2\2\u0104\u0105\7\26\2"+
-		"\2\u0105;\3\2\2\2\u0106\u0107\7$\2\2\u0107=\3\2\2\2\u0108\u0109\7\30\2"+
-		"\2\u0109?\3\2\2\2\u010a\u010b\7%\2\2\u010bA\3\2\2\2\u010c\u010d\7\27\2"+
-		"\2\u010dC\3\2\2\2\u010e\u010f\7&\2\2\u010fE\3\2\2\2\u0110\u0111\7\31\2"+
-		"\2\u0111G\3\2\2\2\u0112\u0113\7\'\2\2\u0113I\3\2\2\2\32MOXZbfkpuz\u0080"+
-		"\u0084\u0086\u008d\u0093\u009a\u00a6\u00ad\u00b9\u00c0\u00cc\u00d3\u00dd"+
-		"\u00ff";
+		"\t!\4\"\t\"\4#\t#\4$\t$\4%\t%\4&\t&\4\'\t\'\4(\t(\4)\t)\4*\t*\4+\t+\4"+
+		",\t,\4-\t-\4.\t.\4/\t/\4\60\t\60\4\61\t\61\4\62\t\62\4\63\t\63\4\64\t"+
+		"\64\4\65\t\65\4\66\t\66\4\67\t\67\48\t8\49\t9\4:\t:\4;\t;\4<\t<\4=\t="+
+		"\4>\t>\4?\t?\4@\t@\4A\tA\4B\tB\4C\tC\4D\tD\4E\tE\4F\tF\3\2\3\2\3\2\3\2"+
+		"\7\2\u0091\n\2\f\2\16\2\u0094\13\2\3\3\3\3\3\3\3\3\3\3\3\3\7\3\u009c\n"+
+		"\3\f\3\16\3\u009f\13\3\3\3\3\3\3\3\7\3\u00a4\n\3\f\3\16\3\u00a7\13\3\3"+
+		"\3\5\3\u00aa\n\3\3\4\6\4\u00ad\n\4\r\4\16\4\u00ae\3\5\6\5\u00b2\n\5\r"+
+		"\5\16\5\u00b3\3\6\6\6\u00b7\n\6\r\6\16\6\u00b8\3\7\6\7\u00bc\n\7\r\7\16"+
+		"\7\u00bd\3\b\3\b\3\b\3\b\5\b\u00c4\n\b\3\b\3\b\7\b\u00c8\n\b\f\b\16\b"+
+		"\u00cb\13\b\3\t\3\t\3\t\3\t\5\t\u00d1\n\t\3\n\3\n\7\n\u00d5\n\n\f\n\16"+
+		"\n\u00d8\13\n\3\n\3\n\7\n\u00dc\n\n\f\n\16\n\u00df\13\n\3\n\3\n\3\n\3"+
+		"\n\3\n\3\13\3\13\7\13\u00e8\n\13\f\13\16\13\u00eb\13\13\3\13\3\13\7\13"+
+		"\u00ef\n\13\f\13\16\13\u00f2\13\13\3\13\3\13\3\13\3\13\3\13\3\f\3\f\7"+
+		"\f\u00fb\n\f\f\f\16\f\u00fe\13\f\3\f\3\f\7\f\u0102\n\f\f\f\16\f\u0105"+
+		"\13\f\3\f\3\f\3\f\3\f\3\f\3\r\3\r\7\r\u010e\n\r\f\r\16\r\u0111\13\r\3"+
+		"\r\3\r\7\r\u0115\n\r\f\r\16\r\u0118\13\r\3\r\3\r\3\r\3\r\3\r\3\16\3\16"+
+		"\5\16\u0121\n\16\3\17\3\17\3\20\3\20\3\21\3\21\3\22\3\22\3\23\3\23\3\24"+
+		"\3\24\3\25\3\25\3\26\3\26\3\27\3\27\3\30\3\30\3\31\3\31\3\32\3\32\3\33"+
+		"\3\33\3\34\3\34\3\35\3\35\3\36\3\36\3\37\3\37\7\37\u0145\n\37\f\37\16"+
+		"\37\u0148\13\37\3\37\3\37\3 \3 \3!\3!\3\"\3\"\3#\3#\3$\3$\3%\3%\3&\3&"+
+		"\3\'\3\'\3(\3(\3)\3)\3*\3*\3+\3+\3+\3+\3+\3+\3+\3+\3+\3+\5+\u016c\n+\3"+
+		",\3,\3,\3,\3,\3,\5,\u0174\n,\3,\3,\3,\3-\3-\3-\3-\5-\u017d\n-\3-\3-\3"+
+		"-\3-\3-\5-\u0184\n-\3-\3-\3-\5-\u0189\n-\3.\3.\3.\3.\5.\u018f\n.\3.\3"+
+		".\3.\3.\3.\5.\u0196\n.\3.\3.\3.\5.\u019b\n.\3/\3/\3/\3/\5/\u01a1\n/\3"+
+		"/\3/\3/\3/\3/\5/\u01a8\n/\3/\3/\3/\3\60\3\60\3\60\3\60\5\60\u01b1\n\60"+
+		"\3\60\3\60\3\60\3\60\3\60\5\60\u01b8\n\60\3\60\3\60\3\60\3\61\3\61\3\61"+
+		"\3\61\5\61\u01c1\n\61\3\61\3\61\3\61\3\61\3\61\5\61\u01c8\n\61\3\61\3"+
+		"\61\3\61\5\61\u01cd\n\61\3\62\3\62\3\62\3\62\5\62\u01d3\n\62\3\62\3\62"+
+		"\3\62\3\62\3\62\5\62\u01da\n\62\3\62\3\62\3\62\3\63\3\63\3\63\3\63\5\63"+
+		"\u01e3\n\63\3\63\3\63\3\63\3\63\3\63\5\63\u01ea\n\63\3\63\3\63\3\63\5"+
+		"\63\u01ef\n\63\3\64\3\64\3\64\3\64\5\64\u01f5\n\64\3\64\3\64\3\64\3\64"+
+		"\3\64\5\64\u01fc\n\64\3\64\3\64\3\64\5\64\u0201\n\64\3\65\3\65\3\65\3"+
+		"\65\5\65\u0207\n\65\3\65\3\65\3\65\3\65\3\65\5\65\u020e\n\65\3\65\3\65"+
+		"\3\65\5\65\u0213\n\65\3\66\3\66\3\67\3\67\38\38\39\39\3:\3:\3;\3;\3<\3"+
+		"<\3=\3=\3>\3>\3?\3?\3@\3@\3A\3A\3B\3B\3C\3C\3D\3D\3E\3E\3F\3F\3F\2\2G"+
+		"\2\4\6\b\n\f\16\20\22\24\26\30\32\34\36 \"$&(*,.\60\62\64\668:<>@BDFH"+
+		"JLNPRTVXZ\\^`bdfhjlnprtvxz|~\u0080\u0082\u0084\u0086\u0088\u008a\2\3\4"+
+		"\2\64\6499\2\u0249\2\u0092\3\2\2\2\4\u00a9\3\2\2\2\6\u00ac\3\2\2\2\b\u00b1"+
+		"\3\2\2\2\n\u00b6\3\2\2\2\f\u00bb\3\2\2\2\16\u00c9\3\2\2\2\20\u00d0\3\2"+
+		"\2\2\22\u00d2\3\2\2\2\24\u00e5\3\2\2\2\26\u00f8\3\2\2\2\30\u010b\3\2\2"+
+		"\2\32\u0120\3\2\2\2\34\u0122\3\2\2\2\36\u0124\3\2\2\2 \u0126\3\2\2\2\""+
+		"\u0128\3\2\2\2$\u012a\3\2\2\2&\u012c\3\2\2\2(\u012e\3\2\2\2*\u0130\3\2"+
+		"\2\2,\u0132\3\2\2\2.\u0134\3\2\2\2\60\u0136\3\2\2\2\62\u0138\3\2\2\2\64"+
+		"\u013a\3\2\2\2\66\u013c\3\2\2\28\u013e\3\2\2\2:\u0140\3\2\2\2<\u0142\3"+
+		"\2\2\2>\u014b\3\2\2\2@\u014d\3\2\2\2B\u014f\3\2\2\2D\u0151\3\2\2\2F\u0153"+
+		"\3\2\2\2H\u0155\3\2\2\2J\u0157\3\2\2\2L\u0159\3\2\2\2N\u015b\3\2\2\2P"+
+		"\u015d\3\2\2\2R\u015f\3\2\2\2T\u016b\3\2\2\2V\u016d\3\2\2\2X\u0178\3\2"+
+		"\2\2Z\u018a\3\2\2\2\\\u019c\3\2\2\2^\u01ac\3\2\2\2`\u01bc\3\2\2\2b\u01ce"+
+		"\3\2\2\2d\u01de\3\2\2\2f\u01f0\3\2\2\2h\u0202\3\2\2\2j\u0214\3\2\2\2l"+
+		"\u0216\3\2\2\2n\u0218\3\2\2\2p\u021a\3\2\2\2r\u021c\3\2\2\2t\u021e\3\2"+
+		"\2\2v\u0220\3\2\2\2x\u0222\3\2\2\2z\u0224\3\2\2\2|\u0226\3\2\2\2~\u0228"+
+		"\3\2\2\2\u0080\u022a\3\2\2\2\u0082\u022c\3\2\2\2\u0084\u022e\3\2\2\2\u0086"+
+		"\u0230\3\2\2\2\u0088\u0232\3\2\2\2\u008a\u0234\3\2\2\2\u008c\u0091\5\20"+
+		"\t\2\u008d\u0091\5\4\3\2\u008e\u0091\5\32\16\2\u008f\u0091\5T+\2\u0090"+
+		"\u008c\3\2\2\2\u0090\u008d\3\2\2\2\u0090\u008e\3\2\2\2\u0090\u008f\3\2"+
+		"\2\2\u0091\u0094\3\2\2\2\u0092\u0090\3\2\2\2\u0092\u0093\3\2\2\2\u0093"+
+		"\3\3\2\2\2\u0094\u0092\3\2\2\2\u0095\u009d\7\3\2\2\u0096\u009c\5\f\7\2"+
+		"\u0097\u009c\5\6\4\2\u0098\u009c\5\b\5\2\u0099\u009c\5\n\6\2\u009a\u009c"+
+		"\7\13\2\2\u009b\u0096\3\2\2\2\u009b\u0097\3\2\2\2\u009b\u0098\3\2\2\2"+
+		"\u009b\u0099\3\2\2\2\u009b\u009a\3\2\2\2\u009c\u009f\3\2\2\2\u009d\u009b"+
+		"\3\2\2\2\u009d\u009e\3\2\2\2\u009e\u00a0\3\2\2\2\u009f\u009d\3\2\2\2\u00a0"+
+		"\u00aa\7\63\2\2\u00a1\u00a5\7\4\2\2\u00a2\u00a4\5\f\7\2\u00a3\u00a2\3"+
+		"\2\2\2\u00a4\u00a7\3\2\2\2\u00a5\u00a3\3\2\2\2\u00a5\u00a6\3\2\2\2\u00a6"+
+		"\u00a8\3\2\2\2\u00a7\u00a5\3\2\2\2\u00a8\u00aa\78\2\2\u00a9\u0095\3\2"+
+		"\2\2\u00a9\u00a1\3\2\2\2\u00aa\5\3\2\2\2\u00ab\u00ad\7\65\2\2\u00ac\u00ab"+
+		"\3\2\2\2\u00ad\u00ae\3\2\2\2\u00ae\u00ac\3\2\2\2\u00ae\u00af\3\2\2\2\u00af"+
+		"\7\3\2\2\2\u00b0\u00b2\7\66\2\2\u00b1\u00b0\3\2\2\2\u00b2\u00b3\3\2\2"+
+		"\2\u00b3\u00b1\3\2\2\2\u00b3\u00b4\3\2\2\2\u00b4\t\3\2\2\2\u00b5\u00b7"+
+		"\7\67\2\2\u00b6\u00b5\3\2\2\2\u00b7\u00b8\3\2\2\2\u00b8\u00b6\3\2\2\2"+
+		"\u00b8\u00b9\3\2\2\2\u00b9\13\3\2\2\2\u00ba\u00bc\t\2\2\2\u00bb\u00ba"+
+		"\3\2\2\2\u00bc\u00bd\3\2\2\2\u00bd\u00bb\3\2\2\2\u00bd\u00be\3\2\2\2\u00be"+
+		"\r\3\2\2\2\u00bf\u00c8\5:\36\2\u00c0\u00c8\58\35\2\u00c1\u00c3\5\"\22"+
+		"\2\u00c2\u00c4\5\66\34\2\u00c3\u00c2\3\2\2\2\u00c3\u00c4\3\2\2\2\u00c4"+
+		"\u00c8\3\2\2\2\u00c5\u00c8\5&\24\2\u00c6\u00c8\5\36\20\2\u00c7\u00bf\3"+
+		"\2\2\2\u00c7\u00c0\3\2\2\2\u00c7\u00c1\3\2\2\2\u00c7\u00c5\3\2\2\2\u00c7"+
+		"\u00c6\3\2\2\2\u00c8\u00cb\3\2\2\2\u00c9\u00c7\3\2\2\2\u00c9\u00ca\3\2"+
+		"\2\2\u00ca\17\3\2\2\2\u00cb\u00c9\3\2\2\2\u00cc\u00d1\5\22\n\2\u00cd\u00d1"+
+		"\5\24\13\2\u00ce\u00d1\5\26\f\2\u00cf\u00d1\5\30\r\2\u00d0\u00cc\3\2\2"+
+		"\2\u00d0\u00cd\3\2\2\2\u00d0\u00ce\3\2\2\2\u00d0\u00cf\3\2\2\2\u00d1\21"+
+		"\3\2\2\2\u00d2\u00d6\5D#\2\u00d3\u00d5\5\32\16\2\u00d4\u00d3\3\2\2\2\u00d5"+
+		"\u00d8\3\2\2\2\u00d6\u00d4\3\2\2\2\u00d6\u00d7\3\2\2\2\u00d7\u00d9\3\2"+
+		"\2\2\u00d8\u00d6\3\2\2\2\u00d9\u00dd\5,\27\2\u00da\u00dc\5\32\16\2\u00db"+
+		"\u00da\3\2\2\2\u00dc\u00df\3\2\2\2\u00dd\u00db\3\2\2\2\u00dd\u00de\3\2"+
+		"\2\2\u00de\u00e0\3\2\2\2\u00df\u00dd\3\2\2\2\u00e0\u00e1\5\16\b\2\u00e1"+
+		"\u00e2\5&\24\2\u00e2\u00e3\58\35\2\u00e3\u00e4\5F$\2\u00e4\23\3\2\2\2"+
+		"\u00e5\u00e9\5H%\2\u00e6\u00e8\5\32\16\2\u00e7\u00e6\3\2\2\2\u00e8\u00eb"+
+		"\3\2\2\2\u00e9\u00e7\3\2\2\2\u00e9\u00ea\3\2\2\2\u00ea\u00ec\3\2\2\2\u00eb"+
+		"\u00e9\3\2\2\2\u00ec\u00f0\5,\27\2\u00ed\u00ef\5\32\16\2\u00ee\u00ed\3"+
+		"\2\2\2\u00ef\u00f2\3\2\2\2\u00f0\u00ee\3\2\2\2\u00f0\u00f1\3\2\2\2\u00f1"+
+		"\u00f3\3\2\2\2\u00f2\u00f0\3\2\2\2\u00f3\u00f4\5\16\b\2\u00f4\u00f5\5"+
+		"&\24\2\u00f5\u00f6\58\35\2\u00f6\u00f7\5J&\2\u00f7\25\3\2\2\2\u00f8\u00fc"+
+		"\5L\'\2\u00f9\u00fb\5\32\16\2\u00fa\u00f9\3\2\2\2\u00fb\u00fe\3\2\2\2"+
+		"\u00fc\u00fa\3\2\2\2\u00fc\u00fd\3\2\2\2\u00fd\u00ff\3\2\2\2\u00fe\u00fc"+
+		"\3\2\2\2\u00ff\u0103\5,\27\2\u0100\u0102\5\32\16\2\u0101\u0100\3\2\2\2"+
+		"\u0102\u0105\3\2\2\2\u0103\u0101\3\2\2\2\u0103\u0104\3\2\2\2\u0104\u0106"+
+		"\3\2\2\2\u0105\u0103\3\2\2\2\u0106\u0107\5\16\b\2\u0107\u0108\5&\24\2"+
+		"\u0108\u0109\58\35\2\u0109\u010a\5N(\2\u010a\27\3\2\2\2\u010b\u010f\5"+
+		"P)\2\u010c\u010e\5\32\16\2\u010d\u010c\3\2\2\2\u010e\u0111\3\2\2\2\u010f"+
+		"\u010d\3\2\2\2\u010f\u0110\3\2\2\2\u0110\u0112\3\2\2\2\u0111\u010f\3\2"+
+		"\2\2\u0112\u0116\5,\27\2\u0113\u0115\5\32\16\2\u0114\u0113\3\2\2\2\u0115"+
+		"\u0118\3\2\2\2\u0116\u0114\3\2\2\2\u0116\u0117\3\2\2\2\u0117\u0119\3\2"+
+		"\2\2\u0118\u0116\3\2\2\2\u0119\u011a\5\16\b\2\u011a\u011b\5&\24\2\u011b"+
+		"\u011c\58\35\2\u011c\u011d\5R*\2\u011d\31\3\2\2\2\u011e\u0121\5\34\17"+
+		"\2\u011f\u0121\5 \21\2\u0120\u011e\3\2\2\2\u0120\u011f\3\2\2\2\u0121\33"+
+		"\3\2\2\2\u0122\u0123\7\27\2\2\u0123\35\3\2\2\2\u0124\u0125\7\30\2\2\u0125"+
+		"\37\3\2\2\2\u0126\u0127\7\13\2\2\u0127!\3\2\2\2\u0128\u0129\7\7\2\2\u0129"+
+		"#\3\2\2\2\u012a\u012b\7\6\2\2\u012b%\3\2\2\2\u012c\u012d\7\62\2\2\u012d"+
+		"\'\3\2\2\2\u012e\u012f\7\16\2\2\u012f)\3\2\2\2\u0130\u0131\7\17\2\2\u0131"+
+		"+\3\2\2\2\u0132\u0133\7\20\2\2\u0133-\3\2\2\2\u0134\u0135\7\21\2\2\u0135"+
+		"/\3\2\2\2\u0136\u0137\7\f\2\2\u0137\61\3\2\2\2\u0138\u0139\7\r\2\2\u0139"+
+		"\63\3\2\2\2\u013a\u013b\7\b\2\2\u013b\65\3\2\2\2\u013c\u013d\7\25\2\2"+
+		"\u013d\67\3\2\2\2\u013e\u013f\7\n\2\2\u013f9\3\2\2\2\u0140\u0141\7\t\2"+
+		"\2\u0141;\3\2\2\2\u0142\u0146\7\5\2\2\u0143\u0145\7;\2\2\u0144\u0143\3"+
+		"\2\2\2\u0145\u0148\3\2\2\2\u0146\u0144\3\2\2\2\u0146\u0147\3\2\2\2\u0147"+
+		"\u0149\3\2\2\2\u0148\u0146\3\2\2\2\u0149\u014a\7:\2\2\u014a=\3\2\2\2\u014b"+
+		"\u014c\7\22\2\2\u014c?\3\2\2\2\u014d\u014e\7\23\2\2\u014eA\3\2\2\2\u014f"+
+		"\u0150\7\24\2\2\u0150C\3\2\2\2\u0151\u0152\7\31\2\2\u0152E\3\2\2\2\u0153"+
+		"\u0154\7\'\2\2\u0154G\3\2\2\2\u0155\u0156\7\33\2\2\u0156I\3\2\2\2\u0157"+
+		"\u0158\7(\2\2\u0158K\3\2\2\2\u0159\u015a\7\32\2\2\u015aM\3\2\2\2\u015b"+
+		"\u015c\7)\2\2\u015cO\3\2\2\2\u015d\u015e\7\34\2\2\u015eQ\3\2\2\2\u015f"+
+		"\u0160\7*\2\2\u0160S\3\2\2\2\u0161\u016c\5V,\2\u0162\u016c\5X-\2\u0163"+
+		"\u016c\5Z.\2\u0164\u016c\5\\/\2\u0165\u016c\5^\60\2\u0166\u016c\5`\61"+
+		"\2\u0167\u016c\5b\62\2\u0168\u016c\5d\63\2\u0169\u016c\5f\64\2\u016a\u016c"+
+		"\5h\65\2\u016b\u0161\3\2\2\2\u016b\u0162\3\2\2\2\u016b\u0163\3\2\2\2\u016b"+
+		"\u0164\3\2\2\2\u016b\u0165\3\2\2\2\u016b\u0166\3\2\2\2\u016b\u0167\3\2"+
+		"\2\2\u016b\u0168\3\2\2\2\u016b\u0169\3\2\2\2\u016b\u016a\3\2\2\2\u016c"+
+		"U\3\2\2\2\u016d\u016e\5x=\2\u016e\u0173\5> \2\u016f\u0174\5n8\2\u0170"+
+		"\u0174\5p9\2\u0171\u0174\5t;\2\u0172\u0174\5v<\2\u0173\u016f\3\2\2\2\u0173"+
+		"\u0170\3\2\2\2\u0173\u0171\3\2\2\2\u0173\u0172\3\2\2\2\u0174\u0175\3\2"+
+		"\2\2\u0175\u0176\5,\27\2\u0176\u0177\5$\23\2\u0177W\3\2\2\2\u0178\u0179"+
+		"\5z>\2\u0179\u017c\5> \2\u017a\u017d\5j\66\2\u017b\u017d\5l\67\2\u017c"+
+		"\u017a\3\2\2\2\u017c\u017b\3\2\2\2\u017d\u017e\3\2\2\2\u017e\u0183\5>"+
+		" \2\u017f\u0184\5n8\2\u0180\u0184\5p9\2\u0181\u0184\5t;\2\u0182\u0184"+
+		"\5v<\2\u0183\u017f\3\2\2\2\u0183\u0180\3\2\2\2\u0183\u0181\3\2\2\2\u0183"+
+		"\u0182\3\2\2\2\u0184\u0185\3\2\2\2\u0185\u0188\5,\27\2\u0186\u0189\5<"+
+		"\37\2\u0187\u0189\5&\24\2\u0188\u0186\3\2\2\2\u0188\u0187\3\2\2\2\u0189"+
+		"Y\3\2\2\2\u018a\u018b\5|?\2\u018b\u018e\5> \2\u018c\u018f\5j\66\2\u018d"+
+		"\u018f\5l\67\2\u018e\u018c\3\2\2\2\u018e\u018d\3\2\2\2\u018f\u0190\3\2"+
+		"\2\2\u0190\u0195\5> \2\u0191\u0196\5n8\2\u0192\u0196\5p9\2\u0193\u0196"+
+		"\5t;\2\u0194\u0196\5v<\2\u0195\u0191\3\2\2\2\u0195\u0192\3\2\2\2\u0195"+
+		"\u0193\3\2\2\2\u0195\u0194\3\2\2\2\u0196\u0197\3\2\2\2\u0197\u019a\5,"+
+		"\27\2\u0198\u019b\5<\37\2\u0199\u019b\5&\24\2\u019a\u0198\3\2\2\2\u019a"+
+		"\u0199\3\2\2\2\u019b[\3\2\2\2\u019c\u019d\5~@\2\u019d\u01a0\5> \2\u019e"+
+		"\u01a1\5j\66\2\u019f\u01a1\5l\67\2\u01a0\u019e\3\2\2\2\u01a0\u019f\3\2"+
+		"\2\2\u01a1\u01a2\3\2\2\2\u01a2\u01a7\5> \2\u01a3\u01a8\5n8\2\u01a4\u01a8"+
+		"\5p9\2\u01a5\u01a8\5t;\2\u01a6\u01a8\5v<\2\u01a7\u01a3\3\2\2\2\u01a7\u01a4"+
+		"\3\2\2\2\u01a7\u01a5\3\2\2\2\u01a7\u01a6\3\2\2\2\u01a8\u01a9\3\2\2\2\u01a9"+
+		"\u01aa\5,\27\2\u01aa\u01ab\5$\23\2\u01ab]\3\2\2\2\u01ac\u01ad\5\u0080"+
+		"A\2\u01ad\u01b0\5> \2\u01ae\u01b1\5j\66\2\u01af\u01b1\5l\67\2\u01b0\u01ae"+
+		"\3\2\2\2\u01b0\u01af\3\2\2\2\u01b1\u01b2\3\2\2\2\u01b2\u01b7\5> \2\u01b3"+
+		"\u01b8\5n8\2\u01b4\u01b8\5p9\2\u01b5\u01b8\5t;\2\u01b6\u01b8\5v<\2\u01b7"+
+		"\u01b3\3\2\2\2\u01b7\u01b4\3\2\2\2\u01b7\u01b5\3\2\2\2\u01b7\u01b6\3\2"+
+		"\2\2\u01b8\u01b9\3\2\2\2\u01b9\u01ba\5,\27\2\u01ba\u01bb\5$\23\2\u01bb"+
+		"_\3\2\2\2\u01bc\u01bd\5\u0082B\2\u01bd\u01c0\5> \2\u01be\u01c1\5j\66\2"+
+		"\u01bf\u01c1\5l\67\2\u01c0\u01be\3\2\2\2\u01c0\u01bf\3\2\2\2\u01c1\u01c2"+
+		"\3\2\2\2\u01c2\u01c7\5> \2\u01c3\u01c8\5n8\2\u01c4\u01c8\5p9\2\u01c5\u01c8"+
+		"\5t;\2\u01c6\u01c8\5v<\2\u01c7\u01c3\3\2\2\2\u01c7\u01c4\3\2\2\2\u01c7"+
+		"\u01c5\3\2\2\2\u01c7\u01c6\3\2\2\2\u01c8\u01c9\3\2\2\2\u01c9\u01cc\5,"+
+		"\27\2\u01ca\u01cd\5<\37\2\u01cb\u01cd\5&\24\2\u01cc\u01ca\3\2\2\2\u01cc"+
+		"\u01cb\3\2\2\2\u01cda\3\2\2\2\u01ce\u01cf\5\u0084C\2\u01cf\u01d2\5> \2"+
+		"\u01d0\u01d3\5j\66\2\u01d1\u01d3\5l\67\2\u01d2\u01d0\3\2\2\2\u01d2\u01d1"+
+		"\3\2\2\2\u01d3\u01d4\3\2\2\2\u01d4\u01d9\5> \2\u01d5\u01da\5n8\2\u01d6"+
+		"\u01da\5p9\2\u01d7\u01da\5t;\2\u01d8\u01da\5v<\2\u01d9\u01d5\3\2\2\2\u01d9"+
+		"\u01d6\3\2\2\2\u01d9\u01d7\3\2\2\2\u01d9\u01d8\3\2\2\2\u01da\u01db\3\2"+
+		"\2\2\u01db\u01dc\5,\27\2\u01dc\u01dd\5$\23\2\u01ddc\3\2\2\2\u01de\u01df"+
+		"\5\u0086D\2\u01df\u01e2\5> \2\u01e0\u01e3\5j\66\2\u01e1\u01e3\5l\67\2"+
+		"\u01e2\u01e0\3\2\2\2\u01e2\u01e1\3\2\2\2\u01e3\u01e4\3\2\2\2\u01e4\u01e9"+
+		"\5> \2\u01e5\u01ea\5n8\2\u01e6\u01ea\5p9\2\u01e7\u01ea\5t;\2\u01e8\u01ea"+
+		"\5v<\2\u01e9\u01e5\3\2\2\2\u01e9\u01e6\3\2\2\2\u01e9\u01e7\3\2\2\2\u01e9"+
+		"\u01e8\3\2\2\2\u01ea\u01eb\3\2\2\2\u01eb\u01ee\5,\27\2\u01ec\u01ef\5<"+
+		"\37\2\u01ed\u01ef\5&\24\2\u01ee\u01ec\3\2\2\2\u01ee\u01ed\3\2\2\2\u01ef"+
+		"e\3\2\2\2\u01f0\u01f1\5\u0088E\2\u01f1\u01f4\5> \2\u01f2\u01f5\5j\66\2"+
+		"\u01f3\u01f5\5l\67\2\u01f4\u01f2\3\2\2\2\u01f4\u01f3\3\2\2\2\u01f5\u01f6"+
+		"\3\2\2\2\u01f6\u01fb\5> \2\u01f7\u01fc\5n8\2\u01f8\u01fc\5p9\2\u01f9\u01fc"+
+		"\5t;\2\u01fa\u01fc\5v<\2\u01fb\u01f7\3\2\2\2\u01fb\u01f8\3\2\2\2\u01fb"+
+		"\u01f9\3\2\2\2\u01fb\u01fa\3\2\2\2\u01fc\u01fd\3\2\2\2\u01fd\u0200\5,"+
+		"\27\2\u01fe\u0201\5<\37\2\u01ff\u0201\5&\24\2\u0200\u01fe\3\2\2\2\u0200"+
+		"\u01ff\3\2\2\2\u0201g\3\2\2\2\u0202\u0203\5\u008aF\2\u0203\u0206\5> \2"+
+		"\u0204\u0207\5j\66\2\u0205\u0207\5l\67\2\u0206\u0204\3\2\2\2\u0206\u0205"+
+		"\3\2\2\2\u0207\u0208\3\2\2\2\u0208\u020d\5> \2\u0209\u020e\5n8\2\u020a"+
+		"\u020e\5p9\2\u020b\u020e\5t;\2\u020c\u020e\5v<\2\u020d\u0209\3\2\2\2\u020d"+
+		"\u020a\3\2\2\2\u020d\u020b\3\2\2\2\u020d\u020c\3\2\2\2\u020e\u020f\3\2"+
+		"\2\2\u020f\u0212\5,\27\2\u0210\u0213\5<\37\2\u0211\u0213\5&\24\2\u0212"+
+		"\u0210\3\2\2\2\u0212\u0211\3\2\2\2\u0213i\3\2\2\2\u0214\u0215\7+\2\2\u0215"+
+		"k\3\2\2\2\u0216\u0217\7,\2\2\u0217m\3\2\2\2\u0218\u0219\7-\2\2\u0219o"+
+		"\3\2\2\2\u021a\u021b\7.\2\2\u021bq\3\2\2\2\u021c\u021d\7/\2\2\u021ds\3"+
+		"\2\2\2\u021e\u021f\7\60\2\2\u021fu\3\2\2\2\u0220\u0221\7\61\2\2\u0221"+
+		"w\3\2\2\2\u0222\u0223\7\35\2\2\u0223y\3\2\2\2\u0224\u0225\7\36\2\2\u0225"+
+		"{\3\2\2\2\u0226\u0227\7\37\2\2\u0227}\3\2\2\2\u0228\u0229\7 \2\2\u0229"+
+		"\177\3\2\2\2\u022a\u022b\7!\2\2\u022b\u0081\3\2\2\2\u022c\u022d\7\"\2"+
+		"\2\u022d\u0083\3\2\2\2\u022e\u022f\7#\2\2\u022f\u0085\3\2\2\2\u0230\u0231"+
+		"\7$\2\2\u0231\u0087\3\2\2\2\u0232\u0233\7%\2\2\u0233\u0089\3\2\2\2\u0234"+
+		"\u0235\7&\2\2\u0235\u008b\3\2\2\2\64\u0090\u0092\u009b\u009d\u00a5\u00a9"+
+		"\u00ae\u00b3\u00b8\u00bd\u00c3\u00c7\u00c9\u00d0\u00d6\u00dd\u00e9\u00f0"+
+		"\u00fc\u0103\u010f\u0116\u0120\u0146\u016b\u0173\u017c\u0183\u0188\u018e"+
+		"\u0195\u019a\u01a0\u01a7\u01b0\u01b7\u01c0\u01c7\u01cc\u01d2\u01d9\u01e2"+
+		"\u01e9\u01ee\u01f4\u01fb\u0200\u0206\u020d\u0212";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

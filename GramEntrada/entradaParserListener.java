@@ -237,6 +237,26 @@ public interface entradaParserListener extends ParseTreeListener {
 	 */
 	void exitOpasig(entradaParser.OpasigContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link entradaParser#opblt}.
+	 * @param ctx the parse tree
+	 */
+	void enterOpblt(entradaParser.OpbltContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link entradaParser#opblt}.
+	 * @param ctx the parse tree
+	 */
+	void exitOpblt(entradaParser.OpbltContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link entradaParser#opbgt}.
+	 * @param ctx the parse tree
+	 */
+	void enterOpbgt(entradaParser.OpbgtContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link entradaParser#opbgt}.
+	 * @param ctx the parse tree
+	 */
+	void exitOpbgt(entradaParser.OpbgtContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link entradaParser#coma}.
 	 * @param ctx the parse tree
 	 */
@@ -286,6 +306,36 @@ public interface entradaParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitCadena(entradaParser.CadenaContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link entradaParser#bbaja}.
+	 * @param ctx the parse tree
+	 */
+	void enterBbaja(entradaParser.BbajaContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link entradaParser#bbaja}.
+	 * @param ctx the parse tree
+	 */
+	void exitBbaja(entradaParser.BbajaContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link entradaParser#cor_abrir}.
+	 * @param ctx the parse tree
+	 */
+	void enterCor_abrir(entradaParser.Cor_abrirContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link entradaParser#cor_abrir}.
+	 * @param ctx the parse tree
+	 */
+	void exitCor_abrir(entradaParser.Cor_abrirContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link entradaParser#cor_Cerrar}.
+	 * @param ctx the parse tree
+	 */
+	void enterCor_Cerrar(entradaParser.Cor_CerrarContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link entradaParser#cor_Cerrar}.
+	 * @param ctx the parse tree
+	 */
+	void exitCor_Cerrar(entradaParser.Cor_CerrarContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link entradaParser#kw_json}.
 	 * @param ctx the parse tree
@@ -366,4 +416,284 @@ public interface entradaParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitExtension_csv(entradaParser.Extension_csvContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link entradaParser#parametros}.
+	 * @param ctx the parse tree
+	 */
+	void enterParametros(entradaParser.ParametrosContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link entradaParser#parametros}.
+	 * @param ctx the parse tree
+	 */
+	void exitParametros(entradaParser.ParametrosContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link entradaParser#len}.
+	 * @param ctx the parse tree
+	 */
+	void enterLen(entradaParser.LenContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link entradaParser#len}.
+	 * @param ctx the parse tree
+	 */
+	void exitLen(entradaParser.LenContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link entradaParser#fontcolor}.
+	 * @param ctx the parse tree
+	 */
+	void enterFontcolor(entradaParser.FontcolorContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link entradaParser#fontcolor}.
+	 * @param ctx the parse tree
+	 */
+	void exitFontcolor(entradaParser.FontcolorContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link entradaParser#fontname}.
+	 * @param ctx the parse tree
+	 */
+	void enterFontname(entradaParser.FontnameContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link entradaParser#fontname}.
+	 * @param ctx the parse tree
+	 */
+	void exitFontname(entradaParser.FontnameContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link entradaParser#fontsize}.
+	 * @param ctx the parse tree
+	 */
+	void enterFontsize(entradaParser.FontsizeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link entradaParser#fontsize}.
+	 * @param ctx the parse tree
+	 */
+	void exitFontsize(entradaParser.FontsizeContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link entradaParser#arrowsize}.
+	 * @param ctx the parse tree
+	 */
+	void enterArrowsize(entradaParser.ArrowsizeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link entradaParser#arrowsize}.
+	 * @param ctx the parse tree
+	 */
+	void exitArrowsize(entradaParser.ArrowsizeContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link entradaParser#arrowcolor}.
+	 * @param ctx the parse tree
+	 */
+	void enterArrowcolor(entradaParser.ArrowcolorContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link entradaParser#arrowcolor}.
+	 * @param ctx the parse tree
+	 */
+	void exitArrowcolor(entradaParser.ArrowcolorContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link entradaParser#penwidth}.
+	 * @param ctx the parse tree
+	 */
+	void enterPenwidth(entradaParser.PenwidthContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link entradaParser#penwidth}.
+	 * @param ctx the parse tree
+	 */
+	void exitPenwidth(entradaParser.PenwidthContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link entradaParser#fillcolor}.
+	 * @param ctx the parse tree
+	 */
+	void enterFillcolor(entradaParser.FillcolorContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link entradaParser#fillcolor}.
+	 * @param ctx the parse tree
+	 */
+	void exitFillcolor(entradaParser.FillcolorContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link entradaParser#style}.
+	 * @param ctx the parse tree
+	 */
+	void enterStyle(entradaParser.StyleContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link entradaParser#style}.
+	 * @param ctx the parse tree
+	 */
+	void exitStyle(entradaParser.StyleContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link entradaParser#shape}.
+	 * @param ctx the parse tree
+	 */
+	void enterShape(entradaParser.ShapeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link entradaParser#shape}.
+	 * @param ctx the parse tree
+	 */
+	void exitShape(entradaParser.ShapeContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link entradaParser#kw_edge}.
+	 * @param ctx the parse tree
+	 */
+	void enterKw_edge(entradaParser.Kw_edgeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link entradaParser#kw_edge}.
+	 * @param ctx the parse tree
+	 */
+	void exitKw_edge(entradaParser.Kw_edgeContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link entradaParser#kw_node}.
+	 * @param ctx the parse tree
+	 */
+	void enterKw_node(entradaParser.Kw_nodeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link entradaParser#kw_node}.
+	 * @param ctx the parse tree
+	 */
+	void exitKw_node(entradaParser.Kw_nodeContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link entradaParser#kw_relationship}.
+	 * @param ctx the parse tree
+	 */
+	void enterKw_relationship(entradaParser.Kw_relationshipContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link entradaParser#kw_relationship}.
+	 * @param ctx the parse tree
+	 */
+	void exitKw_relationship(entradaParser.Kw_relationshipContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link entradaParser#kw_class}.
+	 * @param ctx the parse tree
+	 */
+	void enterKw_class(entradaParser.Kw_classContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link entradaParser#kw_class}.
+	 * @param ctx the parse tree
+	 */
+	void exitKw_class(entradaParser.Kw_classContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link entradaParser#kw_property}.
+	 * @param ctx the parse tree
+	 */
+	void enterKw_property(entradaParser.Kw_propertyContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link entradaParser#kw_property}.
+	 * @param ctx the parse tree
+	 */
+	void exitKw_property(entradaParser.Kw_propertyContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link entradaParser#kw_inheritance}.
+	 * @param ctx the parse tree
+	 */
+	void enterKw_inheritance(entradaParser.Kw_inheritanceContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link entradaParser#kw_inheritance}.
+	 * @param ctx the parse tree
+	 */
+	void exitKw_inheritance(entradaParser.Kw_inheritanceContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link entradaParser#kw_inderect_use}.
+	 * @param ctx the parse tree
+	 */
+	void enterKw_inderect_use(entradaParser.Kw_inderect_useContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link entradaParser#kw_inderect_use}.
+	 * @param ctx the parse tree
+	 */
+	void exitKw_inderect_use(entradaParser.Kw_inderect_useContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link entradaParser#kw_len}.
+	 * @param ctx the parse tree
+	 */
+	void enterKw_len(entradaParser.Kw_lenContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link entradaParser#kw_len}.
+	 * @param ctx the parse tree
+	 */
+	void exitKw_len(entradaParser.Kw_lenContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link entradaParser#kw_fontcolor}.
+	 * @param ctx the parse tree
+	 */
+	void enterKw_fontcolor(entradaParser.Kw_fontcolorContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link entradaParser#kw_fontcolor}.
+	 * @param ctx the parse tree
+	 */
+	void exitKw_fontcolor(entradaParser.Kw_fontcolorContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link entradaParser#kw_fontname}.
+	 * @param ctx the parse tree
+	 */
+	void enterKw_fontname(entradaParser.Kw_fontnameContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link entradaParser#kw_fontname}.
+	 * @param ctx the parse tree
+	 */
+	void exitKw_fontname(entradaParser.Kw_fontnameContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link entradaParser#kw_fontsize}.
+	 * @param ctx the parse tree
+	 */
+	void enterKw_fontsize(entradaParser.Kw_fontsizeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link entradaParser#kw_fontsize}.
+	 * @param ctx the parse tree
+	 */
+	void exitKw_fontsize(entradaParser.Kw_fontsizeContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link entradaParser#kw_arrowsize}.
+	 * @param ctx the parse tree
+	 */
+	void enterKw_arrowsize(entradaParser.Kw_arrowsizeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link entradaParser#kw_arrowsize}.
+	 * @param ctx the parse tree
+	 */
+	void exitKw_arrowsize(entradaParser.Kw_arrowsizeContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link entradaParser#kw_arrowcolor}.
+	 * @param ctx the parse tree
+	 */
+	void enterKw_arrowcolor(entradaParser.Kw_arrowcolorContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link entradaParser#kw_arrowcolor}.
+	 * @param ctx the parse tree
+	 */
+	void exitKw_arrowcolor(entradaParser.Kw_arrowcolorContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link entradaParser#kw_penwidth}.
+	 * @param ctx the parse tree
+	 */
+	void enterKw_penwidth(entradaParser.Kw_penwidthContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link entradaParser#kw_penwidth}.
+	 * @param ctx the parse tree
+	 */
+	void exitKw_penwidth(entradaParser.Kw_penwidthContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link entradaParser#kw_fillcolor}.
+	 * @param ctx the parse tree
+	 */
+	void enterKw_fillcolor(entradaParser.Kw_fillcolorContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link entradaParser#kw_fillcolor}.
+	 * @param ctx the parse tree
+	 */
+	void exitKw_fillcolor(entradaParser.Kw_fillcolorContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link entradaParser#kw_style}.
+	 * @param ctx the parse tree
+	 */
+	void enterKw_style(entradaParser.Kw_styleContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link entradaParser#kw_style}.
+	 * @param ctx the parse tree
+	 */
+	void exitKw_style(entradaParser.Kw_styleContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link entradaParser#kw_shape}.
+	 * @param ctx the parse tree
+	 */
+	void enterKw_shape(entradaParser.Kw_shapeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link entradaParser#kw_shape}.
+	 * @param ctx the parse tree
+	 */
+	void exitKw_shape(entradaParser.Kw_shapeContext ctx);
 }
