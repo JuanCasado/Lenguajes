@@ -11,7 +11,10 @@ class main{
         parser.setBuildParseTree(true);
         ParseTree tree = parser.fichero();
         
-        entradaVisitor entrada = new entradaVisitor();
+        System.out.print(tree.toStringTree(parser));
+
+        entradaSimbols eSimbols = new entradaSimbols();
+        entradaVisitor entrada = new entradaVisitor(eSimbols);
         entrada.visit(tree);
     }
 }
