@@ -1,18 +1,10 @@
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
-import entradaParser.ParametrosContext;
-
 public class entradaVisitor<T> extends AbstractParseTreeVisitor<T> implements entradaParserVisitor<T> {
 
     @Override
     public T visitFichero(entradaParser.FicheroContext ctx) {
         
-        for (Tipo_archivoContext archivo : ctx.tipo_archivo()){
-            
-        }
-        for (ParametrosContext parametro : ctx.parametros()) {
-
-        }
         return visitChildren(ctx);
     }
 
@@ -37,7 +29,27 @@ public class entradaVisitor<T> extends AbstractParseTreeVisitor<T> implements en
     }
 
     @Override
-    public T visitTextos(entradaParser.TextosContext ctx) {
+    public T visitCadena_abrir(entradaParser.Cadena_abrirContext ctx) {
+        return visitChildren(ctx);
+    }
+
+    @Override
+    public T visitTipo_estruc(entradaParser.Tipo_estrucContext ctx) {
+        return visitChildren(ctx);
+    }
+
+    @Override
+    public T visitCadena_cerrar(entradaParser.Cadena_cerrarContext ctx) {
+        return visitChildren(ctx);
+    }
+
+    @Override
+    public T visitTexto_comen(entradaParser.Texto_comenContext ctx) {
+        return visitChildren(ctx);
+    }
+
+    @Override
+    public T visitTexto_cadena(entradaParser.Texto_cadenaContext ctx) {
         return visitChildren(ctx);
     }
 

@@ -1,22 +1,16 @@
-principal: CsvLexer CsvParser
-
-CsvLexer: CsvLexer.java
-	javac CsvLexer.java
-
-CsvParser: CsvParser.java	
-	javac CsvParser.java
+principal: antlr4 CsvLexer.g4;antlr4 CsvParser.g4;javac *.java
 
 .PHONY: clean clean_java clean_class clean_interp clean_tokens
-clean_java:
+java:
 	rm -f *.java
 
-clean_class:
+class:
 	rm -rf *.class
 
-clean_interp:
+interp:
 	rm -rf *.interp
 
-clean_tokens:
+tokens:
 	rm -rf *.java
 
 clean:
