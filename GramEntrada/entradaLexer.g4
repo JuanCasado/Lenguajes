@@ -18,6 +18,9 @@ SAP: '(';
 SCP: ')';
 ASIG: '=';  
 OPASIG:':=';
+BBAJA: '_';
+COR_ABRIR: '[';
+COR_CERRAR: ']';
 KW_DOS_PUNTOS: ':';
 TERMINADOR: ';';
 WS: ' '+ ;
@@ -43,10 +46,20 @@ EXTENSION_SVG: 'svg';
 EXTENSION_DOT: 'dot';
 EXTENSION_CSV: 'csv';
 
-IDF: ID_LETRA(ID_LETRA|BARRABAJA|DIGITO)*;    //identificador final     <-- [a-zA-Z]([a-zA-Z][0-9])*
+EDGE: 'edge';
+NODE: 'node';
+
+RELATIONSHIP: 'relationship';
+CLASS: 'class';
+PROPERTY: 'property';
+INHERITANCE: 'inheritance';
+INDERECT_USE: 'inderect_use';
+
+
+IDF: ID_LETRA(ID_LETRA/*|BARRABAJA*/|DIGITO)*;    //identificador final     <-- [a-zA-Z]([a-zA-Z][0-9])*
 fragment ID_LETRA:[a-zA-Z];         //fragment es un "atajo" para decir que hay unos símbolos que funcionan como símbolos terminales, pero los sustituye (en linea 19)
 fragment DIGITO: [0-9];  
-fragment BARRABAJA: '_';
+//fragment BARRABAJA: '_';
 
 mode COMENTARIO_MULTILINEA_MODE;
 COMENTARIOCERRAR: '*/' -> popMode; //con popMode se sale del modo

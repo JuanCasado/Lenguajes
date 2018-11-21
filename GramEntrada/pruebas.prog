@@ -9,3 +9,8 @@ JSON=C/tomaruta/archivo.json
 DOT=./tomaruta/archivo.dot
 SVG=../archivo.svg
 CSV=./../hola/archivo.csv
+JSON=archivo.json
+
+len_relationship=39
+style_node_inheritance="pepe"
+shape_node_inderect_use=prueba
