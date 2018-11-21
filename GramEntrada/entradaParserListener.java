@@ -57,15 +57,15 @@ public interface entradaParserListener extends ParseTreeListener {
 	 */
 	void exitTargcom(entradaParser.TargcomContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link entradaParser#textos}.
+	 * Enter a parse tree produced by {@link entradaParser#texto_comen}.
 	 * @param ctx the parse tree
 	 */
-	void enterTextos(entradaParser.TextosContext ctx);
+	void enterTexto_comen(entradaParser.Texto_comenContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link entradaParser#textos}.
+	 * Exit a parse tree produced by {@link entradaParser#texto_comen}.
 	 * @param ctx the parse tree
 	 */
-	void exitTextos(entradaParser.TextosContext ctx);
+	void exitTexto_comen(entradaParser.Texto_comenContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link entradaParser#rutafichero}.
 	 * @param ctx the parse tree
@@ -297,6 +297,36 @@ public interface entradaParserListener extends ParseTreeListener {
 	 */
 	void exitDoblepunto(entradaParser.DoblepuntoContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link entradaParser#texto_cadena}.
+	 * @param ctx the parse tree
+	 */
+	void enterTexto_cadena(entradaParser.Texto_cadenaContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link entradaParser#texto_cadena}.
+	 * @param ctx the parse tree
+	 */
+	void exitTexto_cadena(entradaParser.Texto_cadenaContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link entradaParser#cadena_abrir}.
+	 * @param ctx the parse tree
+	 */
+	void enterCadena_abrir(entradaParser.Cadena_abrirContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link entradaParser#cadena_abrir}.
+	 * @param ctx the parse tree
+	 */
+	void exitCadena_abrir(entradaParser.Cadena_abrirContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link entradaParser#cadena_cerrar}.
+	 * @param ctx the parse tree
+	 */
+	void enterCadena_cerrar(entradaParser.Cadena_cerrarContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link entradaParser#cadena_cerrar}.
+	 * @param ctx the parse tree
+	 */
+	void exitCadena_cerrar(entradaParser.Cadena_cerrarContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link entradaParser#cadena}.
 	 * @param ctx the parse tree
 	 */
@@ -427,6 +457,16 @@ public interface entradaParserListener extends ParseTreeListener {
 	 */
 	void exitParametros(entradaParser.ParametrosContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link entradaParser#value}.
+	 * @param ctx the parse tree
+	 */
+	void enterValue(entradaParser.ValueContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link entradaParser#value}.
+	 * @param ctx the parse tree
+	 */
+	void exitValue(entradaParser.ValueContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link entradaParser#len}.
 	 * @param ctx the parse tree
 	 */
@@ -526,6 +566,16 @@ public interface entradaParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitShape(entradaParser.ShapeContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link entradaParser#tipo_estruc}.
+	 * @param ctx the parse tree
+	 */
+	void enterTipo_estruc(entradaParser.Tipo_estrucContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link entradaParser#tipo_estruc}.
+	 * @param ctx the parse tree
+	 */
+	void exitTipo_estruc(entradaParser.Tipo_estrucContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link entradaParser#kw_edge}.
 	 * @param ctx the parse tree
