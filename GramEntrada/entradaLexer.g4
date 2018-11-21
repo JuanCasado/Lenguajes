@@ -26,7 +26,6 @@ TERMINADOR: ';';
 WS: ' '+ ;
 BARRA: '\\' | '/';
 
-
 KW_JSON:'JSON';
 KW_DOT: 'DOT';
 KW_SVG: 'SVG';

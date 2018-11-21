@@ -75,13 +75,13 @@ public class entradaParserBaseListener implements entradaParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterTextos(entradaParser.TextosContext ctx) { }
+	@Override public void enterTexto_comen(entradaParser.Texto_comenContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitTextos(entradaParser.TextosContext ctx) { }
+	@Override public void exitTexto_comen(entradaParser.Texto_comenContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -363,6 +363,42 @@ public class entradaParserBaseListener implements entradaParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterTexto_cadena(entradaParser.Texto_cadenaContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTexto_cadena(entradaParser.Texto_cadenaContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCadena_abrir(entradaParser.Cadena_abrirContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCadena_abrir(entradaParser.Cadena_abrirContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCadena_cerrar(entradaParser.Cadena_cerrarContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCadena_cerrar(entradaParser.Cadena_cerrarContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterCadena(entradaParser.CadenaContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -519,6 +555,18 @@ public class entradaParserBaseListener implements entradaParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterValue(entradaParser.ValueContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitValue(entradaParser.ValueContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterLen(entradaParser.LenContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -634,6 +682,18 @@ public class entradaParserBaseListener implements entradaParserListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitShape(entradaParser.ShapeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterTipo_estruc(entradaParser.Tipo_estrucContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTipo_estruc(entradaParser.Tipo_estrucContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

@@ -28,31 +28,34 @@ public class entradaParser extends Parser {
 		TEXTOCOMENTARIO_UL=55, CADENA_CERRAR=56, TEXTO_CADENA=57;
 	public static final int
 		RULE_fichero = 0, RULE_comentario = 1, RULE_authorcom = 2, RULE_descrcom = 3, 
-		RULE_targcom = 4, RULE_textos = 5, RULE_rutafichero = 6, RULE_tipo_archivo = 7, 
+		RULE_targcom = 4, RULE_texto_comen = 5, RULE_rutafichero = 6, RULE_tipo_archivo = 7, 
 		RULE_json = 8, RULE_svg = 9, RULE_dot = 10, RULE_csv = 11, RULE_wsci = 12, 
 		RULE_white_space = 13, RULE_barra = 14, RULE_intro = 15, RULE_letra = 16, 
 		RULE_numero = 17, RULE_variable = 18, RULE_sap = 19, RULE_scp = 20, RULE_asig = 21, 
 		RULE_opasig = 22, RULE_opblt = 23, RULE_opbgt = 24, RULE_coma = 25, RULE_dos_ptos = 26, 
-		RULE_punto = 27, RULE_doblepunto = 28, RULE_cadena = 29, RULE_bbaja = 30, 
-		RULE_cor_abrir = 31, RULE_cor_Cerrar = 32, RULE_kw_json = 33, RULE_extension_json = 34, 
-		RULE_kw_svg = 35, RULE_extension_svg = 36, RULE_kw_dot = 37, RULE_extension_dot = 38, 
-		RULE_kw_csv = 39, RULE_extension_csv = 40, RULE_parametros = 41, RULE_len = 42, 
-		RULE_fontcolor = 43, RULE_fontname = 44, RULE_fontsize = 45, RULE_arrowsize = 46, 
-		RULE_arrowcolor = 47, RULE_penwidth = 48, RULE_fillcolor = 49, RULE_style = 50, 
-		RULE_shape = 51, RULE_kw_edge = 52, RULE_kw_node = 53, RULE_kw_relationship = 54, 
-		RULE_kw_class = 55, RULE_kw_property = 56, RULE_kw_inheritance = 57, RULE_kw_inderect_use = 58, 
-		RULE_kw_len = 59, RULE_kw_fontcolor = 60, RULE_kw_fontname = 61, RULE_kw_fontsize = 62, 
-		RULE_kw_arrowsize = 63, RULE_kw_arrowcolor = 64, RULE_kw_penwidth = 65, 
-		RULE_kw_fillcolor = 66, RULE_kw_style = 67, RULE_kw_shape = 68;
+		RULE_punto = 27, RULE_doblepunto = 28, RULE_texto_cadena = 29, RULE_cadena_abrir = 30, 
+		RULE_cadena_cerrar = 31, RULE_cadena = 32, RULE_bbaja = 33, RULE_cor_abrir = 34, 
+		RULE_cor_Cerrar = 35, RULE_kw_json = 36, RULE_extension_json = 37, RULE_kw_svg = 38, 
+		RULE_extension_svg = 39, RULE_kw_dot = 40, RULE_extension_dot = 41, RULE_kw_csv = 42, 
+		RULE_extension_csv = 43, RULE_parametros = 44, RULE_value = 45, RULE_len = 46, 
+		RULE_fontcolor = 47, RULE_fontname = 48, RULE_fontsize = 49, RULE_arrowsize = 50, 
+		RULE_arrowcolor = 51, RULE_penwidth = 52, RULE_fillcolor = 53, RULE_style = 54, 
+		RULE_shape = 55, RULE_tipo_estruc = 56, RULE_kw_edge = 57, RULE_kw_node = 58, 
+		RULE_kw_relationship = 59, RULE_kw_class = 60, RULE_kw_property = 61, 
+		RULE_kw_inheritance = 62, RULE_kw_inderect_use = 63, RULE_kw_len = 64, 
+		RULE_kw_fontcolor = 65, RULE_kw_fontname = 66, RULE_kw_fontsize = 67, 
+		RULE_kw_arrowsize = 68, RULE_kw_arrowcolor = 69, RULE_kw_penwidth = 70, 
+		RULE_kw_fillcolor = 71, RULE_kw_style = 72, RULE_kw_shape = 73;
 	public static final String[] ruleNames = {
-		"fichero", "comentario", "authorcom", "descrcom", "targcom", "textos", 
+		"fichero", "comentario", "authorcom", "descrcom", "targcom", "texto_comen", 
 		"rutafichero", "tipo_archivo", "json", "svg", "dot", "csv", "wsci", "white_space", 
 		"barra", "intro", "letra", "numero", "variable", "sap", "scp", "asig", 
 		"opasig", "opblt", "opbgt", "coma", "dos_ptos", "punto", "doblepunto", 
-		"cadena", "bbaja", "cor_abrir", "cor_Cerrar", "kw_json", "extension_json", 
-		"kw_svg", "extension_svg", "kw_dot", "extension_dot", "kw_csv", "extension_csv", 
-		"parametros", "len", "fontcolor", "fontname", "fontsize", "arrowsize", 
-		"arrowcolor", "penwidth", "fillcolor", "style", "shape", "kw_edge", "kw_node", 
+		"texto_cadena", "cadena_abrir", "cadena_cerrar", "cadena", "bbaja", "cor_abrir", 
+		"cor_Cerrar", "kw_json", "extension_json", "kw_svg", "extension_svg", 
+		"kw_dot", "extension_dot", "kw_csv", "extension_csv", "parametros", "value", 
+		"len", "fontcolor", "fontname", "fontsize", "arrowsize", "arrowcolor", 
+		"penwidth", "fillcolor", "style", "shape", "tipo_estruc", "kw_edge", "kw_node", 
 		"kw_relationship", "kw_class", "kw_property", "kw_inheritance", "kw_inderect_use", 
 		"kw_len", "kw_fontcolor", "kw_fontname", "kw_fontsize", "kw_arrowsize", 
 		"kw_arrowcolor", "kw_penwidth", "kw_fillcolor", "kw_style", "kw_shape"
@@ -174,12 +177,12 @@ public class entradaParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(144);
+			setState(154);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << COMENTARIOABRIR) | (1L << COMENTARIOLINEA) | (1L << INTRO) | (1L << WS) | (1L << KW_JSON) | (1L << KW_DOT) | (1L << KW_SVG) | (1L << KW_CSV) | (1L << LEN) | (1L << FONTCOLOR) | (1L << FONTNAME) | (1L << FONTSIZE) | (1L << ARROWSIZE) | (1L << ARROWCOLOR) | (1L << PENWIDTH) | (1L << FILLCOLOR) | (1L << STYLE) | (1L << SHAPE))) != 0)) {
 				{
-				setState(142);
+				setState(152);
 				_errHandler.sync(this);
 				switch (_input.LA(1)) {
 				case KW_JSON:
@@ -187,21 +190,21 @@ public class entradaParser extends Parser {
 				case KW_SVG:
 				case KW_CSV:
 					{
-					setState(138);
+					setState(148);
 					tipo_archivo();
 					}
 					break;
 				case COMENTARIOABRIR:
 				case COMENTARIOLINEA:
 					{
-					setState(139);
+					setState(149);
 					comentario();
 					}
 					break;
 				case INTRO:
 				case WS:
 					{
-					setState(140);
+					setState(150);
 					wsci();
 					}
 					break;
@@ -216,7 +219,7 @@ public class entradaParser extends Parser {
 				case STYLE:
 				case SHAPE:
 					{
-					setState(141);
+					setState(151);
 					parametros();
 					}
 					break;
@@ -224,7 +227,7 @@ public class entradaParser extends Parser {
 					throw new NoViableAltException(this);
 				}
 				}
-				setState(146);
+				setState(156);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -244,11 +247,11 @@ public class entradaParser extends Parser {
 	public static class ComentarioContext extends ParserRuleContext {
 		public TerminalNode COMENTARIOABRIR() { return getToken(entradaParser.COMENTARIOABRIR, 0); }
 		public TerminalNode COMENTARIOCERRAR() { return getToken(entradaParser.COMENTARIOCERRAR, 0); }
-		public List<TextosContext> textos() {
-			return getRuleContexts(TextosContext.class);
+		public List<Texto_comenContext> texto_comen() {
+			return getRuleContexts(Texto_comenContext.class);
 		}
-		public TextosContext textos(int i) {
-			return getRuleContext(TextosContext.class,i);
+		public Texto_comenContext texto_comen(int i) {
+			return getRuleContext(Texto_comenContext.class,i);
 		}
 		public List<AuthorcomContext> authorcom() {
 			return getRuleContexts(AuthorcomContext.class);
@@ -293,50 +296,50 @@ public class entradaParser extends Parser {
 		enterRule(_localctx, 2, RULE_comentario);
 		int _la;
 		try {
-			setState(167);
+			setState(177);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case COMENTARIOABRIR:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(147);
+				setState(157);
 				match(COMENTARIOABRIR);
-				setState(155);
+				setState(165);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << INTRO) | (1L << TEXTOCOMENTARIO_ML) | (1L << AUTHOR) | (1L << DESCRIPTION) | (1L << TARGET) | (1L << TEXTOCOMENTARIO_UL))) != 0)) {
 					{
-					setState(153);
+					setState(163);
 					_errHandler.sync(this);
 					switch (_input.LA(1)) {
 					case TEXTOCOMENTARIO_ML:
 					case TEXTOCOMENTARIO_UL:
 						{
-						setState(148);
-						textos();
+						setState(158);
+						texto_comen();
 						}
 						break;
 					case AUTHOR:
 						{
-						setState(149);
+						setState(159);
 						authorcom();
 						}
 						break;
 					case DESCRIPTION:
 						{
-						setState(150);
+						setState(160);
 						descrcom();
 						}
 						break;
 					case TARGET:
 						{
-						setState(151);
+						setState(161);
 						targcom();
 						}
 						break;
 					case INTRO:
 						{
-						setState(152);
+						setState(162);
 						match(INTRO);
 						}
 						break;
@@ -344,34 +347,34 @@ public class entradaParser extends Parser {
 						throw new NoViableAltException(this);
 					}
 					}
-					setState(157);
+					setState(167);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
-				setState(158);
+				setState(168);
 				match(COMENTARIOCERRAR);
 				}
 				break;
 			case COMENTARIOLINEA:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(159);
+				setState(169);
 				match(COMENTARIOLINEA);
-				setState(163);
+				setState(173);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==TEXTOCOMENTARIO_ML || _la==TEXTOCOMENTARIO_UL) {
 					{
 					{
-					setState(160);
-					textos();
+					setState(170);
+					texto_comen();
 					}
 					}
-					setState(165);
+					setState(175);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
-				setState(166);
+				setState(176);
 				match(FINAL_COMENTARIO_UL);
 				}
 				break;
@@ -416,7 +419,7 @@ public class entradaParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(170); 
+			setState(180); 
 			_errHandler.sync(this);
 			_alt = 1;
 			do {
@@ -424,7 +427,7 @@ public class entradaParser extends Parser {
 				case 1:
 					{
 					{
-					setState(169);
+					setState(179);
 					match(AUTHOR);
 					}
 					}
@@ -432,7 +435,7 @@ public class entradaParser extends Parser {
 				default:
 					throw new NoViableAltException(this);
 				}
-				setState(172); 
+				setState(182); 
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,6,_ctx);
 			} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
@@ -475,7 +478,7 @@ public class entradaParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(175); 
+			setState(185); 
 			_errHandler.sync(this);
 			_alt = 1;
 			do {
@@ -483,7 +486,7 @@ public class entradaParser extends Parser {
 				case 1:
 					{
 					{
-					setState(174);
+					setState(184);
 					match(DESCRIPTION);
 					}
 					}
@@ -491,7 +494,7 @@ public class entradaParser extends Parser {
 				default:
 					throw new NoViableAltException(this);
 				}
-				setState(177); 
+				setState(187); 
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,7,_ctx);
 			} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
@@ -534,7 +537,7 @@ public class entradaParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(180); 
+			setState(190); 
 			_errHandler.sync(this);
 			_alt = 1;
 			do {
@@ -542,7 +545,7 @@ public class entradaParser extends Parser {
 				case 1:
 					{
 					{
-					setState(179);
+					setState(189);
 					match(TARGET);
 					}
 					}
@@ -550,7 +553,7 @@ public class entradaParser extends Parser {
 				default:
 					throw new NoViableAltException(this);
 				}
-				setState(182); 
+				setState(192); 
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,8,_ctx);
 			} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
@@ -567,7 +570,7 @@ public class entradaParser extends Parser {
 		return _localctx;
 	}
 
-	public static class TextosContext extends ParserRuleContext {
+	public static class Texto_comenContext extends ParserRuleContext {
 		public List<TerminalNode> TEXTOCOMENTARIO_ML() { return getTokens(entradaParser.TEXTOCOMENTARIO_ML); }
 		public TerminalNode TEXTOCOMENTARIO_ML(int i) {
 			return getToken(entradaParser.TEXTOCOMENTARIO_ML, i);
@@ -576,29 +579,29 @@ public class entradaParser extends Parser {
 		public TerminalNode TEXTOCOMENTARIO_UL(int i) {
 			return getToken(entradaParser.TEXTOCOMENTARIO_UL, i);
 		}
-		public TextosContext(ParserRuleContext parent, int invokingState) {
+		public Texto_comenContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_textos; }
+		@Override public int getRuleIndex() { return RULE_texto_comen; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).enterTextos(this);
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).enterTexto_comen(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).exitTextos(this);
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).exitTexto_comen(this);
 		}
 	}
 
-	public final TextosContext textos() throws RecognitionException {
-		TextosContext _localctx = new TextosContext(_ctx, getState());
-		enterRule(_localctx, 10, RULE_textos);
+	public final Texto_comenContext texto_comen() throws RecognitionException {
+		Texto_comenContext _localctx = new Texto_comenContext(_ctx, getState());
+		enterRule(_localctx, 10, RULE_texto_comen);
 		int _la;
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(185); 
+			setState(195); 
 			_errHandler.sync(this);
 			_alt = 1;
 			do {
@@ -606,7 +609,7 @@ public class entradaParser extends Parser {
 				case 1:
 					{
 					{
-					setState(184);
+					setState(194);
 					_la = _input.LA(1);
 					if ( !(_la==TEXTOCOMENTARIO_ML || _la==TEXTOCOMENTARIO_UL) ) {
 					_errHandler.recoverInline(this);
@@ -622,7 +625,7 @@ public class entradaParser extends Parser {
 				default:
 					throw new NoViableAltException(this);
 				}
-				setState(187); 
+				setState(197); 
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,9,_ctx);
 			} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
@@ -698,37 +701,37 @@ public class entradaParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(199);
+			setState(209);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,12,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					{
-					setState(197);
+					setState(207);
 					_errHandler.sync(this);
 					switch (_input.LA(1)) {
 					case DOBLEPUNTO:
 						{
-						setState(189);
+						setState(199);
 						doblepunto();
 						}
 						break;
 					case PUNTO:
 						{
-						setState(190);
+						setState(200);
 						punto();
 						}
 						break;
 					case LETRA:
 						{
-						setState(191);
+						setState(201);
 						letra();
-						setState(193);
+						setState(203);
 						_errHandler.sync(this);
 						_la = _input.LA(1);
 						if (_la==KW_DOS_PUNTOS) {
 							{
-							setState(192);
+							setState(202);
 							dos_ptos();
 							}
 						}
@@ -737,13 +740,13 @@ public class entradaParser extends Parser {
 						break;
 					case IDF:
 						{
-						setState(195);
+						setState(205);
 						variable();
 						}
 						break;
 					case BARRA:
 						{
-						setState(196);
+						setState(206);
 						barra();
 						}
 						break;
@@ -752,7 +755,7 @@ public class entradaParser extends Parser {
 					}
 					} 
 				}
-				setState(201);
+				setState(211);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,12,_ctx);
 			}
@@ -802,30 +805,30 @@ public class entradaParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(206);
+			setState(216);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case KW_JSON:
 				{
-				setState(202);
+				setState(212);
 				json();
 				}
 				break;
 			case KW_SVG:
 				{
-				setState(203);
+				setState(213);
 				svg();
 				}
 				break;
 			case KW_DOT:
 				{
-				setState(204);
+				setState(214);
 				dot();
 				}
 				break;
 			case KW_CSV:
 				{
-				setState(205);
+				setState(215);
 				csv();
 				}
 				break;
@@ -891,45 +894,45 @@ public class entradaParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(208);
+			setState(218);
 			kw_json();
-			setState(212);
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			while (_la==INTRO || _la==WS) {
-				{
-				{
-				setState(209);
-				wsci();
-				}
-				}
-				setState(214);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-			}
-			setState(215);
-			asig();
-			setState(219);
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			while (_la==INTRO || _la==WS) {
-				{
-				{
-				setState(216);
-				wsci();
-				}
-				}
-				setState(221);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-			}
 			setState(222);
-			rutafichero();
-			setState(223);
-			variable();
-			setState(224);
-			punto();
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			while (_la==INTRO || _la==WS) {
+				{
+				{
+				setState(219);
+				wsci();
+				}
+				}
+				setState(224);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+			}
 			setState(225);
+			asig();
+			setState(229);
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			while (_la==INTRO || _la==WS) {
+				{
+				{
+				setState(226);
+				wsci();
+				}
+				}
+				setState(231);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+			}
+			setState(232);
+			rutafichero();
+			setState(233);
+			variable();
+			setState(234);
+			punto();
+			setState(235);
 			extension_json();
 			}
 		}
@@ -990,45 +993,45 @@ public class entradaParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(227);
+			setState(237);
 			kw_svg();
-			setState(231);
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			while (_la==INTRO || _la==WS) {
-				{
-				{
-				setState(228);
-				wsci();
-				}
-				}
-				setState(233);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-			}
-			setState(234);
-			asig();
-			setState(238);
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			while (_la==INTRO || _la==WS) {
-				{
-				{
-				setState(235);
-				wsci();
-				}
-				}
-				setState(240);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-			}
 			setState(241);
-			rutafichero();
-			setState(242);
-			variable();
-			setState(243);
-			punto();
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			while (_la==INTRO || _la==WS) {
+				{
+				{
+				setState(238);
+				wsci();
+				}
+				}
+				setState(243);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+			}
 			setState(244);
+			asig();
+			setState(248);
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			while (_la==INTRO || _la==WS) {
+				{
+				{
+				setState(245);
+				wsci();
+				}
+				}
+				setState(250);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+			}
+			setState(251);
+			rutafichero();
+			setState(252);
+			variable();
+			setState(253);
+			punto();
+			setState(254);
 			extension_svg();
 			}
 		}
@@ -1089,45 +1092,45 @@ public class entradaParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(246);
+			setState(256);
 			kw_dot();
-			setState(250);
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			while (_la==INTRO || _la==WS) {
-				{
-				{
-				setState(247);
-				wsci();
-				}
-				}
-				setState(252);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-			}
-			setState(253);
-			asig();
-			setState(257);
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			while (_la==INTRO || _la==WS) {
-				{
-				{
-				setState(254);
-				wsci();
-				}
-				}
-				setState(259);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-			}
 			setState(260);
-			rutafichero();
-			setState(261);
-			variable();
-			setState(262);
-			punto();
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			while (_la==INTRO || _la==WS) {
+				{
+				{
+				setState(257);
+				wsci();
+				}
+				}
+				setState(262);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+			}
 			setState(263);
+			asig();
+			setState(267);
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			while (_la==INTRO || _la==WS) {
+				{
+				{
+				setState(264);
+				wsci();
+				}
+				}
+				setState(269);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+			}
+			setState(270);
+			rutafichero();
+			setState(271);
+			variable();
+			setState(272);
+			punto();
+			setState(273);
 			extension_dot();
 			}
 		}
@@ -1188,45 +1191,45 @@ public class entradaParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(265);
+			setState(275);
 			kw_csv();
-			setState(269);
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			while (_la==INTRO || _la==WS) {
-				{
-				{
-				setState(266);
-				wsci();
-				}
-				}
-				setState(271);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-			}
-			setState(272);
-			asig();
-			setState(276);
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			while (_la==INTRO || _la==WS) {
-				{
-				{
-				setState(273);
-				wsci();
-				}
-				}
-				setState(278);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-			}
 			setState(279);
-			rutafichero();
-			setState(280);
-			variable();
-			setState(281);
-			punto();
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			while (_la==INTRO || _la==WS) {
+				{
+				{
+				setState(276);
+				wsci();
+				}
+				}
+				setState(281);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+			}
 			setState(282);
+			asig();
+			setState(286);
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			while (_la==INTRO || _la==WS) {
+				{
+				{
+				setState(283);
+				wsci();
+				}
+				}
+				setState(288);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+			}
+			setState(289);
+			rutafichero();
+			setState(290);
+			variable();
+			setState(291);
+			punto();
+			setState(292);
 			extension_csv();
 			}
 		}
@@ -1268,18 +1271,18 @@ public class entradaParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(286);
+			setState(296);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case WS:
 				{
-				setState(284);
+				setState(294);
 				white_space();
 				}
 				break;
 			case INTRO:
 				{
-				setState(285);
+				setState(295);
 				intro();
 				}
 				break;
@@ -1321,7 +1324,7 @@ public class entradaParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(288);
+			setState(298);
 			match(WS);
 			}
 		}
@@ -1358,7 +1361,7 @@ public class entradaParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(290);
+			setState(300);
 			match(BARRA);
 			}
 		}
@@ -1395,7 +1398,7 @@ public class entradaParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(292);
+			setState(302);
 			match(INTRO);
 			}
 		}
@@ -1432,7 +1435,7 @@ public class entradaParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(294);
+			setState(304);
 			match(LETRA);
 			}
 		}
@@ -1469,7 +1472,7 @@ public class entradaParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(296);
+			setState(306);
 			match(INT);
 			}
 		}
@@ -1506,7 +1509,7 @@ public class entradaParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(298);
+			setState(308);
 			match(IDF);
 			}
 		}
@@ -1543,7 +1546,7 @@ public class entradaParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(300);
+			setState(310);
 			match(SAP);
 			}
 		}
@@ -1580,7 +1583,7 @@ public class entradaParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(302);
+			setState(312);
 			match(SCP);
 			}
 		}
@@ -1617,7 +1620,7 @@ public class entradaParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(304);
+			setState(314);
 			match(ASIG);
 			}
 		}
@@ -1654,7 +1657,7 @@ public class entradaParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(306);
+			setState(316);
 			match(OPASIG);
 			}
 		}
@@ -1691,7 +1694,7 @@ public class entradaParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(308);
+			setState(318);
 			match(OPBLT);
 			}
 		}
@@ -1728,7 +1731,7 @@ public class entradaParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(310);
+			setState(320);
 			match(OPBGT);
 			}
 		}
@@ -1765,7 +1768,7 @@ public class entradaParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(312);
+			setState(322);
 			match(COMA);
 			}
 		}
@@ -1802,7 +1805,7 @@ public class entradaParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(314);
+			setState(324);
 			match(KW_DOS_PUNTOS);
 			}
 		}
@@ -1839,7 +1842,7 @@ public class entradaParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(316);
+			setState(326);
 			match(PUNTO);
 			}
 		}
@@ -1876,7 +1879,7 @@ public class entradaParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(318);
+			setState(328);
 			match(DOBLEPUNTO);
 			}
 		}
@@ -1891,12 +1894,151 @@ public class entradaParser extends Parser {
 		return _localctx;
 	}
 
-	public static class CadenaContext extends ParserRuleContext {
-		public TerminalNode CADENA_ABRIR() { return getToken(entradaParser.CADENA_ABRIR, 0); }
-		public TerminalNode CADENA_CERRAR() { return getToken(entradaParser.CADENA_CERRAR, 0); }
+	public static class Texto_cadenaContext extends ParserRuleContext {
 		public List<TerminalNode> TEXTO_CADENA() { return getTokens(entradaParser.TEXTO_CADENA); }
 		public TerminalNode TEXTO_CADENA(int i) {
 			return getToken(entradaParser.TEXTO_CADENA, i);
+		}
+		public Texto_cadenaContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_texto_cadena; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).enterTexto_cadena(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).exitTexto_cadena(this);
+		}
+	}
+
+	public final Texto_cadenaContext texto_cadena() throws RecognitionException {
+		Texto_cadenaContext _localctx = new Texto_cadenaContext(_ctx, getState());
+		enterRule(_localctx, 58, RULE_texto_cadena);
+		try {
+			int _alt;
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(331); 
+			_errHandler.sync(this);
+			_alt = 1;
+			do {
+				switch (_alt) {
+				case 1:
+					{
+					{
+					setState(330);
+					match(TEXTO_CADENA);
+					}
+					}
+					break;
+				default:
+					throw new NoViableAltException(this);
+				}
+				setState(333); 
+				_errHandler.sync(this);
+				_alt = getInterpreter().adaptivePredict(_input,23,_ctx);
+			} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class Cadena_abrirContext extends ParserRuleContext {
+		public TerminalNode CADENA_ABRIR() { return getToken(entradaParser.CADENA_ABRIR, 0); }
+		public Cadena_abrirContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_cadena_abrir; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).enterCadena_abrir(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).exitCadena_abrir(this);
+		}
+	}
+
+	public final Cadena_abrirContext cadena_abrir() throws RecognitionException {
+		Cadena_abrirContext _localctx = new Cadena_abrirContext(_ctx, getState());
+		enterRule(_localctx, 60, RULE_cadena_abrir);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(335);
+			match(CADENA_ABRIR);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class Cadena_cerrarContext extends ParserRuleContext {
+		public TerminalNode CADENA_CERRAR() { return getToken(entradaParser.CADENA_CERRAR, 0); }
+		public Cadena_cerrarContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_cadena_cerrar; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).enterCadena_cerrar(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).exitCadena_cerrar(this);
+		}
+	}
+
+	public final Cadena_cerrarContext cadena_cerrar() throws RecognitionException {
+		Cadena_cerrarContext _localctx = new Cadena_cerrarContext(_ctx, getState());
+		enterRule(_localctx, 62, RULE_cadena_cerrar);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(337);
+			match(CADENA_CERRAR);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class CadenaContext extends ParserRuleContext {
+		public Cadena_abrirContext cadena_abrir() {
+			return getRuleContext(Cadena_abrirContext.class,0);
+		}
+		public Cadena_cerrarContext cadena_cerrar() {
+			return getRuleContext(Cadena_cerrarContext.class,0);
+		}
+		public List<Texto_cadenaContext> texto_cadena() {
+			return getRuleContexts(Texto_cadenaContext.class);
+		}
+		public Texto_cadenaContext texto_cadena(int i) {
+			return getRuleContext(Texto_cadenaContext.class,i);
 		}
 		public CadenaContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -1914,29 +2056,29 @@ public class entradaParser extends Parser {
 
 	public final CadenaContext cadena() throws RecognitionException {
 		CadenaContext _localctx = new CadenaContext(_ctx, getState());
-		enterRule(_localctx, 58, RULE_cadena);
+		enterRule(_localctx, 64, RULE_cadena);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(320);
-			match(CADENA_ABRIR);
-			setState(324);
+			setState(339);
+			cadena_abrir();
+			setState(343);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==TEXTO_CADENA) {
 				{
 				{
-				setState(321);
-				match(TEXTO_CADENA);
+				setState(340);
+				texto_cadena();
 				}
 				}
-				setState(326);
+				setState(345);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(327);
-			match(CADENA_CERRAR);
+			setState(346);
+			cadena_cerrar();
 			}
 		}
 		catch (RecognitionException re) {
@@ -1968,11 +2110,11 @@ public class entradaParser extends Parser {
 
 	public final BbajaContext bbaja() throws RecognitionException {
 		BbajaContext _localctx = new BbajaContext(_ctx, getState());
-		enterRule(_localctx, 60, RULE_bbaja);
+		enterRule(_localctx, 66, RULE_bbaja);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(329);
+			setState(348);
 			match(BBAJA);
 			}
 		}
@@ -2005,11 +2147,11 @@ public class entradaParser extends Parser {
 
 	public final Cor_abrirContext cor_abrir() throws RecognitionException {
 		Cor_abrirContext _localctx = new Cor_abrirContext(_ctx, getState());
-		enterRule(_localctx, 62, RULE_cor_abrir);
+		enterRule(_localctx, 68, RULE_cor_abrir);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(331);
+			setState(350);
 			match(COR_ABRIR);
 			}
 		}
@@ -2042,11 +2184,11 @@ public class entradaParser extends Parser {
 
 	public final Cor_CerrarContext cor_Cerrar() throws RecognitionException {
 		Cor_CerrarContext _localctx = new Cor_CerrarContext(_ctx, getState());
-		enterRule(_localctx, 64, RULE_cor_Cerrar);
+		enterRule(_localctx, 70, RULE_cor_Cerrar);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(333);
+			setState(352);
 			match(COR_CERRAR);
 			}
 		}
@@ -2079,11 +2221,11 @@ public class entradaParser extends Parser {
 
 	public final Kw_jsonContext kw_json() throws RecognitionException {
 		Kw_jsonContext _localctx = new Kw_jsonContext(_ctx, getState());
-		enterRule(_localctx, 66, RULE_kw_json);
+		enterRule(_localctx, 72, RULE_kw_json);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(335);
+			setState(354);
 			match(KW_JSON);
 			}
 		}
@@ -2116,11 +2258,11 @@ public class entradaParser extends Parser {
 
 	public final Extension_jsonContext extension_json() throws RecognitionException {
 		Extension_jsonContext _localctx = new Extension_jsonContext(_ctx, getState());
-		enterRule(_localctx, 68, RULE_extension_json);
+		enterRule(_localctx, 74, RULE_extension_json);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(337);
+			setState(356);
 			match(EXTENSION_JSON);
 			}
 		}
@@ -2153,11 +2295,11 @@ public class entradaParser extends Parser {
 
 	public final Kw_svgContext kw_svg() throws RecognitionException {
 		Kw_svgContext _localctx = new Kw_svgContext(_ctx, getState());
-		enterRule(_localctx, 70, RULE_kw_svg);
+		enterRule(_localctx, 76, RULE_kw_svg);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(339);
+			setState(358);
 			match(KW_SVG);
 			}
 		}
@@ -2190,11 +2332,11 @@ public class entradaParser extends Parser {
 
 	public final Extension_svgContext extension_svg() throws RecognitionException {
 		Extension_svgContext _localctx = new Extension_svgContext(_ctx, getState());
-		enterRule(_localctx, 72, RULE_extension_svg);
+		enterRule(_localctx, 78, RULE_extension_svg);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(341);
+			setState(360);
 			match(EXTENSION_SVG);
 			}
 		}
@@ -2227,11 +2369,11 @@ public class entradaParser extends Parser {
 
 	public final Kw_dotContext kw_dot() throws RecognitionException {
 		Kw_dotContext _localctx = new Kw_dotContext(_ctx, getState());
-		enterRule(_localctx, 74, RULE_kw_dot);
+		enterRule(_localctx, 80, RULE_kw_dot);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(343);
+			setState(362);
 			match(KW_DOT);
 			}
 		}
@@ -2264,11 +2406,11 @@ public class entradaParser extends Parser {
 
 	public final Extension_dotContext extension_dot() throws RecognitionException {
 		Extension_dotContext _localctx = new Extension_dotContext(_ctx, getState());
-		enterRule(_localctx, 76, RULE_extension_dot);
+		enterRule(_localctx, 82, RULE_extension_dot);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(345);
+			setState(364);
 			match(EXTENSION_DOT);
 			}
 		}
@@ -2301,11 +2443,11 @@ public class entradaParser extends Parser {
 
 	public final Kw_csvContext kw_csv() throws RecognitionException {
 		Kw_csvContext _localctx = new Kw_csvContext(_ctx, getState());
-		enterRule(_localctx, 78, RULE_kw_csv);
+		enterRule(_localctx, 84, RULE_kw_csv);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(347);
+			setState(366);
 			match(KW_CSV);
 			}
 		}
@@ -2338,11 +2480,11 @@ public class entradaParser extends Parser {
 
 	public final Extension_csvContext extension_csv() throws RecognitionException {
 		Extension_csvContext _localctx = new Extension_csvContext(_ctx, getState());
-		enterRule(_localctx, 80, RULE_extension_csv);
+		enterRule(_localctx, 86, RULE_extension_csv);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(349);
+			setState(368);
 			match(EXTENSION_CSV);
 			}
 		}
@@ -2404,71 +2546,138 @@ public class entradaParser extends Parser {
 
 	public final ParametrosContext parametros() throws RecognitionException {
 		ParametrosContext _localctx = new ParametrosContext(_ctx, getState());
-		enterRule(_localctx, 82, RULE_parametros);
+		enterRule(_localctx, 88, RULE_parametros);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(361);
+			setState(380);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case LEN:
 				{
-				setState(351);
+				setState(370);
 				len();
 				}
 				break;
 			case FONTCOLOR:
 				{
-				setState(352);
+				setState(371);
 				fontcolor();
 				}
 				break;
 			case FONTNAME:
 				{
-				setState(353);
+				setState(372);
 				fontname();
 				}
 				break;
 			case FONTSIZE:
 				{
-				setState(354);
+				setState(373);
 				fontsize();
 				}
 				break;
 			case ARROWSIZE:
 				{
-				setState(355);
+				setState(374);
 				arrowsize();
 				}
 				break;
 			case ARROWCOLOR:
 				{
-				setState(356);
+				setState(375);
 				arrowcolor();
 				}
 				break;
 			case PENWIDTH:
 				{
-				setState(357);
+				setState(376);
 				penwidth();
 				}
 				break;
 			case FILLCOLOR:
 				{
-				setState(358);
+				setState(377);
 				fillcolor();
 				}
 				break;
 			case STYLE:
 				{
-				setState(359);
+				setState(378);
 				style();
 				}
 				break;
 			case SHAPE:
 				{
-				setState(360);
+				setState(379);
 				shape();
+				}
+				break;
+			default:
+				throw new NoViableAltException(this);
+			}
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class ValueContext extends ParserRuleContext {
+		public CadenaContext cadena() {
+			return getRuleContext(CadenaContext.class,0);
+		}
+		public VariableContext variable() {
+			return getRuleContext(VariableContext.class,0);
+		}
+		public NumeroContext numero() {
+			return getRuleContext(NumeroContext.class,0);
+		}
+		public ValueContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_value; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).enterValue(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).exitValue(this);
+		}
+	}
+
+	public final ValueContext value() throws RecognitionException {
+		ValueContext _localctx = new ValueContext(_ctx, getState());
+		enterRule(_localctx, 90, RULE_value);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(385);
+			_errHandler.sync(this);
+			switch (_input.LA(1)) {
+			case CADENA_ABRIR:
+				{
+				setState(382);
+				cadena();
+				}
+				break;
+			case IDF:
+				{
+				setState(383);
+				variable();
+				}
+				break;
+			case INT:
+				{
+				setState(384);
+				numero();
 				}
 				break;
 			default:
@@ -2494,23 +2703,14 @@ public class entradaParser extends Parser {
 		public BbajaContext bbaja() {
 			return getRuleContext(BbajaContext.class,0);
 		}
+		public Tipo_estrucContext tipo_estruc() {
+			return getRuleContext(Tipo_estrucContext.class,0);
+		}
 		public AsigContext asig() {
 			return getRuleContext(AsigContext.class,0);
 		}
-		public NumeroContext numero() {
-			return getRuleContext(NumeroContext.class,0);
-		}
-		public Kw_relationshipContext kw_relationship() {
-			return getRuleContext(Kw_relationshipContext.class,0);
-		}
-		public Kw_classContext kw_class() {
-			return getRuleContext(Kw_classContext.class,0);
-		}
-		public Kw_inheritanceContext kw_inheritance() {
-			return getRuleContext(Kw_inheritanceContext.class,0);
-		}
-		public Kw_inderect_useContext kw_inderect_use() {
-			return getRuleContext(Kw_inderect_useContext.class,0);
+		public ValueContext value() {
+			return getRuleContext(ValueContext.class,0);
 		}
 		public LenContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -2528,48 +2728,20 @@ public class entradaParser extends Parser {
 
 	public final LenContext len() throws RecognitionException {
 		LenContext _localctx = new LenContext(_ctx, getState());
-		enterRule(_localctx, 84, RULE_len);
+		enterRule(_localctx, 92, RULE_len);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(363);
+			setState(387);
 			kw_len();
-			setState(364);
+			setState(388);
 			bbaja();
-			setState(369);
-			_errHandler.sync(this);
-			switch (_input.LA(1)) {
-			case RELATIONSHIP:
-				{
-				setState(365);
-				kw_relationship();
-				}
-				break;
-			case CLASS:
-				{
-				setState(366);
-				kw_class();
-				}
-				break;
-			case INHERITANCE:
-				{
-				setState(367);
-				kw_inheritance();
-				}
-				break;
-			case INDERECT_USE:
-				{
-				setState(368);
-				kw_inderect_use();
-				}
-				break;
-			default:
-				throw new NoViableAltException(this);
-			}
-			setState(371);
+			setState(389);
+			tipo_estruc();
+			setState(390);
 			asig();
-			setState(372);
-			numero();
+			setState(391);
+			value();
 			}
 		}
 		catch (RecognitionException re) {
@@ -2593,6 +2765,9 @@ public class entradaParser extends Parser {
 		public BbajaContext bbaja(int i) {
 			return getRuleContext(BbajaContext.class,i);
 		}
+		public Tipo_estrucContext tipo_estruc() {
+			return getRuleContext(Tipo_estrucContext.class,0);
+		}
 		public AsigContext asig() {
 			return getRuleContext(AsigContext.class,0);
 		}
@@ -2601,18 +2776,6 @@ public class entradaParser extends Parser {
 		}
 		public Kw_nodeContext kw_node() {
 			return getRuleContext(Kw_nodeContext.class,0);
-		}
-		public Kw_relationshipContext kw_relationship() {
-			return getRuleContext(Kw_relationshipContext.class,0);
-		}
-		public Kw_classContext kw_class() {
-			return getRuleContext(Kw_classContext.class,0);
-		}
-		public Kw_inheritanceContext kw_inheritance() {
-			return getRuleContext(Kw_inheritanceContext.class,0);
-		}
-		public Kw_inderect_useContext kw_inderect_use() {
-			return getRuleContext(Kw_inderect_useContext.class,0);
 		}
 		public CadenaContext cadena() {
 			return getRuleContext(CadenaContext.class,0);
@@ -2636,78 +2799,50 @@ public class entradaParser extends Parser {
 
 	public final FontcolorContext fontcolor() throws RecognitionException {
 		FontcolorContext _localctx = new FontcolorContext(_ctx, getState());
-		enterRule(_localctx, 86, RULE_fontcolor);
+		enterRule(_localctx, 94, RULE_fontcolor);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(374);
+			setState(393);
 			kw_fontcolor();
-			setState(375);
+			setState(394);
 			bbaja();
-			setState(378);
+			setState(397);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case EDGE:
 				{
-				setState(376);
+				setState(395);
 				kw_edge();
 				}
 				break;
 			case NODE:
 				{
-				setState(377);
+				setState(396);
 				kw_node();
 				}
 				break;
 			default:
 				throw new NoViableAltException(this);
 			}
-			setState(380);
+			setState(399);
 			bbaja();
-			setState(385);
-			_errHandler.sync(this);
-			switch (_input.LA(1)) {
-			case RELATIONSHIP:
-				{
-				setState(381);
-				kw_relationship();
-				}
-				break;
-			case CLASS:
-				{
-				setState(382);
-				kw_class();
-				}
-				break;
-			case INHERITANCE:
-				{
-				setState(383);
-				kw_inheritance();
-				}
-				break;
-			case INDERECT_USE:
-				{
-				setState(384);
-				kw_inderect_use();
-				}
-				break;
-			default:
-				throw new NoViableAltException(this);
-			}
-			setState(387);
+			setState(400);
+			tipo_estruc();
+			setState(401);
 			asig();
-			setState(390);
+			setState(404);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case CADENA_ABRIR:
 				{
-				setState(388);
+				setState(402);
 				cadena();
 				}
 				break;
 			case IDF:
 				{
-				setState(389);
+				setState(403);
 				variable();
 				}
 				break;
@@ -2737,6 +2872,9 @@ public class entradaParser extends Parser {
 		public BbajaContext bbaja(int i) {
 			return getRuleContext(BbajaContext.class,i);
 		}
+		public Tipo_estrucContext tipo_estruc() {
+			return getRuleContext(Tipo_estrucContext.class,0);
+		}
 		public AsigContext asig() {
 			return getRuleContext(AsigContext.class,0);
 		}
@@ -2745,18 +2883,6 @@ public class entradaParser extends Parser {
 		}
 		public Kw_nodeContext kw_node() {
 			return getRuleContext(Kw_nodeContext.class,0);
-		}
-		public Kw_relationshipContext kw_relationship() {
-			return getRuleContext(Kw_relationshipContext.class,0);
-		}
-		public Kw_classContext kw_class() {
-			return getRuleContext(Kw_classContext.class,0);
-		}
-		public Kw_inheritanceContext kw_inheritance() {
-			return getRuleContext(Kw_inheritanceContext.class,0);
-		}
-		public Kw_inderect_useContext kw_inderect_use() {
-			return getRuleContext(Kw_inderect_useContext.class,0);
 		}
 		public CadenaContext cadena() {
 			return getRuleContext(CadenaContext.class,0);
@@ -2780,78 +2906,50 @@ public class entradaParser extends Parser {
 
 	public final FontnameContext fontname() throws RecognitionException {
 		FontnameContext _localctx = new FontnameContext(_ctx, getState());
-		enterRule(_localctx, 88, RULE_fontname);
+		enterRule(_localctx, 96, RULE_fontname);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(392);
+			setState(406);
 			kw_fontname();
-			setState(393);
+			setState(407);
 			bbaja();
-			setState(396);
+			setState(410);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case EDGE:
 				{
-				setState(394);
+				setState(408);
 				kw_edge();
 				}
 				break;
 			case NODE:
 				{
-				setState(395);
+				setState(409);
 				kw_node();
 				}
 				break;
 			default:
 				throw new NoViableAltException(this);
 			}
-			setState(398);
+			setState(412);
 			bbaja();
-			setState(403);
-			_errHandler.sync(this);
-			switch (_input.LA(1)) {
-			case RELATIONSHIP:
-				{
-				setState(399);
-				kw_relationship();
-				}
-				break;
-			case CLASS:
-				{
-				setState(400);
-				kw_class();
-				}
-				break;
-			case INHERITANCE:
-				{
-				setState(401);
-				kw_inheritance();
-				}
-				break;
-			case INDERECT_USE:
-				{
-				setState(402);
-				kw_inderect_use();
-				}
-				break;
-			default:
-				throw new NoViableAltException(this);
-			}
-			setState(405);
+			setState(413);
+			tipo_estruc();
+			setState(414);
 			asig();
-			setState(408);
+			setState(417);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case CADENA_ABRIR:
 				{
-				setState(406);
+				setState(415);
 				cadena();
 				}
 				break;
 			case IDF:
 				{
-				setState(407);
+				setState(416);
 				variable();
 				}
 				break;
@@ -2881,6 +2979,9 @@ public class entradaParser extends Parser {
 		public BbajaContext bbaja(int i) {
 			return getRuleContext(BbajaContext.class,i);
 		}
+		public Tipo_estrucContext tipo_estruc() {
+			return getRuleContext(Tipo_estrucContext.class,0);
+		}
 		public AsigContext asig() {
 			return getRuleContext(AsigContext.class,0);
 		}
@@ -2892,18 +2993,6 @@ public class entradaParser extends Parser {
 		}
 		public Kw_nodeContext kw_node() {
 			return getRuleContext(Kw_nodeContext.class,0);
-		}
-		public Kw_relationshipContext kw_relationship() {
-			return getRuleContext(Kw_relationshipContext.class,0);
-		}
-		public Kw_classContext kw_class() {
-			return getRuleContext(Kw_classContext.class,0);
-		}
-		public Kw_inheritanceContext kw_inheritance() {
-			return getRuleContext(Kw_inheritanceContext.class,0);
-		}
-		public Kw_inderect_useContext kw_inderect_use() {
-			return getRuleContext(Kw_inderect_useContext.class,0);
 		}
 		public FontsizeContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -2921,67 +3010,39 @@ public class entradaParser extends Parser {
 
 	public final FontsizeContext fontsize() throws RecognitionException {
 		FontsizeContext _localctx = new FontsizeContext(_ctx, getState());
-		enterRule(_localctx, 90, RULE_fontsize);
+		enterRule(_localctx, 98, RULE_fontsize);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(410);
+			setState(419);
 			kw_fontsize();
-			setState(411);
+			setState(420);
 			bbaja();
-			setState(414);
+			setState(423);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case EDGE:
 				{
-				setState(412);
+				setState(421);
 				kw_edge();
 				}
 				break;
 			case NODE:
 				{
-				setState(413);
+				setState(422);
 				kw_node();
 				}
 				break;
 			default:
 				throw new NoViableAltException(this);
 			}
-			setState(416);
+			setState(425);
 			bbaja();
-			setState(421);
-			_errHandler.sync(this);
-			switch (_input.LA(1)) {
-			case RELATIONSHIP:
-				{
-				setState(417);
-				kw_relationship();
-				}
-				break;
-			case CLASS:
-				{
-				setState(418);
-				kw_class();
-				}
-				break;
-			case INHERITANCE:
-				{
-				setState(419);
-				kw_inheritance();
-				}
-				break;
-			case INDERECT_USE:
-				{
-				setState(420);
-				kw_inderect_use();
-				}
-				break;
-			default:
-				throw new NoViableAltException(this);
-			}
-			setState(423);
+			setState(426);
+			tipo_estruc();
+			setState(427);
 			asig();
-			setState(424);
+			setState(428);
 			numero();
 			}
 		}
@@ -3006,6 +3067,9 @@ public class entradaParser extends Parser {
 		public BbajaContext bbaja(int i) {
 			return getRuleContext(BbajaContext.class,i);
 		}
+		public Tipo_estrucContext tipo_estruc() {
+			return getRuleContext(Tipo_estrucContext.class,0);
+		}
 		public AsigContext asig() {
 			return getRuleContext(AsigContext.class,0);
 		}
@@ -3017,18 +3081,6 @@ public class entradaParser extends Parser {
 		}
 		public Kw_nodeContext kw_node() {
 			return getRuleContext(Kw_nodeContext.class,0);
-		}
-		public Kw_relationshipContext kw_relationship() {
-			return getRuleContext(Kw_relationshipContext.class,0);
-		}
-		public Kw_classContext kw_class() {
-			return getRuleContext(Kw_classContext.class,0);
-		}
-		public Kw_inheritanceContext kw_inheritance() {
-			return getRuleContext(Kw_inheritanceContext.class,0);
-		}
-		public Kw_inderect_useContext kw_inderect_use() {
-			return getRuleContext(Kw_inderect_useContext.class,0);
 		}
 		public ArrowsizeContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -3046,67 +3098,39 @@ public class entradaParser extends Parser {
 
 	public final ArrowsizeContext arrowsize() throws RecognitionException {
 		ArrowsizeContext _localctx = new ArrowsizeContext(_ctx, getState());
-		enterRule(_localctx, 92, RULE_arrowsize);
+		enterRule(_localctx, 100, RULE_arrowsize);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(426);
-			kw_arrowsize();
-			setState(427);
-			bbaja();
 			setState(430);
+			kw_arrowsize();
+			setState(431);
+			bbaja();
+			setState(434);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case EDGE:
 				{
-				setState(428);
+				setState(432);
 				kw_edge();
 				}
 				break;
 			case NODE:
 				{
-				setState(429);
+				setState(433);
 				kw_node();
 				}
 				break;
 			default:
 				throw new NoViableAltException(this);
 			}
-			setState(432);
+			setState(436);
 			bbaja();
 			setState(437);
-			_errHandler.sync(this);
-			switch (_input.LA(1)) {
-			case RELATIONSHIP:
-				{
-				setState(433);
-				kw_relationship();
-				}
-				break;
-			case CLASS:
-				{
-				setState(434);
-				kw_class();
-				}
-				break;
-			case INHERITANCE:
-				{
-				setState(435);
-				kw_inheritance();
-				}
-				break;
-			case INDERECT_USE:
-				{
-				setState(436);
-				kw_inderect_use();
-				}
-				break;
-			default:
-				throw new NoViableAltException(this);
-			}
-			setState(439);
+			tipo_estruc();
+			setState(438);
 			asig();
-			setState(440);
+			setState(439);
 			numero();
 			}
 		}
@@ -3131,6 +3155,9 @@ public class entradaParser extends Parser {
 		public BbajaContext bbaja(int i) {
 			return getRuleContext(BbajaContext.class,i);
 		}
+		public Tipo_estrucContext tipo_estruc() {
+			return getRuleContext(Tipo_estrucContext.class,0);
+		}
 		public AsigContext asig() {
 			return getRuleContext(AsigContext.class,0);
 		}
@@ -3139,18 +3166,6 @@ public class entradaParser extends Parser {
 		}
 		public Kw_nodeContext kw_node() {
 			return getRuleContext(Kw_nodeContext.class,0);
-		}
-		public Kw_relationshipContext kw_relationship() {
-			return getRuleContext(Kw_relationshipContext.class,0);
-		}
-		public Kw_classContext kw_class() {
-			return getRuleContext(Kw_classContext.class,0);
-		}
-		public Kw_inheritanceContext kw_inheritance() {
-			return getRuleContext(Kw_inheritanceContext.class,0);
-		}
-		public Kw_inderect_useContext kw_inderect_use() {
-			return getRuleContext(Kw_inderect_useContext.class,0);
 		}
 		public CadenaContext cadena() {
 			return getRuleContext(CadenaContext.class,0);
@@ -3174,78 +3189,50 @@ public class entradaParser extends Parser {
 
 	public final ArrowcolorContext arrowcolor() throws RecognitionException {
 		ArrowcolorContext _localctx = new ArrowcolorContext(_ctx, getState());
-		enterRule(_localctx, 94, RULE_arrowcolor);
+		enterRule(_localctx, 102, RULE_arrowcolor);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(442);
+			setState(441);
 			kw_arrowcolor();
-			setState(443);
+			setState(442);
 			bbaja();
-			setState(446);
+			setState(445);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case EDGE:
 				{
-				setState(444);
+				setState(443);
 				kw_edge();
 				}
 				break;
 			case NODE:
 				{
-				setState(445);
+				setState(444);
 				kw_node();
 				}
 				break;
 			default:
 				throw new NoViableAltException(this);
 			}
-			setState(448);
+			setState(447);
 			bbaja();
-			setState(453);
-			_errHandler.sync(this);
-			switch (_input.LA(1)) {
-			case RELATIONSHIP:
-				{
-				setState(449);
-				kw_relationship();
-				}
-				break;
-			case CLASS:
-				{
-				setState(450);
-				kw_class();
-				}
-				break;
-			case INHERITANCE:
-				{
-				setState(451);
-				kw_inheritance();
-				}
-				break;
-			case INDERECT_USE:
-				{
-				setState(452);
-				kw_inderect_use();
-				}
-				break;
-			default:
-				throw new NoViableAltException(this);
-			}
-			setState(455);
+			setState(448);
+			tipo_estruc();
+			setState(449);
 			asig();
-			setState(458);
+			setState(452);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case CADENA_ABRIR:
 				{
-				setState(456);
+				setState(450);
 				cadena();
 				}
 				break;
 			case IDF:
 				{
-				setState(457);
+				setState(451);
 				variable();
 				}
 				break;
@@ -3275,6 +3262,9 @@ public class entradaParser extends Parser {
 		public BbajaContext bbaja(int i) {
 			return getRuleContext(BbajaContext.class,i);
 		}
+		public Tipo_estrucContext tipo_estruc() {
+			return getRuleContext(Tipo_estrucContext.class,0);
+		}
 		public AsigContext asig() {
 			return getRuleContext(AsigContext.class,0);
 		}
@@ -3286,18 +3276,6 @@ public class entradaParser extends Parser {
 		}
 		public Kw_nodeContext kw_node() {
 			return getRuleContext(Kw_nodeContext.class,0);
-		}
-		public Kw_relationshipContext kw_relationship() {
-			return getRuleContext(Kw_relationshipContext.class,0);
-		}
-		public Kw_classContext kw_class() {
-			return getRuleContext(Kw_classContext.class,0);
-		}
-		public Kw_inheritanceContext kw_inheritance() {
-			return getRuleContext(Kw_inheritanceContext.class,0);
-		}
-		public Kw_inderect_useContext kw_inderect_use() {
-			return getRuleContext(Kw_inderect_useContext.class,0);
 		}
 		public PenwidthContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -3315,67 +3293,39 @@ public class entradaParser extends Parser {
 
 	public final PenwidthContext penwidth() throws RecognitionException {
 		PenwidthContext _localctx = new PenwidthContext(_ctx, getState());
-		enterRule(_localctx, 96, RULE_penwidth);
+		enterRule(_localctx, 104, RULE_penwidth);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(460);
+			setState(454);
 			kw_penwidth();
-			setState(461);
+			setState(455);
 			bbaja();
-			setState(464);
+			setState(458);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case EDGE:
 				{
-				setState(462);
+				setState(456);
 				kw_edge();
 				}
 				break;
 			case NODE:
 				{
-				setState(463);
+				setState(457);
 				kw_node();
 				}
 				break;
 			default:
 				throw new NoViableAltException(this);
 			}
-			setState(466);
+			setState(460);
 			bbaja();
-			setState(471);
-			_errHandler.sync(this);
-			switch (_input.LA(1)) {
-			case RELATIONSHIP:
-				{
-				setState(467);
-				kw_relationship();
-				}
-				break;
-			case CLASS:
-				{
-				setState(468);
-				kw_class();
-				}
-				break;
-			case INHERITANCE:
-				{
-				setState(469);
-				kw_inheritance();
-				}
-				break;
-			case INDERECT_USE:
-				{
-				setState(470);
-				kw_inderect_use();
-				}
-				break;
-			default:
-				throw new NoViableAltException(this);
-			}
-			setState(473);
+			setState(461);
+			tipo_estruc();
+			setState(462);
 			asig();
-			setState(474);
+			setState(463);
 			numero();
 			}
 		}
@@ -3400,6 +3350,9 @@ public class entradaParser extends Parser {
 		public BbajaContext bbaja(int i) {
 			return getRuleContext(BbajaContext.class,i);
 		}
+		public Tipo_estrucContext tipo_estruc() {
+			return getRuleContext(Tipo_estrucContext.class,0);
+		}
 		public AsigContext asig() {
 			return getRuleContext(AsigContext.class,0);
 		}
@@ -3408,18 +3361,6 @@ public class entradaParser extends Parser {
 		}
 		public Kw_nodeContext kw_node() {
 			return getRuleContext(Kw_nodeContext.class,0);
-		}
-		public Kw_relationshipContext kw_relationship() {
-			return getRuleContext(Kw_relationshipContext.class,0);
-		}
-		public Kw_classContext kw_class() {
-			return getRuleContext(Kw_classContext.class,0);
-		}
-		public Kw_inheritanceContext kw_inheritance() {
-			return getRuleContext(Kw_inheritanceContext.class,0);
-		}
-		public Kw_inderect_useContext kw_inderect_use() {
-			return getRuleContext(Kw_inderect_useContext.class,0);
 		}
 		public CadenaContext cadena() {
 			return getRuleContext(CadenaContext.class,0);
@@ -3443,78 +3384,50 @@ public class entradaParser extends Parser {
 
 	public final FillcolorContext fillcolor() throws RecognitionException {
 		FillcolorContext _localctx = new FillcolorContext(_ctx, getState());
-		enterRule(_localctx, 98, RULE_fillcolor);
+		enterRule(_localctx, 106, RULE_fillcolor);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(476);
+			setState(465);
 			kw_fillcolor();
-			setState(477);
+			setState(466);
 			bbaja();
-			setState(480);
+			setState(469);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case EDGE:
 				{
-				setState(478);
+				setState(467);
 				kw_edge();
 				}
 				break;
 			case NODE:
 				{
-				setState(479);
+				setState(468);
 				kw_node();
 				}
 				break;
 			default:
 				throw new NoViableAltException(this);
 			}
-			setState(482);
+			setState(471);
 			bbaja();
-			setState(487);
-			_errHandler.sync(this);
-			switch (_input.LA(1)) {
-			case RELATIONSHIP:
-				{
-				setState(483);
-				kw_relationship();
-				}
-				break;
-			case CLASS:
-				{
-				setState(484);
-				kw_class();
-				}
-				break;
-			case INHERITANCE:
-				{
-				setState(485);
-				kw_inheritance();
-				}
-				break;
-			case INDERECT_USE:
-				{
-				setState(486);
-				kw_inderect_use();
-				}
-				break;
-			default:
-				throw new NoViableAltException(this);
-			}
-			setState(489);
+			setState(472);
+			tipo_estruc();
+			setState(473);
 			asig();
-			setState(492);
+			setState(476);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case CADENA_ABRIR:
 				{
-				setState(490);
+				setState(474);
 				cadena();
 				}
 				break;
 			case IDF:
 				{
-				setState(491);
+				setState(475);
 				variable();
 				}
 				break;
@@ -3544,32 +3457,20 @@ public class entradaParser extends Parser {
 		public BbajaContext bbaja(int i) {
 			return getRuleContext(BbajaContext.class,i);
 		}
+		public Tipo_estrucContext tipo_estruc() {
+			return getRuleContext(Tipo_estrucContext.class,0);
+		}
 		public AsigContext asig() {
 			return getRuleContext(AsigContext.class,0);
+		}
+		public ValueContext value() {
+			return getRuleContext(ValueContext.class,0);
 		}
 		public Kw_edgeContext kw_edge() {
 			return getRuleContext(Kw_edgeContext.class,0);
 		}
 		public Kw_nodeContext kw_node() {
 			return getRuleContext(Kw_nodeContext.class,0);
-		}
-		public Kw_relationshipContext kw_relationship() {
-			return getRuleContext(Kw_relationshipContext.class,0);
-		}
-		public Kw_classContext kw_class() {
-			return getRuleContext(Kw_classContext.class,0);
-		}
-		public Kw_inheritanceContext kw_inheritance() {
-			return getRuleContext(Kw_inheritanceContext.class,0);
-		}
-		public Kw_inderect_useContext kw_inderect_use() {
-			return getRuleContext(Kw_inderect_useContext.class,0);
-		}
-		public CadenaContext cadena() {
-			return getRuleContext(CadenaContext.class,0);
-		}
-		public VariableContext variable() {
-			return getRuleContext(VariableContext.class,0);
 		}
 		public StyleContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -3587,84 +3488,40 @@ public class entradaParser extends Parser {
 
 	public final StyleContext style() throws RecognitionException {
 		StyleContext _localctx = new StyleContext(_ctx, getState());
-		enterRule(_localctx, 100, RULE_style);
+		enterRule(_localctx, 108, RULE_style);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(494);
+			setState(478);
 			kw_style();
-			setState(495);
+			setState(479);
 			bbaja();
-			setState(498);
+			setState(482);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case EDGE:
 				{
-				setState(496);
+				setState(480);
 				kw_edge();
 				}
 				break;
 			case NODE:
 				{
-				setState(497);
+				setState(481);
 				kw_node();
 				}
 				break;
 			default:
 				throw new NoViableAltException(this);
 			}
-			setState(500);
+			setState(484);
 			bbaja();
-			setState(505);
-			_errHandler.sync(this);
-			switch (_input.LA(1)) {
-			case RELATIONSHIP:
-				{
-				setState(501);
-				kw_relationship();
-				}
-				break;
-			case CLASS:
-				{
-				setState(502);
-				kw_class();
-				}
-				break;
-			case INHERITANCE:
-				{
-				setState(503);
-				kw_inheritance();
-				}
-				break;
-			case INDERECT_USE:
-				{
-				setState(504);
-				kw_inderect_use();
-				}
-				break;
-			default:
-				throw new NoViableAltException(this);
-			}
-			setState(507);
+			setState(485);
+			tipo_estruc();
+			setState(486);
 			asig();
-			setState(510);
-			_errHandler.sync(this);
-			switch (_input.LA(1)) {
-			case CADENA_ABRIR:
-				{
-				setState(508);
-				cadena();
-				}
-				break;
-			case IDF:
-				{
-				setState(509);
-				variable();
-				}
-				break;
-			default:
-				throw new NoViableAltException(this);
-			}
+			setState(487);
+			value();
 			}
 		}
 		catch (RecognitionException re) {
@@ -3688,6 +3545,9 @@ public class entradaParser extends Parser {
 		public BbajaContext bbaja(int i) {
 			return getRuleContext(BbajaContext.class,i);
 		}
+		public Tipo_estrucContext tipo_estruc() {
+			return getRuleContext(Tipo_estrucContext.class,0);
+		}
 		public AsigContext asig() {
 			return getRuleContext(AsigContext.class,0);
 		}
@@ -3696,18 +3556,6 @@ public class entradaParser extends Parser {
 		}
 		public Kw_nodeContext kw_node() {
 			return getRuleContext(Kw_nodeContext.class,0);
-		}
-		public Kw_relationshipContext kw_relationship() {
-			return getRuleContext(Kw_relationshipContext.class,0);
-		}
-		public Kw_classContext kw_class() {
-			return getRuleContext(Kw_classContext.class,0);
-		}
-		public Kw_inheritanceContext kw_inheritance() {
-			return getRuleContext(Kw_inheritanceContext.class,0);
-		}
-		public Kw_inderect_useContext kw_inderect_use() {
-			return getRuleContext(Kw_inderect_useContext.class,0);
 		}
 		public CadenaContext cadena() {
 			return getRuleContext(CadenaContext.class,0);
@@ -3731,79 +3579,127 @@ public class entradaParser extends Parser {
 
 	public final ShapeContext shape() throws RecognitionException {
 		ShapeContext _localctx = new ShapeContext(_ctx, getState());
-		enterRule(_localctx, 102, RULE_shape);
+		enterRule(_localctx, 110, RULE_shape);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(512);
+			setState(489);
 			kw_shape();
-			setState(513);
+			setState(490);
 			bbaja();
-			setState(516);
+			setState(493);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case EDGE:
 				{
-				setState(514);
+				setState(491);
 				kw_edge();
 				}
 				break;
 			case NODE:
 				{
-				setState(515);
+				setState(492);
 				kw_node();
 				}
 				break;
 			default:
 				throw new NoViableAltException(this);
 			}
-			setState(518);
+			setState(495);
 			bbaja();
-			setState(523);
-			_errHandler.sync(this);
-			switch (_input.LA(1)) {
-			case RELATIONSHIP:
-				{
-				setState(519);
-				kw_relationship();
-				}
-				break;
-			case CLASS:
-				{
-				setState(520);
-				kw_class();
-				}
-				break;
-			case INHERITANCE:
-				{
-				setState(521);
-				kw_inheritance();
-				}
-				break;
-			case INDERECT_USE:
-				{
-				setState(522);
-				kw_inderect_use();
-				}
-				break;
-			default:
-				throw new NoViableAltException(this);
-			}
-			setState(525);
+			setState(496);
+			tipo_estruc();
+			setState(497);
 			asig();
-			setState(528);
+			setState(500);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case CADENA_ABRIR:
 				{
-				setState(526);
+				setState(498);
 				cadena();
 				}
 				break;
 			case IDF:
 				{
-				setState(527);
+				setState(499);
 				variable();
+				}
+				break;
+			default:
+				throw new NoViableAltException(this);
+			}
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class Tipo_estrucContext extends ParserRuleContext {
+		public Kw_relationshipContext kw_relationship() {
+			return getRuleContext(Kw_relationshipContext.class,0);
+		}
+		public Kw_classContext kw_class() {
+			return getRuleContext(Kw_classContext.class,0);
+		}
+		public Kw_inheritanceContext kw_inheritance() {
+			return getRuleContext(Kw_inheritanceContext.class,0);
+		}
+		public Kw_inderect_useContext kw_inderect_use() {
+			return getRuleContext(Kw_inderect_useContext.class,0);
+		}
+		public Tipo_estrucContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_tipo_estruc; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).enterTipo_estruc(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof entradaParserListener ) ((entradaParserListener)listener).exitTipo_estruc(this);
+		}
+	}
+
+	public final Tipo_estrucContext tipo_estruc() throws RecognitionException {
+		Tipo_estrucContext _localctx = new Tipo_estrucContext(_ctx, getState());
+		enterRule(_localctx, 112, RULE_tipo_estruc);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(506);
+			_errHandler.sync(this);
+			switch (_input.LA(1)) {
+			case RELATIONSHIP:
+				{
+				setState(502);
+				kw_relationship();
+				}
+				break;
+			case CLASS:
+				{
+				setState(503);
+				kw_class();
+				}
+				break;
+			case INHERITANCE:
+				{
+				setState(504);
+				kw_inheritance();
+				}
+				break;
+			case INDERECT_USE:
+				{
+				setState(505);
+				kw_inderect_use();
 				}
 				break;
 			default:
@@ -3840,11 +3736,11 @@ public class entradaParser extends Parser {
 
 	public final Kw_edgeContext kw_edge() throws RecognitionException {
 		Kw_edgeContext _localctx = new Kw_edgeContext(_ctx, getState());
-		enterRule(_localctx, 104, RULE_kw_edge);
+		enterRule(_localctx, 114, RULE_kw_edge);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(530);
+			setState(508);
 			match(EDGE);
 			}
 		}
@@ -3877,11 +3773,11 @@ public class entradaParser extends Parser {
 
 	public final Kw_nodeContext kw_node() throws RecognitionException {
 		Kw_nodeContext _localctx = new Kw_nodeContext(_ctx, getState());
-		enterRule(_localctx, 106, RULE_kw_node);
+		enterRule(_localctx, 116, RULE_kw_node);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(532);
+			setState(510);
 			match(NODE);
 			}
 		}
@@ -3914,11 +3810,11 @@ public class entradaParser extends Parser {
 
 	public final Kw_relationshipContext kw_relationship() throws RecognitionException {
 		Kw_relationshipContext _localctx = new Kw_relationshipContext(_ctx, getState());
-		enterRule(_localctx, 108, RULE_kw_relationship);
+		enterRule(_localctx, 118, RULE_kw_relationship);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(534);
+			setState(512);
 			match(RELATIONSHIP);
 			}
 		}
@@ -3951,11 +3847,11 @@ public class entradaParser extends Parser {
 
 	public final Kw_classContext kw_class() throws RecognitionException {
 		Kw_classContext _localctx = new Kw_classContext(_ctx, getState());
-		enterRule(_localctx, 110, RULE_kw_class);
+		enterRule(_localctx, 120, RULE_kw_class);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(536);
+			setState(514);
 			match(CLASS);
 			}
 		}
@@ -3988,11 +3884,11 @@ public class entradaParser extends Parser {
 
 	public final Kw_propertyContext kw_property() throws RecognitionException {
 		Kw_propertyContext _localctx = new Kw_propertyContext(_ctx, getState());
-		enterRule(_localctx, 112, RULE_kw_property);
+		enterRule(_localctx, 122, RULE_kw_property);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(538);
+			setState(516);
 			match(PROPERTY);
 			}
 		}
@@ -4025,11 +3921,11 @@ public class entradaParser extends Parser {
 
 	public final Kw_inheritanceContext kw_inheritance() throws RecognitionException {
 		Kw_inheritanceContext _localctx = new Kw_inheritanceContext(_ctx, getState());
-		enterRule(_localctx, 114, RULE_kw_inheritance);
+		enterRule(_localctx, 124, RULE_kw_inheritance);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(540);
+			setState(518);
 			match(INHERITANCE);
 			}
 		}
@@ -4062,11 +3958,11 @@ public class entradaParser extends Parser {
 
 	public final Kw_inderect_useContext kw_inderect_use() throws RecognitionException {
 		Kw_inderect_useContext _localctx = new Kw_inderect_useContext(_ctx, getState());
-		enterRule(_localctx, 116, RULE_kw_inderect_use);
+		enterRule(_localctx, 126, RULE_kw_inderect_use);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(542);
+			setState(520);
 			match(INDERECT_USE);
 			}
 		}
@@ -4099,11 +3995,11 @@ public class entradaParser extends Parser {
 
 	public final Kw_lenContext kw_len() throws RecognitionException {
 		Kw_lenContext _localctx = new Kw_lenContext(_ctx, getState());
-		enterRule(_localctx, 118, RULE_kw_len);
+		enterRule(_localctx, 128, RULE_kw_len);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(544);
+			setState(522);
 			match(LEN);
 			}
 		}
@@ -4136,11 +4032,11 @@ public class entradaParser extends Parser {
 
 	public final Kw_fontcolorContext kw_fontcolor() throws RecognitionException {
 		Kw_fontcolorContext _localctx = new Kw_fontcolorContext(_ctx, getState());
-		enterRule(_localctx, 120, RULE_kw_fontcolor);
+		enterRule(_localctx, 130, RULE_kw_fontcolor);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(546);
+			setState(524);
 			match(FONTCOLOR);
 			}
 		}
@@ -4173,11 +4069,11 @@ public class entradaParser extends Parser {
 
 	public final Kw_fontnameContext kw_fontname() throws RecognitionException {
 		Kw_fontnameContext _localctx = new Kw_fontnameContext(_ctx, getState());
-		enterRule(_localctx, 122, RULE_kw_fontname);
+		enterRule(_localctx, 132, RULE_kw_fontname);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(548);
+			setState(526);
 			match(FONTNAME);
 			}
 		}
@@ -4210,11 +4106,11 @@ public class entradaParser extends Parser {
 
 	public final Kw_fontsizeContext kw_fontsize() throws RecognitionException {
 		Kw_fontsizeContext _localctx = new Kw_fontsizeContext(_ctx, getState());
-		enterRule(_localctx, 124, RULE_kw_fontsize);
+		enterRule(_localctx, 134, RULE_kw_fontsize);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(550);
+			setState(528);
 			match(FONTSIZE);
 			}
 		}
@@ -4247,11 +4143,11 @@ public class entradaParser extends Parser {
 
 	public final Kw_arrowsizeContext kw_arrowsize() throws RecognitionException {
 		Kw_arrowsizeContext _localctx = new Kw_arrowsizeContext(_ctx, getState());
-		enterRule(_localctx, 126, RULE_kw_arrowsize);
+		enterRule(_localctx, 136, RULE_kw_arrowsize);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(552);
+			setState(530);
 			match(ARROWSIZE);
 			}
 		}
@@ -4284,11 +4180,11 @@ public class entradaParser extends Parser {
 
 	public final Kw_arrowcolorContext kw_arrowcolor() throws RecognitionException {
 		Kw_arrowcolorContext _localctx = new Kw_arrowcolorContext(_ctx, getState());
-		enterRule(_localctx, 128, RULE_kw_arrowcolor);
+		enterRule(_localctx, 138, RULE_kw_arrowcolor);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(554);
+			setState(532);
 			match(ARROWCOLOR);
 			}
 		}
@@ -4321,11 +4217,11 @@ public class entradaParser extends Parser {
 
 	public final Kw_penwidthContext kw_penwidth() throws RecognitionException {
 		Kw_penwidthContext _localctx = new Kw_penwidthContext(_ctx, getState());
-		enterRule(_localctx, 130, RULE_kw_penwidth);
+		enterRule(_localctx, 140, RULE_kw_penwidth);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(556);
+			setState(534);
 			match(PENWIDTH);
 			}
 		}
@@ -4358,11 +4254,11 @@ public class entradaParser extends Parser {
 
 	public final Kw_fillcolorContext kw_fillcolor() throws RecognitionException {
 		Kw_fillcolorContext _localctx = new Kw_fillcolorContext(_ctx, getState());
-		enterRule(_localctx, 132, RULE_kw_fillcolor);
+		enterRule(_localctx, 142, RULE_kw_fillcolor);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(558);
+			setState(536);
 			match(FILLCOLOR);
 			}
 		}
@@ -4395,11 +4291,11 @@ public class entradaParser extends Parser {
 
 	public final Kw_styleContext kw_style() throws RecognitionException {
 		Kw_styleContext _localctx = new Kw_styleContext(_ctx, getState());
-		enterRule(_localctx, 134, RULE_kw_style);
+		enterRule(_localctx, 144, RULE_kw_style);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(560);
+			setState(538);
 			match(STYLE);
 			}
 		}
@@ -4432,11 +4328,11 @@ public class entradaParser extends Parser {
 
 	public final Kw_shapeContext kw_shape() throws RecognitionException {
 		Kw_shapeContext _localctx = new Kw_shapeContext(_ctx, getState());
-		enterRule(_localctx, 136, RULE_kw_shape);
+		enterRule(_localctx, 146, RULE_kw_shape);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(562);
+			setState(540);
 			match(SHAPE);
 			}
 		}
@@ -4452,7 +4348,7 @@ public class entradaParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3;\u0237\4\2\t\2\4"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3;\u0221\4\2\t\2\4"+
 		"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t"+
 		"\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
 		"\4\23\t\23\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\4\30\t\30\4\31\t\31"+
@@ -4460,200 +4356,184 @@ public class entradaParser extends Parser {
 		"\t!\4\"\t\"\4#\t#\4$\t$\4%\t%\4&\t&\4\'\t\'\4(\t(\4)\t)\4*\t*\4+\t+\4"+
 		",\t,\4-\t-\4.\t.\4/\t/\4\60\t\60\4\61\t\61\4\62\t\62\4\63\t\63\4\64\t"+
 		"\64\4\65\t\65\4\66\t\66\4\67\t\67\48\t8\49\t9\4:\t:\4;\t;\4<\t<\4=\t="+
-		"\4>\t>\4?\t?\4@\t@\4A\tA\4B\tB\4C\tC\4D\tD\4E\tE\4F\tF\3\2\3\2\3\2\3\2"+
-		"\7\2\u0091\n\2\f\2\16\2\u0094\13\2\3\3\3\3\3\3\3\3\3\3\3\3\7\3\u009c\n"+
-		"\3\f\3\16\3\u009f\13\3\3\3\3\3\3\3\7\3\u00a4\n\3\f\3\16\3\u00a7\13\3\3"+
-		"\3\5\3\u00aa\n\3\3\4\6\4\u00ad\n\4\r\4\16\4\u00ae\3\5\6\5\u00b2\n\5\r"+
-		"\5\16\5\u00b3\3\6\6\6\u00b7\n\6\r\6\16\6\u00b8\3\7\6\7\u00bc\n\7\r\7\16"+
-		"\7\u00bd\3\b\3\b\3\b\3\b\5\b\u00c4\n\b\3\b\3\b\7\b\u00c8\n\b\f\b\16\b"+
-		"\u00cb\13\b\3\t\3\t\3\t\3\t\5\t\u00d1\n\t\3\n\3\n\7\n\u00d5\n\n\f\n\16"+
-		"\n\u00d8\13\n\3\n\3\n\7\n\u00dc\n\n\f\n\16\n\u00df\13\n\3\n\3\n\3\n\3"+
-		"\n\3\n\3\13\3\13\7\13\u00e8\n\13\f\13\16\13\u00eb\13\13\3\13\3\13\7\13"+
-		"\u00ef\n\13\f\13\16\13\u00f2\13\13\3\13\3\13\3\13\3\13\3\13\3\f\3\f\7"+
-		"\f\u00fb\n\f\f\f\16\f\u00fe\13\f\3\f\3\f\7\f\u0102\n\f\f\f\16\f\u0105"+
-		"\13\f\3\f\3\f\3\f\3\f\3\f\3\r\3\r\7\r\u010e\n\r\f\r\16\r\u0111\13\r\3"+
-		"\r\3\r\7\r\u0115\n\r\f\r\16\r\u0118\13\r\3\r\3\r\3\r\3\r\3\r\3\16\3\16"+
-		"\5\16\u0121\n\16\3\17\3\17\3\20\3\20\3\21\3\21\3\22\3\22\3\23\3\23\3\24"+
-		"\3\24\3\25\3\25\3\26\3\26\3\27\3\27\3\30\3\30\3\31\3\31\3\32\3\32\3\33"+
-		"\3\33\3\34\3\34\3\35\3\35\3\36\3\36\3\37\3\37\7\37\u0145\n\37\f\37\16"+
-		"\37\u0148\13\37\3\37\3\37\3 \3 \3!\3!\3\"\3\"\3#\3#\3$\3$\3%\3%\3&\3&"+
-		"\3\'\3\'\3(\3(\3)\3)\3*\3*\3+\3+\3+\3+\3+\3+\3+\3+\3+\3+\5+\u016c\n+\3"+
-		",\3,\3,\3,\3,\3,\5,\u0174\n,\3,\3,\3,\3-\3-\3-\3-\5-\u017d\n-\3-\3-\3"+
-		"-\3-\3-\5-\u0184\n-\3-\3-\3-\5-\u0189\n-\3.\3.\3.\3.\5.\u018f\n.\3.\3"+
-		".\3.\3.\3.\5.\u0196\n.\3.\3.\3.\5.\u019b\n.\3/\3/\3/\3/\5/\u01a1\n/\3"+
-		"/\3/\3/\3/\3/\5/\u01a8\n/\3/\3/\3/\3\60\3\60\3\60\3\60\5\60\u01b1\n\60"+
-		"\3\60\3\60\3\60\3\60\3\60\5\60\u01b8\n\60\3\60\3\60\3\60\3\61\3\61\3\61"+
-		"\3\61\5\61\u01c1\n\61\3\61\3\61\3\61\3\61\3\61\5\61\u01c8\n\61\3\61\3"+
-		"\61\3\61\5\61\u01cd\n\61\3\62\3\62\3\62\3\62\5\62\u01d3\n\62\3\62\3\62"+
-		"\3\62\3\62\3\62\5\62\u01da\n\62\3\62\3\62\3\62\3\63\3\63\3\63\3\63\5\63"+
-		"\u01e3\n\63\3\63\3\63\3\63\3\63\3\63\5\63\u01ea\n\63\3\63\3\63\3\63\5"+
-		"\63\u01ef\n\63\3\64\3\64\3\64\3\64\5\64\u01f5\n\64\3\64\3\64\3\64\3\64"+
-		"\3\64\5\64\u01fc\n\64\3\64\3\64\3\64\5\64\u0201\n\64\3\65\3\65\3\65\3"+
-		"\65\5\65\u0207\n\65\3\65\3\65\3\65\3\65\3\65\5\65\u020e\n\65\3\65\3\65"+
-		"\3\65\5\65\u0213\n\65\3\66\3\66\3\67\3\67\38\38\39\39\3:\3:\3;\3;\3<\3"+
-		"<\3=\3=\3>\3>\3?\3?\3@\3@\3A\3A\3B\3B\3C\3C\3D\3D\3E\3E\3F\3F\3F\2\2G"+
-		"\2\4\6\b\n\f\16\20\22\24\26\30\32\34\36 \"$&(*,.\60\62\64\668:<>@BDFH"+
-		"JLNPRTVXZ\\^`bdfhjlnprtvxz|~\u0080\u0082\u0084\u0086\u0088\u008a\2\3\4"+
-		"\2\64\6499\2\u0249\2\u0092\3\2\2\2\4\u00a9\3\2\2\2\6\u00ac\3\2\2\2\b\u00b1"+
-		"\3\2\2\2\n\u00b6\3\2\2\2\f\u00bb\3\2\2\2\16\u00c9\3\2\2\2\20\u00d0\3\2"+
-		"\2\2\22\u00d2\3\2\2\2\24\u00e5\3\2\2\2\26\u00f8\3\2\2\2\30\u010b\3\2\2"+
-		"\2\32\u0120\3\2\2\2\34\u0122\3\2\2\2\36\u0124\3\2\2\2 \u0126\3\2\2\2\""+
-		"\u0128\3\2\2\2$\u012a\3\2\2\2&\u012c\3\2\2\2(\u012e\3\2\2\2*\u0130\3\2"+
-		"\2\2,\u0132\3\2\2\2.\u0134\3\2\2\2\60\u0136\3\2\2\2\62\u0138\3\2\2\2\64"+
-		"\u013a\3\2\2\2\66\u013c\3\2\2\28\u013e\3\2\2\2:\u0140\3\2\2\2<\u0142\3"+
-		"\2\2\2>\u014b\3\2\2\2@\u014d\3\2\2\2B\u014f\3\2\2\2D\u0151\3\2\2\2F\u0153"+
-		"\3\2\2\2H\u0155\3\2\2\2J\u0157\3\2\2\2L\u0159\3\2\2\2N\u015b\3\2\2\2P"+
-		"\u015d\3\2\2\2R\u015f\3\2\2\2T\u016b\3\2\2\2V\u016d\3\2\2\2X\u0178\3\2"+
-		"\2\2Z\u018a\3\2\2\2\\\u019c\3\2\2\2^\u01ac\3\2\2\2`\u01bc\3\2\2\2b\u01ce"+
-		"\3\2\2\2d\u01de\3\2\2\2f\u01f0\3\2\2\2h\u0202\3\2\2\2j\u0214\3\2\2\2l"+
-		"\u0216\3\2\2\2n\u0218\3\2\2\2p\u021a\3\2\2\2r\u021c\3\2\2\2t\u021e\3\2"+
-		"\2\2v\u0220\3\2\2\2x\u0222\3\2\2\2z\u0224\3\2\2\2|\u0226\3\2\2\2~\u0228"+
-		"\3\2\2\2\u0080\u022a\3\2\2\2\u0082\u022c\3\2\2\2\u0084\u022e\3\2\2\2\u0086"+
-		"\u0230\3\2\2\2\u0088\u0232\3\2\2\2\u008a\u0234\3\2\2\2\u008c\u0091\5\20"+
-		"\t\2\u008d\u0091\5\4\3\2\u008e\u0091\5\32\16\2\u008f\u0091\5T+\2\u0090"+
-		"\u008c\3\2\2\2\u0090\u008d\3\2\2\2\u0090\u008e\3\2\2\2\u0090\u008f\3\2"+
-		"\2\2\u0091\u0094\3\2\2\2\u0092\u0090\3\2\2\2\u0092\u0093\3\2\2\2\u0093"+
-		"\3\3\2\2\2\u0094\u0092\3\2\2\2\u0095\u009d\7\3\2\2\u0096\u009c\5\f\7\2"+
-		"\u0097\u009c\5\6\4\2\u0098\u009c\5\b\5\2\u0099\u009c\5\n\6\2\u009a\u009c"+
-		"\7\13\2\2\u009b\u0096\3\2\2\2\u009b\u0097\3\2\2\2\u009b\u0098\3\2\2\2"+
-		"\u009b\u0099\3\2\2\2\u009b\u009a\3\2\2\2\u009c\u009f\3\2\2\2\u009d\u009b"+
-		"\3\2\2\2\u009d\u009e\3\2\2\2\u009e\u00a0\3\2\2\2\u009f\u009d\3\2\2\2\u00a0"+
-		"\u00aa\7\63\2\2\u00a1\u00a5\7\4\2\2\u00a2\u00a4\5\f\7\2\u00a3\u00a2\3"+
-		"\2\2\2\u00a4\u00a7\3\2\2\2\u00a5\u00a3\3\2\2\2\u00a5\u00a6\3\2\2\2\u00a6"+
-		"\u00a8\3\2\2\2\u00a7\u00a5\3\2\2\2\u00a8\u00aa\78\2\2\u00a9\u0095\3\2"+
-		"\2\2\u00a9\u00a1\3\2\2\2\u00aa\5\3\2\2\2\u00ab\u00ad\7\65\2\2\u00ac\u00ab"+
-		"\3\2\2\2\u00ad\u00ae\3\2\2\2\u00ae\u00ac\3\2\2\2\u00ae\u00af\3\2\2\2\u00af"+
-		"\7\3\2\2\2\u00b0\u00b2\7\66\2\2\u00b1\u00b0\3\2\2\2\u00b2\u00b3\3\2\2"+
-		"\2\u00b3\u00b1\3\2\2\2\u00b3\u00b4\3\2\2\2\u00b4\t\3\2\2\2\u00b5\u00b7"+
-		"\7\67\2\2\u00b6\u00b5\3\2\2\2\u00b7\u00b8\3\2\2\2\u00b8\u00b6\3\2\2\2"+
-		"\u00b8\u00b9\3\2\2\2\u00b9\13\3\2\2\2\u00ba\u00bc\t\2\2\2\u00bb\u00ba"+
-		"\3\2\2\2\u00bc\u00bd\3\2\2\2\u00bd\u00bb\3\2\2\2\u00bd\u00be\3\2\2\2\u00be"+
-		"\r\3\2\2\2\u00bf\u00c8\5:\36\2\u00c0\u00c8\58\35\2\u00c1\u00c3\5\"\22"+
-		"\2\u00c2\u00c4\5\66\34\2\u00c3\u00c2\3\2\2\2\u00c3\u00c4\3\2\2\2\u00c4"+
-		"\u00c8\3\2\2\2\u00c5\u00c8\5&\24\2\u00c6\u00c8\5\36\20\2\u00c7\u00bf\3"+
-		"\2\2\2\u00c7\u00c0\3\2\2\2\u00c7\u00c1\3\2\2\2\u00c7\u00c5\3\2\2\2\u00c7"+
-		"\u00c6\3\2\2\2\u00c8\u00cb\3\2\2\2\u00c9\u00c7\3\2\2\2\u00c9\u00ca\3\2"+
-		"\2\2\u00ca\17\3\2\2\2\u00cb\u00c9\3\2\2\2\u00cc\u00d1\5\22\n\2\u00cd\u00d1"+
-		"\5\24\13\2\u00ce\u00d1\5\26\f\2\u00cf\u00d1\5\30\r\2\u00d0\u00cc\3\2\2"+
-		"\2\u00d0\u00cd\3\2\2\2\u00d0\u00ce\3\2\2\2\u00d0\u00cf\3\2\2\2\u00d1\21"+
-		"\3\2\2\2\u00d2\u00d6\5D#\2\u00d3\u00d5\5\32\16\2\u00d4\u00d3\3\2\2\2\u00d5"+
-		"\u00d8\3\2\2\2\u00d6\u00d4\3\2\2\2\u00d6\u00d7\3\2\2\2\u00d7\u00d9\3\2"+
-		"\2\2\u00d8\u00d6\3\2\2\2\u00d9\u00dd\5,\27\2\u00da\u00dc\5\32\16\2\u00db"+
-		"\u00da\3\2\2\2\u00dc\u00df\3\2\2\2\u00dd\u00db\3\2\2\2\u00dd\u00de\3\2"+
-		"\2\2\u00de\u00e0\3\2\2\2\u00df\u00dd\3\2\2\2\u00e0\u00e1\5\16\b\2\u00e1"+
-		"\u00e2\5&\24\2\u00e2\u00e3\58\35\2\u00e3\u00e4\5F$\2\u00e4\23\3\2\2\2"+
-		"\u00e5\u00e9\5H%\2\u00e6\u00e8\5\32\16\2\u00e7\u00e6\3\2\2\2\u00e8\u00eb"+
-		"\3\2\2\2\u00e9\u00e7\3\2\2\2\u00e9\u00ea\3\2\2\2\u00ea\u00ec\3\2\2\2\u00eb"+
-		"\u00e9\3\2\2\2\u00ec\u00f0\5,\27\2\u00ed\u00ef\5\32\16\2\u00ee\u00ed\3"+
-		"\2\2\2\u00ef\u00f2\3\2\2\2\u00f0\u00ee\3\2\2\2\u00f0\u00f1\3\2\2\2\u00f1"+
-		"\u00f3\3\2\2\2\u00f2\u00f0\3\2\2\2\u00f3\u00f4\5\16\b\2\u00f4\u00f5\5"+
-		"&\24\2\u00f5\u00f6\58\35\2\u00f6\u00f7\5J&\2\u00f7\25\3\2\2\2\u00f8\u00fc"+
-		"\5L\'\2\u00f9\u00fb\5\32\16\2\u00fa\u00f9\3\2\2\2\u00fb\u00fe\3\2\2\2"+
-		"\u00fc\u00fa\3\2\2\2\u00fc\u00fd\3\2\2\2\u00fd\u00ff\3\2\2\2\u00fe\u00fc"+
-		"\3\2\2\2\u00ff\u0103\5,\27\2\u0100\u0102\5\32\16\2\u0101\u0100\3\2\2\2"+
-		"\u0102\u0105\3\2\2\2\u0103\u0101\3\2\2\2\u0103\u0104\3\2\2\2\u0104\u0106"+
-		"\3\2\2\2\u0105\u0103\3\2\2\2\u0106\u0107\5\16\b\2\u0107\u0108\5&\24\2"+
-		"\u0108\u0109\58\35\2\u0109\u010a\5N(\2\u010a\27\3\2\2\2\u010b\u010f\5"+
-		"P)\2\u010c\u010e\5\32\16\2\u010d\u010c\3\2\2\2\u010e\u0111\3\2\2\2\u010f"+
-		"\u010d\3\2\2\2\u010f\u0110\3\2\2\2\u0110\u0112\3\2\2\2\u0111\u010f\3\2"+
-		"\2\2\u0112\u0116\5,\27\2\u0113\u0115\5\32\16\2\u0114\u0113\3\2\2\2\u0115"+
-		"\u0118\3\2\2\2\u0116\u0114\3\2\2\2\u0116\u0117\3\2\2\2\u0117\u0119\3\2"+
-		"\2\2\u0118\u0116\3\2\2\2\u0119\u011a\5\16\b\2\u011a\u011b\5&\24\2\u011b"+
-		"\u011c\58\35\2\u011c\u011d\5R*\2\u011d\31\3\2\2\2\u011e\u0121\5\34\17"+
-		"\2\u011f\u0121\5 \21\2\u0120\u011e\3\2\2\2\u0120\u011f\3\2\2\2\u0121\33"+
-		"\3\2\2\2\u0122\u0123\7\27\2\2\u0123\35\3\2\2\2\u0124\u0125\7\30\2\2\u0125"+
-		"\37\3\2\2\2\u0126\u0127\7\13\2\2\u0127!\3\2\2\2\u0128\u0129\7\7\2\2\u0129"+
-		"#\3\2\2\2\u012a\u012b\7\6\2\2\u012b%\3\2\2\2\u012c\u012d\7\62\2\2\u012d"+
-		"\'\3\2\2\2\u012e\u012f\7\16\2\2\u012f)\3\2\2\2\u0130\u0131\7\17\2\2\u0131"+
-		"+\3\2\2\2\u0132\u0133\7\20\2\2\u0133-\3\2\2\2\u0134\u0135\7\21\2\2\u0135"+
-		"/\3\2\2\2\u0136\u0137\7\f\2\2\u0137\61\3\2\2\2\u0138\u0139\7\r\2\2\u0139"+
-		"\63\3\2\2\2\u013a\u013b\7\b\2\2\u013b\65\3\2\2\2\u013c\u013d\7\25\2\2"+
-		"\u013d\67\3\2\2\2\u013e\u013f\7\n\2\2\u013f9\3\2\2\2\u0140\u0141\7\t\2"+
-		"\2\u0141;\3\2\2\2\u0142\u0146\7\5\2\2\u0143\u0145\7;\2\2\u0144\u0143\3"+
-		"\2\2\2\u0145\u0148\3\2\2\2\u0146\u0144\3\2\2\2\u0146\u0147\3\2\2\2\u0147"+
-		"\u0149\3\2\2\2\u0148\u0146\3\2\2\2\u0149\u014a\7:\2\2\u014a=\3\2\2\2\u014b"+
-		"\u014c\7\22\2\2\u014c?\3\2\2\2\u014d\u014e\7\23\2\2\u014eA\3\2\2\2\u014f"+
-		"\u0150\7\24\2\2\u0150C\3\2\2\2\u0151\u0152\7\31\2\2\u0152E\3\2\2\2\u0153"+
-		"\u0154\7\'\2\2\u0154G\3\2\2\2\u0155\u0156\7\33\2\2\u0156I\3\2\2\2\u0157"+
-		"\u0158\7(\2\2\u0158K\3\2\2\2\u0159\u015a\7\32\2\2\u015aM\3\2\2\2\u015b"+
-		"\u015c\7)\2\2\u015cO\3\2\2\2\u015d\u015e\7\34\2\2\u015eQ\3\2\2\2\u015f"+
-		"\u0160\7*\2\2\u0160S\3\2\2\2\u0161\u016c\5V,\2\u0162\u016c\5X-\2\u0163"+
-		"\u016c\5Z.\2\u0164\u016c\5\\/\2\u0165\u016c\5^\60\2\u0166\u016c\5`\61"+
-		"\2\u0167\u016c\5b\62\2\u0168\u016c\5d\63\2\u0169\u016c\5f\64\2\u016a\u016c"+
-		"\5h\65\2\u016b\u0161\3\2\2\2\u016b\u0162\3\2\2\2\u016b\u0163\3\2\2\2\u016b"+
-		"\u0164\3\2\2\2\u016b\u0165\3\2\2\2\u016b\u0166\3\2\2\2\u016b\u0167\3\2"+
-		"\2\2\u016b\u0168\3\2\2\2\u016b\u0169\3\2\2\2\u016b\u016a\3\2\2\2\u016c"+
-		"U\3\2\2\2\u016d\u016e\5x=\2\u016e\u0173\5> \2\u016f\u0174\5n8\2\u0170"+
-		"\u0174\5p9\2\u0171\u0174\5t;\2\u0172\u0174\5v<\2\u0173\u016f\3\2\2\2\u0173"+
-		"\u0170\3\2\2\2\u0173\u0171\3\2\2\2\u0173\u0172\3\2\2\2\u0174\u0175\3\2"+
-		"\2\2\u0175\u0176\5,\27\2\u0176\u0177\5$\23\2\u0177W\3\2\2\2\u0178\u0179"+
-		"\5z>\2\u0179\u017c\5> \2\u017a\u017d\5j\66\2\u017b\u017d\5l\67\2\u017c"+
-		"\u017a\3\2\2\2\u017c\u017b\3\2\2\2\u017d\u017e\3\2\2\2\u017e\u0183\5>"+
-		" \2\u017f\u0184\5n8\2\u0180\u0184\5p9\2\u0181\u0184\5t;\2\u0182\u0184"+
-		"\5v<\2\u0183\u017f\3\2\2\2\u0183\u0180\3\2\2\2\u0183\u0181\3\2\2\2\u0183"+
-		"\u0182\3\2\2\2\u0184\u0185\3\2\2\2\u0185\u0188\5,\27\2\u0186\u0189\5<"+
-		"\37\2\u0187\u0189\5&\24\2\u0188\u0186\3\2\2\2\u0188\u0187\3\2\2\2\u0189"+
-		"Y\3\2\2\2\u018a\u018b\5|?\2\u018b\u018e\5> \2\u018c\u018f\5j\66\2\u018d"+
-		"\u018f\5l\67\2\u018e\u018c\3\2\2\2\u018e\u018d\3\2\2\2\u018f\u0190\3\2"+
-		"\2\2\u0190\u0195\5> \2\u0191\u0196\5n8\2\u0192\u0196\5p9\2\u0193\u0196"+
-		"\5t;\2\u0194\u0196\5v<\2\u0195\u0191\3\2\2\2\u0195\u0192\3\2\2\2\u0195"+
-		"\u0193\3\2\2\2\u0195\u0194\3\2\2\2\u0196\u0197\3\2\2\2\u0197\u019a\5,"+
-		"\27\2\u0198\u019b\5<\37\2\u0199\u019b\5&\24\2\u019a\u0198\3\2\2\2\u019a"+
-		"\u0199\3\2\2\2\u019b[\3\2\2\2\u019c\u019d\5~@\2\u019d\u01a0\5> \2\u019e"+
-		"\u01a1\5j\66\2\u019f\u01a1\5l\67\2\u01a0\u019e\3\2\2\2\u01a0\u019f\3\2"+
-		"\2\2\u01a1\u01a2\3\2\2\2\u01a2\u01a7\5> \2\u01a3\u01a8\5n8\2\u01a4\u01a8"+
-		"\5p9\2\u01a5\u01a8\5t;\2\u01a6\u01a8\5v<\2\u01a7\u01a3\3\2\2\2\u01a7\u01a4"+
-		"\3\2\2\2\u01a7\u01a5\3\2\2\2\u01a7\u01a6\3\2\2\2\u01a8\u01a9\3\2\2\2\u01a9"+
-		"\u01aa\5,\27\2\u01aa\u01ab\5$\23\2\u01ab]\3\2\2\2\u01ac\u01ad\5\u0080"+
-		"A\2\u01ad\u01b0\5> \2\u01ae\u01b1\5j\66\2\u01af\u01b1\5l\67\2\u01b0\u01ae"+
-		"\3\2\2\2\u01b0\u01af\3\2\2\2\u01b1\u01b2\3\2\2\2\u01b2\u01b7\5> \2\u01b3"+
-		"\u01b8\5n8\2\u01b4\u01b8\5p9\2\u01b5\u01b8\5t;\2\u01b6\u01b8\5v<\2\u01b7"+
-		"\u01b3\3\2\2\2\u01b7\u01b4\3\2\2\2\u01b7\u01b5\3\2\2\2\u01b7\u01b6\3\2"+
-		"\2\2\u01b8\u01b9\3\2\2\2\u01b9\u01ba\5,\27\2\u01ba\u01bb\5$\23\2\u01bb"+
-		"_\3\2\2\2\u01bc\u01bd\5\u0082B\2\u01bd\u01c0\5> \2\u01be\u01c1\5j\66\2"+
-		"\u01bf\u01c1\5l\67\2\u01c0\u01be\3\2\2\2\u01c0\u01bf\3\2\2\2\u01c1\u01c2"+
-		"\3\2\2\2\u01c2\u01c7\5> \2\u01c3\u01c8\5n8\2\u01c4\u01c8\5p9\2\u01c5\u01c8"+
-		"\5t;\2\u01c6\u01c8\5v<\2\u01c7\u01c3\3\2\2\2\u01c7\u01c4\3\2\2\2\u01c7"+
-		"\u01c5\3\2\2\2\u01c7\u01c6\3\2\2\2\u01c8\u01c9\3\2\2\2\u01c9\u01cc\5,"+
-		"\27\2\u01ca\u01cd\5<\37\2\u01cb\u01cd\5&\24\2\u01cc\u01ca\3\2\2\2\u01cc"+
-		"\u01cb\3\2\2\2\u01cda\3\2\2\2\u01ce\u01cf\5\u0084C\2\u01cf\u01d2\5> \2"+
-		"\u01d0\u01d3\5j\66\2\u01d1\u01d3\5l\67\2\u01d2\u01d0\3\2\2\2\u01d2\u01d1"+
-		"\3\2\2\2\u01d3\u01d4\3\2\2\2\u01d4\u01d9\5> \2\u01d5\u01da\5n8\2\u01d6"+
-		"\u01da\5p9\2\u01d7\u01da\5t;\2\u01d8\u01da\5v<\2\u01d9\u01d5\3\2\2\2\u01d9"+
-		"\u01d6\3\2\2\2\u01d9\u01d7\3\2\2\2\u01d9\u01d8\3\2\2\2\u01da\u01db\3\2"+
-		"\2\2\u01db\u01dc\5,\27\2\u01dc\u01dd\5$\23\2\u01ddc\3\2\2\2\u01de\u01df"+
-		"\5\u0086D\2\u01df\u01e2\5> \2\u01e0\u01e3\5j\66\2\u01e1\u01e3\5l\67\2"+
-		"\u01e2\u01e0\3\2\2\2\u01e2\u01e1\3\2\2\2\u01e3\u01e4\3\2\2\2\u01e4\u01e9"+
-		"\5> \2\u01e5\u01ea\5n8\2\u01e6\u01ea\5p9\2\u01e7\u01ea\5t;\2\u01e8\u01ea"+
-		"\5v<\2\u01e9\u01e5\3\2\2\2\u01e9\u01e6\3\2\2\2\u01e9\u01e7\3\2\2\2\u01e9"+
-		"\u01e8\3\2\2\2\u01ea\u01eb\3\2\2\2\u01eb\u01ee\5,\27\2\u01ec\u01ef\5<"+
-		"\37\2\u01ed\u01ef\5&\24\2\u01ee\u01ec\3\2\2\2\u01ee\u01ed\3\2\2\2\u01ef"+
-		"e\3\2\2\2\u01f0\u01f1\5\u0088E\2\u01f1\u01f4\5> \2\u01f2\u01f5\5j\66\2"+
-		"\u01f3\u01f5\5l\67\2\u01f4\u01f2\3\2\2\2\u01f4\u01f3\3\2\2\2\u01f5\u01f6"+
-		"\3\2\2\2\u01f6\u01fb\5> \2\u01f7\u01fc\5n8\2\u01f8\u01fc\5p9\2\u01f9\u01fc"+
-		"\5t;\2\u01fa\u01fc\5v<\2\u01fb\u01f7\3\2\2\2\u01fb\u01f8\3\2\2\2\u01fb"+
-		"\u01f9\3\2\2\2\u01fb\u01fa\3\2\2\2\u01fc\u01fd\3\2\2\2\u01fd\u0200\5,"+
-		"\27\2\u01fe\u0201\5<\37\2\u01ff\u0201\5&\24\2\u0200\u01fe\3\2\2\2\u0200"+
-		"\u01ff\3\2\2\2\u0201g\3\2\2\2\u0202\u0203\5\u008aF\2\u0203\u0206\5> \2"+
-		"\u0204\u0207\5j\66\2\u0205\u0207\5l\67\2\u0206\u0204\3\2\2\2\u0206\u0205"+
-		"\3\2\2\2\u0207\u0208\3\2\2\2\u0208\u020d\5> \2\u0209\u020e\5n8\2\u020a"+
-		"\u020e\5p9\2\u020b\u020e\5t;\2\u020c\u020e\5v<\2\u020d\u0209\3\2\2\2\u020d"+
-		"\u020a\3\2\2\2\u020d\u020b\3\2\2\2\u020d\u020c\3\2\2\2\u020e\u020f\3\2"+
-		"\2\2\u020f\u0212\5,\27\2\u0210\u0213\5<\37\2\u0211\u0213\5&\24\2\u0212"+
-		"\u0210\3\2\2\2\u0212\u0211\3\2\2\2\u0213i\3\2\2\2\u0214\u0215\7+\2\2\u0215"+
-		"k\3\2\2\2\u0216\u0217\7,\2\2\u0217m\3\2\2\2\u0218\u0219\7-\2\2\u0219o"+
-		"\3\2\2\2\u021a\u021b\7.\2\2\u021bq\3\2\2\2\u021c\u021d\7/\2\2\u021ds\3"+
-		"\2\2\2\u021e\u021f\7\60\2\2\u021fu\3\2\2\2\u0220\u0221\7\61\2\2\u0221"+
-		"w\3\2\2\2\u0222\u0223\7\35\2\2\u0223y\3\2\2\2\u0224\u0225\7\36\2\2\u0225"+
-		"{\3\2\2\2\u0226\u0227\7\37\2\2\u0227}\3\2\2\2\u0228\u0229\7 \2\2\u0229"+
-		"\177\3\2\2\2\u022a\u022b\7!\2\2\u022b\u0081\3\2\2\2\u022c\u022d\7\"\2"+
-		"\2\u022d\u0083\3\2\2\2\u022e\u022f\7#\2\2\u022f\u0085\3\2\2\2\u0230\u0231"+
-		"\7$\2\2\u0231\u0087\3\2\2\2\u0232\u0233\7%\2\2\u0233\u0089\3\2\2\2\u0234"+
-		"\u0235\7&\2\2\u0235\u008b\3\2\2\2\64\u0090\u0092\u009b\u009d\u00a5\u00a9"+
-		"\u00ae\u00b3\u00b8\u00bd\u00c3\u00c7\u00c9\u00d0\u00d6\u00dd\u00e9\u00f0"+
-		"\u00fc\u0103\u010f\u0116\u0120\u0146\u016b\u0173\u017c\u0183\u0188\u018e"+
-		"\u0195\u019a\u01a0\u01a7\u01b0\u01b7\u01c0\u01c7\u01cc\u01d2\u01d9\u01e2"+
-		"\u01e9\u01ee\u01f4\u01fb\u0200\u0206\u020d\u0212";
+		"\4>\t>\4?\t?\4@\t@\4A\tA\4B\tB\4C\tC\4D\tD\4E\tE\4F\tF\4G\tG\4H\tH\4I"+
+		"\tI\4J\tJ\4K\tK\3\2\3\2\3\2\3\2\7\2\u009b\n\2\f\2\16\2\u009e\13\2\3\3"+
+		"\3\3\3\3\3\3\3\3\3\3\7\3\u00a6\n\3\f\3\16\3\u00a9\13\3\3\3\3\3\3\3\7\3"+
+		"\u00ae\n\3\f\3\16\3\u00b1\13\3\3\3\5\3\u00b4\n\3\3\4\6\4\u00b7\n\4\r\4"+
+		"\16\4\u00b8\3\5\6\5\u00bc\n\5\r\5\16\5\u00bd\3\6\6\6\u00c1\n\6\r\6\16"+
+		"\6\u00c2\3\7\6\7\u00c6\n\7\r\7\16\7\u00c7\3\b\3\b\3\b\3\b\5\b\u00ce\n"+
+		"\b\3\b\3\b\7\b\u00d2\n\b\f\b\16\b\u00d5\13\b\3\t\3\t\3\t\3\t\5\t\u00db"+
+		"\n\t\3\n\3\n\7\n\u00df\n\n\f\n\16\n\u00e2\13\n\3\n\3\n\7\n\u00e6\n\n\f"+
+		"\n\16\n\u00e9\13\n\3\n\3\n\3\n\3\n\3\n\3\13\3\13\7\13\u00f2\n\13\f\13"+
+		"\16\13\u00f5\13\13\3\13\3\13\7\13\u00f9\n\13\f\13\16\13\u00fc\13\13\3"+
+		"\13\3\13\3\13\3\13\3\13\3\f\3\f\7\f\u0105\n\f\f\f\16\f\u0108\13\f\3\f"+
+		"\3\f\7\f\u010c\n\f\f\f\16\f\u010f\13\f\3\f\3\f\3\f\3\f\3\f\3\r\3\r\7\r"+
+		"\u0118\n\r\f\r\16\r\u011b\13\r\3\r\3\r\7\r\u011f\n\r\f\r\16\r\u0122\13"+
+		"\r\3\r\3\r\3\r\3\r\3\r\3\16\3\16\5\16\u012b\n\16\3\17\3\17\3\20\3\20\3"+
+		"\21\3\21\3\22\3\22\3\23\3\23\3\24\3\24\3\25\3\25\3\26\3\26\3\27\3\27\3"+
+		"\30\3\30\3\31\3\31\3\32\3\32\3\33\3\33\3\34\3\34\3\35\3\35\3\36\3\36\3"+
+		"\37\6\37\u014e\n\37\r\37\16\37\u014f\3 \3 \3!\3!\3\"\3\"\7\"\u0158\n\""+
+		"\f\"\16\"\u015b\13\"\3\"\3\"\3#\3#\3$\3$\3%\3%\3&\3&\3\'\3\'\3(\3(\3)"+
+		"\3)\3*\3*\3+\3+\3,\3,\3-\3-\3.\3.\3.\3.\3.\3.\3.\3.\3.\3.\5.\u017f\n."+
+		"\3/\3/\3/\5/\u0184\n/\3\60\3\60\3\60\3\60\3\60\3\60\3\61\3\61\3\61\3\61"+
+		"\5\61\u0190\n\61\3\61\3\61\3\61\3\61\3\61\5\61\u0197\n\61\3\62\3\62\3"+
+		"\62\3\62\5\62\u019d\n\62\3\62\3\62\3\62\3\62\3\62\5\62\u01a4\n\62\3\63"+
+		"\3\63\3\63\3\63\5\63\u01aa\n\63\3\63\3\63\3\63\3\63\3\63\3\64\3\64\3\64"+
+		"\3\64\5\64\u01b5\n\64\3\64\3\64\3\64\3\64\3\64\3\65\3\65\3\65\3\65\5\65"+
+		"\u01c0\n\65\3\65\3\65\3\65\3\65\3\65\5\65\u01c7\n\65\3\66\3\66\3\66\3"+
+		"\66\5\66\u01cd\n\66\3\66\3\66\3\66\3\66\3\66\3\67\3\67\3\67\3\67\5\67"+
+		"\u01d8\n\67\3\67\3\67\3\67\3\67\3\67\5\67\u01df\n\67\38\38\38\38\58\u01e5"+
+		"\n8\38\38\38\38\38\39\39\39\39\59\u01f0\n9\39\39\39\39\39\59\u01f7\n9"+
+		"\3:\3:\3:\3:\5:\u01fd\n:\3;\3;\3<\3<\3=\3=\3>\3>\3?\3?\3@\3@\3A\3A\3B"+
+		"\3B\3C\3C\3D\3D\3E\3E\3F\3F\3G\3G\3H\3H\3I\3I\3J\3J\3K\3K\3K\2\2L\2\4"+
+		"\6\b\n\f\16\20\22\24\26\30\32\34\36 \"$&(*,.\60\62\64\668:<>@BDFHJLNP"+
+		"RTVXZ\\^`bdfhjlnprtvxz|~\u0080\u0082\u0084\u0086\u0088\u008a\u008c\u008e"+
+		"\u0090\u0092\u0094\2\3\4\2\64\6499\2\u0215\2\u009c\3\2\2\2\4\u00b3\3\2"+
+		"\2\2\6\u00b6\3\2\2\2\b\u00bb\3\2\2\2\n\u00c0\3\2\2\2\f\u00c5\3\2\2\2\16"+
+		"\u00d3\3\2\2\2\20\u00da\3\2\2\2\22\u00dc\3\2\2\2\24\u00ef\3\2\2\2\26\u0102"+
+		"\3\2\2\2\30\u0115\3\2\2\2\32\u012a\3\2\2\2\34\u012c\3\2\2\2\36\u012e\3"+
+		"\2\2\2 \u0130\3\2\2\2\"\u0132\3\2\2\2$\u0134\3\2\2\2&\u0136\3\2\2\2(\u0138"+
+		"\3\2\2\2*\u013a\3\2\2\2,\u013c\3\2\2\2.\u013e\3\2\2\2\60\u0140\3\2\2\2"+
+		"\62\u0142\3\2\2\2\64\u0144\3\2\2\2\66\u0146\3\2\2\28\u0148\3\2\2\2:\u014a"+
+		"\3\2\2\2<\u014d\3\2\2\2>\u0151\3\2\2\2@\u0153\3\2\2\2B\u0155\3\2\2\2D"+
+		"\u015e\3\2\2\2F\u0160\3\2\2\2H\u0162\3\2\2\2J\u0164\3\2\2\2L\u0166\3\2"+
+		"\2\2N\u0168\3\2\2\2P\u016a\3\2\2\2R\u016c\3\2\2\2T\u016e\3\2\2\2V\u0170"+
+		"\3\2\2\2X\u0172\3\2\2\2Z\u017e\3\2\2\2\\\u0183\3\2\2\2^\u0185\3\2\2\2"+
+		"`\u018b\3\2\2\2b\u0198\3\2\2\2d\u01a5\3\2\2\2f\u01b0\3\2\2\2h\u01bb\3"+
+		"\2\2\2j\u01c8\3\2\2\2l\u01d3\3\2\2\2n\u01e0\3\2\2\2p\u01eb\3\2\2\2r\u01fc"+
+		"\3\2\2\2t\u01fe\3\2\2\2v\u0200\3\2\2\2x\u0202\3\2\2\2z\u0204\3\2\2\2|"+
+		"\u0206\3\2\2\2~\u0208\3\2\2\2\u0080\u020a\3\2\2\2\u0082\u020c\3\2\2\2"+
+		"\u0084\u020e\3\2\2\2\u0086\u0210\3\2\2\2\u0088\u0212\3\2\2\2\u008a\u0214"+
+		"\3\2\2\2\u008c\u0216\3\2\2\2\u008e\u0218\3\2\2\2\u0090\u021a\3\2\2\2\u0092"+
+		"\u021c\3\2\2\2\u0094\u021e\3\2\2\2\u0096\u009b\5\20\t\2\u0097\u009b\5"+
+		"\4\3\2\u0098\u009b\5\32\16\2\u0099\u009b\5Z.\2\u009a\u0096\3\2\2\2\u009a"+
+		"\u0097\3\2\2\2\u009a\u0098\3\2\2\2\u009a\u0099\3\2\2\2\u009b\u009e\3\2"+
+		"\2\2\u009c\u009a\3\2\2\2\u009c\u009d\3\2\2\2\u009d\3\3\2\2\2\u009e\u009c"+
+		"\3\2\2\2\u009f\u00a7\7\3\2\2\u00a0\u00a6\5\f\7\2\u00a1\u00a6\5\6\4\2\u00a2"+
+		"\u00a6\5\b\5\2\u00a3\u00a6\5\n\6\2\u00a4\u00a6\7\13\2\2\u00a5\u00a0\3"+
+		"\2\2\2\u00a5\u00a1\3\2\2\2\u00a5\u00a2\3\2\2\2\u00a5\u00a3\3\2\2\2\u00a5"+
+		"\u00a4\3\2\2\2\u00a6\u00a9\3\2\2\2\u00a7\u00a5\3\2\2\2\u00a7\u00a8\3\2"+
+		"\2\2\u00a8\u00aa\3\2\2\2\u00a9\u00a7\3\2\2\2\u00aa\u00b4\7\63\2\2\u00ab"+
+		"\u00af\7\4\2\2\u00ac\u00ae\5\f\7\2\u00ad\u00ac\3\2\2\2\u00ae\u00b1\3\2"+
+		"\2\2\u00af\u00ad\3\2\2\2\u00af\u00b0\3\2\2\2\u00b0\u00b2\3\2\2\2\u00b1"+
+		"\u00af\3\2\2\2\u00b2\u00b4\78\2\2\u00b3\u009f\3\2\2\2\u00b3\u00ab\3\2"+
+		"\2\2\u00b4\5\3\2\2\2\u00b5\u00b7\7\65\2\2\u00b6\u00b5\3\2\2\2\u00b7\u00b8"+
+		"\3\2\2\2\u00b8\u00b6\3\2\2\2\u00b8\u00b9\3\2\2\2\u00b9\7\3\2\2\2\u00ba"+
+		"\u00bc\7\66\2\2\u00bb\u00ba\3\2\2\2\u00bc\u00bd\3\2\2\2\u00bd\u00bb\3"+
+		"\2\2\2\u00bd\u00be\3\2\2\2\u00be\t\3\2\2\2\u00bf\u00c1\7\67\2\2\u00c0"+
+		"\u00bf\3\2\2\2\u00c1\u00c2\3\2\2\2\u00c2\u00c0\3\2\2\2\u00c2\u00c3\3\2"+
+		"\2\2\u00c3\13\3\2\2\2\u00c4\u00c6\t\2\2\2\u00c5\u00c4\3\2\2\2\u00c6\u00c7"+
+		"\3\2\2\2\u00c7\u00c5\3\2\2\2\u00c7\u00c8\3\2\2\2\u00c8\r\3\2\2\2\u00c9"+
+		"\u00d2\5:\36\2\u00ca\u00d2\58\35\2\u00cb\u00cd\5\"\22\2\u00cc\u00ce\5"+
+		"\66\34\2\u00cd\u00cc\3\2\2\2\u00cd\u00ce\3\2\2\2\u00ce\u00d2\3\2\2\2\u00cf"+
+		"\u00d2\5&\24\2\u00d0\u00d2\5\36\20\2\u00d1\u00c9\3\2\2\2\u00d1\u00ca\3"+
+		"\2\2\2\u00d1\u00cb\3\2\2\2\u00d1\u00cf\3\2\2\2\u00d1\u00d0\3\2\2\2\u00d2"+
+		"\u00d5\3\2\2\2\u00d3\u00d1\3\2\2\2\u00d3\u00d4\3\2\2\2\u00d4\17\3\2\2"+
+		"\2\u00d5\u00d3\3\2\2\2\u00d6\u00db\5\22\n\2\u00d7\u00db\5\24\13\2\u00d8"+
+		"\u00db\5\26\f\2\u00d9\u00db\5\30\r\2\u00da\u00d6\3\2\2\2\u00da\u00d7\3"+
+		"\2\2\2\u00da\u00d8\3\2\2\2\u00da\u00d9\3\2\2\2\u00db\21\3\2\2\2\u00dc"+
+		"\u00e0\5J&\2\u00dd\u00df\5\32\16\2\u00de\u00dd\3\2\2\2\u00df\u00e2\3\2"+
+		"\2\2\u00e0\u00de\3\2\2\2\u00e0\u00e1\3\2\2\2\u00e1\u00e3\3\2\2\2\u00e2"+
+		"\u00e0\3\2\2\2\u00e3\u00e7\5,\27\2\u00e4\u00e6\5\32\16\2\u00e5\u00e4\3"+
+		"\2\2\2\u00e6\u00e9\3\2\2\2\u00e7\u00e5\3\2\2\2\u00e7\u00e8\3\2\2\2\u00e8"+
+		"\u00ea\3\2\2\2\u00e9\u00e7\3\2\2\2\u00ea\u00eb\5\16\b\2\u00eb\u00ec\5"+
+		"&\24\2\u00ec\u00ed\58\35\2\u00ed\u00ee\5L\'\2\u00ee\23\3\2\2\2\u00ef\u00f3"+
+		"\5N(\2\u00f0\u00f2\5\32\16\2\u00f1\u00f0\3\2\2\2\u00f2\u00f5\3\2\2\2\u00f3"+
+		"\u00f1\3\2\2\2\u00f3\u00f4\3\2\2\2\u00f4\u00f6\3\2\2\2\u00f5\u00f3\3\2"+
+		"\2\2\u00f6\u00fa\5,\27\2\u00f7\u00f9\5\32\16\2\u00f8\u00f7\3\2\2\2\u00f9"+
+		"\u00fc\3\2\2\2\u00fa\u00f8\3\2\2\2\u00fa\u00fb\3\2\2\2\u00fb\u00fd\3\2"+
+		"\2\2\u00fc\u00fa\3\2\2\2\u00fd\u00fe\5\16\b\2\u00fe\u00ff\5&\24\2\u00ff"+
+		"\u0100\58\35\2\u0100\u0101\5P)\2\u0101\25\3\2\2\2\u0102\u0106\5R*\2\u0103"+
+		"\u0105\5\32\16\2\u0104\u0103\3\2\2\2\u0105\u0108\3\2\2\2\u0106\u0104\3"+
+		"\2\2\2\u0106\u0107\3\2\2\2\u0107\u0109\3\2\2\2\u0108\u0106\3\2\2\2\u0109"+
+		"\u010d\5,\27\2\u010a\u010c\5\32\16\2\u010b\u010a\3\2\2\2\u010c\u010f\3"+
+		"\2\2\2\u010d\u010b\3\2\2\2\u010d\u010e\3\2\2\2\u010e\u0110\3\2\2\2\u010f"+
+		"\u010d\3\2\2\2\u0110\u0111\5\16\b\2\u0111\u0112\5&\24\2\u0112\u0113\5"+
+		"8\35\2\u0113\u0114\5T+\2\u0114\27\3\2\2\2\u0115\u0119\5V,\2\u0116\u0118"+
+		"\5\32\16\2\u0117\u0116\3\2\2\2\u0118\u011b\3\2\2\2\u0119\u0117\3\2\2\2"+
+		"\u0119\u011a\3\2\2\2\u011a\u011c\3\2\2\2\u011b\u0119\3\2\2\2\u011c\u0120"+
+		"\5,\27\2\u011d\u011f\5\32\16\2\u011e\u011d\3\2\2\2\u011f\u0122\3\2\2\2"+
+		"\u0120\u011e\3\2\2\2\u0120\u0121\3\2\2\2\u0121\u0123\3\2\2\2\u0122\u0120"+
+		"\3\2\2\2\u0123\u0124\5\16\b\2\u0124\u0125\5&\24\2\u0125\u0126\58\35\2"+
+		"\u0126\u0127\5X-\2\u0127\31\3\2\2\2\u0128\u012b\5\34\17\2\u0129\u012b"+
+		"\5 \21\2\u012a\u0128\3\2\2\2\u012a\u0129\3\2\2\2\u012b\33\3\2\2\2\u012c"+
+		"\u012d\7\27\2\2\u012d\35\3\2\2\2\u012e\u012f\7\30\2\2\u012f\37\3\2\2\2"+
+		"\u0130\u0131\7\13\2\2\u0131!\3\2\2\2\u0132\u0133\7\7\2\2\u0133#\3\2\2"+
+		"\2\u0134\u0135\7\6\2\2\u0135%\3\2\2\2\u0136\u0137\7\62\2\2\u0137\'\3\2"+
+		"\2\2\u0138\u0139\7\16\2\2\u0139)\3\2\2\2\u013a\u013b\7\17\2\2\u013b+\3"+
+		"\2\2\2\u013c\u013d\7\20\2\2\u013d-\3\2\2\2\u013e\u013f\7\21\2\2\u013f"+
+		"/\3\2\2\2\u0140\u0141\7\f\2\2\u0141\61\3\2\2\2\u0142\u0143\7\r\2\2\u0143"+
+		"\63\3\2\2\2\u0144\u0145\7\b\2\2\u0145\65\3\2\2\2\u0146\u0147\7\25\2\2"+
+		"\u0147\67\3\2\2\2\u0148\u0149\7\n\2\2\u01499\3\2\2\2\u014a\u014b\7\t\2"+
+		"\2\u014b;\3\2\2\2\u014c\u014e\7;\2\2\u014d\u014c\3\2\2\2\u014e\u014f\3"+
+		"\2\2\2\u014f\u014d\3\2\2\2\u014f\u0150\3\2\2\2\u0150=\3\2\2\2\u0151\u0152"+
+		"\7\5\2\2\u0152?\3\2\2\2\u0153\u0154\7:\2\2\u0154A\3\2\2\2\u0155\u0159"+
+		"\5> \2\u0156\u0158\5<\37\2\u0157\u0156\3\2\2\2\u0158\u015b\3\2\2\2\u0159"+
+		"\u0157\3\2\2\2\u0159\u015a\3\2\2\2\u015a\u015c\3\2\2\2\u015b\u0159\3\2"+
+		"\2\2\u015c\u015d\5@!\2\u015dC\3\2\2\2\u015e\u015f\7\22\2\2\u015fE\3\2"+
+		"\2\2\u0160\u0161\7\23\2\2\u0161G\3\2\2\2\u0162\u0163\7\24\2\2\u0163I\3"+
+		"\2\2\2\u0164\u0165\7\31\2\2\u0165K\3\2\2\2\u0166\u0167\7\'\2\2\u0167M"+
+		"\3\2\2\2\u0168\u0169\7\33\2\2\u0169O\3\2\2\2\u016a\u016b\7(\2\2\u016b"+
+		"Q\3\2\2\2\u016c\u016d\7\32\2\2\u016dS\3\2\2\2\u016e\u016f\7)\2\2\u016f"+
+		"U\3\2\2\2\u0170\u0171\7\34\2\2\u0171W\3\2\2\2\u0172\u0173\7*\2\2\u0173"+
+		"Y\3\2\2\2\u0174\u017f\5^\60\2\u0175\u017f\5`\61\2\u0176\u017f\5b\62\2"+
+		"\u0177\u017f\5d\63\2\u0178\u017f\5f\64\2\u0179\u017f\5h\65\2\u017a\u017f"+
+		"\5j\66\2\u017b\u017f\5l\67\2\u017c\u017f\5n8\2\u017d\u017f\5p9\2\u017e"+
+		"\u0174\3\2\2\2\u017e\u0175\3\2\2\2\u017e\u0176\3\2\2\2\u017e\u0177\3\2"+
+		"\2\2\u017e\u0178\3\2\2\2\u017e\u0179\3\2\2\2\u017e\u017a\3\2\2\2\u017e"+
+		"\u017b\3\2\2\2\u017e\u017c\3\2\2\2\u017e\u017d\3\2\2\2\u017f[\3\2\2\2"+
+		"\u0180\u0184\5B\"\2\u0181\u0184\5&\24\2\u0182\u0184\5$\23\2\u0183\u0180"+
+		"\3\2\2\2\u0183\u0181\3\2\2\2\u0183\u0182\3\2\2\2\u0184]\3\2\2\2\u0185"+
+		"\u0186\5\u0082B\2\u0186\u0187\5D#\2\u0187\u0188\5r:\2\u0188\u0189\5,\27"+
+		"\2\u0189\u018a\5\\/\2\u018a_\3\2\2\2\u018b\u018c\5\u0084C\2\u018c\u018f"+
+		"\5D#\2\u018d\u0190\5t;\2\u018e\u0190\5v<\2\u018f\u018d\3\2\2\2\u018f\u018e"+
+		"\3\2\2\2\u0190\u0191\3\2\2\2\u0191\u0192\5D#\2\u0192\u0193\5r:\2\u0193"+
+		"\u0196\5,\27\2\u0194\u0197\5B\"\2\u0195\u0197\5&\24\2\u0196\u0194\3\2"+
+		"\2\2\u0196\u0195\3\2\2\2\u0197a\3\2\2\2\u0198\u0199\5\u0086D\2\u0199\u019c"+
+		"\5D#\2\u019a\u019d\5t;\2\u019b\u019d\5v<\2\u019c\u019a\3\2\2\2\u019c\u019b"+
+		"\3\2\2\2\u019d\u019e\3\2\2\2\u019e\u019f\5D#\2\u019f\u01a0\5r:\2\u01a0"+
+		"\u01a3\5,\27\2\u01a1\u01a4\5B\"\2\u01a2\u01a4\5&\24\2\u01a3\u01a1\3\2"+
+		"\2\2\u01a3\u01a2\3\2\2\2\u01a4c\3\2\2\2\u01a5\u01a6\5\u0088E\2\u01a6\u01a9"+
+		"\5D#\2\u01a7\u01aa\5t;\2\u01a8\u01aa\5v<\2\u01a9\u01a7\3\2\2\2\u01a9\u01a8"+
+		"\3\2\2\2\u01aa\u01ab\3\2\2\2\u01ab\u01ac\5D#\2\u01ac\u01ad\5r:\2\u01ad"+
+		"\u01ae\5,\27\2\u01ae\u01af\5$\23\2\u01afe\3\2\2\2\u01b0\u01b1\5\u008a"+
+		"F\2\u01b1\u01b4\5D#\2\u01b2\u01b5\5t;\2\u01b3\u01b5\5v<\2\u01b4\u01b2"+
+		"\3\2\2\2\u01b4\u01b3\3\2\2\2\u01b5\u01b6\3\2\2\2\u01b6\u01b7\5D#\2\u01b7"+
+		"\u01b8\5r:\2\u01b8\u01b9\5,\27\2\u01b9\u01ba\5$\23\2\u01bag\3\2\2\2\u01bb"+
+		"\u01bc\5\u008cG\2\u01bc\u01bf\5D#\2\u01bd\u01c0\5t;\2\u01be\u01c0\5v<"+
+		"\2\u01bf\u01bd\3\2\2\2\u01bf\u01be\3\2\2\2\u01c0\u01c1\3\2\2\2\u01c1\u01c2"+
+		"\5D#\2\u01c2\u01c3\5r:\2\u01c3\u01c6\5,\27\2\u01c4\u01c7\5B\"\2\u01c5"+
+		"\u01c7\5&\24\2\u01c6\u01c4\3\2\2\2\u01c6\u01c5\3\2\2\2\u01c7i\3\2\2\2"+
+		"\u01c8\u01c9\5\u008eH\2\u01c9\u01cc\5D#\2\u01ca\u01cd\5t;\2\u01cb\u01cd"+
+		"\5v<\2\u01cc\u01ca\3\2\2\2\u01cc\u01cb\3\2\2\2\u01cd\u01ce\3\2\2\2\u01ce"+
+		"\u01cf\5D#\2\u01cf\u01d0\5r:\2\u01d0\u01d1\5,\27\2\u01d1\u01d2\5$\23\2"+
+		"\u01d2k\3\2\2\2\u01d3\u01d4\5\u0090I\2\u01d4\u01d7\5D#\2\u01d5\u01d8\5"+
+		"t;\2\u01d6\u01d8\5v<\2\u01d7\u01d5\3\2\2\2\u01d7\u01d6\3\2\2\2\u01d8\u01d9"+
+		"\3\2\2\2\u01d9\u01da\5D#\2\u01da\u01db\5r:\2\u01db\u01de\5,\27\2\u01dc"+
+		"\u01df\5B\"\2\u01dd\u01df\5&\24\2\u01de\u01dc\3\2\2\2\u01de\u01dd\3\2"+
+		"\2\2\u01dfm\3\2\2\2\u01e0\u01e1\5\u0092J\2\u01e1\u01e4\5D#\2\u01e2\u01e5"+
+		"\5t;\2\u01e3\u01e5\5v<\2\u01e4\u01e2\3\2\2\2\u01e4\u01e3\3\2\2\2\u01e5"+
+		"\u01e6\3\2\2\2\u01e6\u01e7\5D#\2\u01e7\u01e8\5r:\2\u01e8\u01e9\5,\27\2"+
+		"\u01e9\u01ea\5\\/\2\u01eao\3\2\2\2\u01eb\u01ec\5\u0094K\2\u01ec\u01ef"+
+		"\5D#\2\u01ed\u01f0\5t;\2\u01ee\u01f0\5v<\2\u01ef\u01ed\3\2\2\2\u01ef\u01ee"+
+		"\3\2\2\2\u01f0\u01f1\3\2\2\2\u01f1\u01f2\5D#\2\u01f2\u01f3\5r:\2\u01f3"+
+		"\u01f6\5,\27\2\u01f4\u01f7\5B\"\2\u01f5\u01f7\5&\24\2\u01f6\u01f4\3\2"+
+		"\2\2\u01f6\u01f5\3\2\2\2\u01f7q\3\2\2\2\u01f8\u01fd\5x=\2\u01f9\u01fd"+
+		"\5z>\2\u01fa\u01fd\5~@\2\u01fb\u01fd\5\u0080A\2\u01fc\u01f8\3\2\2\2\u01fc"+
+		"\u01f9\3\2\2\2\u01fc\u01fa\3\2\2\2\u01fc\u01fb\3\2\2\2\u01fds\3\2\2\2"+
+		"\u01fe\u01ff\7+\2\2\u01ffu\3\2\2\2\u0200\u0201\7,\2\2\u0201w\3\2\2\2\u0202"+
+		"\u0203\7-\2\2\u0203y\3\2\2\2\u0204\u0205\7.\2\2\u0205{\3\2\2\2\u0206\u0207"+
+		"\7/\2\2\u0207}\3\2\2\2\u0208\u0209\7\60\2\2\u0209\177\3\2\2\2\u020a\u020b"+
+		"\7\61\2\2\u020b\u0081\3\2\2\2\u020c\u020d\7\35\2\2\u020d\u0083\3\2\2\2"+
+		"\u020e\u020f\7\36\2\2\u020f\u0085\3\2\2\2\u0210\u0211\7\37\2\2\u0211\u0087"+
+		"\3\2\2\2\u0212\u0213\7 \2\2\u0213\u0089\3\2\2\2\u0214\u0215\7!\2\2\u0215"+
+		"\u008b\3\2\2\2\u0216\u0217\7\"\2\2\u0217\u008d\3\2\2\2\u0218\u0219\7#"+
+		"\2\2\u0219\u008f\3\2\2\2\u021a\u021b\7$\2\2\u021b\u0091\3\2\2\2\u021c"+
+		"\u021d\7%\2\2\u021d\u0093\3\2\2\2\u021e\u021f\7&\2\2\u021f\u0095\3\2\2"+
+		"\2,\u009a\u009c\u00a5\u00a7\u00af\u00b3\u00b8\u00bd\u00c2\u00c7\u00cd"+
+		"\u00d1\u00d3\u00da\u00e0\u00e7\u00f3\u00fa\u0106\u010d\u0119\u0120\u012a"+
+		"\u014f\u0159\u017e\u0183\u018f\u0196\u019c\u01a3\u01a9\u01b4\u01bf\u01c6"+
+		"\u01cc\u01d7\u01de\u01e4\u01ef\u01f6\u01fc";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

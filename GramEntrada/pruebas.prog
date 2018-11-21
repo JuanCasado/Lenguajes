@@ -5,7 +5,7 @@
 /*./ruta2
 ../ruta3/hola*/
 
-JSON=C/tomaruta/archivo.json
+JSON=C:\pfinal\dir\test.json
 DOT=./tomaruta/archivo.dot
 SVG=../archivo.svg
 CSV=./../hola/archivo.csv
