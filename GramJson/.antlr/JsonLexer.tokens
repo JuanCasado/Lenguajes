@@ -1,0 +1,14 @@
+OPEN_OBJ=1
+CLOS_OBJ=2
+OPEN_LIS=3
+CLOS_LIS=4
+END=5
+NAME=6
+COL=7
+TRASH=8
+'{'=1
+'}'=2
+'['=3
+']'=4
+','=5
+':'=7

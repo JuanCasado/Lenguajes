@@ -1,0 +1,64 @@
+{
+    "graphs": [
+        "@graph": [
+            {
+                "@id": "http://PdL.com/class#Principal",
+                "name": "Principal",
+                "label": {
+                        "es": "Principal",
+                        "eng": "Headof"
+                },
+                "properties": [
+                            "http://PdL.com/property#name"
+                ]
+            },
+            {
+                "@id": "http://PdL.com/relationship#conoceA",
+                "name": "conoceA",
+                "reverseName":"esConocidoPor",
+                "label":{
+                            "es":"Conoce A",
+                            "en":"Knows"
+                },
+                "labelReverseName":{
+                        "es":"es conocido por",
+                        "en":"is known by"
+                },
+                "from":"http://PdL.com/class#Nieto",
+                "to":"http://PdL.com/class#Nieto",
+                "properties":[
+                        "http://PdL.com/property#FechaUNIX"
+                ]
+            },
+            {
+                "@id": "http://PdL.com/property#fechaUNIX",
+                "name": "fechaUNIX",
+                "typeOf": "xsd:DateTime",
+                "label": {
+                    "es": "fechaUNIX",
+                    "eng": "UNIXDateTime"
+                },
+                "usedby": [
+                    "http://PdL.com/class#Principal"
+                ]
+            },
+            {
+                "@id": "http://PdL.com/property#Mascotas",
+                "name": "Mascotas",
+                "typeOf": "http://PdL.com/class#Mascota",
+                "isList": true,
+                "multiplicityMax": "n",
+                "multiplicityMin": "0",
+                "label": {
+                    "es": "Mascotas",
+                    "eng": "Pets"
+                },
+                "usedby": [
+                    "http://PdL.com/class#Nieto"
+                ]
+            },
+        ]
+         
+    ]
+}           
+
