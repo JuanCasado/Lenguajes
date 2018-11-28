@@ -4,6 +4,7 @@ class entradaSimbols {
     private HashMap <Integer,String> simbols;
     private Integer row;
     private String jsonBuffer;
+    
     public entradaSimbols (){
         this.simbols = new HashMap<>();
         this.row = 0;
