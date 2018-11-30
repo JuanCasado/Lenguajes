@@ -2,6 +2,7 @@ import java.util.*;
 
 public class CsvVisitor extends CsvParserBaseVisitor<HashContenedor> {
     private HashContenedor contenedor;
+    private HashContenedor row;
 
     public CsvVisitor() {
         contenedor = new HashContenedor("csv");
@@ -23,14 +24,25 @@ public class CsvVisitor extends CsvParserBaseVisitor<HashContenedor> {
     }
     
     @Override
-    public T visitNombre(CsvParser.NombreContext ctx) {
+    public HashContenedor visitNombre(CsvParser.NombreContext ctx) {
         return visitChildren(ctx);
     }
 
     @Override
-    public T visitRow(CsvParser.RowContext ctx) {
-        HashContenedor row = new HashContenedor("row");
-        
+    public HashContenedor visitRow(CsvParser.RowContext ctx) {
+        row = new HashContenedor("row");
+        for (CsvParser.NombreContext nombre : ctx.nombre()) {
+            visitChildren(nombre);
+        }
+        for (CsvParser.RutaficheroContext fichero : ctx.fichero()) {
+            visitChildren(fichero);
+        }
+        for (CsvParser.RutaficherosalidaContext ficheroSalida : ctx.ficherosalida()) {
+            visitChildren(ficheroSalida);
+        }
+        for (CsvParser.RutaficherograficoContext ficheroGrafico : ctx.ficherografico()) {
+            visitChildren(ficheroGrafico);
+        }
         contenedor.addNode(row);
     }
 }
