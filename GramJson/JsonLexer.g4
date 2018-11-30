@@ -1,34 +1,56 @@
-lexer grammar JsonLexer;
+lexer grammar PruebaLexer;
 
-/*
-URL: 'http://PdL.com/';
-PROPERTY: 'property#';
-CLASS: 'class#';
-LANGPROP: 'langprop#';
-XSD: 'xsd:';
-STRING: 'string';
-INTEGER: 'integer';
-BOOLEAN: 'boolean';
-TYPES: 'typoes';
-RELATIONSHIP 'relationship#';
-ID: 'id';
-LANGUAJE: 'languaje';
-TYPE: 'type';
-GENDER: 'gender';
-NUMBER: 'number';
-WORDTYPE: 'wordType';
-ES: 'es';
-EN: 'en';
-BOOL: 'true'|'false';
-STR: '"';
-TAG: '@';
+
+// INICIO_SENTENCIA: '"' -> pushMode(SENTENCIA_LINEA_MODE);
+SALLAVE: '{';
+SCLLAVE: '}';
+SACORCHETE: '[';
+SCCORCHETE: ']';
+COMA: ',';
+DOS_PTOS: ':';
+COMILLAS: '"';
+PUNTO: '.';
+BARRA: '/';
+ALM: '#';
+BBAJA: '_';
+ARROBA: '@';
+
+KW_CONTEXT: '"@context":';
+KW_WWW: 'www.';
+KW_HTTP: 'http://';
+KW_ID: '"@id":';
+KW_NAME: '"name":';
+KW_PROPERTIES: '"properties":';
+KW_INHERITS: '"inherits":';
+KW_GRAPHS: '"graphs":';
+KW_REVERSENAME: '"reverseName":';
+KW_LABELRN: '"labelReverseName":';
+KW_LANGUAGEDATA: '"languageData":';
+KW_LANGUAGE: '"language":';
+KW_NUMBER: '"number":';
+KW_WORDTYPE: '"wordType":';
+KW_GENDER: '"gender":';
+KW_OPTIONAL: '"optional":';
+KW_LABEL: '"label":';
+KW_FROM: '"from":';
+KW_TO: '"to":';
+KW_TYPEOF: '"typeOf":';
+KW_USEDBY: '"usedby":';
+KW_MULMAX: '"multiplicityMax":';
+KW_MULMIN: '"multiplicityMin":';
+KW_ISLIST: '"isList":';
+
+KW_TRUE: 'true';
+KW_FALSE: 'false';
+/*TARGET: (ARR ID);
+    fragment ARR: '@';
+    fragment ID: [a-zA-Z];
+*/    
+NOMBRE: ([a-zA-Z] | ('á'|'é'|'í'|'ó'|'ú'|'ö'))+;
+DIGITO: [0-9]+;
+INTRO: [\n\r\t] -> skip;
+
+/*mode SENTENCIA_LINEA_MODE;
+FINAL_SENTENCIA: '"'->popMode;
+TEXTOSENTENCIA: .+?;
 */
-OPEN_OBJ: '{';
-CLOS_OBJ: '}';
-OPEN_LIS: '[';
-CLOS_LIS: ']';
-END: ',';
-NAME: ([a-zA-Z0-9]|'"'|'@'|'#'|'_'|'-'|'.'|'http:'|'xsd:')+;
-COL: ':';
-//TXT: [a-zA-Z0-9][a-zA-Z0-9 _-]*;
-TRASH: [\n\r\t ] -> skip;
