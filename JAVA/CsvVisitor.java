@@ -31,6 +31,7 @@ public class CsvVisitor extends CsvParserBaseVisitor<HashContenedor> {
     @Override
     public HashContenedor visitRow(CsvParser.RowContext ctx) {
         row = new HashContenedor("row");
+        /*
         for (CsvParser.NombreContext nombre : ctx.nombre()) {
             visitChildren(nombre);
         }
@@ -43,6 +44,7 @@ public class CsvVisitor extends CsvParserBaseVisitor<HashContenedor> {
         for (CsvParser.RutaficherograficoContext ficheroGrafico : ctx.ficherografico()) {
             visitChildren(ficheroGrafico);
         }
+        */
         contenedor.addNode(row);
     }
 }
