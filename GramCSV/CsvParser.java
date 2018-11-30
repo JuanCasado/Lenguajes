@@ -98,12 +98,9 @@ public class CsvParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_init; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CsvParserListener ) ((CsvParserListener)listener).enterInit(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CsvParserListener ) ((CsvParserListener)listener).exitInit(this);
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CsvParserVisitor ) return ((CsvParserVisitor<? extends T>)visitor).visitInit(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -164,12 +161,9 @@ public class CsvParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_info; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CsvParserListener ) ((CsvParserListener)listener).enterInfo(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CsvParserListener ) ((CsvParserListener)listener).exitInfo(this);
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CsvParserVisitor ) return ((CsvParserVisitor<? extends T>)visitor).visitInfo(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -228,12 +222,9 @@ public class CsvParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_row; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CsvParserListener ) ((CsvParserListener)listener).enterRow(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CsvParserListener ) ((CsvParserListener)listener).exitRow(this);
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CsvParserVisitor ) return ((CsvParserVisitor<? extends T>)visitor).visitRow(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -278,12 +269,9 @@ public class CsvParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_dir; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CsvParserListener ) ((CsvParserListener)listener).enterDir(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CsvParserListener ) ((CsvParserListener)listener).exitDir(this);
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CsvParserVisitor ) return ((CsvParserVisitor<? extends T>)visitor).visitDir(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -346,12 +334,9 @@ public class CsvParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_json_file; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CsvParserListener ) ((CsvParserListener)listener).enterJson_file(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CsvParserListener ) ((CsvParserListener)listener).exitJson_file(this);
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CsvParserVisitor ) return ((CsvParserVisitor<? extends T>)visitor).visitJson_file(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -386,12 +371,9 @@ public class CsvParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_svg_file; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CsvParserListener ) ((CsvParserListener)listener).enterSvg_file(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CsvParserListener ) ((CsvParserListener)listener).exitSvg_file(this);
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CsvParserVisitor ) return ((CsvParserVisitor<? extends T>)visitor).visitSvg_file(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -426,12 +408,9 @@ public class CsvParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_dot_file; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CsvParserListener ) ((CsvParserListener)listener).enterDot_file(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CsvParserListener ) ((CsvParserListener)listener).exitDot_file(this);
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CsvParserVisitor ) return ((CsvParserVisitor<? extends T>)visitor).visitDot_file(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -465,12 +444,9 @@ public class CsvParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_coma; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CsvParserListener ) ((CsvParserListener)listener).enterComa(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CsvParserListener ) ((CsvParserListener)listener).exitComa(this);
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CsvParserVisitor ) return ((CsvParserVisitor<? extends T>)visitor).visitComa(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -502,12 +478,9 @@ public class CsvParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_end; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CsvParserListener ) ((CsvParserListener)listener).enterEnd(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CsvParserListener ) ((CsvParserListener)listener).exitEnd(this);
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CsvParserVisitor ) return ((CsvParserVisitor<? extends T>)visitor).visitEnd(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -544,12 +517,9 @@ public class CsvParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_nombre; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CsvParserListener ) ((CsvParserListener)listener).enterNombre(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CsvParserListener ) ((CsvParserListener)listener).exitNombre(this);
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CsvParserVisitor ) return ((CsvParserVisitor<? extends T>)visitor).visitNombre(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -591,12 +561,9 @@ public class CsvParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_rutafichero; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CsvParserListener ) ((CsvParserListener)listener).enterRutafichero(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CsvParserListener ) ((CsvParserListener)listener).exitRutafichero(this);
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CsvParserVisitor ) return ((CsvParserVisitor<? extends T>)visitor).visitRutafichero(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -640,12 +607,9 @@ public class CsvParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_rutaficherosalida; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CsvParserListener ) ((CsvParserListener)listener).enterRutaficherosalida(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CsvParserListener ) ((CsvParserListener)listener).exitRutaficherosalida(this);
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CsvParserVisitor ) return ((CsvParserVisitor<? extends T>)visitor).visitRutaficherosalida(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -689,12 +653,9 @@ public class CsvParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_rutaficherografico; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CsvParserListener ) ((CsvParserListener)listener).enterRutaficherografico(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CsvParserListener ) ((CsvParserListener)listener).exitRutaficherografico(this);
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CsvParserVisitor ) return ((CsvParserVisitor<? extends T>)visitor).visitRutaficherografico(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 

@@ -10,11 +10,11 @@ import org.antlr.v4.runtime.tree.ParseTreeVisitor;
  */
 public interface CsvParserVisitor<T> extends ParseTreeVisitor<T> {
 	/**
-	 * Visit a parse tree produced by {@link CsvParser#csv_file}.
+	 * Visit a parse tree produced by {@link CsvParser#init}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitCsv_file(CsvParser.Csv_fileContext ctx);
+	T visitInit(CsvParser.InitContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link CsvParser#info}.
 	 * @param ctx the parse tree
@@ -63,12 +63,6 @@ public interface CsvParserVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitEnd(CsvParser.EndContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link CsvParser#bar}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitBar(CsvParser.BarContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link CsvParser#nombre}.
 	 * @param ctx the parse tree
