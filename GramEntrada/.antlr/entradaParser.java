@@ -1,4 +1,4 @@
-// Generated from EntradaParser.g4 by ANTLR 4.7.1
+// Generated from c:\antlr\Lenguajes\GramEntrada\entradaParser.g4 by ANTLR 4.7.1
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -9,7 +9,7 @@ import java.util.Iterator;
 import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
-public class EntradaParser extends Parser {
+public class entradaParser extends Parser {
 	static { RuntimeMetaData.checkVersion("4.7.1", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
@@ -115,7 +115,7 @@ public class EntradaParser extends Parser {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "EntradaParser.g4"; }
+	public String getGrammarFileName() { return "entradaParser.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
@@ -126,7 +126,7 @@ public class EntradaParser extends Parser {
 	@Override
 	public ATN getATN() { return _ATN; }
 
-	public EntradaParser(TokenStream input) {
+	public entradaParser(TokenStream input) {
 		super(input);
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
@@ -159,14 +159,6 @@ public class EntradaParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_fichero; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterFichero(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitFichero(this);
-		}
 	}
 
 	public final FicheroContext fichero() throws RecognitionException {
@@ -244,8 +236,8 @@ public class EntradaParser extends Parser {
 	}
 
 	public static class ComentarioContext extends ParserRuleContext {
-		public TerminalNode COMENTARIOABRIR() { return getToken(EntradaParser.COMENTARIOABRIR, 0); }
-		public TerminalNode COMENTARIOCERRAR() { return getToken(EntradaParser.COMENTARIOCERRAR, 0); }
+		public TerminalNode COMENTARIOABRIR() { return getToken(entradaParser.COMENTARIOABRIR, 0); }
+		public TerminalNode COMENTARIOCERRAR() { return getToken(entradaParser.COMENTARIOCERRAR, 0); }
 		public List<Texto_comenContext> texto_comen() {
 			return getRuleContexts(Texto_comenContext.class);
 		}
@@ -270,24 +262,16 @@ public class EntradaParser extends Parser {
 		public TargcomContext targcom(int i) {
 			return getRuleContext(TargcomContext.class,i);
 		}
-		public List<TerminalNode> INTRO() { return getTokens(EntradaParser.INTRO); }
+		public List<TerminalNode> INTRO() { return getTokens(entradaParser.INTRO); }
 		public TerminalNode INTRO(int i) {
-			return getToken(EntradaParser.INTRO, i);
+			return getToken(entradaParser.INTRO, i);
 		}
-		public TerminalNode COMENTARIOLINEA() { return getToken(EntradaParser.COMENTARIOLINEA, 0); }
-		public TerminalNode FINAL_COMENTARIO_UL() { return getToken(EntradaParser.FINAL_COMENTARIO_UL, 0); }
+		public TerminalNode COMENTARIOLINEA() { return getToken(entradaParser.COMENTARIOLINEA, 0); }
+		public TerminalNode FINAL_COMENTARIO_UL() { return getToken(entradaParser.FINAL_COMENTARIO_UL, 0); }
 		public ComentarioContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_comentario; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterComentario(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitComentario(this);
-		}
 	}
 
 	public final ComentarioContext comentario() throws RecognitionException {
@@ -393,22 +377,14 @@ public class EntradaParser extends Parser {
 	}
 
 	public static class AuthorcomContext extends ParserRuleContext {
-		public List<TerminalNode> AUTHOR() { return getTokens(EntradaParser.AUTHOR); }
+		public List<TerminalNode> AUTHOR() { return getTokens(entradaParser.AUTHOR); }
 		public TerminalNode AUTHOR(int i) {
-			return getToken(EntradaParser.AUTHOR, i);
+			return getToken(entradaParser.AUTHOR, i);
 		}
 		public AuthorcomContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_authorcom; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterAuthorcom(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitAuthorcom(this);
-		}
 	}
 
 	public final AuthorcomContext authorcom() throws RecognitionException {
@@ -452,22 +428,14 @@ public class EntradaParser extends Parser {
 	}
 
 	public static class DescrcomContext extends ParserRuleContext {
-		public List<TerminalNode> DESCRIPTION() { return getTokens(EntradaParser.DESCRIPTION); }
+		public List<TerminalNode> DESCRIPTION() { return getTokens(entradaParser.DESCRIPTION); }
 		public TerminalNode DESCRIPTION(int i) {
-			return getToken(EntradaParser.DESCRIPTION, i);
+			return getToken(entradaParser.DESCRIPTION, i);
 		}
 		public DescrcomContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_descrcom; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterDescrcom(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitDescrcom(this);
-		}
 	}
 
 	public final DescrcomContext descrcom() throws RecognitionException {
@@ -511,22 +479,14 @@ public class EntradaParser extends Parser {
 	}
 
 	public static class TargcomContext extends ParserRuleContext {
-		public List<TerminalNode> TARGET() { return getTokens(EntradaParser.TARGET); }
+		public List<TerminalNode> TARGET() { return getTokens(entradaParser.TARGET); }
 		public TerminalNode TARGET(int i) {
-			return getToken(EntradaParser.TARGET, i);
+			return getToken(entradaParser.TARGET, i);
 		}
 		public TargcomContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_targcom; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterTargcom(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitTargcom(this);
-		}
 	}
 
 	public final TargcomContext targcom() throws RecognitionException {
@@ -570,26 +530,18 @@ public class EntradaParser extends Parser {
 	}
 
 	public static class Texto_comenContext extends ParserRuleContext {
-		public List<TerminalNode> TEXTOCOMENTARIO_ML() { return getTokens(EntradaParser.TEXTOCOMENTARIO_ML); }
+		public List<TerminalNode> TEXTOCOMENTARIO_ML() { return getTokens(entradaParser.TEXTOCOMENTARIO_ML); }
 		public TerminalNode TEXTOCOMENTARIO_ML(int i) {
-			return getToken(EntradaParser.TEXTOCOMENTARIO_ML, i);
+			return getToken(entradaParser.TEXTOCOMENTARIO_ML, i);
 		}
-		public List<TerminalNode> TEXTOCOMENTARIO_UL() { return getTokens(EntradaParser.TEXTOCOMENTARIO_UL); }
+		public List<TerminalNode> TEXTOCOMENTARIO_UL() { return getTokens(entradaParser.TEXTOCOMENTARIO_UL); }
 		public TerminalNode TEXTOCOMENTARIO_UL(int i) {
-			return getToken(EntradaParser.TEXTOCOMENTARIO_UL, i);
+			return getToken(entradaParser.TEXTOCOMENTARIO_UL, i);
 		}
 		public Texto_comenContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_texto_comen; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterTexto_comen(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitTexto_comen(this);
-		}
 	}
 
 	public final Texto_comenContext texto_comen() throws RecognitionException {
@@ -682,14 +634,6 @@ public class EntradaParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_rutafichero; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterRutafichero(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitRutafichero(this);
-		}
 	}
 
 	public final RutaficheroContext rutafichero() throws RecognitionException {
@@ -788,14 +732,6 @@ public class EntradaParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_tipo_archivo; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterTipo_archivo(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitTipo_archivo(this);
-		}
 	}
 
 	public final Tipo_archivoContext tipo_archivo() throws RecognitionException {
@@ -876,14 +812,6 @@ public class EntradaParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_json; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterJson(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitJson(this);
-		}
 	}
 
 	public final JsonContext json() throws RecognitionException {
@@ -975,14 +903,6 @@ public class EntradaParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_svg; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterSvg(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitSvg(this);
-		}
 	}
 
 	public final SvgContext svg() throws RecognitionException {
@@ -1074,14 +994,6 @@ public class EntradaParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_dot; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterDot(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitDot(this);
-		}
 	}
 
 	public final DotContext dot() throws RecognitionException {
@@ -1173,14 +1085,6 @@ public class EntradaParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_csv; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterCsv(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitCsv(this);
-		}
 	}
 
 	public final CsvContext csv() throws RecognitionException {
@@ -1254,14 +1158,6 @@ public class EntradaParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_wsci; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterWsci(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitWsci(this);
-		}
 	}
 
 	public final WsciContext wsci() throws RecognitionException {
@@ -1302,19 +1198,11 @@ public class EntradaParser extends Parser {
 	}
 
 	public static class White_spaceContext extends ParserRuleContext {
-		public TerminalNode WS() { return getToken(EntradaParser.WS, 0); }
+		public TerminalNode WS() { return getToken(entradaParser.WS, 0); }
 		public White_spaceContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_white_space; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterWhite_space(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitWhite_space(this);
-		}
 	}
 
 	public final White_spaceContext white_space() throws RecognitionException {
@@ -1339,19 +1227,11 @@ public class EntradaParser extends Parser {
 	}
 
 	public static class BarraContext extends ParserRuleContext {
-		public TerminalNode BARRA() { return getToken(EntradaParser.BARRA, 0); }
+		public TerminalNode BARRA() { return getToken(entradaParser.BARRA, 0); }
 		public BarraContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_barra; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterBarra(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitBarra(this);
-		}
 	}
 
 	public final BarraContext barra() throws RecognitionException {
@@ -1376,19 +1256,11 @@ public class EntradaParser extends Parser {
 	}
 
 	public static class IntroContext extends ParserRuleContext {
-		public TerminalNode INTRO() { return getToken(EntradaParser.INTRO, 0); }
+		public TerminalNode INTRO() { return getToken(entradaParser.INTRO, 0); }
 		public IntroContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_intro; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterIntro(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitIntro(this);
-		}
 	}
 
 	public final IntroContext intro() throws RecognitionException {
@@ -1413,19 +1285,11 @@ public class EntradaParser extends Parser {
 	}
 
 	public static class LetraContext extends ParserRuleContext {
-		public TerminalNode LETRA() { return getToken(EntradaParser.LETRA, 0); }
+		public TerminalNode LETRA() { return getToken(entradaParser.LETRA, 0); }
 		public LetraContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_letra; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterLetra(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitLetra(this);
-		}
 	}
 
 	public final LetraContext letra() throws RecognitionException {
@@ -1450,19 +1314,11 @@ public class EntradaParser extends Parser {
 	}
 
 	public static class NumeroContext extends ParserRuleContext {
-		public TerminalNode INT() { return getToken(EntradaParser.INT, 0); }
+		public TerminalNode INT() { return getToken(entradaParser.INT, 0); }
 		public NumeroContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_numero; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterNumero(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitNumero(this);
-		}
 	}
 
 	public final NumeroContext numero() throws RecognitionException {
@@ -1487,19 +1343,11 @@ public class EntradaParser extends Parser {
 	}
 
 	public static class VariableContext extends ParserRuleContext {
-		public TerminalNode IDF() { return getToken(EntradaParser.IDF, 0); }
+		public TerminalNode IDF() { return getToken(entradaParser.IDF, 0); }
 		public VariableContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_variable; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterVariable(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitVariable(this);
-		}
 	}
 
 	public final VariableContext variable() throws RecognitionException {
@@ -1524,19 +1372,11 @@ public class EntradaParser extends Parser {
 	}
 
 	public static class SapContext extends ParserRuleContext {
-		public TerminalNode SAP() { return getToken(EntradaParser.SAP, 0); }
+		public TerminalNode SAP() { return getToken(entradaParser.SAP, 0); }
 		public SapContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_sap; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterSap(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitSap(this);
-		}
 	}
 
 	public final SapContext sap() throws RecognitionException {
@@ -1561,19 +1401,11 @@ public class EntradaParser extends Parser {
 	}
 
 	public static class ScpContext extends ParserRuleContext {
-		public TerminalNode SCP() { return getToken(EntradaParser.SCP, 0); }
+		public TerminalNode SCP() { return getToken(entradaParser.SCP, 0); }
 		public ScpContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_scp; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterScp(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitScp(this);
-		}
 	}
 
 	public final ScpContext scp() throws RecognitionException {
@@ -1598,19 +1430,11 @@ public class EntradaParser extends Parser {
 	}
 
 	public static class AsigContext extends ParserRuleContext {
-		public TerminalNode ASIG() { return getToken(EntradaParser.ASIG, 0); }
+		public TerminalNode ASIG() { return getToken(entradaParser.ASIG, 0); }
 		public AsigContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_asig; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterAsig(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitAsig(this);
-		}
 	}
 
 	public final AsigContext asig() throws RecognitionException {
@@ -1635,19 +1459,11 @@ public class EntradaParser extends Parser {
 	}
 
 	public static class OpasigContext extends ParserRuleContext {
-		public TerminalNode OPASIG() { return getToken(EntradaParser.OPASIG, 0); }
+		public TerminalNode OPASIG() { return getToken(entradaParser.OPASIG, 0); }
 		public OpasigContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_opasig; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterOpasig(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitOpasig(this);
-		}
 	}
 
 	public final OpasigContext opasig() throws RecognitionException {
@@ -1672,19 +1488,11 @@ public class EntradaParser extends Parser {
 	}
 
 	public static class OpbltContext extends ParserRuleContext {
-		public TerminalNode OPBLT() { return getToken(EntradaParser.OPBLT, 0); }
+		public TerminalNode OPBLT() { return getToken(entradaParser.OPBLT, 0); }
 		public OpbltContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_opblt; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterOpblt(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitOpblt(this);
-		}
 	}
 
 	public final OpbltContext opblt() throws RecognitionException {
@@ -1709,19 +1517,11 @@ public class EntradaParser extends Parser {
 	}
 
 	public static class OpbgtContext extends ParserRuleContext {
-		public TerminalNode OPBGT() { return getToken(EntradaParser.OPBGT, 0); }
+		public TerminalNode OPBGT() { return getToken(entradaParser.OPBGT, 0); }
 		public OpbgtContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_opbgt; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterOpbgt(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitOpbgt(this);
-		}
 	}
 
 	public final OpbgtContext opbgt() throws RecognitionException {
@@ -1746,19 +1546,11 @@ public class EntradaParser extends Parser {
 	}
 
 	public static class ComaContext extends ParserRuleContext {
-		public TerminalNode COMA() { return getToken(EntradaParser.COMA, 0); }
+		public TerminalNode COMA() { return getToken(entradaParser.COMA, 0); }
 		public ComaContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_coma; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterComa(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitComa(this);
-		}
 	}
 
 	public final ComaContext coma() throws RecognitionException {
@@ -1783,19 +1575,11 @@ public class EntradaParser extends Parser {
 	}
 
 	public static class Dos_ptosContext extends ParserRuleContext {
-		public TerminalNode KW_DOS_PUNTOS() { return getToken(EntradaParser.KW_DOS_PUNTOS, 0); }
+		public TerminalNode KW_DOS_PUNTOS() { return getToken(entradaParser.KW_DOS_PUNTOS, 0); }
 		public Dos_ptosContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_dos_ptos; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterDos_ptos(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitDos_ptos(this);
-		}
 	}
 
 	public final Dos_ptosContext dos_ptos() throws RecognitionException {
@@ -1820,19 +1604,11 @@ public class EntradaParser extends Parser {
 	}
 
 	public static class PuntoContext extends ParserRuleContext {
-		public TerminalNode PUNTO() { return getToken(EntradaParser.PUNTO, 0); }
+		public TerminalNode PUNTO() { return getToken(entradaParser.PUNTO, 0); }
 		public PuntoContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_punto; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterPunto(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitPunto(this);
-		}
 	}
 
 	public final PuntoContext punto() throws RecognitionException {
@@ -1857,19 +1633,11 @@ public class EntradaParser extends Parser {
 	}
 
 	public static class DoblepuntoContext extends ParserRuleContext {
-		public TerminalNode DOBLEPUNTO() { return getToken(EntradaParser.DOBLEPUNTO, 0); }
+		public TerminalNode DOBLEPUNTO() { return getToken(entradaParser.DOBLEPUNTO, 0); }
 		public DoblepuntoContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_doblepunto; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterDoblepunto(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitDoblepunto(this);
-		}
 	}
 
 	public final DoblepuntoContext doblepunto() throws RecognitionException {
@@ -1894,22 +1662,14 @@ public class EntradaParser extends Parser {
 	}
 
 	public static class Texto_cadenaContext extends ParserRuleContext {
-		public List<TerminalNode> TEXTO_CADENA() { return getTokens(EntradaParser.TEXTO_CADENA); }
+		public List<TerminalNode> TEXTO_CADENA() { return getTokens(entradaParser.TEXTO_CADENA); }
 		public TerminalNode TEXTO_CADENA(int i) {
-			return getToken(EntradaParser.TEXTO_CADENA, i);
+			return getToken(entradaParser.TEXTO_CADENA, i);
 		}
 		public Texto_cadenaContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_texto_cadena; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterTexto_cadena(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitTexto_cadena(this);
-		}
 	}
 
 	public final Texto_cadenaContext texto_cadena() throws RecognitionException {
@@ -1953,19 +1713,11 @@ public class EntradaParser extends Parser {
 	}
 
 	public static class Cadena_abrirContext extends ParserRuleContext {
-		public TerminalNode CADENA_ABRIR() { return getToken(EntradaParser.CADENA_ABRIR, 0); }
+		public TerminalNode CADENA_ABRIR() { return getToken(entradaParser.CADENA_ABRIR, 0); }
 		public Cadena_abrirContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_cadena_abrir; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterCadena_abrir(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitCadena_abrir(this);
-		}
 	}
 
 	public final Cadena_abrirContext cadena_abrir() throws RecognitionException {
@@ -1990,19 +1742,11 @@ public class EntradaParser extends Parser {
 	}
 
 	public static class Cadena_cerrarContext extends ParserRuleContext {
-		public TerminalNode CADENA_CERRAR() { return getToken(EntradaParser.CADENA_CERRAR, 0); }
+		public TerminalNode CADENA_CERRAR() { return getToken(entradaParser.CADENA_CERRAR, 0); }
 		public Cadena_cerrarContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_cadena_cerrar; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterCadena_cerrar(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitCadena_cerrar(this);
-		}
 	}
 
 	public final Cadena_cerrarContext cadena_cerrar() throws RecognitionException {
@@ -2043,14 +1787,6 @@ public class EntradaParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_cadena; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterCadena(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitCadena(this);
-		}
 	}
 
 	public final CadenaContext cadena() throws RecognitionException {
@@ -2092,19 +1828,11 @@ public class EntradaParser extends Parser {
 	}
 
 	public static class BbajaContext extends ParserRuleContext {
-		public TerminalNode BBAJA() { return getToken(EntradaParser.BBAJA, 0); }
+		public TerminalNode BBAJA() { return getToken(entradaParser.BBAJA, 0); }
 		public BbajaContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_bbaja; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterBbaja(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitBbaja(this);
-		}
 	}
 
 	public final BbajaContext bbaja() throws RecognitionException {
@@ -2129,19 +1857,11 @@ public class EntradaParser extends Parser {
 	}
 
 	public static class Cor_abrirContext extends ParserRuleContext {
-		public TerminalNode COR_ABRIR() { return getToken(EntradaParser.COR_ABRIR, 0); }
+		public TerminalNode COR_ABRIR() { return getToken(entradaParser.COR_ABRIR, 0); }
 		public Cor_abrirContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_cor_abrir; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterCor_abrir(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitCor_abrir(this);
-		}
 	}
 
 	public final Cor_abrirContext cor_abrir() throws RecognitionException {
@@ -2166,19 +1886,11 @@ public class EntradaParser extends Parser {
 	}
 
 	public static class Cor_CerrarContext extends ParserRuleContext {
-		public TerminalNode COR_CERRAR() { return getToken(EntradaParser.COR_CERRAR, 0); }
+		public TerminalNode COR_CERRAR() { return getToken(entradaParser.COR_CERRAR, 0); }
 		public Cor_CerrarContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_cor_Cerrar; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterCor_Cerrar(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitCor_Cerrar(this);
-		}
 	}
 
 	public final Cor_CerrarContext cor_Cerrar() throws RecognitionException {
@@ -2203,19 +1915,11 @@ public class EntradaParser extends Parser {
 	}
 
 	public static class Kw_jsonContext extends ParserRuleContext {
-		public TerminalNode KW_JSON() { return getToken(EntradaParser.KW_JSON, 0); }
+		public TerminalNode KW_JSON() { return getToken(entradaParser.KW_JSON, 0); }
 		public Kw_jsonContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_kw_json; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterKw_json(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitKw_json(this);
-		}
 	}
 
 	public final Kw_jsonContext kw_json() throws RecognitionException {
@@ -2240,19 +1944,11 @@ public class EntradaParser extends Parser {
 	}
 
 	public static class Extension_jsonContext extends ParserRuleContext {
-		public TerminalNode EXTENSION_JSON() { return getToken(EntradaParser.EXTENSION_JSON, 0); }
+		public TerminalNode EXTENSION_JSON() { return getToken(entradaParser.EXTENSION_JSON, 0); }
 		public Extension_jsonContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_extension_json; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterExtension_json(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitExtension_json(this);
-		}
 	}
 
 	public final Extension_jsonContext extension_json() throws RecognitionException {
@@ -2277,19 +1973,11 @@ public class EntradaParser extends Parser {
 	}
 
 	public static class Kw_svgContext extends ParserRuleContext {
-		public TerminalNode KW_SVG() { return getToken(EntradaParser.KW_SVG, 0); }
+		public TerminalNode KW_SVG() { return getToken(entradaParser.KW_SVG, 0); }
 		public Kw_svgContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_kw_svg; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterKw_svg(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitKw_svg(this);
-		}
 	}
 
 	public final Kw_svgContext kw_svg() throws RecognitionException {
@@ -2314,19 +2002,11 @@ public class EntradaParser extends Parser {
 	}
 
 	public static class Extension_svgContext extends ParserRuleContext {
-		public TerminalNode EXTENSION_SVG() { return getToken(EntradaParser.EXTENSION_SVG, 0); }
+		public TerminalNode EXTENSION_SVG() { return getToken(entradaParser.EXTENSION_SVG, 0); }
 		public Extension_svgContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_extension_svg; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterExtension_svg(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitExtension_svg(this);
-		}
 	}
 
 	public final Extension_svgContext extension_svg() throws RecognitionException {
@@ -2351,19 +2031,11 @@ public class EntradaParser extends Parser {
 	}
 
 	public static class Kw_dotContext extends ParserRuleContext {
-		public TerminalNode KW_DOT() { return getToken(EntradaParser.KW_DOT, 0); }
+		public TerminalNode KW_DOT() { return getToken(entradaParser.KW_DOT, 0); }
 		public Kw_dotContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_kw_dot; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterKw_dot(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitKw_dot(this);
-		}
 	}
 
 	public final Kw_dotContext kw_dot() throws RecognitionException {
@@ -2388,19 +2060,11 @@ public class EntradaParser extends Parser {
 	}
 
 	public static class Extension_dotContext extends ParserRuleContext {
-		public TerminalNode EXTENSION_DOT() { return getToken(EntradaParser.EXTENSION_DOT, 0); }
+		public TerminalNode EXTENSION_DOT() { return getToken(entradaParser.EXTENSION_DOT, 0); }
 		public Extension_dotContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_extension_dot; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterExtension_dot(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitExtension_dot(this);
-		}
 	}
 
 	public final Extension_dotContext extension_dot() throws RecognitionException {
@@ -2425,19 +2089,11 @@ public class EntradaParser extends Parser {
 	}
 
 	public static class Kw_csvContext extends ParserRuleContext {
-		public TerminalNode KW_CSV() { return getToken(EntradaParser.KW_CSV, 0); }
+		public TerminalNode KW_CSV() { return getToken(entradaParser.KW_CSV, 0); }
 		public Kw_csvContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_kw_csv; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterKw_csv(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitKw_csv(this);
-		}
 	}
 
 	public final Kw_csvContext kw_csv() throws RecognitionException {
@@ -2462,19 +2118,11 @@ public class EntradaParser extends Parser {
 	}
 
 	public static class Extension_csvContext extends ParserRuleContext {
-		public TerminalNode EXTENSION_CSV() { return getToken(EntradaParser.EXTENSION_CSV, 0); }
+		public TerminalNode EXTENSION_CSV() { return getToken(entradaParser.EXTENSION_CSV, 0); }
 		public Extension_csvContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_extension_csv; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterExtension_csv(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitExtension_csv(this);
-		}
 	}
 
 	public final Extension_csvContext extension_csv() throws RecognitionException {
@@ -2533,14 +2181,6 @@ public class EntradaParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_parametros; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterParametros(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitParametros(this);
-		}
 	}
 
 	public final ParametrosContext parametros() throws RecognitionException {
@@ -2648,14 +2288,6 @@ public class EntradaParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_len; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterLen(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitLen(this);
-		}
 	}
 
 	public final LenContext len() throws RecognitionException {
@@ -2719,14 +2351,6 @@ public class EntradaParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_fontcolor; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterFontcolor(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitFontcolor(this);
-		}
 	}
 
 	public final FontcolorContext fontcolor() throws RecognitionException {
@@ -2826,14 +2450,6 @@ public class EntradaParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_fontname; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterFontname(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitFontname(this);
-		}
 	}
 
 	public final FontnameContext fontname() throws RecognitionException {
@@ -2930,14 +2546,6 @@ public class EntradaParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_fontsize; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterFontsize(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitFontsize(this);
-		}
 	}
 
 	public final FontsizeContext fontsize() throws RecognitionException {
@@ -3018,14 +2626,6 @@ public class EntradaParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_arrowsize; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterArrowsize(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitArrowsize(this);
-		}
 	}
 
 	public final ArrowsizeContext arrowsize() throws RecognitionException {
@@ -3109,14 +2709,6 @@ public class EntradaParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_arrowcolor; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterArrowcolor(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitArrowcolor(this);
-		}
 	}
 
 	public final ArrowcolorContext arrowcolor() throws RecognitionException {
@@ -3213,14 +2805,6 @@ public class EntradaParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_penwidth; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterPenwidth(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitPenwidth(this);
-		}
 	}
 
 	public final PenwidthContext penwidth() throws RecognitionException {
@@ -3304,14 +2888,6 @@ public class EntradaParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_fillcolor; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterFillcolor(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitFillcolor(this);
-		}
 	}
 
 	public final FillcolorContext fillcolor() throws RecognitionException {
@@ -3411,14 +2987,6 @@ public class EntradaParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_style; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterStyle(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitStyle(this);
-		}
 	}
 
 	public final StyleContext style() throws RecognitionException {
@@ -3518,14 +3086,6 @@ public class EntradaParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_shape; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterShape(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitShape(this);
-		}
 	}
 
 	public final ShapeContext shape() throws RecognitionException {
@@ -3610,14 +3170,6 @@ public class EntradaParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_tipo_estruc; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterTipo_estruc(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitTipo_estruc(this);
-		}
 	}
 
 	public final Tipo_estrucContext tipo_estruc() throws RecognitionException {
@@ -3670,19 +3222,11 @@ public class EntradaParser extends Parser {
 	}
 
 	public static class Kw_edgeContext extends ParserRuleContext {
-		public TerminalNode EDGE() { return getToken(EntradaParser.EDGE, 0); }
+		public TerminalNode EDGE() { return getToken(entradaParser.EDGE, 0); }
 		public Kw_edgeContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_kw_edge; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterKw_edge(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitKw_edge(this);
-		}
 	}
 
 	public final Kw_edgeContext kw_edge() throws RecognitionException {
@@ -3707,19 +3251,11 @@ public class EntradaParser extends Parser {
 	}
 
 	public static class Kw_nodeContext extends ParserRuleContext {
-		public TerminalNode NODE() { return getToken(EntradaParser.NODE, 0); }
+		public TerminalNode NODE() { return getToken(entradaParser.NODE, 0); }
 		public Kw_nodeContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_kw_node; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterKw_node(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitKw_node(this);
-		}
 	}
 
 	public final Kw_nodeContext kw_node() throws RecognitionException {
@@ -3744,19 +3280,11 @@ public class EntradaParser extends Parser {
 	}
 
 	public static class Kw_relationshipContext extends ParserRuleContext {
-		public TerminalNode RELATIONSHIP() { return getToken(EntradaParser.RELATIONSHIP, 0); }
+		public TerminalNode RELATIONSHIP() { return getToken(entradaParser.RELATIONSHIP, 0); }
 		public Kw_relationshipContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_kw_relationship; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterKw_relationship(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitKw_relationship(this);
-		}
 	}
 
 	public final Kw_relationshipContext kw_relationship() throws RecognitionException {
@@ -3781,19 +3309,11 @@ public class EntradaParser extends Parser {
 	}
 
 	public static class Kw_classContext extends ParserRuleContext {
-		public TerminalNode CLASS() { return getToken(EntradaParser.CLASS, 0); }
+		public TerminalNode CLASS() { return getToken(entradaParser.CLASS, 0); }
 		public Kw_classContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_kw_class; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterKw_class(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitKw_class(this);
-		}
 	}
 
 	public final Kw_classContext kw_class() throws RecognitionException {
@@ -3818,19 +3338,11 @@ public class EntradaParser extends Parser {
 	}
 
 	public static class Kw_propertyContext extends ParserRuleContext {
-		public TerminalNode PROPERTY() { return getToken(EntradaParser.PROPERTY, 0); }
+		public TerminalNode PROPERTY() { return getToken(entradaParser.PROPERTY, 0); }
 		public Kw_propertyContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_kw_property; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterKw_property(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitKw_property(this);
-		}
 	}
 
 	public final Kw_propertyContext kw_property() throws RecognitionException {
@@ -3855,19 +3367,11 @@ public class EntradaParser extends Parser {
 	}
 
 	public static class Kw_inheritanceContext extends ParserRuleContext {
-		public TerminalNode INHERITANCE() { return getToken(EntradaParser.INHERITANCE, 0); }
+		public TerminalNode INHERITANCE() { return getToken(entradaParser.INHERITANCE, 0); }
 		public Kw_inheritanceContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_kw_inheritance; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterKw_inheritance(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitKw_inheritance(this);
-		}
 	}
 
 	public final Kw_inheritanceContext kw_inheritance() throws RecognitionException {
@@ -3892,19 +3396,11 @@ public class EntradaParser extends Parser {
 	}
 
 	public static class Kw_inderect_useContext extends ParserRuleContext {
-		public TerminalNode INDERECT_USE() { return getToken(EntradaParser.INDERECT_USE, 0); }
+		public TerminalNode INDERECT_USE() { return getToken(entradaParser.INDERECT_USE, 0); }
 		public Kw_inderect_useContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_kw_inderect_use; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterKw_inderect_use(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitKw_inderect_use(this);
-		}
 	}
 
 	public final Kw_inderect_useContext kw_inderect_use() throws RecognitionException {
@@ -3929,19 +3425,11 @@ public class EntradaParser extends Parser {
 	}
 
 	public static class Kw_lenContext extends ParserRuleContext {
-		public TerminalNode LEN() { return getToken(EntradaParser.LEN, 0); }
+		public TerminalNode LEN() { return getToken(entradaParser.LEN, 0); }
 		public Kw_lenContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_kw_len; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterKw_len(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitKw_len(this);
-		}
 	}
 
 	public final Kw_lenContext kw_len() throws RecognitionException {
@@ -3966,19 +3454,11 @@ public class EntradaParser extends Parser {
 	}
 
 	public static class Kw_fontcolorContext extends ParserRuleContext {
-		public TerminalNode FONTCOLOR() { return getToken(EntradaParser.FONTCOLOR, 0); }
+		public TerminalNode FONTCOLOR() { return getToken(entradaParser.FONTCOLOR, 0); }
 		public Kw_fontcolorContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_kw_fontcolor; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterKw_fontcolor(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitKw_fontcolor(this);
-		}
 	}
 
 	public final Kw_fontcolorContext kw_fontcolor() throws RecognitionException {
@@ -4003,19 +3483,11 @@ public class EntradaParser extends Parser {
 	}
 
 	public static class Kw_fontnameContext extends ParserRuleContext {
-		public TerminalNode FONTNAME() { return getToken(EntradaParser.FONTNAME, 0); }
+		public TerminalNode FONTNAME() { return getToken(entradaParser.FONTNAME, 0); }
 		public Kw_fontnameContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_kw_fontname; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterKw_fontname(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitKw_fontname(this);
-		}
 	}
 
 	public final Kw_fontnameContext kw_fontname() throws RecognitionException {
@@ -4040,19 +3512,11 @@ public class EntradaParser extends Parser {
 	}
 
 	public static class Kw_fontsizeContext extends ParserRuleContext {
-		public TerminalNode FONTSIZE() { return getToken(EntradaParser.FONTSIZE, 0); }
+		public TerminalNode FONTSIZE() { return getToken(entradaParser.FONTSIZE, 0); }
 		public Kw_fontsizeContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_kw_fontsize; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterKw_fontsize(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitKw_fontsize(this);
-		}
 	}
 
 	public final Kw_fontsizeContext kw_fontsize() throws RecognitionException {
@@ -4077,19 +3541,11 @@ public class EntradaParser extends Parser {
 	}
 
 	public static class Kw_arrowsizeContext extends ParserRuleContext {
-		public TerminalNode ARROWSIZE() { return getToken(EntradaParser.ARROWSIZE, 0); }
+		public TerminalNode ARROWSIZE() { return getToken(entradaParser.ARROWSIZE, 0); }
 		public Kw_arrowsizeContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_kw_arrowsize; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterKw_arrowsize(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitKw_arrowsize(this);
-		}
 	}
 
 	public final Kw_arrowsizeContext kw_arrowsize() throws RecognitionException {
@@ -4114,19 +3570,11 @@ public class EntradaParser extends Parser {
 	}
 
 	public static class Kw_arrowcolorContext extends ParserRuleContext {
-		public TerminalNode ARROWCOLOR() { return getToken(EntradaParser.ARROWCOLOR, 0); }
+		public TerminalNode ARROWCOLOR() { return getToken(entradaParser.ARROWCOLOR, 0); }
 		public Kw_arrowcolorContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_kw_arrowcolor; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterKw_arrowcolor(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitKw_arrowcolor(this);
-		}
 	}
 
 	public final Kw_arrowcolorContext kw_arrowcolor() throws RecognitionException {
@@ -4151,19 +3599,11 @@ public class EntradaParser extends Parser {
 	}
 
 	public static class Kw_penwidthContext extends ParserRuleContext {
-		public TerminalNode PENWIDTH() { return getToken(EntradaParser.PENWIDTH, 0); }
+		public TerminalNode PENWIDTH() { return getToken(entradaParser.PENWIDTH, 0); }
 		public Kw_penwidthContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_kw_penwidth; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterKw_penwidth(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitKw_penwidth(this);
-		}
 	}
 
 	public final Kw_penwidthContext kw_penwidth() throws RecognitionException {
@@ -4188,19 +3628,11 @@ public class EntradaParser extends Parser {
 	}
 
 	public static class Kw_fillcolorContext extends ParserRuleContext {
-		public TerminalNode FILLCOLOR() { return getToken(EntradaParser.FILLCOLOR, 0); }
+		public TerminalNode FILLCOLOR() { return getToken(entradaParser.FILLCOLOR, 0); }
 		public Kw_fillcolorContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_kw_fillcolor; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterKw_fillcolor(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitKw_fillcolor(this);
-		}
 	}
 
 	public final Kw_fillcolorContext kw_fillcolor() throws RecognitionException {
@@ -4225,19 +3657,11 @@ public class EntradaParser extends Parser {
 	}
 
 	public static class Kw_styleContext extends ParserRuleContext {
-		public TerminalNode STYLE() { return getToken(EntradaParser.STYLE, 0); }
+		public TerminalNode STYLE() { return getToken(entradaParser.STYLE, 0); }
 		public Kw_styleContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_kw_style; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterKw_style(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitKw_style(this);
-		}
 	}
 
 	public final Kw_styleContext kw_style() throws RecognitionException {
@@ -4262,19 +3686,11 @@ public class EntradaParser extends Parser {
 	}
 
 	public static class Kw_shapeContext extends ParserRuleContext {
-		public TerminalNode SHAPE() { return getToken(EntradaParser.SHAPE, 0); }
+		public TerminalNode SHAPE() { return getToken(entradaParser.SHAPE, 0); }
 		public Kw_shapeContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_kw_shape; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).enterKw_shape(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof EntradaParserListener ) ((EntradaParserListener)listener).exitKw_shape(this);
-		}
 	}
 
 	public final Kw_shapeContext kw_shape() throws RecognitionException {

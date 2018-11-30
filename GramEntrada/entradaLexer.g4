@@ -1,4 +1,4 @@
-lexer grammar entradaLexer;
+lexer grammar EntradaLexer;
 
 COMENTARIOABRIR: '/*' -> pushMode(COMENTARIO_MULTILINEA_MODE);      //estos tres son TOKENS
 COMENTARIOLINEA: '//' -> pushMode(COMENTARIO_LINEA_MODE);

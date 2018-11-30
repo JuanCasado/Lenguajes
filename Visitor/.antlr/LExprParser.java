@@ -1,4 +1,4 @@
-// Generated from c:\antlr\VideosPECL2\LExpr.g4 by ANTLR 4.7.1
+// Generated from c:\antlr\Lenguajes\Visitor\LExpr.g4 by ANTLR 4.7.1
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;

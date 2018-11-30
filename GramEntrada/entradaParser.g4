@@ -1,7 +1,7 @@
-parser grammar entradaParser;
+parser grammar EntradaParser;
 
 options{
-    tokenVocab = entradaLexer;
+    tokenVocab = EntradaLexer;
     language = Java;
 }
 
