@@ -9,13 +9,12 @@ csv_file : info row+;
 info : (dir coma dir coma dir coma dir end);
 row : nombre rutafichero rutaficherosalida rutaficherografico;
 
-dir : (FILE bar?)+;
+dir : (FILE BARRA?)+;
 json_file : FILE JSON_EXTENSION;
 svg_file : FILE SVG_EXTENSION;
 dot_file : FILE DOT_EXTENSION;
 coma : COMA;
 end : INTRO;
-bar : BARRA;
 nombre : dir coma ;
 rutafichero : dir json_file coma;
 rutaficherosalida : dir dot_file coma;
