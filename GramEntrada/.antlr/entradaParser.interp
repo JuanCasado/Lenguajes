@@ -119,7 +119,7 @@ CADENA_CERRAR
 TEXTO_CADENA
 
 rule names:
-fichero
+init
 comentario
 authorcom
 descrcom

@@ -5,7 +5,7 @@ options{
     language = Java;
 }
 
-fichero: (tipo_archivo|comentario|wsci|parametros)*;
+init: (tipo_archivo|comentario|wsci|parametros)*;
 
 comentario: COMENTARIOABRIR (texto_comen|authorcom|descrcom|targcom|INTRO)* COMENTARIOCERRAR
             | COMENTARIOLINEA texto_comen* FINAL_COMENTARIO_UL;

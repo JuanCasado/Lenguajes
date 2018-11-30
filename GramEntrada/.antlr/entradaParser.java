@@ -1,4 +1,4 @@
-// Generated from c:\antlr\Lenguajes\GramEntrada\entradaParser.g4 by ANTLR 4.7.1
+// Generated from c:\antlr\Lenguajes\GramEntrada\EntradaParser.g4 by ANTLR 4.7.1
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -9,7 +9,7 @@ import java.util.Iterator;
 import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
-public class entradaParser extends Parser {
+public class EntradaParser extends Parser {
 	static { RuntimeMetaData.checkVersion("4.7.1", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
@@ -27,7 +27,7 @@ public class entradaParser extends Parser {
 		TEXTOCOMENTARIO_ML=50, AUTHOR=51, DESCRIPTION=52, TARGET=53, FINAL_COMENTARIO_UL=54, 
 		TEXTOCOMENTARIO_UL=55, CADENA_CERRAR=56, TEXTO_CADENA=57;
 	public static final int
-		RULE_fichero = 0, RULE_comentario = 1, RULE_authorcom = 2, RULE_descrcom = 3, 
+		RULE_init = 0, RULE_comentario = 1, RULE_authorcom = 2, RULE_descrcom = 3, 
 		RULE_targcom = 4, RULE_texto_comen = 5, RULE_rutafichero = 6, RULE_tipo_archivo = 7, 
 		RULE_json = 8, RULE_svg = 9, RULE_dot = 10, RULE_csv = 11, RULE_wsci = 12, 
 		RULE_white_space = 13, RULE_barra = 14, RULE_intro = 15, RULE_letra = 16, 
@@ -46,7 +46,7 @@ public class entradaParser extends Parser {
 		RULE_kw_arrowsize = 67, RULE_kw_arrowcolor = 68, RULE_kw_penwidth = 69, 
 		RULE_kw_fillcolor = 70, RULE_kw_style = 71, RULE_kw_shape = 72;
 	public static final String[] ruleNames = {
-		"fichero", "comentario", "authorcom", "descrcom", "targcom", "texto_comen", 
+		"init", "comentario", "authorcom", "descrcom", "targcom", "texto_comen", 
 		"rutafichero", "tipo_archivo", "json", "svg", "dot", "csv", "wsci", "white_space", 
 		"barra", "intro", "letra", "numero", "variable", "sap", "scp", "asig", 
 		"opasig", "opblt", "opbgt", "coma", "dos_ptos", "punto", "doblepunto", 
@@ -115,7 +115,7 @@ public class entradaParser extends Parser {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "entradaParser.g4"; }
+	public String getGrammarFileName() { return "EntradaParser.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
@@ -126,11 +126,11 @@ public class entradaParser extends Parser {
 	@Override
 	public ATN getATN() { return _ATN; }
 
-	public entradaParser(TokenStream input) {
+	public EntradaParser(TokenStream input) {
 		super(input);
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
-	public static class FicheroContext extends ParserRuleContext {
+	public static class InitContext extends ParserRuleContext {
 		public List<Tipo_archivoContext> tipo_archivo() {
 			return getRuleContexts(Tipo_archivoContext.class);
 		}
@@ -155,15 +155,15 @@ public class entradaParser extends Parser {
 		public ParametrosContext parametros(int i) {
 			return getRuleContext(ParametrosContext.class,i);
 		}
-		public FicheroContext(ParserRuleContext parent, int invokingState) {
+		public InitContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_fichero; }
+		@Override public int getRuleIndex() { return RULE_init; }
 	}
 
-	public final FicheroContext fichero() throws RecognitionException {
-		FicheroContext _localctx = new FicheroContext(_ctx, getState());
-		enterRule(_localctx, 0, RULE_fichero);
+	public final InitContext init() throws RecognitionException {
+		InitContext _localctx = new InitContext(_ctx, getState());
+		enterRule(_localctx, 0, RULE_init);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
@@ -236,8 +236,8 @@ public class entradaParser extends Parser {
 	}
 
 	public static class ComentarioContext extends ParserRuleContext {
-		public TerminalNode COMENTARIOABRIR() { return getToken(entradaParser.COMENTARIOABRIR, 0); }
-		public TerminalNode COMENTARIOCERRAR() { return getToken(entradaParser.COMENTARIOCERRAR, 0); }
+		public TerminalNode COMENTARIOABRIR() { return getToken(EntradaParser.COMENTARIOABRIR, 0); }
+		public TerminalNode COMENTARIOCERRAR() { return getToken(EntradaParser.COMENTARIOCERRAR, 0); }
 		public List<Texto_comenContext> texto_comen() {
 			return getRuleContexts(Texto_comenContext.class);
 		}
@@ -262,12 +262,12 @@ public class entradaParser extends Parser {
 		public TargcomContext targcom(int i) {
 			return getRuleContext(TargcomContext.class,i);
 		}
-		public List<TerminalNode> INTRO() { return getTokens(entradaParser.INTRO); }
+		public List<TerminalNode> INTRO() { return getTokens(EntradaParser.INTRO); }
 		public TerminalNode INTRO(int i) {
-			return getToken(entradaParser.INTRO, i);
+			return getToken(EntradaParser.INTRO, i);
 		}
-		public TerminalNode COMENTARIOLINEA() { return getToken(entradaParser.COMENTARIOLINEA, 0); }
-		public TerminalNode FINAL_COMENTARIO_UL() { return getToken(entradaParser.FINAL_COMENTARIO_UL, 0); }
+		public TerminalNode COMENTARIOLINEA() { return getToken(EntradaParser.COMENTARIOLINEA, 0); }
+		public TerminalNode FINAL_COMENTARIO_UL() { return getToken(EntradaParser.FINAL_COMENTARIO_UL, 0); }
 		public ComentarioContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -377,9 +377,9 @@ public class entradaParser extends Parser {
 	}
 
 	public static class AuthorcomContext extends ParserRuleContext {
-		public List<TerminalNode> AUTHOR() { return getTokens(entradaParser.AUTHOR); }
+		public List<TerminalNode> AUTHOR() { return getTokens(EntradaParser.AUTHOR); }
 		public TerminalNode AUTHOR(int i) {
-			return getToken(entradaParser.AUTHOR, i);
+			return getToken(EntradaParser.AUTHOR, i);
 		}
 		public AuthorcomContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -428,9 +428,9 @@ public class entradaParser extends Parser {
 	}
 
 	public static class DescrcomContext extends ParserRuleContext {
-		public List<TerminalNode> DESCRIPTION() { return getTokens(entradaParser.DESCRIPTION); }
+		public List<TerminalNode> DESCRIPTION() { return getTokens(EntradaParser.DESCRIPTION); }
 		public TerminalNode DESCRIPTION(int i) {
-			return getToken(entradaParser.DESCRIPTION, i);
+			return getToken(EntradaParser.DESCRIPTION, i);
 		}
 		public DescrcomContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -479,9 +479,9 @@ public class entradaParser extends Parser {
 	}
 
 	public static class TargcomContext extends ParserRuleContext {
-		public List<TerminalNode> TARGET() { return getTokens(entradaParser.TARGET); }
+		public List<TerminalNode> TARGET() { return getTokens(EntradaParser.TARGET); }
 		public TerminalNode TARGET(int i) {
-			return getToken(entradaParser.TARGET, i);
+			return getToken(EntradaParser.TARGET, i);
 		}
 		public TargcomContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -530,13 +530,13 @@ public class entradaParser extends Parser {
 	}
 
 	public static class Texto_comenContext extends ParserRuleContext {
-		public List<TerminalNode> TEXTOCOMENTARIO_ML() { return getTokens(entradaParser.TEXTOCOMENTARIO_ML); }
+		public List<TerminalNode> TEXTOCOMENTARIO_ML() { return getTokens(EntradaParser.TEXTOCOMENTARIO_ML); }
 		public TerminalNode TEXTOCOMENTARIO_ML(int i) {
-			return getToken(entradaParser.TEXTOCOMENTARIO_ML, i);
+			return getToken(EntradaParser.TEXTOCOMENTARIO_ML, i);
 		}
-		public List<TerminalNode> TEXTOCOMENTARIO_UL() { return getTokens(entradaParser.TEXTOCOMENTARIO_UL); }
+		public List<TerminalNode> TEXTOCOMENTARIO_UL() { return getTokens(EntradaParser.TEXTOCOMENTARIO_UL); }
 		public TerminalNode TEXTOCOMENTARIO_UL(int i) {
-			return getToken(entradaParser.TEXTOCOMENTARIO_UL, i);
+			return getToken(EntradaParser.TEXTOCOMENTARIO_UL, i);
 		}
 		public Texto_comenContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -1198,7 +1198,7 @@ public class entradaParser extends Parser {
 	}
 
 	public static class White_spaceContext extends ParserRuleContext {
-		public TerminalNode WS() { return getToken(entradaParser.WS, 0); }
+		public TerminalNode WS() { return getToken(EntradaParser.WS, 0); }
 		public White_spaceContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1227,7 +1227,7 @@ public class entradaParser extends Parser {
 	}
 
 	public static class BarraContext extends ParserRuleContext {
-		public TerminalNode BARRA() { return getToken(entradaParser.BARRA, 0); }
+		public TerminalNode BARRA() { return getToken(EntradaParser.BARRA, 0); }
 		public BarraContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1256,7 +1256,7 @@ public class entradaParser extends Parser {
 	}
 
 	public static class IntroContext extends ParserRuleContext {
-		public TerminalNode INTRO() { return getToken(entradaParser.INTRO, 0); }
+		public TerminalNode INTRO() { return getToken(EntradaParser.INTRO, 0); }
 		public IntroContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1285,7 +1285,7 @@ public class entradaParser extends Parser {
 	}
 
 	public static class LetraContext extends ParserRuleContext {
-		public TerminalNode LETRA() { return getToken(entradaParser.LETRA, 0); }
+		public TerminalNode LETRA() { return getToken(EntradaParser.LETRA, 0); }
 		public LetraContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1314,7 +1314,7 @@ public class entradaParser extends Parser {
 	}
 
 	public static class NumeroContext extends ParserRuleContext {
-		public TerminalNode INT() { return getToken(entradaParser.INT, 0); }
+		public TerminalNode INT() { return getToken(EntradaParser.INT, 0); }
 		public NumeroContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1343,7 +1343,7 @@ public class entradaParser extends Parser {
 	}
 
 	public static class VariableContext extends ParserRuleContext {
-		public TerminalNode IDF() { return getToken(entradaParser.IDF, 0); }
+		public TerminalNode IDF() { return getToken(EntradaParser.IDF, 0); }
 		public VariableContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1372,7 +1372,7 @@ public class entradaParser extends Parser {
 	}
 
 	public static class SapContext extends ParserRuleContext {
-		public TerminalNode SAP() { return getToken(entradaParser.SAP, 0); }
+		public TerminalNode SAP() { return getToken(EntradaParser.SAP, 0); }
 		public SapContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1401,7 +1401,7 @@ public class entradaParser extends Parser {
 	}
 
 	public static class ScpContext extends ParserRuleContext {
-		public TerminalNode SCP() { return getToken(entradaParser.SCP, 0); }
+		public TerminalNode SCP() { return getToken(EntradaParser.SCP, 0); }
 		public ScpContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1430,7 +1430,7 @@ public class entradaParser extends Parser {
 	}
 
 	public static class AsigContext extends ParserRuleContext {
-		public TerminalNode ASIG() { return getToken(entradaParser.ASIG, 0); }
+		public TerminalNode ASIG() { return getToken(EntradaParser.ASIG, 0); }
 		public AsigContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1459,7 +1459,7 @@ public class entradaParser extends Parser {
 	}
 
 	public static class OpasigContext extends ParserRuleContext {
-		public TerminalNode OPASIG() { return getToken(entradaParser.OPASIG, 0); }
+		public TerminalNode OPASIG() { return getToken(EntradaParser.OPASIG, 0); }
 		public OpasigContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1488,7 +1488,7 @@ public class entradaParser extends Parser {
 	}
 
 	public static class OpbltContext extends ParserRuleContext {
-		public TerminalNode OPBLT() { return getToken(entradaParser.OPBLT, 0); }
+		public TerminalNode OPBLT() { return getToken(EntradaParser.OPBLT, 0); }
 		public OpbltContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1517,7 +1517,7 @@ public class entradaParser extends Parser {
 	}
 
 	public static class OpbgtContext extends ParserRuleContext {
-		public TerminalNode OPBGT() { return getToken(entradaParser.OPBGT, 0); }
+		public TerminalNode OPBGT() { return getToken(EntradaParser.OPBGT, 0); }
 		public OpbgtContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1546,7 +1546,7 @@ public class entradaParser extends Parser {
 	}
 
 	public static class ComaContext extends ParserRuleContext {
-		public TerminalNode COMA() { return getToken(entradaParser.COMA, 0); }
+		public TerminalNode COMA() { return getToken(EntradaParser.COMA, 0); }
 		public ComaContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1575,7 +1575,7 @@ public class entradaParser extends Parser {
 	}
 
 	public static class Dos_ptosContext extends ParserRuleContext {
-		public TerminalNode KW_DOS_PUNTOS() { return getToken(entradaParser.KW_DOS_PUNTOS, 0); }
+		public TerminalNode KW_DOS_PUNTOS() { return getToken(EntradaParser.KW_DOS_PUNTOS, 0); }
 		public Dos_ptosContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1604,7 +1604,7 @@ public class entradaParser extends Parser {
 	}
 
 	public static class PuntoContext extends ParserRuleContext {
-		public TerminalNode PUNTO() { return getToken(entradaParser.PUNTO, 0); }
+		public TerminalNode PUNTO() { return getToken(EntradaParser.PUNTO, 0); }
 		public PuntoContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1633,7 +1633,7 @@ public class entradaParser extends Parser {
 	}
 
 	public static class DoblepuntoContext extends ParserRuleContext {
-		public TerminalNode DOBLEPUNTO() { return getToken(entradaParser.DOBLEPUNTO, 0); }
+		public TerminalNode DOBLEPUNTO() { return getToken(EntradaParser.DOBLEPUNTO, 0); }
 		public DoblepuntoContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1662,9 +1662,9 @@ public class entradaParser extends Parser {
 	}
 
 	public static class Texto_cadenaContext extends ParserRuleContext {
-		public List<TerminalNode> TEXTO_CADENA() { return getTokens(entradaParser.TEXTO_CADENA); }
+		public List<TerminalNode> TEXTO_CADENA() { return getTokens(EntradaParser.TEXTO_CADENA); }
 		public TerminalNode TEXTO_CADENA(int i) {
-			return getToken(entradaParser.TEXTO_CADENA, i);
+			return getToken(EntradaParser.TEXTO_CADENA, i);
 		}
 		public Texto_cadenaContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -1713,7 +1713,7 @@ public class entradaParser extends Parser {
 	}
 
 	public static class Cadena_abrirContext extends ParserRuleContext {
-		public TerminalNode CADENA_ABRIR() { return getToken(entradaParser.CADENA_ABRIR, 0); }
+		public TerminalNode CADENA_ABRIR() { return getToken(EntradaParser.CADENA_ABRIR, 0); }
 		public Cadena_abrirContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1742,7 +1742,7 @@ public class entradaParser extends Parser {
 	}
 
 	public static class Cadena_cerrarContext extends ParserRuleContext {
-		public TerminalNode CADENA_CERRAR() { return getToken(entradaParser.CADENA_CERRAR, 0); }
+		public TerminalNode CADENA_CERRAR() { return getToken(EntradaParser.CADENA_CERRAR, 0); }
 		public Cadena_cerrarContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1828,7 +1828,7 @@ public class entradaParser extends Parser {
 	}
 
 	public static class BbajaContext extends ParserRuleContext {
-		public TerminalNode BBAJA() { return getToken(entradaParser.BBAJA, 0); }
+		public TerminalNode BBAJA() { return getToken(EntradaParser.BBAJA, 0); }
 		public BbajaContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1857,7 +1857,7 @@ public class entradaParser extends Parser {
 	}
 
 	public static class Cor_abrirContext extends ParserRuleContext {
-		public TerminalNode COR_ABRIR() { return getToken(entradaParser.COR_ABRIR, 0); }
+		public TerminalNode COR_ABRIR() { return getToken(EntradaParser.COR_ABRIR, 0); }
 		public Cor_abrirContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1886,7 +1886,7 @@ public class entradaParser extends Parser {
 	}
 
 	public static class Cor_CerrarContext extends ParserRuleContext {
-		public TerminalNode COR_CERRAR() { return getToken(entradaParser.COR_CERRAR, 0); }
+		public TerminalNode COR_CERRAR() { return getToken(EntradaParser.COR_CERRAR, 0); }
 		public Cor_CerrarContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1915,7 +1915,7 @@ public class entradaParser extends Parser {
 	}
 
 	public static class Kw_jsonContext extends ParserRuleContext {
-		public TerminalNode KW_JSON() { return getToken(entradaParser.KW_JSON, 0); }
+		public TerminalNode KW_JSON() { return getToken(EntradaParser.KW_JSON, 0); }
 		public Kw_jsonContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1944,7 +1944,7 @@ public class entradaParser extends Parser {
 	}
 
 	public static class Extension_jsonContext extends ParserRuleContext {
-		public TerminalNode EXTENSION_JSON() { return getToken(entradaParser.EXTENSION_JSON, 0); }
+		public TerminalNode EXTENSION_JSON() { return getToken(EntradaParser.EXTENSION_JSON, 0); }
 		public Extension_jsonContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1973,7 +1973,7 @@ public class entradaParser extends Parser {
 	}
 
 	public static class Kw_svgContext extends ParserRuleContext {
-		public TerminalNode KW_SVG() { return getToken(entradaParser.KW_SVG, 0); }
+		public TerminalNode KW_SVG() { return getToken(EntradaParser.KW_SVG, 0); }
 		public Kw_svgContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -2002,7 +2002,7 @@ public class entradaParser extends Parser {
 	}
 
 	public static class Extension_svgContext extends ParserRuleContext {
-		public TerminalNode EXTENSION_SVG() { return getToken(entradaParser.EXTENSION_SVG, 0); }
+		public TerminalNode EXTENSION_SVG() { return getToken(EntradaParser.EXTENSION_SVG, 0); }
 		public Extension_svgContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -2031,7 +2031,7 @@ public class entradaParser extends Parser {
 	}
 
 	public static class Kw_dotContext extends ParserRuleContext {
-		public TerminalNode KW_DOT() { return getToken(entradaParser.KW_DOT, 0); }
+		public TerminalNode KW_DOT() { return getToken(EntradaParser.KW_DOT, 0); }
 		public Kw_dotContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -2060,7 +2060,7 @@ public class entradaParser extends Parser {
 	}
 
 	public static class Extension_dotContext extends ParserRuleContext {
-		public TerminalNode EXTENSION_DOT() { return getToken(entradaParser.EXTENSION_DOT, 0); }
+		public TerminalNode EXTENSION_DOT() { return getToken(EntradaParser.EXTENSION_DOT, 0); }
 		public Extension_dotContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -2089,7 +2089,7 @@ public class entradaParser extends Parser {
 	}
 
 	public static class Kw_csvContext extends ParserRuleContext {
-		public TerminalNode KW_CSV() { return getToken(entradaParser.KW_CSV, 0); }
+		public TerminalNode KW_CSV() { return getToken(EntradaParser.KW_CSV, 0); }
 		public Kw_csvContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -2118,7 +2118,7 @@ public class entradaParser extends Parser {
 	}
 
 	public static class Extension_csvContext extends ParserRuleContext {
-		public TerminalNode EXTENSION_CSV() { return getToken(entradaParser.EXTENSION_CSV, 0); }
+		public TerminalNode EXTENSION_CSV() { return getToken(EntradaParser.EXTENSION_CSV, 0); }
 		public Extension_csvContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -3222,7 +3222,7 @@ public class entradaParser extends Parser {
 	}
 
 	public static class Kw_edgeContext extends ParserRuleContext {
-		public TerminalNode EDGE() { return getToken(entradaParser.EDGE, 0); }
+		public TerminalNode EDGE() { return getToken(EntradaParser.EDGE, 0); }
 		public Kw_edgeContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -3251,7 +3251,7 @@ public class entradaParser extends Parser {
 	}
 
 	public static class Kw_nodeContext extends ParserRuleContext {
-		public TerminalNode NODE() { return getToken(entradaParser.NODE, 0); }
+		public TerminalNode NODE() { return getToken(EntradaParser.NODE, 0); }
 		public Kw_nodeContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -3280,7 +3280,7 @@ public class entradaParser extends Parser {
 	}
 
 	public static class Kw_relationshipContext extends ParserRuleContext {
-		public TerminalNode RELATIONSHIP() { return getToken(entradaParser.RELATIONSHIP, 0); }
+		public TerminalNode RELATIONSHIP() { return getToken(EntradaParser.RELATIONSHIP, 0); }
 		public Kw_relationshipContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -3309,7 +3309,7 @@ public class entradaParser extends Parser {
 	}
 
 	public static class Kw_classContext extends ParserRuleContext {
-		public TerminalNode CLASS() { return getToken(entradaParser.CLASS, 0); }
+		public TerminalNode CLASS() { return getToken(EntradaParser.CLASS, 0); }
 		public Kw_classContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -3338,7 +3338,7 @@ public class entradaParser extends Parser {
 	}
 
 	public static class Kw_propertyContext extends ParserRuleContext {
-		public TerminalNode PROPERTY() { return getToken(entradaParser.PROPERTY, 0); }
+		public TerminalNode PROPERTY() { return getToken(EntradaParser.PROPERTY, 0); }
 		public Kw_propertyContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -3367,7 +3367,7 @@ public class entradaParser extends Parser {
 	}
 
 	public static class Kw_inheritanceContext extends ParserRuleContext {
-		public TerminalNode INHERITANCE() { return getToken(entradaParser.INHERITANCE, 0); }
+		public TerminalNode INHERITANCE() { return getToken(EntradaParser.INHERITANCE, 0); }
 		public Kw_inheritanceContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -3396,7 +3396,7 @@ public class entradaParser extends Parser {
 	}
 
 	public static class Kw_inderect_useContext extends ParserRuleContext {
-		public TerminalNode INDERECT_USE() { return getToken(entradaParser.INDERECT_USE, 0); }
+		public TerminalNode INDERECT_USE() { return getToken(EntradaParser.INDERECT_USE, 0); }
 		public Kw_inderect_useContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -3425,7 +3425,7 @@ public class entradaParser extends Parser {
 	}
 
 	public static class Kw_lenContext extends ParserRuleContext {
-		public TerminalNode LEN() { return getToken(entradaParser.LEN, 0); }
+		public TerminalNode LEN() { return getToken(EntradaParser.LEN, 0); }
 		public Kw_lenContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -3454,7 +3454,7 @@ public class entradaParser extends Parser {
 	}
 
 	public static class Kw_fontcolorContext extends ParserRuleContext {
-		public TerminalNode FONTCOLOR() { return getToken(entradaParser.FONTCOLOR, 0); }
+		public TerminalNode FONTCOLOR() { return getToken(EntradaParser.FONTCOLOR, 0); }
 		public Kw_fontcolorContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -3483,7 +3483,7 @@ public class entradaParser extends Parser {
 	}
 
 	public static class Kw_fontnameContext extends ParserRuleContext {
-		public TerminalNode FONTNAME() { return getToken(entradaParser.FONTNAME, 0); }
+		public TerminalNode FONTNAME() { return getToken(EntradaParser.FONTNAME, 0); }
 		public Kw_fontnameContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -3512,7 +3512,7 @@ public class entradaParser extends Parser {
 	}
 
 	public static class Kw_fontsizeContext extends ParserRuleContext {
-		public TerminalNode FONTSIZE() { return getToken(entradaParser.FONTSIZE, 0); }
+		public TerminalNode FONTSIZE() { return getToken(EntradaParser.FONTSIZE, 0); }
 		public Kw_fontsizeContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -3541,7 +3541,7 @@ public class entradaParser extends Parser {
 	}
 
 	public static class Kw_arrowsizeContext extends ParserRuleContext {
-		public TerminalNode ARROWSIZE() { return getToken(entradaParser.ARROWSIZE, 0); }
+		public TerminalNode ARROWSIZE() { return getToken(EntradaParser.ARROWSIZE, 0); }
 		public Kw_arrowsizeContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -3570,7 +3570,7 @@ public class entradaParser extends Parser {
 	}
 
 	public static class Kw_arrowcolorContext extends ParserRuleContext {
-		public TerminalNode ARROWCOLOR() { return getToken(entradaParser.ARROWCOLOR, 0); }
+		public TerminalNode ARROWCOLOR() { return getToken(EntradaParser.ARROWCOLOR, 0); }
 		public Kw_arrowcolorContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -3599,7 +3599,7 @@ public class entradaParser extends Parser {
 	}
 
 	public static class Kw_penwidthContext extends ParserRuleContext {
-		public TerminalNode PENWIDTH() { return getToken(entradaParser.PENWIDTH, 0); }
+		public TerminalNode PENWIDTH() { return getToken(EntradaParser.PENWIDTH, 0); }
 		public Kw_penwidthContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -3628,7 +3628,7 @@ public class entradaParser extends Parser {
 	}
 
 	public static class Kw_fillcolorContext extends ParserRuleContext {
-		public TerminalNode FILLCOLOR() { return getToken(entradaParser.FILLCOLOR, 0); }
+		public TerminalNode FILLCOLOR() { return getToken(EntradaParser.FILLCOLOR, 0); }
 		public Kw_fillcolorContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -3657,7 +3657,7 @@ public class entradaParser extends Parser {
 	}
 
 	public static class Kw_styleContext extends ParserRuleContext {
-		public TerminalNode STYLE() { return getToken(entradaParser.STYLE, 0); }
+		public TerminalNode STYLE() { return getToken(EntradaParser.STYLE, 0); }
 		public Kw_styleContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -3686,7 +3686,7 @@ public class entradaParser extends Parser {
 	}
 
 	public static class Kw_shapeContext extends ParserRuleContext {
-		public TerminalNode SHAPE() { return getToken(entradaParser.SHAPE, 0); }
+		public TerminalNode SHAPE() { return getToken(EntradaParser.SHAPE, 0); }
 		public Kw_shapeContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
