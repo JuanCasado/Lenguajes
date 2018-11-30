@@ -5,7 +5,7 @@ options{
     language = Java;
 }
 
-csv_file : info row+;
+init : info row+;
 info : (dir coma dir coma dir coma dir end);
 row : nombre rutafichero rutaficherosalida rutaficherografico;
 
