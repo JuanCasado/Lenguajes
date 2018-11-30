@@ -4,7 +4,7 @@ public class EntradaVisitor extends EntradaParserBaseVisitor<HashContenedor> {
     private HashContenedor contenedor;
 
     public EntradaVisitor() {
-        contenedor = new HashContenedor("hash1");
+        contenedor = new HashContenedor("entrada");
         HashContenedor hash2 = new HashContenedor("hash2");
         contenedor.setFinal("id1", "cont1");
         contenedor.setFinal("id1", "cont2");
@@ -17,12 +17,28 @@ public class EntradaVisitor extends EntradaParserBaseVisitor<HashContenedor> {
     @Override
     public HashContenedor visitInit(EntradaParser.InitContext ctx) {
         for (EntradaParser.Tipo_archivoContext tipoArchivo : ctx.tipo_archivo()) {
-            System.out.println("tipoArchivo nuevo");
+            // System.out.println("tipoArchivo nuevo");
+            visitChildren(tipoArchivo);
         }
         for (EntradaParser.ParametrosContext parametros : ctx.parametros()) {
             System.out.println("parametro nuevo");
         }
         return contenedor;
+    }
+
+    @Override
+    public HashContenedor visitWsci(EntradaParser.WsciContext ctx) {
+        return null;
+    }
+
+    @Override
+    public HashContenedor visitWhite_space(EntradaParser.White_spaceContext ctx) {
+        return null;
+    }
+
+    @Override
+    public HashContenedor visitIntro(EntradaParser.IntroContext ctx) {
+        return null;
     }
 
     @Override
@@ -74,11 +90,15 @@ public class EntradaVisitor extends EntradaParserBaseVisitor<HashContenedor> {
     // PARA EL JSON
     @Override
     public HashContenedor visitJson(EntradaParser.JsonContext ctx) {
+        System.out.println("JSON");
+        EntradaParser.JsonContext json = ctx;
+        visitChildren(json);
         return null;
     }
 
     @Override
     public HashContenedor visitExtension_json(EntradaParser.Extension_jsonContext ctx) {
+        System.out.println("EXTENSION_JSON");
         return null;
     }
 
