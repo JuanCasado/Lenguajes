@@ -1,4 +1,5 @@
 import java.util.*;
+import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
 public class CsvVisitor extends CsvParserBaseVisitor<HashContenedor> {
     private HashContenedor contenedor;
@@ -17,30 +18,67 @@ public class CsvVisitor extends CsvParserBaseVisitor<HashContenedor> {
 
     @Override
     public HashContenedor visitInit(CsvParser.InitContext ctx) {
+        System.out.println("INIT");
         for (CsvParser.RowContext row : ctx.row()) {
-            visitChildren(row);
+            visit(row);
         }
         return contenedor;
     }
 
     @Override
     public HashContenedor visitNombre(CsvParser.NombreContext ctx) {
-        return visitChildren(ctx);
+        System.out.print("nombre : ");
+        String token = "";
+        token += ctx.dir().getText();
+        System.out.println(token);
+        row.setFinal("nombre", token);
+        return null;
+    }
+
+    @Override
+    public HashContenedor visitRutafichero(CsvParser.RutaficheroContext ctx) {
+        System.out.print("fichero : ");
+        String token = "";
+        token += ctx.dir().getText();
+        token += ctx.json_file().getText();
+        System.out.println(token);
+        row.setFinal("fichero", token);
+        return null;
+    }
+
+    @Override
+    public HashContenedor visitRutaficherosalida(CsvParser.RutaficherosalidaContext ctx) {
+        System.out.print("dot : ");
+        String token = "";
+        token += ctx.dir().getText();
+        token += ctx.dot_file().getText();
+        System.out.println(token);
+        row.setFinal("dot", token);
+        return null;
+    }
+
+    @Override
+    public HashContenedor visitRutaficherografico(CsvParser.RutaficherograficoContext ctx) {
+        System.out.print("grafico : ");
+        String token = "";
+        token += ctx.dir().getText();
+        token += ctx.svg_file().getText();
+        System.out.println(token);
+        row.setFinal("grafico", token);
+        return null;
     }
 
     @Override
     public HashContenedor visitRow(CsvParser.RowContext ctx) {
+        System.out.println("ROW");
         row = new HashContenedor("row");
-        /*
-         * for (CsvParser.NombreContext nombre : ctx.nombre()) { visitChildren(nombre);
-         * } for (CsvParser.RutaficheroContext fichero : ctx.fichero()) {
-         * visitChildren(fichero); } for (CsvParser.RutaficherosalidaContext
-         * ficheroSalida : ctx.ficherosalida()) { visitChildren(ficheroSalida); } for
-         * (CsvParser.RutaficherograficoContext ficheroGrafico : ctx.ficherografico()) {
-         * visitChildren(ficheroGrafico); }
-         */
+
+        visit(ctx.nombre());
+        visit(ctx.rutafichero()); 
+        visit(ctx.rutaficherosalida()); 
+        visit(ctx.rutaficherografico()); 
 
         contenedor.addNode(row);
-        return null; // <-- CAMBIALO JUAN, LO HE PUESOT PARA PODER COMPILAR
+        return null;
     }
 }
