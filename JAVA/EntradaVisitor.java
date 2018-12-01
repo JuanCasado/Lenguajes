@@ -19,9 +19,12 @@ public class EntradaVisitor extends EntradaParserBaseVisitor<HashContenedor> {
         for (EntradaParser.Tipo_archivoContext tipoArchivo : ctx.tipo_archivo()) {
             // System.out.println("tipoArchivo nuevo");
             visitChildren(tipoArchivo);
+            // visit(tipoArchivo);
         }
         for (EntradaParser.ParametrosContext parametros : ctx.parametros()) {
-            System.out.println("parametro nuevo");
+            // System.out.println("parametro nuevo");
+            visitChildren(parametros);
+
         }
         return contenedor;
     }
@@ -54,6 +57,7 @@ public class EntradaVisitor extends EntradaParserBaseVisitor<HashContenedor> {
     // PARA LA RUTA DE UN ARCHIVO
     @Override
     public HashContenedor visitRutafichero(EntradaParser.RutaficheroContext ctx) {
+
         return null;
     }
 
@@ -93,6 +97,14 @@ public class EntradaVisitor extends EntradaParserBaseVisitor<HashContenedor> {
         System.out.println("JSON");
         EntradaParser.JsonContext json = ctx;
         visitChildren(json);
+
+        /*
+         * json = new HashContenedor("json");
+         * 
+         * visit(ctx.rutafichero()); visit(ctx.variable());
+         * 
+         * contenedor.addNode(json);
+         */
         return null;
     }
 
@@ -166,14 +178,22 @@ public class EntradaVisitor extends EntradaParserBaseVisitor<HashContenedor> {
         return null;
     }
 
+    @Override
+    public HashContenedor visitAsig(EntradaParser.AsigContext ctx) {
+        return null;
+    }
+
     // PARA TIPO_ESTRCUT
     @Override
     public HashContenedor visitTipo_estruc(EntradaParser.Tipo_estrucContext ctx) {
+        EntradaParser.Tipo_estrucContext estruct = ctx;
+        visitChildren(estruct);
         return null;
     }
 
     @Override
     public HashContenedor visitKw_relationship(EntradaParser.Kw_relationshipContext ctx) {
+        System.out.println("RELATIONSHIP");
         return null;
     }
 
@@ -194,7 +214,14 @@ public class EntradaVisitor extends EntradaParserBaseVisitor<HashContenedor> {
 
     // PARA LEN
     @Override
-    public HashContenedor visitKw_len(EntradaParser.Kw_lenContext ctx) {
+    public HashContenedor visitLen(EntradaParser.LenContext ctx) {
+        /*
+         * String token = ""; token += ctx.kw_len().getText(); // token +=
+         * ctx.kw_bbaja().getText(); if (ctx.kw_edge().getText().equals(null)) { token
+         * += ctx.kw_edge().getText(); } else { token += ctx.kw_node().getText(); }
+         * 
+         * row.addFinal("len", token);
+         */
         return null;
     }
 
