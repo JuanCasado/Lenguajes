@@ -1,8 +1,6 @@
-package antlr;
-
 import java.util.*;
 
-class EntradaVisitor extends EntradaParserBaseVisitor<HashContenedor> {
+public class EntradaVisitor extends EntradaParserBaseVisitor<HashContenedor> {
     private HashContenedor contenedor;
 
     public EntradaVisitor() {
@@ -217,67 +215,191 @@ class EntradaVisitor extends EntradaParserBaseVisitor<HashContenedor> {
     // PARA LEN
     @Override
     public HashContenedor visitLen(EntradaParser.LenContext ctx) {
-        /*
-         * String token = ""; token += ctx.kw_len().getText(); // token +=
-         * ctx.kw_bbaja().getText(); if (ctx.kw_edge().getText().equals(null)) { token
-         * += ctx.kw_edge().getText(); } else { token += ctx.kw_node().getText(); }
-         * 
-         * row.addFinal("len", token);
-         */
+        String token = "";
+        token += ctx.kw_len().getText();
+        token += ctx.kw_bbaja().getText();
+        visit(ctx.tipo_estruct());
+        token += ctx.asig().getText();
+        token += ctx.numero().getText();
+
+        // row.addFinal("len", token);
         return null;
     }
 
     // PARA FONTCOLOR
     @Override
     public HashContenedor visitFontcolor(EntradaParser.FontcolorContext ctx) {
+        token += ctx.kw_fontcolor().getText();
+        token += ctx.kw_bbaja().getText(); // ?
+        if (!ctx.kw_edge().getText().equals(null)) {
+            token += ctx.kw_edge().getText();
+        } else {
+            token += ctx.kw_node().getText();
+        }
+        token += ctx.kw_bbaja().getText();
+        visit(ctx.tipo_estruct());
+        token += ctx.kw_asig().getText();
+        if (!ctx.cadena().getText().equals(null)) {
+            token += ctx.cadena().getText();
+        } else {
+            token += ctx.variable().getText();
+        }
         return null;
     }
 
     // PARA FONTNAME
     @Override
     public HashContenedor visitFontname(EntradaParser.FontnameContext ctx) {
+        token += ctx.kw_fontname().getText();
+        token += ctx.kw_bbaja().getText(); // ?
+        if (!ctx.kw_edge().getText().equals(null)) {
+            token += ctx.kw_edge().getText();
+        } else {
+            token += ctx.kw_node().getText();
+        }
+        token += ctx.kw_bbaja().getText();
+        visit(ctx.tipo_estruct());
+        token += ctx.kw_asig().getText();
+        if (!ctx.cadena().getText().equals(null)) {
+            token += ctx.cadena().getText();
+        } else {
+            token += ctx.variable().getText();
+        }
         return null;
     }
 
     // PARA FONTSIZE
     @Override
     public HashContenedor visitFontsize(EntradaParser.FontsizeContext ctx) {
+        token += ctx.kw_fontsize().getText();
+        token += ctx.kw_bbaja().getText(); // ?
+        if (!ctx.kw_edge().getText().equals(null)) {
+            token += ctx.kw_edge().getText();
+        } else {
+            token += ctx.kw_node().getText();
+        }
+        token += ctx.kw_bbaja().getText();
+        visit(ctx.tipo_estruct());
+        token += ctx.kw_asig().getText();
+        token += ctx.numero().getText();
         return null;
     }
 
     // PARAARROWSIZE
     @Override
     public HashContenedor visitArrowsize(EntradaParser.ArrowsizeContext ctx) {
+        token += ctx.kw_arrowsize().getText();
+        token += ctx.kw_bbaja().getText(); // ?
+        if (!ctx.kw_edge().getText().equals(null)) {
+            token += ctx.kw_edge().getText();
+        } else {
+            token += ctx.kw_node().getText();
+        }
+        token += ctx.kw_bbaja().getText();
+        visit(ctx.tipo_estruct());
+        token += ctx.kw_asig().getText();
+        token += ctx.numero().getText();
         return null;
     }
 
     // PARA ARROWCOLOR
     @Override
     public HashContenedor visitArrowcolor(EntradaParser.ArrowcolorContext ctx) {
+        token += ctx.kw_arrowcolor().getText();
+        token += ctx.kw_bbaja().getText(); // ?
+        if (!ctx.kw_edge().getText().equals(null)) {
+            token += ctx.kw_edge().getText();
+        } else {
+            token += ctx.kw_node().getText();
+        }
+        token += ctx.kw_bbaja().getText();
+        visit(ctx.tipo_estruct());
+        token += ctx.kw_asig().getText();
+        if (!ctx.cadena().getText().equals(null)) {
+            token += ctx.cadena().getText();
+        } else {
+            token += ctx.variable().getText();
+        }
         return null;
     }
 
     // PARA PENWIDTH
     @Override
     public HashContenedor visitPenwidth(EntradaParser.PenwidthContext ctx) {
+        token += ctx.kw_penwidth().getText();
+        token += ctx.kw_bbaja().getText(); // ?
+        if (!ctx.kw_edge().getText().equals(null)) {
+            token += ctx.kw_edge().getText();
+        } else {
+            token += ctx.kw_node().getText();
+        }
+        token += ctx.kw_bbaja().getText();
+        visit(ctx.tipo_estruct());
+        token += ctx.kw_asig().getText();
+        token += ctx.numero().getText();
         return null;
     }
 
     // PARA FILLCOLOR
     @Override
     public HashContenedor visitFillcolor(EntradaParser.FillcolorContext ctx) {
+        token += ctx.kw_fillcolor().getText();
+        token += ctx.kw_bbaja().getText(); // ?
+        if (!ctx.kw_edge().getText().equals(null)) {
+            token += ctx.kw_edge().getText();
+        } else {
+            token += ctx.kw_node().getText();
+        }
+        token += ctx.kw_bbaja().getText();
+        visit(ctx.tipo_estruct());
+        token += ctx.kw_asig().getText();
+        if (!ctx.cadena().getText().equals(null)) {
+            token += ctx.cadena().getText();
+        } else {
+            token += ctx.variable().getText();
+        }
         return null;
     }
 
     // PARA STYLE
     @Override
     public HashContenedor visitStyle(EntradaParser.StyleContext ctx) {
+        token += ctx.kw_style().getText();
+        token += ctx.kw_bbaja().getText(); // ?
+        if (!ctx.kw_edge().getText().equals(null)) {
+            token += ctx.kw_edge().getText();
+        } else {
+            token += ctx.kw_node().getText();
+        }
+        token += ctx.kw_bbaja().getText();
+        visit(ctx.tipo_estruct());
+        token += ctx.kw_asig().getText();
+        if (!ctx.cadena().getText().equals(null)) {
+            token += ctx.cadena().getText();
+        } else {
+            token += ctx.variable().getText();
+        }
         return null;
     }
 
     // PARA SHAPE
     @Override
     public HashContenedor visitShape(EntradaParser.ShapeContext ctx) {
+        token += ctx.kw_style().getText();
+        token += ctx.kw_bbaja().getText(); // ?
+        if (!ctx.kw_edge().getText().equals(null)) {
+            token += ctx.kw_edge().getText();
+        } else {
+            token += ctx.kw_node().getText();
+        }
+        token += ctx.kw_bbaja().getText();
+        visit(ctx.tipo_estruct());
+        token += ctx.kw_asig().getText();
+        if (!ctx.cadena().getText().equals(null)) {
+            token += ctx.cadena().getText();
+        } else {
+            token += ctx.variable().getText();
+        }
         return null;
     }
 }
