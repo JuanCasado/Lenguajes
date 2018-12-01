@@ -1,4 +1,5 @@
 import org.antlr.v4.runtime.*;
+
 import java.io.*;
 import java.util.*;
 
@@ -41,7 +42,5 @@ class main {
         } else {
             System.out.println(":(");
         }
-        
-
     }
 }
