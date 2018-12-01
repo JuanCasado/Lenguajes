@@ -3,7 +3,7 @@ parser grammar EntradaParser;
 @header{
     package antlr;
 
-    
+
 }
 
 options{
@@ -72,18 +72,17 @@ extension_csv: EXTENSION_CSV;
 
 parametros: (len|fontcolor|fontname|fontsize|arrowsize|arrowcolor|penwidth|fillcolor|style|shape);
 
-len: kw_len bbaja tipo_estruc asig numero ;
-fontcolor: kw_fontcolor bbaja (kw_edge|kw_node) bbaja tipo_estruc asig  (cadena|variable); //String --> si entra con " usamos cadena
-fontname: kw_fontname bbaja (kw_edge|kw_node) bbaja tipo_estruc asig  (cadena|variable);
-fontsize: kw_fontsize bbaja (kw_edge|kw_node) bbaja tipo_estruc asig  numero;
-arrowsize: kw_arrowsize bbaja (kw_edge|kw_node) bbaja tipo_estruc asig  numero;
-arrowcolor: kw_arrowcolor bbaja (kw_edge|kw_node) bbaja tipo_estruc asig  (cadena|variable);
-penwidth: kw_penwidth bbaja (kw_edge|kw_node) bbaja tipo_estruc asig  numero;
-fillcolor: kw_fillcolor bbaja (kw_edge|kw_node) bbaja tipo_estruc asig  (cadena|variable);
-style: kw_style bbaja (kw_edge|kw_node) bbaja tipo_estruc asig  (cadena|variable);
-shape: kw_shape bbaja (kw_edge|kw_node) bbaja tipo_estruc asig  (cadena|variable);
+len: kw_len bbaja (kw_relationship|kw_class|kw_inheritance|kw_inderect_use) asig numero ;
+fontcolor: kw_fontcolor bbaja (kw_edge|kw_node) bbaja (kw_relationship|kw_class|kw_inheritance|kw_inderect_use) asig  (cadena|variable); //String --> si entra con " usamos cadena
+fontname: kw_fontname bbaja (kw_edge|kw_node) bbaja (kw_relationship|kw_class|kw_inheritance|kw_inderect_use) asig  (cadena|variable);
+fontsize: kw_fontsize bbaja (kw_edge|kw_node) bbaja (kw_relationship|kw_class|kw_inheritance|kw_inderect_use) asig  numero;
+arrowsize: kw_arrowsize bbaja (kw_edge|kw_node) bbaja (kw_relationship|kw_class|kw_inheritance|kw_inderect_use) asig  numero;
+arrowcolor: kw_arrowcolor bbaja (kw_edge|kw_node) bbaja (kw_relationship|kw_class|kw_inheritance|kw_inderect_use) asig  (cadena|variable);
+penwidth: kw_penwidth bbaja (kw_edge|kw_node) bbaja (kw_relationship|kw_class|kw_inheritance|kw_inderect_use) asig  numero;
+fillcolor: kw_fillcolor bbaja (kw_edge|kw_node) bbaja (kw_relationship|kw_class|kw_inheritance|kw_inderect_use) asig  (cadena|variable);
+style: kw_style bbaja (kw_edge|kw_node) bbaja (kw_relationship|kw_class|kw_inheritance|kw_inderect_use) asig  (cadena|variable);
+shape: kw_shape bbaja (kw_edge|kw_node) bbaja (kw_relationship|kw_class|kw_inheritance|kw_inderect_use) asig  (cadena|variable);
 
-tipo_estruc: (kw_relationship|kw_class|kw_inheritance|kw_inderect_use);
 //variable_param: (kw_fontcolor|kw_fontname) bbaja (kw_edge|kw_node) bbaja
 
 kw_edge: EDGE;
