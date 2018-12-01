@@ -64,6 +64,30 @@ public interface CsvParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitEnd(CsvParser.EndContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link CsvParser#filename}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFilename(CsvParser.FilenameContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link CsvParser#json_extension}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitJson_extension(CsvParser.Json_extensionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link CsvParser#svg_extension}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSvg_extension(CsvParser.Svg_extensionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link CsvParser#dot_extension}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDot_extension(CsvParser.Dot_extensionContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link CsvParser#nombre}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

@@ -46,9 +46,9 @@ KW_FALSE: 'false';
     fragment ARR: '@';
     fragment ID: [a-zA-Z];
 */    
-NOMBRE: ([a-zA-Z] | ('á'|'é'|'í'|'ó'|'ú'|'ö'))+;
+NOMBRE: ([a-zA-Z] |'á'|'é'|'í'|'ó'|'ú'|'ö'|'Á'|'É'|'Í'|'Ú'|'ñ'|'Ñ')+;
 DIGITO: [0-9]+;
-INTRO: [\n\r\t] -> skip;
+INTRO: [\n\r\t ] -> skip;
 
 /*mode SENTENCIA_LINEA_MODE;
 FINAL_SENTENCIA: '"'->popMode;

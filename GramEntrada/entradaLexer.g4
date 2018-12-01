@@ -56,7 +56,7 @@ INDERECT_USE: 'inderect_use';
 
 
 IDF: ID_LETRA(ID_LETRA/*|BARRABAJA*/|DIGITO)*;    //identificador final     <-- [a-zA-Z]([a-zA-Z][0-9])*
-fragment ID_LETRA:[a-zA-Z];         //fragment es un "atajo" para decir que hay unos símbolos que funcionan como símbolos terminales, pero los sustituye (en linea 19)
+fragment ID_LETRA:[a-zA-Z]|'á'|'é'|'í'|'ó'|'ú'|'ö'|'Á'|'É'|'Í'|'Ú'|'ñ'|'Ñ';         //fragment es un "atajo" para decir que hay unos símbolos que funcionan como símbolos terminales, pero los sustituye (en linea 19)
 fragment DIGITO: [0-9];  
 //fragment BARRABAJA: '_';
 

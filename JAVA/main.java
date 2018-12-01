@@ -44,16 +44,16 @@ class main {
         }
 
         System.out.println("PRUEBAS DE JSON:");
-        CsvParser parserJson = new CsvParser(new CommonTokenStream(new CsvLexer(new ANTLRInputStream(new FileInputStream("./../Documentos/nschema-RelacionFamiliar.json")))));
+        JsonParser parserJson = new JsonParser(new CommonTokenStream(new JsonLexer(new ANTLRInputStream(new FileInputStream("./../Documentos/nschema-RelacionFamiliar.json")))));
         parserJson.setBuildParseTree(true);
-        HashContenedor jsonTable = new CsvVisitor().visit(parserCsv.init());
-
+        HashContenedor jsonTable = new JsonVisitor().visit(parserJson.init());
+/*
         ArrayList<Tag> toGetJson = new ArrayList<>();
         toGetJson.add(new Tag(Tag.State.MANDATORY, "json"));
-        if (jsonTable.getContentent(toGetEntrada) != null) {
+        if (jsonTable.getContentent(toGetJson) != null) {
             System.out.println("ok");
         } else {
             System.out.println(":(");
-        }
+        }*/
     }
 }

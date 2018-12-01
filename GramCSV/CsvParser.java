@@ -300,43 +300,31 @@ public class CsvParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(64);
+			setState(62);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,4,_ctx) ) {
-			case 1:
-				{
-				setState(60); 
-				_errHandler.sync(this);
-				_alt = 1;
-				do {
-					switch (_alt) {
-					case 1:
-						{
-						{
-						setState(56);
-						match(FILE);
-						setState(58);
-						_errHandler.sync(this);
-						_la = _input.LA(1);
-						if (_la==BARRA) {
-							{
-							setState(57);
-							match(BARRA);
-							}
-						}
-
-						}
-						}
-						break;
-					default:
-						throw new NoViableAltException(this);
-					}
-					setState(62); 
+			_alt = getInterpreter().adaptivePredict(_input,3,_ctx);
+			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
+				if ( _alt==1 ) {
+					{
+					{
+					setState(56);
+					match(FILE);
+					setState(58);
 					_errHandler.sync(this);
-					_alt = getInterpreter().adaptivePredict(_input,3,_ctx);
-				} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
+					_la = _input.LA(1);
+					if (_la==BARRA) {
+						{
+						setState(57);
+						match(BARRA);
+						}
+					}
+
+					}
+					} 
 				}
-				break;
+				setState(64);
+				_errHandler.sync(this);
+				_alt = getInterpreter().adaptivePredict(_input,3,_ctx);
 			}
 			}
 		}
@@ -376,14 +364,14 @@ public class CsvParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(69);
+			setState(68);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==FILE) {
 				{
-				setState(66);
+				setState(65);
 				filename();
-				setState(67);
+				setState(66);
 				json_extension();
 				}
 			}
@@ -425,14 +413,14 @@ public class CsvParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(74);
+			setState(73);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,6,_ctx) ) {
+			switch ( getInterpreter().adaptivePredict(_input,5,_ctx) ) {
 			case 1:
 				{
-				setState(71);
+				setState(70);
 				filename();
-				setState(72);
+				setState(71);
 				svg_extension();
 				}
 				break;
@@ -475,14 +463,14 @@ public class CsvParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(79);
+			setState(78);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==FILE) {
 				{
-				setState(76);
+				setState(75);
 				filename();
-				setState(77);
+				setState(76);
 				dot_extension();
 				}
 			}
@@ -519,7 +507,7 @@ public class CsvParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(81);
+			setState(80);
 			match(COMA);
 			}
 		}
@@ -553,7 +541,7 @@ public class CsvParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(83);
+			setState(82);
 			match(INTRO);
 			}
 		}
@@ -587,7 +575,7 @@ public class CsvParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(85);
+			setState(84);
 			match(FILE);
 			}
 		}
@@ -622,12 +610,12 @@ public class CsvParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(88);
+			setState(87);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==JSON_EXTENSION) {
 				{
-				setState(87);
+				setState(86);
 				match(JSON_EXTENSION);
 				}
 			}
@@ -665,12 +653,12 @@ public class CsvParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(91);
+			setState(90);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==SVG_EXTENSION) {
 				{
-				setState(90);
+				setState(89);
 				match(SVG_EXTENSION);
 				}
 			}
@@ -708,12 +696,12 @@ public class CsvParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(94);
+			setState(93);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==DOT_EXTENSION) {
 				{
-				setState(93);
+				setState(92);
 				match(DOT_EXTENSION);
 				}
 			}
@@ -755,9 +743,9 @@ public class CsvParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(96);
+			setState(95);
 			dir();
-			setState(97);
+			setState(96);
 			coma();
 			}
 		}
@@ -799,11 +787,11 @@ public class CsvParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(99);
+			setState(98);
 			dir();
-			setState(100);
+			setState(99);
 			json_file();
-			setState(101);
+			setState(100);
 			coma();
 			}
 		}
@@ -845,11 +833,11 @@ public class CsvParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(103);
+			setState(102);
 			dir();
-			setState(104);
+			setState(103);
 			dot_file();
-			setState(105);
+			setState(104);
 			coma();
 			}
 		}
@@ -891,16 +879,16 @@ public class CsvParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(107);
+			setState(106);
 			dir();
-			setState(108);
+			setState(107);
 			svg_file();
-			setState(110);
+			setState(109);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,11,_ctx) ) {
+			switch ( getInterpreter().adaptivePredict(_input,10,_ctx) ) {
 			case 1:
 				{
-				setState(109);
+				setState(108);
 				coma();
 				}
 				break;
@@ -919,33 +907,32 @@ public class CsvParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\ns\4\2\t\2\4\3\t"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\nr\4\2\t\2\4\3\t"+
 		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t\13\4"+
 		"\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22\3\2\3"+
 		"\2\6\2\'\n\2\r\2\16\2(\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\4\3\4\3\4"+
-		"\3\4\3\4\5\49\n\4\3\5\3\5\5\5=\n\5\6\5?\n\5\r\5\16\5@\5\5C\n\5\3\6\3\6"+
-		"\3\6\5\6H\n\6\3\7\3\7\3\7\5\7M\n\7\3\b\3\b\3\b\5\bR\n\b\3\t\3\t\3\n\3"+
-		"\n\3\13\3\13\3\f\5\f[\n\f\3\r\5\r^\n\r\3\16\5\16a\n\16\3\17\3\17\3\17"+
-		"\3\20\3\20\3\20\3\20\3\21\3\21\3\21\3\21\3\22\3\22\3\22\5\22q\n\22\3\22"+
-		"\2\2\23\2\4\6\b\n\f\16\20\22\24\26\30\32\34\36 \"\2\2\2m\2$\3\2\2\2\4"+
-		"*\3\2\2\2\6\63\3\2\2\2\bB\3\2\2\2\nG\3\2\2\2\fL\3\2\2\2\16Q\3\2\2\2\20"+
-		"S\3\2\2\2\22U\3\2\2\2\24W\3\2\2\2\26Z\3\2\2\2\30]\3\2\2\2\32`\3\2\2\2"+
-		"\34b\3\2\2\2\36e\3\2\2\2 i\3\2\2\2\"m\3\2\2\2$&\5\4\3\2%\'\5\6\4\2&%\3"+
-		"\2\2\2\'(\3\2\2\2(&\3\2\2\2()\3\2\2\2)\3\3\2\2\2*+\5\b\5\2+,\5\20\t\2"+
-		",-\5\b\5\2-.\5\20\t\2./\5\b\5\2/\60\5\20\t\2\60\61\5\b\5\2\61\62\5\22"+
-		"\n\2\62\5\3\2\2\2\63\64\5\34\17\2\64\65\5\36\20\2\65\66\5 \21\2\668\5"+
-		"\"\22\2\679\5\22\n\28\67\3\2\2\289\3\2\2\29\7\3\2\2\2:<\7\t\2\2;=\7\5"+
-		"\2\2<;\3\2\2\2<=\3\2\2\2=?\3\2\2\2>:\3\2\2\2?@\3\2\2\2@>\3\2\2\2@A\3\2"+
-		"\2\2AC\3\2\2\2B>\3\2\2\2BC\3\2\2\2C\t\3\2\2\2DE\5\24\13\2EF\5\26\f\2F"+
-		"H\3\2\2\2GD\3\2\2\2GH\3\2\2\2H\13\3\2\2\2IJ\5\24\13\2JK\5\30\r\2KM\3\2"+
-		"\2\2LI\3\2\2\2LM\3\2\2\2M\r\3\2\2\2NO\5\24\13\2OP\5\32\16\2PR\3\2\2\2"+
-		"QN\3\2\2\2QR\3\2\2\2R\17\3\2\2\2ST\7\3\2\2T\21\3\2\2\2UV\7\4\2\2V\23\3"+
-		"\2\2\2WX\7\t\2\2X\25\3\2\2\2Y[\7\6\2\2ZY\3\2\2\2Z[\3\2\2\2[\27\3\2\2\2"+
-		"\\^\7\b\2\2]\\\3\2\2\2]^\3\2\2\2^\31\3\2\2\2_a\7\7\2\2`_\3\2\2\2`a\3\2"+
-		"\2\2a\33\3\2\2\2bc\5\b\5\2cd\5\20\t\2d\35\3\2\2\2ef\5\b\5\2fg\5\n\6\2"+
-		"gh\5\20\t\2h\37\3\2\2\2ij\5\b\5\2jk\5\16\b\2kl\5\20\t\2l!\3\2\2\2mn\5"+
-		"\b\5\2np\5\f\7\2oq\5\20\t\2po\3\2\2\2pq\3\2\2\2q#\3\2\2\2\16(8<@BGLQZ"+
-		"]`p";
+		"\3\4\3\4\5\49\n\4\3\5\3\5\5\5=\n\5\7\5?\n\5\f\5\16\5B\13\5\3\6\3\6\3\6"+
+		"\5\6G\n\6\3\7\3\7\3\7\5\7L\n\7\3\b\3\b\3\b\5\bQ\n\b\3\t\3\t\3\n\3\n\3"+
+		"\13\3\13\3\f\5\fZ\n\f\3\r\5\r]\n\r\3\16\5\16`\n\16\3\17\3\17\3\17\3\20"+
+		"\3\20\3\20\3\20\3\21\3\21\3\21\3\21\3\22\3\22\3\22\5\22p\n\22\3\22\2\2"+
+		"\23\2\4\6\b\n\f\16\20\22\24\26\30\32\34\36 \"\2\2\2k\2$\3\2\2\2\4*\3\2"+
+		"\2\2\6\63\3\2\2\2\b@\3\2\2\2\nF\3\2\2\2\fK\3\2\2\2\16P\3\2\2\2\20R\3\2"+
+		"\2\2\22T\3\2\2\2\24V\3\2\2\2\26Y\3\2\2\2\30\\\3\2\2\2\32_\3\2\2\2\34a"+
+		"\3\2\2\2\36d\3\2\2\2 h\3\2\2\2\"l\3\2\2\2$&\5\4\3\2%\'\5\6\4\2&%\3\2\2"+
+		"\2\'(\3\2\2\2(&\3\2\2\2()\3\2\2\2)\3\3\2\2\2*+\5\b\5\2+,\5\20\t\2,-\5"+
+		"\b\5\2-.\5\20\t\2./\5\b\5\2/\60\5\20\t\2\60\61\5\b\5\2\61\62\5\22\n\2"+
+		"\62\5\3\2\2\2\63\64\5\34\17\2\64\65\5\36\20\2\65\66\5 \21\2\668\5\"\22"+
+		"\2\679\5\22\n\28\67\3\2\2\289\3\2\2\29\7\3\2\2\2:<\7\t\2\2;=\7\5\2\2<"+
+		";\3\2\2\2<=\3\2\2\2=?\3\2\2\2>:\3\2\2\2?B\3\2\2\2@>\3\2\2\2@A\3\2\2\2"+
+		"A\t\3\2\2\2B@\3\2\2\2CD\5\24\13\2DE\5\26\f\2EG\3\2\2\2FC\3\2\2\2FG\3\2"+
+		"\2\2G\13\3\2\2\2HI\5\24\13\2IJ\5\30\r\2JL\3\2\2\2KH\3\2\2\2KL\3\2\2\2"+
+		"L\r\3\2\2\2MN\5\24\13\2NO\5\32\16\2OQ\3\2\2\2PM\3\2\2\2PQ\3\2\2\2Q\17"+
+		"\3\2\2\2RS\7\3\2\2S\21\3\2\2\2TU\7\4\2\2U\23\3\2\2\2VW\7\t\2\2W\25\3\2"+
+		"\2\2XZ\7\6\2\2YX\3\2\2\2YZ\3\2\2\2Z\27\3\2\2\2[]\7\b\2\2\\[\3\2\2\2\\"+
+		"]\3\2\2\2]\31\3\2\2\2^`\7\7\2\2_^\3\2\2\2_`\3\2\2\2`\33\3\2\2\2ab\5\b"+
+		"\5\2bc\5\20\t\2c\35\3\2\2\2de\5\b\5\2ef\5\n\6\2fg\5\20\t\2g\37\3\2\2\2"+
+		"hi\5\b\5\2ij\5\16\b\2jk\5\20\t\2k!\3\2\2\2lm\5\b\5\2mo\5\f\7\2np\5\20"+
+		"\t\2on\3\2\2\2op\3\2\2\2p#\3\2\2\2\r(8<@FKPY\\_o";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

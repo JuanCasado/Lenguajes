@@ -443,7 +443,7 @@
                         "@id": "http://PdL.com/class#Espanol",
                         "name": "Espanol",
                         "label": {
-                            "es": "espa�ol",
+                            "es": "español",
                             "eng": "spanish"
                         },
                         "inherits": "http://PdL.com/class#Idioma"
