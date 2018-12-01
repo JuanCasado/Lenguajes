@@ -18,7 +18,6 @@ public class CsvVisitor extends CsvParserBaseVisitor<HashContenedor> {
 
     @Override
     public HashContenedor visitInit(CsvParser.InitContext ctx) {
-        System.out.println("INIT");
         for (CsvParser.RowContext row : ctx.row()) {
             visit(row);
         }
@@ -27,50 +26,41 @@ public class CsvVisitor extends CsvParserBaseVisitor<HashContenedor> {
 
     @Override
     public HashContenedor visitNombre(CsvParser.NombreContext ctx) {
-        System.out.print("nombre : ");
         String token = "";
         token += ctx.dir().getText();
-        System.out.println(token);
         row.setFinal("nombre", token);
         return null;
     }
 
     @Override
     public HashContenedor visitRutafichero(CsvParser.RutaficheroContext ctx) {
-        System.out.print("fichero : ");
         String token = "";
         token += ctx.dir().getText();
         token += ctx.json_file().getText();
-        System.out.println(token);
         row.setFinal("fichero", token);
         return null;
     }
 
     @Override
     public HashContenedor visitRutaficherosalida(CsvParser.RutaficherosalidaContext ctx) {
-        System.out.print("dot : ");
         String token = "";
         token += ctx.dir().getText();
         token += ctx.dot_file().getText();
-        System.out.println(token);
         row.setFinal("dot", token);
         return null;
     }
 
     @Override
     public HashContenedor visitRutaficherografico(CsvParser.RutaficherograficoContext ctx) {
-        System.out.print("grafico : ");
         String token = "";
         token += ctx.dir().getText();
         token += ctx.svg_file().getText();
-        System.out.println(token);
         row.setFinal("grafico", token);
         return null;
     }
 
     @Override
     public HashContenedor visitRow(CsvParser.RowContext ctx) {
-        System.out.println("ROW");
         row = new HashContenedor("row");
 
         visit(ctx.nombre());

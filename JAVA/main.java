@@ -28,12 +28,15 @@ class main {
         System.out.println("PRUEBAS DE CSV:");
         CsvParser parserCsv = new CsvParser(new CommonTokenStream(new CsvLexer(new ANTLRInputStream(new FileInputStream("./../Documentos/ficheros_a_procesar.csv"))))); 
         parserCsv.setBuildParseTree(true);
-        HashContenedor hash2 = new CsvVisitor().visit(parserCsv.init());
+        HashContenedor csvTable = new CsvVisitor().visit(parserCsv.init());
         
-        ArrayList<Tag> toGetCsv = new ArrayList<>();
-        toGetCsv.add(new Tag(Tag.State.MANDATORY, "row"));
 
-        if (hash2.getContentent(toGetCsv) != null) {
+        System.out.println(csvTable.getNodeOf("row").get(0).getValueOf("nombre"));
+        System.out.println(csvTable.getNodeOf("row").get(1).getValueOf("nombre"));
+        ArrayList<Tag> toGetCsv = new ArrayList<>();
+        toGetCsv.add(new Tag("row"));
+
+        if (csvTable.getContentent(toGetCsv) != null) {
             System.out.println("ok");
         } else {
             System.out.println(":(");
