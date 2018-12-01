@@ -47,13 +47,13 @@ class main {
         JsonParser parserJson = new JsonParser(new CommonTokenStream(new JsonLexer(new ANTLRInputStream(new FileInputStream("./../Documentos/nschema-RelacionFamiliar.json")))));
         parserJson.setBuildParseTree(true);
         HashContenedor jsonTable = new JsonVisitor().visit(parserJson.init());
-/*
+
         ArrayList<Tag> toGetJson = new ArrayList<>();
-        toGetJson.add(new Tag(Tag.State.MANDATORY, "json"));
+        toGetJson.add(new Tag(Tag.State.MANDATORY, "grafo"));
         if (jsonTable.getContentent(toGetJson) != null) {
-            System.out.println("ok");
+            System.out.println(":)");
         } else {
             System.out.println(":(");
-        }*/
+        }
     }
 }
