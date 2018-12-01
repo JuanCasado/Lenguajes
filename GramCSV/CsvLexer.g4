@@ -13,3 +13,5 @@ fragment DIGITO: [0-9];
 fragment PUNTUACION: '_'|' '|'-'|':';
 fragment DOT : '.';
 
+COMILLAS : ('"'|'\'') -> skip;
+
