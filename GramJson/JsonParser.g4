@@ -1,7 +1,7 @@
-parser grammar PruebaParser;
+parser grammar JsonParser;
 
 options{
-    tokenVocab = PruebaLexer;
+    tokenVocab = JsonLexer;
     language = Java;
 }
 

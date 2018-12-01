@@ -1,4 +1,4 @@
-lexer grammar PruebaLexer;
+lexer grammar JsonLexer;
 
 
 // INICIO_SENTENCIA: '"' -> pushMode(SENTENCIA_LINEA_MODE);
