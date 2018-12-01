@@ -10,18 +10,18 @@ class main {
          * EntradaLexer(args.length > 0 ? new ANTLRInputStream(args[0]) : new
          * ANTLRInputStream(System.in))));
          */
-        ArrayList<Tag> toGet = new ArrayList<>();
-        toGet.add(new Tag(Tag.State.MANDATORY, "id1"));
-        toGet.add(new Tag(Tag.State.OPTIONAL, "id2"));
-        toGet.add(new Tag(Tag.State.OPTIONAL, "hash2"));
 
         System.out.println("PRUEBAS DE ENTRADA:");
         EntradaParser parserEntrada = new EntradaParser(new CommonTokenStream(new EntradaLexer(new ANTLRInputStream(new FileInputStream("./../Documentos/pruebas.prog")))));
         parserEntrada.setBuildParseTree(true);
-        HashContenedor hash1 = new EntradaVisitor().visit(parserEntrada.init());
+        HashContenedor entradaTable = new EntradaVisitor().visit(parserEntrada.init());
         
-        if (hash1.getContentent(toGet) != null) {
-            System.out.println("ok");
+        ArrayList<Tag> toGetEntrada = new ArrayList<>();
+        toGetEntrada.add(new Tag(Tag.State.MANDATORY, "id1"));
+        toGetEntrada.add(new Tag(Tag.State.OPTIONAL, "id2"));
+        toGetEntrada.add(new Tag(Tag.State.OPTIONAL, "hash2"));
+        if (entradaTable.getContentent(toGetEntrada) != null) {
+            System.out.println(":)");
         } else {
             System.out.println(":(");
         }
@@ -38,6 +38,19 @@ class main {
         toGetCsv.add(new Tag("row"));
 
         if (csvTable.getContentent(toGetCsv) != null) {
+            System.out.println(":)");
+        } else {
+            System.out.println(":(");
+        }
+
+        System.out.println("PRUEBAS DE JSON:");
+        CsvParser parserJson = new CsvParser(new CommonTokenStream(new CsvLexer(new ANTLRInputStream(new FileInputStream("./../Documentos/nschema-RelacionFamiliar.json")))));
+        parserJson.setBuildParseTree(true);
+        HashContenedor jsonTable = new CsvVisitor().visit(parserCsv.init());
+
+        ArrayList<Tag> toGetJson = new ArrayList<>();
+        toGetJson.add(new Tag(Tag.State.MANDATORY, "json"));
+        if (jsonTable.getContentent(toGetEntrada) != null) {
             System.out.println("ok");
         } else {
             System.out.println(":(");
