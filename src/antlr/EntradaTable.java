@@ -22,6 +22,10 @@ public class EntradaTable {
     }
 
     public void test() {
-
+        System.out.println(table.getNodeOf("file").get(0).getNodeOf("json").get(0).getValueOf("path"));
+        System.out.println(table.getNodeOf("file").get(0).getNodeOf("svg").get(0).getValueOf("file"));
+        System.out.println(table.getNodeOf("parametros").get(0).getValueOf("styleinhernode"));
+        System.out.println(table.getNodeOf("parametros").get(0).getValueOf("lenrel"));
+        System.out.println(table.getNodeOf("parametros").get(0).getValueOf("shapeindernode"));
     }
 }

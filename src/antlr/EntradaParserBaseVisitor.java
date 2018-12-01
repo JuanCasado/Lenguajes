@@ -1,6 +1,9 @@
-package antlr;
-
 // Generated from EntradaParser.g4 by ANTLR 4.7.1
+
+    package antlr;
+
+
+
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
 /**
@@ -425,13 +428,6 @@ class EntradaParserBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
 	@Override public T visitShape(EntradaParser.ShapeContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitTipo_estruc(EntradaParser.Tipo_estrucContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *

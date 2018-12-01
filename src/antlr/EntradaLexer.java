@@ -1,6 +1,9 @@
-package antlr;
-
 // Generated from EntradaLexer.g4 by ANTLR 4.7.1
+
+    package antlr;
+
+    
+
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Token;

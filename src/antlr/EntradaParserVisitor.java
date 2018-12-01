@@ -1,6 +1,9 @@
-package antlr;
-
 // Generated from EntradaParser.g4 by ANTLR 4.7.1
+
+    package antlr;
+
+
+
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -365,12 +368,6 @@ interface EntradaParserVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitShape(EntradaParser.ShapeContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link EntradaParser#tipo_estruc}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitTipo_estruc(EntradaParser.Tipo_estrucContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link EntradaParser#kw_edge}.
 	 * @param ctx the parse tree
