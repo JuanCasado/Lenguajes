@@ -20,7 +20,7 @@ class main {
         toGetEntrada.add(new Tag(Tag.State.MANDATORY, "id1"));
         toGetEntrada.add(new Tag(Tag.State.OPTIONAL, "id2"));
         toGetEntrada.add(new Tag(Tag.State.OPTIONAL, "hash2"));
-        if (entradaTable.getContentent(toGetEntrada) != null) {
+        if (entradaTable.validateContentent(toGetEntrada) != null) {
             System.out.println(":)");
         } else {
             System.out.println(":(");
@@ -37,7 +37,7 @@ class main {
         ArrayList<Tag> toGetCsv = new ArrayList<>();
         toGetCsv.add(new Tag("row"));
 
-        if (csvTable.getContentent(toGetCsv) != null) {
+        if (csvTable.validateContentent(toGetCsv) != null) {
             System.out.println(":)");
         } else {
             System.out.println(":(");
@@ -50,7 +50,7 @@ class main {
 
         ArrayList<Tag> toGetJson = new ArrayList<>();
         toGetJson.add(new Tag(Tag.State.MANDATORY, "grafo"));
-        if (jsonTable.getContentent(toGetJson) != null) {
+        if (jsonTable.validateContentent(toGetJson) != null) {
             System.out.println(":)");
         } else {
             System.out.println(":(");

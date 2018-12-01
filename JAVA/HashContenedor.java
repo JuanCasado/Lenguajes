@@ -7,7 +7,7 @@ class HashContenedor extends Contenedor {
         super(Node.CONTAINER, id);
         this.content = new HashMap<>();
     }
-    public ArrayList<String> getContentent(ArrayList<Tag> data){
+    public ArrayList<String> validateContentent(ArrayList<Tag> data){
         ArrayList <String> result = new ArrayList<>();
         for (Tag asked : data){
             if (asked.getState()==Tag.State.MANDATORY){
@@ -74,7 +74,7 @@ class HashContenedor extends Contenedor {
         this.content.get(content.getId()).add(content);
     }
     
-    public void setFinal(String id, String content) {
+    public void addFinal(String id, String content) {
         if (!this.content.containsKey(id)){
             this.content.put(id, new ArrayList<>());
         }

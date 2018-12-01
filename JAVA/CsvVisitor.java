@@ -21,7 +21,7 @@ public class CsvVisitor extends CsvParserBaseVisitor<HashContenedor> {
     public HashContenedor visitNombre(CsvParser.NombreContext ctx) {
         String token = "";
         token += ctx.dir().getText();
-        row.setFinal("nombre", token);
+        row.addFinal("nombre", token);
         return null;
     }
 
@@ -30,7 +30,7 @@ public class CsvVisitor extends CsvParserBaseVisitor<HashContenedor> {
         String token = "";
         token += ctx.dir().getText();
         token += ctx.json_file().getText();
-        row.setFinal("fichero", token);
+        row.addFinal("fichero", token);
         return null;
     }
 
@@ -39,7 +39,7 @@ public class CsvVisitor extends CsvParserBaseVisitor<HashContenedor> {
         String token = "";
         token += ctx.dir().getText();
         token += ctx.dot_file().getText();
-        row.setFinal("dot", token);
+        row.addFinal("dot", token);
         return null;
     }
 
@@ -48,7 +48,7 @@ public class CsvVisitor extends CsvParserBaseVisitor<HashContenedor> {
         String token = "";
         token += ctx.dir().getText();
         token += ctx.svg_file().getText();
-        row.setFinal("grafico", token);
+        row.addFinal("grafico", token);
         return null;
     }
 

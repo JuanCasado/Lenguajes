@@ -6,12 +6,12 @@ public class EntradaVisitor extends EntradaParserBaseVisitor<HashContenedor> {
     public EntradaVisitor() {
         contenedor = new HashContenedor("entrada");
         HashContenedor hash2 = new HashContenedor("hash2");
-        contenedor.setFinal("id1", "cont1");
-        contenedor.setFinal("id1", "cont2");
+        contenedor.addFinal("id1", "cont1");
+        contenedor.addFinal("id1", "cont2");
         contenedor.addNode(hash2);
-        hash2.setFinal("id3", "cont3");
-        hash2.setFinal("id4", "cont4");
-        hash2.setFinal("id5", "cont5");
+        hash2.addFinal("id3", "cont3");
+        hash2.addFinal("id4", "cont4");
+        hash2.addFinal("id5", "cont5");
     }
 
     @Override
