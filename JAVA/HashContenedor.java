@@ -1,9 +1,9 @@
-import java.util.HashMap;
-import java.util.ArrayList;
+import java.util.*;
 
 class HashContenedor extends Contenedor {
     private final HashMap<String,ArrayList<Contenedor>> content;
-    HashContenedor (String id) {
+
+    public HashContenedor (String id) {
         super(Node.CONTAINER, id);
         this.content = new HashMap<>();
     }
