@@ -22,15 +22,6 @@ public class JsonTable {
     }
 
     public void test() {
-        System.out.println(table.getNodeOf("row").get(0).getValueOf("nombre"));
-        System.out.println(table.getNodeOf("row").get(1).getValueOf("nombre"));
-        ArrayList<Tag> toGetJson = new ArrayList<>();
-        toGetJson.add(new Tag("row"));
 
-        if (table.validateContentent(toGetJson) != null) {
-            System.out.println(":)");
-        } else {
-            System.out.println(":(");
-        }
     }
 }

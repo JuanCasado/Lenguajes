@@ -22,15 +22,6 @@ public class EntradaTable {
     }
 
     public void test() {
-        System.out.println(table.getNodeOf("row").get(0).getValueOf("nombre"));
-        System.out.println(table.getNodeOf("row").get(1).getValueOf("nombre"));
-        ArrayList<Tag> toGetEntrada = new ArrayList<>();
-        toGetEntrada.add(new Tag("row"));
 
-        if (table.validateContentent(toGetEntrada) != null) {
-            System.out.println(":)");
-        } else {
-            System.out.println(":(");
-        }
     }
 }
