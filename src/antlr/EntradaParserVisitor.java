@@ -84,6 +84,30 @@ interface EntradaParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitCsv(EntradaParser.CsvContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link EntradaParser#path_json}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPath_json(EntradaParser.Path_jsonContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link EntradaParser#path_svg}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPath_svg(EntradaParser.Path_svgContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link EntradaParser#path_dot}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPath_dot(EntradaParser.Path_dotContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link EntradaParser#path_csv}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPath_csv(EntradaParser.Path_csvContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link EntradaParser#wsci}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

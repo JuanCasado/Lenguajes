@@ -1,5 +1,11 @@
 lexer grammar EntradaLexer;
 
+@header{
+    package antlr;
+
+    
+}
+
 COMENTARIOABRIR: '/*' -> pushMode(COMENTARIO_MULTILINEA_MODE);      //estos tres son TOKENS
 COMENTARIOLINEA: '//' -> pushMode(COMENTARIO_LINEA_MODE);
 CADENA_ABRIR: '"' -> pushMode(CADENA_CARACTERES_MODE);              //una cadena de caracteres comienza con un '"'

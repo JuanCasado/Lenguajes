@@ -1,5 +1,11 @@
 parser grammar CsvParser;
 
+@header{
+    package antlr;
+
+    
+}
+
 options{
     tokenVocab = CsvLexer;
     language = Java;

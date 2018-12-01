@@ -1,5 +1,11 @@
 parser grammar JsonParser;
 
+@header{
+    package antlr;
+
+    
+}
+
 options{
     tokenVocab = JsonLexer;
     language = Java;

@@ -1,405 +1,82 @@
+package antlr;
+
 import java.util.*;
 
-public class EntradaVisitor extends EntradaParserBaseVisitor<HashContenedor> {
+class EntradaVisitor extends EntradaParserBaseVisitor<HashContenedor> {
     private HashContenedor contenedor;
+    private HashContenedor file;
 
-    public EntradaVisitor() {
+    public EntradaVisitor () {
         contenedor = new HashContenedor("entrada");
-        HashContenedor hash2 = new HashContenedor("hash2");
-        contenedor.addFinal("id1", "cont1");
-        contenedor.addFinal("id1", "cont2");
-        contenedor.addNode(hash2);
-        hash2.addFinal("id3", "cont3");
-        hash2.addFinal("id4", "cont4");
-        hash2.addFinal("id5", "cont5");
     }
 
     @Override
     public HashContenedor visitInit(EntradaParser.InitContext ctx) {
+        System.out.println("init");
         for (EntradaParser.Tipo_archivoContext tipoArchivo : ctx.tipo_archivo()) {
-            // System.out.println("tipoArchivo nuevo");
-            visitChildren(tipoArchivo);
-            // visit(tipoArchivo);
+            file = new HashContenedor("file");
+            visitChild(ctx.tipo_archivo());
+            contenedor.addNode(file);
         }
         for (EntradaParser.ParametrosContext parametros : ctx.parametros()) {
-            // System.out.println("parametro nuevo");
-            visitChildren(parametros);
-
+            System.out.println("parametro nuevo");
+            //visit(parametros);
         }
         return contenedor;
     }
-
-    @Override
-    public HashContenedor visitWsci(EntradaParser.WsciContext ctx) {
-        return null;
-    }
-
-    @Override
-    public HashContenedor visitWhite_space(EntradaParser.White_spaceContext ctx) {
-        return null;
-    }
-
-    @Override
-    public HashContenedor visitIntro(EntradaParser.IntroContext ctx) {
-        return null;
-    }
-
-    @Override
-    public HashContenedor visitTipo_archivo(EntradaParser.Tipo_archivoContext ctx) {
-        return null;
-    }
-
-    @Override
-    public HashContenedor visitParametros(EntradaParser.ParametrosContext ctx) {
-        return null;
-    }
-
-    // PARA LA RUTA DE UN ARCHIVO
-    @Override
-    public HashContenedor visitRutafichero(EntradaParser.RutaficheroContext ctx) {
-
-        return null;
-    }
-
-    @Override
-    public HashContenedor visitDoblepunto(EntradaParser.DoblepuntoContext ctx) {
-        return null;
-    }
-
-    @Override
-    public HashContenedor visitPunto(EntradaParser.PuntoContext ctx) {
-        return null;
-    }
-
-    @Override
-    public HashContenedor visitLetra(EntradaParser.LetraContext ctx) {
-        return null;
-    }
-
-    @Override
-    public HashContenedor visitDos_ptos(EntradaParser.Dos_ptosContext ctx) {
-        return null;
-    }
-
-    @Override
-    public HashContenedor visitVariable(EntradaParser.VariableContext ctx) {
-        return null;
-    }
-
-    @Override
-    public HashContenedor visitBarra(EntradaParser.BarraContext ctx) {
-        return null;
-    }
-
-    // PARA EL JSON
+    
     @Override
     public HashContenedor visitJson(EntradaParser.JsonContext ctx) {
-        System.out.println("JSON");
-        EntradaParser.JsonContext json = ctx;
-        visitChildren(json);
-
-        /*
-         * json = new HashContenedor("json");
-         * 
-         * visit(ctx.rutafichero()); visit(ctx.variable());
-         * 
-         * contenedor.addNode(json);
-         */
-        return null;
+        visit(ctx.path_json());
+        return null ;
     }
-
     @Override
-    public HashContenedor visitExtension_json(EntradaParser.Extension_jsonContext ctx) {
-        System.out.println("EXTENSION_JSON");
+    public HashContenedor visitPath_json(EntradaParser.Path_jsonContext ctx) {
+        HashContenedor json = new HashContenedor("json");
+        json.addFinal("path", ctx.rutafichero().getText());
+        json.addFinal("file", ctx.variable().getText()+".json");
+        file.addNode(json);
         return null;
     }
 
-    // PARA EL SVG
     @Override
     public HashContenedor visitSvg(EntradaParser.SvgContext ctx) {
+        visit(ctx.path_svg());
         return null;
     }
-
     @Override
-    public HashContenedor visitExtension_svg(EntradaParser.Extension_svgContext ctx) {
+    public HashContenedor visitPath_svg(EntradaParser.Path_svgContext ctx) {
+        HashContenedor svg = new HashContenedor("svg");
+        svg.addFinal("path", ctx.rutafichero().getText());
+        svg.addFinal("file", ctx.variable().getText() + ".svg");
+        file.addNode(svg);
         return null;
     }
 
-    // PARA EL DOT
     @Override
     public HashContenedor visitDot(EntradaParser.DotContext ctx) {
+        visit(ctx.path_dot());
         return null;
     }
-
     @Override
-    public HashContenedor visitExtension_dot(EntradaParser.Extension_dotContext ctx) {
-        return null;
-    }
-
-    // PARA EL CSV
-    @Override
-    public HashContenedor visitCsv(EntradaParser.CsvContext ctx) {
+    public HashContenedor visitPath_dot(EntradaParser.Path_dotContext ctx) {
+        HashContenedor dot = new HashContenedor("svg");
+        dot.addFinal("path", ctx.rutafichero().getText());
+        dot.addFinal("file", ctx.variable().getText() + ".dot");
+        file.addNode(dot);
         return null;
     }
 
     @Override
-    public HashContenedor visitExtension_csv(EntradaParser.Extension_csvContext ctx) {
-        return null;
+    public HashContenedor visitCsv(EntradaParser.CsvContext ctx) {
+        return visit(ctx.csv());
     }
-
-    // ---------------PARAMETROS----------------
     @Override
-    public HashContenedor visitKw_edge(EntradaParser.Kw_edgeContext ctx) {
-        return null;
-    }
-
-    @Override
-    public HashContenedor visitKw_node(EntradaParser.Kw_nodeContext ctx) {
-        return null;
-    }
-
-    @Override
-    public HashContenedor visitNumero(EntradaParser.NumeroContext ctx) {
-        return null;
-    }
-
-    @Override
-    public HashContenedor visitCadena(EntradaParser.CadenaContext ctx) {
-        return null;
-    }
-
-    @Override // NO NOS INTERESAN LAS COMILLAS
-    public HashContenedor visitTexto_cadena(EntradaParser.Texto_cadenaContext ctx) {
-        return null;
-    }
-
-    @Override // NO SE SI ME INTERESAN O NO?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?
-    public HashContenedor visitBbaja(EntradaParser.BbajaContext ctx) {
-        return null;
-    }
-
-    @Override
-    public HashContenedor visitAsig(EntradaParser.AsigContext ctx) {
-        return null;
-    }
-
-    // PARA TIPO_ESTRCUT
-    @Override
-    public HashContenedor visitTipo_estruc(EntradaParser.Tipo_estrucContext ctx) {
-        EntradaParser.Tipo_estrucContext estruct = ctx;
-        visitChildren(estruct);
-        return null;
-    }
-
-    @Override
-    public HashContenedor visitKw_relationship(EntradaParser.Kw_relationshipContext ctx) {
-        System.out.println("RELATIONSHIP");
-        return null;
-    }
-
-    @Override
-    public HashContenedor visitKw_class(EntradaParser.Kw_classContext ctx) {
-        return null;
-    }
-
-    @Override
-    public HashContenedor visitKw_inheritance(EntradaParser.Kw_inheritanceContext ctx) {
-        return null;
-    }
-
-    @Override
-    public HashContenedor visitKw_inderect_use(EntradaParser.Kw_inderect_useContext ctx) {
-        return null;
-    }
-
-    // PARA LEN
-    @Override
-    public HashContenedor visitLen(EntradaParser.LenContext ctx) {
-        String token = "";
-        token += ctx.kw_len().getText();
-        token += ctx.kw_bbaja().getText();
-        visit(ctx.tipo_estruct());
-        token += ctx.asig().getText();
-        token += ctx.numero().getText();
-
-        // row.addFinal("len", token);
-        return null;
-    }
-
-    // PARA FONTCOLOR
-    @Override
-    public HashContenedor visitFontcolor(EntradaParser.FontcolorContext ctx) {
-        token += ctx.kw_fontcolor().getText();
-        token += ctx.kw_bbaja().getText(); // ?
-        if (!ctx.kw_edge().getText().equals(null)) {
-            token += ctx.kw_edge().getText();
-        } else {
-            token += ctx.kw_node().getText();
-        }
-        token += ctx.kw_bbaja().getText();
-        visit(ctx.tipo_estruct());
-        token += ctx.kw_asig().getText();
-        if (!ctx.cadena().getText().equals(null)) {
-            token += ctx.cadena().getText();
-        } else {
-            token += ctx.variable().getText();
-        }
-        return null;
-    }
-
-    // PARA FONTNAME
-    @Override
-    public HashContenedor visitFontname(EntradaParser.FontnameContext ctx) {
-        token += ctx.kw_fontname().getText();
-        token += ctx.kw_bbaja().getText(); // ?
-        if (!ctx.kw_edge().getText().equals(null)) {
-            token += ctx.kw_edge().getText();
-        } else {
-            token += ctx.kw_node().getText();
-        }
-        token += ctx.kw_bbaja().getText();
-        visit(ctx.tipo_estruct());
-        token += ctx.kw_asig().getText();
-        if (!ctx.cadena().getText().equals(null)) {
-            token += ctx.cadena().getText();
-        } else {
-            token += ctx.variable().getText();
-        }
-        return null;
-    }
-
-    // PARA FONTSIZE
-    @Override
-    public HashContenedor visitFontsize(EntradaParser.FontsizeContext ctx) {
-        token += ctx.kw_fontsize().getText();
-        token += ctx.kw_bbaja().getText(); // ?
-        if (!ctx.kw_edge().getText().equals(null)) {
-            token += ctx.kw_edge().getText();
-        } else {
-            token += ctx.kw_node().getText();
-        }
-        token += ctx.kw_bbaja().getText();
-        visit(ctx.tipo_estruct());
-        token += ctx.kw_asig().getText();
-        token += ctx.numero().getText();
-        return null;
-    }
-
-    // PARAARROWSIZE
-    @Override
-    public HashContenedor visitArrowsize(EntradaParser.ArrowsizeContext ctx) {
-        token += ctx.kw_arrowsize().getText();
-        token += ctx.kw_bbaja().getText(); // ?
-        if (!ctx.kw_edge().getText().equals(null)) {
-            token += ctx.kw_edge().getText();
-        } else {
-            token += ctx.kw_node().getText();
-        }
-        token += ctx.kw_bbaja().getText();
-        visit(ctx.tipo_estruct());
-        token += ctx.kw_asig().getText();
-        token += ctx.numero().getText();
-        return null;
-    }
-
-    // PARA ARROWCOLOR
-    @Override
-    public HashContenedor visitArrowcolor(EntradaParser.ArrowcolorContext ctx) {
-        token += ctx.kw_arrowcolor().getText();
-        token += ctx.kw_bbaja().getText(); // ?
-        if (!ctx.kw_edge().getText().equals(null)) {
-            token += ctx.kw_edge().getText();
-        } else {
-            token += ctx.kw_node().getText();
-        }
-        token += ctx.kw_bbaja().getText();
-        visit(ctx.tipo_estruct());
-        token += ctx.kw_asig().getText();
-        if (!ctx.cadena().getText().equals(null)) {
-            token += ctx.cadena().getText();
-        } else {
-            token += ctx.variable().getText();
-        }
-        return null;
-    }
-
-    // PARA PENWIDTH
-    @Override
-    public HashContenedor visitPenwidth(EntradaParser.PenwidthContext ctx) {
-        token += ctx.kw_penwidth().getText();
-        token += ctx.kw_bbaja().getText(); // ?
-        if (!ctx.kw_edge().getText().equals(null)) {
-            token += ctx.kw_edge().getText();
-        } else {
-            token += ctx.kw_node().getText();
-        }
-        token += ctx.kw_bbaja().getText();
-        visit(ctx.tipo_estruct());
-        token += ctx.kw_asig().getText();
-        token += ctx.numero().getText();
-        return null;
-    }
-
-    // PARA FILLCOLOR
-    @Override
-    public HashContenedor visitFillcolor(EntradaParser.FillcolorContext ctx) {
-        token += ctx.kw_fillcolor().getText();
-        token += ctx.kw_bbaja().getText(); // ?
-        if (!ctx.kw_edge().getText().equals(null)) {
-            token += ctx.kw_edge().getText();
-        } else {
-            token += ctx.kw_node().getText();
-        }
-        token += ctx.kw_bbaja().getText();
-        visit(ctx.tipo_estruct());
-        token += ctx.kw_asig().getText();
-        if (!ctx.cadena().getText().equals(null)) {
-            token += ctx.cadena().getText();
-        } else {
-            token += ctx.variable().getText();
-        }
-        return null;
-    }
-
-    // PARA STYLE
-    @Override
-    public HashContenedor visitStyle(EntradaParser.StyleContext ctx) {
-        token += ctx.kw_style().getText();
-        token += ctx.kw_bbaja().getText(); // ?
-        if (!ctx.kw_edge().getText().equals(null)) {
-            token += ctx.kw_edge().getText();
-        } else {
-            token += ctx.kw_node().getText();
-        }
-        token += ctx.kw_bbaja().getText();
-        visit(ctx.tipo_estruct());
-        token += ctx.kw_asig().getText();
-        if (!ctx.cadena().getText().equals(null)) {
-            token += ctx.cadena().getText();
-        } else {
-            token += ctx.variable().getText();
-        }
-        return null;
-    }
-
-    // PARA SHAPE
-    @Override
-    public HashContenedor visitShape(EntradaParser.ShapeContext ctx) {
-        token += ctx.kw_style().getText();
-        token += ctx.kw_bbaja().getText(); // ?
-        if (!ctx.kw_edge().getText().equals(null)) {
-            token += ctx.kw_edge().getText();
-        } else {
-            token += ctx.kw_node().getText();
-        }
-        token += ctx.kw_bbaja().getText();
-        visit(ctx.tipo_estruct());
-        token += ctx.kw_asig().getText();
-        if (!ctx.cadena().getText().equals(null)) {
-            token += ctx.cadena().getText();
-        } else {
-            token += ctx.variable().getText();
-        }
+    public HashContenedor visitPath_csv(EntradaParser.Path_csvContext ctx) {
+        HashContenedor csv = new HashContenedor("svg");
+        csv.addFinal("path", ctx.rutafichero().getText());
+        csv.addFinal("file", ctx.variable().getText() + ".csv");
+        file.addNode(csv);
         return null;
     }
 }

@@ -1,5 +1,10 @@
 lexer grammar JsonLexer;
 
+@header{
+    package antlr;
+
+    
+}
 
 // INICIO_SENTENCIA: '"' -> pushMode(SENTENCIA_LINEA_MODE);
 SALLAVE: '{';

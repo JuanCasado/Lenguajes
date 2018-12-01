@@ -1,5 +1,11 @@
 parser grammar EntradaParser;
 
+@header{
+    package antlr;
+
+    
+}
+
 options{
     tokenVocab = EntradaLexer;
     language = Java;
@@ -18,10 +24,15 @@ texto_comen: (TEXTOCOMENTARIO_ML|TEXTOCOMENTARIO_UL)+;
 rutafichero: (doblepunto|punto|letra dos_ptos?|variable|barra)*; //variable es el nombre del disco C/
 
 tipo_archivo: (json|svg|dot|csv);
-json: kw_json wsci* asig wsci* rutafichero variable punto extension_json;
-svg: kw_svg wsci* asig wsci* rutafichero variable punto extension_svg;
-dot: kw_dot wsci* asig wsci* rutafichero variable punto extension_dot;
-csv: kw_csv wsci* asig wsci* rutafichero variable punto extension_csv;
+json: kw_json wsci* asig wsci* path_json;
+svg: kw_svg wsci* asig wsci* path_svg;
+dot: kw_dot wsci* asig wsci* path_dot;
+csv: kw_csv wsci* asig wsci* path_csv;
+
+path_json : rutafichero variable punto extension_json;
+path_svg : rutafichero variable punto extension_svg;
+path_dot : rutafichero variable punto extension_dot;
+path_csv : rutafichero variable punto extension_csv;
 
 wsci: (white_space|intro);
 white_space: WS;
