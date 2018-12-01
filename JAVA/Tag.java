@@ -11,6 +11,11 @@ class Tag {
         this.value = value;
     }
     
+    Tag(String value) {
+        this.state = State.MANDATORY;
+        this.value = value;
+    }
+    
     public State getState (){
         return state;
     }

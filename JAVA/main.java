@@ -30,7 +30,10 @@ class main {
         parserCsv.setBuildParseTree(true);
         HashContenedor hash2 = new CsvVisitor().visit(parserCsv.init());
         
-        if (hash2.getContentent(toGet) != null) {
+        ArrayList<Tag> toGetCsv = new ArrayList<>();
+        toGetCsv.add(new Tag(Tag.State.MANDATORY, "row"));
+
+        if (hash2.getContentent(toGetCsv) != null) {
             System.out.println("ok");
         } else {
             System.out.println(":(");
