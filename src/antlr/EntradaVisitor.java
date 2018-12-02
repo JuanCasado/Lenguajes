@@ -8,21 +8,34 @@ class EntradaVisitor extends EntradaParserBaseVisitor<HashContenedor> {
     private HashContenedor parametros;
     private String cadena;
 
+    private final String l1[];
+    private final String l1_f[];
+    private final String l2_file[];
+    private final String l2_parametros_f1[];
+    private final String l2_parametros_f2[];
+    private final String l2_parametros_f3[];
+
     public EntradaVisitor () {
         contenedor = new HashContenedor("entrada");
+        l1 = EntradaTable.getl1();
+        l1_f = EntradaTable.getl1_f();
+        l2_file = EntradaTable.getl2_file();
+        l2_parametros_f1 = EntradaTable.getl2_parametros_f1();
+        l2_parametros_f2 = EntradaTable.getl2_parametros_f2();
+        l2_parametros_f3 = EntradaTable.getl2_parametros_f3();
     }
 
     @Override
     public HashContenedor visitInit(EntradaParser.InitContext ctx) {
         if (ctx.tipo_archivo()!=null){
-            file = new HashContenedor("file");
+            file = new HashContenedor(l1[0]);
             for (EntradaParser.Tipo_archivoContext tipoArchivo : ctx.tipo_archivo()) {
                 visitChildren(tipoArchivo);
             }
             contenedor.addNode(file);
         }
         if (ctx.parametros()!=null){
-            parametros = new HashContenedor("parametros");
+            parametros = new HashContenedor(l1[1]);
             for (EntradaParser.ParametrosContext parametros : ctx.parametros()) {
                 visitChildren(parametros);
             }
@@ -39,9 +52,9 @@ class EntradaVisitor extends EntradaParserBaseVisitor<HashContenedor> {
     }
     @Override
     public HashContenedor visitPath_json(EntradaParser.Path_jsonContext ctx) {
-        HashContenedor json = new HashContenedor("json");
-        json.addFinal("path", ctx.rutafichero().getText());
-        json.addFinal("file", ctx.variable().getText()+".json");
+        HashContenedor json = new HashContenedor(l2_file[0]);
+        json.addFinal(l1_f[0], ctx.rutafichero().getText());
+        json.addFinal(l1_f[1], ctx.variable().getText()+"."+l2_file[0]);
         file.addNode(json);
         return null;
     }
@@ -53,9 +66,9 @@ class EntradaVisitor extends EntradaParserBaseVisitor<HashContenedor> {
     }
     @Override
     public HashContenedor visitPath_svg(EntradaParser.Path_svgContext ctx) {
-        HashContenedor svg = new HashContenedor("svg");
-        svg.addFinal("path", ctx.rutafichero().getText());
-        svg.addFinal("file", ctx.variable().getText() + ".svg");
+        HashContenedor svg = new HashContenedor(l2_file[1]);
+        svg.addFinal(l1_f[0], ctx.rutafichero().getText());
+        svg.addFinal(l1_f[1], ctx.variable().getText() + "."+l2_file[1]);
         file.addNode(svg);
         return null;
     }
@@ -67,9 +80,9 @@ class EntradaVisitor extends EntradaParserBaseVisitor<HashContenedor> {
     }
     @Override
     public HashContenedor visitPath_dot(EntradaParser.Path_dotContext ctx) {
-        HashContenedor dot = new HashContenedor("svg");
-        dot.addFinal("path", ctx.rutafichero().getText());
-        dot.addFinal("file", ctx.variable().getText() + ".dot");
+        HashContenedor dot = new HashContenedor(l2_file[1]);
+        dot.addFinal(l1_f[0], ctx.rutafichero().getText());
+        dot.addFinal(l1_f[1], ctx.variable().getText() + "."+l2_file[2]);
         file.addNode(dot);
         return null;
     }
@@ -80,9 +93,9 @@ class EntradaVisitor extends EntradaParserBaseVisitor<HashContenedor> {
     }
     @Override
     public HashContenedor visitPath_csv(EntradaParser.Path_csvContext ctx) {
-        HashContenedor csv = new HashContenedor("svg");
-        csv.addFinal("path", ctx.rutafichero().getText());
-        csv.addFinal("file", ctx.variable().getText() + ".csv");
+        HashContenedor csv = new HashContenedor(l2_file[1]);
+        csv.addFinal(l1_f[0], ctx.rutafichero().getText());
+        csv.addFinal(l1_f[1], ctx.variable().getText() + "."+l2_file[3]);
         file.addNode(csv);
         return null;
     }
@@ -90,15 +103,15 @@ class EntradaVisitor extends EntradaParserBaseVisitor<HashContenedor> {
     //PARAMETROS
     @Override
     public HashContenedor visitLen(EntradaParser.LenContext ctx) {
-        String tag = "len";
+        String tag = l2_parametros_f1[0];
         if (ctx.kw_relationship()!=null){
-            tag += "rel";
+            tag += l2_parametros_f2[0];
         } else if (ctx.kw_class()!=null){
-            tag += "class";
+            tag += l2_parametros_f2[1];
         } else if (ctx.kw_inheritance() != null) {
-            tag += "inher";
+            tag += l2_parametros_f2[2];
         } else if (ctx.kw_inderect_use() != null) {
-            tag += "inder";
+            tag += l2_parametros_f2[3];
         }
         parametros.addFinal(tag, ctx.numero().getText());
         return null;
@@ -106,20 +119,20 @@ class EntradaVisitor extends EntradaParserBaseVisitor<HashContenedor> {
     
     @Override
     public HashContenedor visitFontcolor(EntradaParser.FontcolorContext ctx) {
-        String tag = "fontcol";
+        String tag = l2_parametros_f1[1];
         if (ctx.kw_relationship()!=null){
-            tag += "rel";
+            tag += l2_parametros_f2[0];
         } else if (ctx.kw_class()!=null){
-            tag += "class";
+            tag += l2_parametros_f2[1];
         } else if (ctx.kw_inheritance() != null) {
-            tag += "inher";
+            tag += l2_parametros_f2[2];
         } else if (ctx.kw_inderect_use() != null) {
-            tag += "inder";
+            tag += l2_parametros_f2[3];
         }
         if (ctx.kw_edge()!=null){
-            tag += "edge";
+            tag += l2_parametros_f3[0];
         } else if (ctx.kw_node()!=null){
-            tag += "node";
+            tag += l2_parametros_f3[1];
         }
         if (ctx.cadena()!=null){
             visit(ctx.cadena());
@@ -132,20 +145,20 @@ class EntradaVisitor extends EntradaParserBaseVisitor<HashContenedor> {
     
     @Override
     public HashContenedor visitFontname(EntradaParser.FontnameContext ctx) {
-        String tag = "fontname";
+        String tag = l2_parametros_f1[2];
         if (ctx.kw_relationship()!=null){
-            tag += "rel";
+            tag += l2_parametros_f2[0];
         } else if (ctx.kw_class()!=null){
-            tag += "class";
+            tag += l2_parametros_f2[1];
         } else if (ctx.kw_inheritance() != null) {
-            tag += "inher";
+            tag += l2_parametros_f2[2];
         } else if (ctx.kw_inderect_use() != null) {
-            tag += "inder";
+            tag += l2_parametros_f2[3];
         }
         if (ctx.kw_edge()!=null){
-            tag += "edge";
+            tag += l2_parametros_f3[0];
         } else if (ctx.kw_node()!=null){
-            tag += "node";
+            tag += l2_parametros_f3[1];
         }
         if (ctx.cadena()!=null){
             visit(ctx.cadena());
@@ -158,20 +171,20 @@ class EntradaVisitor extends EntradaParserBaseVisitor<HashContenedor> {
     
     @Override
     public HashContenedor visitFontsize(EntradaParser.FontsizeContext ctx) {
-        String tag = "fontsize";
+        String tag = l2_parametros_f1[3];
         if (ctx.kw_relationship()!=null){
-            tag += "rel";
+            tag += l2_parametros_f2[0];
         } else if (ctx.kw_class()!=null){
-            tag += "class";
+            tag += l2_parametros_f2[1];
         } else if (ctx.kw_inheritance() != null) {
-            tag += "inher";
+            tag += l2_parametros_f2[2];
         } else if (ctx.kw_inderect_use() != null) {
-            tag += "inder";
+            tag += l2_parametros_f2[3];
         }
         if (ctx.kw_edge()!=null){
-            tag += "edge";
+            tag += l2_parametros_f3[0];
         } else if (ctx.kw_node()!=null){
-            tag += "node";
+            tag += l2_parametros_f3[1];
         }
         parametros.addFinal(tag,ctx.numero().getText());
         return null;
@@ -179,20 +192,20 @@ class EntradaVisitor extends EntradaParserBaseVisitor<HashContenedor> {
 
     @Override
     public HashContenedor visitArrowsize(EntradaParser.ArrowsizeContext ctx) {
-        String tag = "arrowsize";
+        String tag = l2_parametros_f1[4];
         if (ctx.kw_relationship()!=null){
-            tag += "rel";
+            tag += l2_parametros_f2[0];
         } else if (ctx.kw_class()!=null){
-            tag += "class";
+            tag += l2_parametros_f2[1];
         } else if (ctx.kw_inheritance() != null) {
-            tag += "inher";
+            tag += l2_parametros_f2[2];
         } else if (ctx.kw_inderect_use() != null) {
-            tag += "inder";
+            tag += l2_parametros_f2[3];
         }
         if (ctx.kw_edge()!=null){
-            tag += "edge";
+            tag += l2_parametros_f3[0];
         } else if (ctx.kw_node()!=null){
-            tag += "node";
+            tag += l2_parametros_f3[1];
         }
         parametros.addFinal(tag,ctx.numero().getText());
         return null;
@@ -200,20 +213,20 @@ class EntradaVisitor extends EntradaParserBaseVisitor<HashContenedor> {
 
     @Override
     public HashContenedor visitArrowcolor(EntradaParser.ArrowcolorContext ctx) {
-        String tag = "arrowcol";
+        String tag = l2_parametros_f1[5];
         if (ctx.kw_relationship()!=null){
-            tag += "rel";
+            tag += l2_parametros_f2[0];
         } else if (ctx.kw_class()!=null){
-            tag += "class";
+            tag += l2_parametros_f2[1];
         } else if (ctx.kw_inheritance() != null) {
-            tag += "inher";
+            tag += l2_parametros_f2[2];
         } else if (ctx.kw_inderect_use() != null) {
-            tag += "inder";
+            tag += l2_parametros_f2[3];
         }
         if (ctx.kw_edge()!=null){
-            tag += "edge";
+            tag += l2_parametros_f3[0];
         } else if (ctx.kw_node()!=null){
-            tag += "node";
+            tag += l2_parametros_f3[1];
         }
         if (ctx.cadena()!=null){
             visit(ctx.cadena());
@@ -226,20 +239,20 @@ class EntradaVisitor extends EntradaParserBaseVisitor<HashContenedor> {
 
     @Override
     public HashContenedor visitPenwidth(EntradaParser.PenwidthContext ctx) {
-        String tag = "penwidth";
+        String tag = l2_parametros_f1[6];
         if (ctx.kw_relationship()!=null){
-            tag += "rel";
+            tag += l2_parametros_f2[0];
         } else if (ctx.kw_class()!=null){
-            tag += "class";
+            tag += l2_parametros_f2[1];
         } else if (ctx.kw_inheritance() != null) {
-            tag += "inher";
+            tag += l2_parametros_f2[2];
         } else if (ctx.kw_inderect_use() != null) {
-            tag += "inder";
+            tag += l2_parametros_f2[3];
         }
        if (ctx.kw_edge()!=null){
-            tag += "edge";
+            tag += l2_parametros_f3[0];
         } else if (ctx.kw_node()!=null){
-            tag += "node";
+            tag += l2_parametros_f3[1];
         }
         parametros.addFinal(tag,ctx.numero().getText());
         return null;
@@ -247,20 +260,20 @@ class EntradaVisitor extends EntradaParserBaseVisitor<HashContenedor> {
 
     @Override
     public HashContenedor visitFillcolor(EntradaParser.FillcolorContext ctx) {
-        String tag = "fillcol";
+        String tag = l2_parametros_f1[7];
         if (ctx.kw_relationship()!=null){
-            tag += "rel";
+            tag += l2_parametros_f2[0];
         } else if (ctx.kw_class()!=null){
-            tag += "class";
+            tag += l2_parametros_f2[1];
         } else if (ctx.kw_inheritance() != null) {
-            tag += "inher";
+            tag += l2_parametros_f2[2];
         } else if (ctx.kw_inderect_use() != null) {
-            tag += "inder";
+            tag += l2_parametros_f2[3];
         }
         if (ctx.kw_edge()!=null){
-            tag += "edge";
+            tag += l2_parametros_f3[0];
         } else if (ctx.kw_node()!=null){
-            tag += "node";
+            tag += l2_parametros_f3[1];
         }
         if (ctx.cadena()!=null){
             visit(ctx.cadena());
@@ -273,20 +286,20 @@ class EntradaVisitor extends EntradaParserBaseVisitor<HashContenedor> {
     
     @Override
     public HashContenedor visitStyle(EntradaParser.StyleContext ctx) {
-        String tag = "style";
+        String tag = l2_parametros_f1[8];
         if (ctx.kw_relationship()!=null){
-            tag += "rel";
+            tag += l2_parametros_f2[0];
         } else if (ctx.kw_class()!=null){
-            tag += "class";
+            tag += l2_parametros_f2[1];
         } else if (ctx.kw_inheritance() != null) {
-            tag += "inher";
+            tag += l2_parametros_f2[2];
         } else if (ctx.kw_inderect_use() != null) {
-            tag += "inder";
+            tag += l2_parametros_f2[3];
         }
         if (ctx.kw_edge()!=null){
-            tag += "edge";
+            tag += l2_parametros_f3[0];
         } else if (ctx.kw_node()!=null){
-            tag += "node";
+            tag += l2_parametros_f3[1];
         }
         if (ctx.cadena()!=null){
             visit(ctx.cadena());
@@ -299,20 +312,20 @@ class EntradaVisitor extends EntradaParserBaseVisitor<HashContenedor> {
     
     @Override
     public HashContenedor visitShape(EntradaParser.ShapeContext ctx) {
-        String tag = "shape";
+        String tag = l2_parametros_f1[9];
         if (ctx.kw_relationship()!=null){
-            tag += "rel";
+            tag += l2_parametros_f2[0];
         } else if (ctx.kw_class()!=null){
-            tag += "class";
+            tag += l2_parametros_f2[1];
         } else if (ctx.kw_inheritance() != null) {
-            tag += "inher";
+            tag += l2_parametros_f2[2];
         } else if (ctx.kw_inderect_use() != null) {
-            tag += "inder";
+            tag += l2_parametros_f2[3];
         }
         if (ctx.kw_edge()!=null){
-            tag += "edge";
+            tag += l2_parametros_f3[0];
         } else if (ctx.kw_node()!=null){
-            tag += "node";
+            tag += l2_parametros_f3[1];
         }
         if (ctx.cadena()!=null){
             visit(ctx.cadena());

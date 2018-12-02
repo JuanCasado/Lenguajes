@@ -11,7 +11,9 @@ class main {
 
         System.out.println("PRUEBAS DE ENTRADA:");
         EntradaTable entrada = new EntradaTable(new FileInputStream("./../Documentos/pruebas.prog"));
-        entrada.test();
+        if (entrada.evaluateTree()){
+            
+        }
 
         System.out.println("PRUEBAS DE CSV:");
         CsvTable csv = new CsvTable(new FileInputStream("./../Documentos/ficheros_a_procesar.csv"));

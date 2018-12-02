@@ -1,6 +1,7 @@
 package antlr;
 
 import java.util.*;
+import java.io.*;
 
 class HashContenedor extends Contenedor {
     private final HashMap<String,ArrayList<Contenedor>> content;
@@ -29,8 +30,8 @@ class HashContenedor extends Contenedor {
         for (String key:content.keySet()){
             scape = true;
             for (Tag tag : data){
-                if (tag.getValue()==key){
-                scape = false;
+                if (tag.getValue().equals(key)){
+                    scape = false;
                 }
             }
             if (scape){

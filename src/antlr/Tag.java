@@ -14,7 +14,7 @@ class Tag {
     }
     
     Tag(String value) {
-        this.state = State.MANDATORY;
+        this.state = State.OPTIONAL;
         this.value = value;
     }
     
