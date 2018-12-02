@@ -1,3 +1,4 @@
 nombre,rutafichero,rutaficherosalida,rutaficherografico
-ejemplo,./familiasimple.json,./familiasimple.dot,./familiasimple.svg
-otro más,./nschema-RelacionFamiliar.json,./testMedio.dot,./ficheroUnaFamilia.svg
+archivo1,../Documentos/nschema-RelacionFamiliar.json,../Output/testMedio.dot,../Output/ficheroUnaFamilia.svg
+archivo2,../Documentos/nschema-RelacionFamiliar.json,../Output/testMedio.dot,../Output/ficheroUnaFamilia.svg
+archivo3,../Documentos/nschema-RelacionFamiliar.json,../Output/testMedio.dot,../Output/ficheroUnaFamilia.svg

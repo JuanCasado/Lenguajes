@@ -48,7 +48,7 @@ public class EntradaTable {
     };
     private final String l2_parametros [];
 
-    public EntradaTable(FileInputStream stream) throws Exception {
+    public EntradaTable(InputStream stream) throws Exception {
         l2_parametros = createParameters();
         input = CharStreams.fromStream(stream);
     }
@@ -56,6 +56,17 @@ public class EntradaTable {
     public EntradaTable(String path) {
         l2_parametros = createParameters();
         input = CharStreams.fromString(path);
+    }
+
+    public EntradaTable(String[] args) {
+        l2_parametros = createParameters();
+        StringBuffer path = new StringBuffer();
+        for (String str : args){
+            path.append(str);
+            path.append(" ");
+        }
+        System.out.println(path.toString());
+        input = CharStreams.fromString(path.toString());
     }
 
     private String [] createParameters (){
@@ -153,5 +164,54 @@ public class EntradaTable {
     
     public static String[] getl2_parametros_f3(){
         return l2_parametros_f3;
+    }
+
+    public static enum File{
+        json,
+        svg,
+        dot,
+        csv
+    };
+    public boolean containsFile (File file){
+        switch(file){
+            case json:
+                return l2_fileContent.containsKey(l2_file[0]);
+            case svg:
+                return l2_fileContent.containsKey(l2_file[1]);
+            case dot:
+                return l2_fileContent.containsKey(l2_file[2]);
+            case csv:
+                return l2_fileContent.containsKey(l2_file[3]);
+        }
+        return false;
+    }
+    
+    public String getPath (File file) {
+        if (containsFile(file))
+            switch (file) {
+            case json:
+                return l2_fileContent.get(l2_file[0])[0];
+            case svg:
+                return l2_fileContent.get(l2_file[1])[0];
+            case dot:
+                return l2_fileContent.get(l2_file[2])[0];
+            case csv:
+                return l2_fileContent.get(l2_file[3])[0];
+            }
+        return null;
+    }
+
+    public String getName(File file) {
+        if (containsFile(file))
+            switch (file) {
+            case json:
+                return l2_fileContent.get(l2_file[0])[1];
+            case svg:
+                return l2_fileContent.get(l2_file[1])[1];
+            case dot:
+                return l2_fileContent.get(l2_file[2])[1];
+            case csv:
+                return l2_fileContent.get(l2_file[3])[1];            }
+        return null;
     }
 }

@@ -1,11 +1,5 @@
 parser grammar EntradaParser;
 
-@header{
-    package antlr;
-
-
-}
-
 options{
     tokenVocab = EntradaLexer;
     language = Java;

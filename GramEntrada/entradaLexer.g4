@@ -1,10 +1,5 @@
 lexer grammar EntradaLexer;
 
-@header{
-    package antlr;
-
-    
-}
 
 COMENTARIOABRIR: '/*' -> pushMode(COMENTARIO_MULTILINEA_MODE);      //estos tres son TOKENS
 COMENTARIOLINEA: '//' -> pushMode(COMENTARIO_LINEA_MODE);
@@ -61,10 +56,10 @@ INHERITANCE: 'inheritance';
 INDERECT_USE: 'inderect_use';
 
 
-IDF: ID_LETRA(ID_LETRA/*|BARRABAJA*/|DIGITO)*;    //identificador final     <-- [a-zA-Z]([a-zA-Z][0-9])*
+IDF: (ID_LETRA|BARRABAJA)(ID_LETRA|BARRABAJA|DIGITO)*;    //identificador final     <-- [a-zA-Z]([a-zA-Z][0-9])*
 fragment ID_LETRA:[a-zA-Z]|'á'|'é'|'í'|'ó'|'ú'|'ö'|'Á'|'É'|'Í'|'Ú'|'ñ'|'Ñ';         //fragment es un "atajo" para decir que hay unos símbolos que funcionan como símbolos terminales, pero los sustituye (en linea 19)
 fragment DIGITO: [0-9];  
-//fragment BARRABAJA: '_';
+fragment BARRABAJA: '_'|'-';
 
 mode COMENTARIO_MULTILINEA_MODE;
 COMENTARIOCERRAR: '*/' -> popMode; //con popMode se sale del modo

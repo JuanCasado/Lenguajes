@@ -80,7 +80,7 @@ class EntradaVisitor extends EntradaParserBaseVisitor<HashContenedor> {
     }
     @Override
     public HashContenedor visitPath_dot(EntradaParser.Path_dotContext ctx) {
-        HashContenedor dot = new HashContenedor(l2_file[1]);
+        HashContenedor dot = new HashContenedor(l2_file[2]);
         dot.addFinal(l1_f[0], ctx.rutafichero().getText());
         dot.addFinal(l1_f[1], ctx.variable().getText() + "."+l2_file[2]);
         file.addNode(dot);
@@ -93,7 +93,7 @@ class EntradaVisitor extends EntradaParserBaseVisitor<HashContenedor> {
     }
     @Override
     public HashContenedor visitPath_csv(EntradaParser.Path_csvContext ctx) {
-        HashContenedor csv = new HashContenedor(l2_file[1]);
+        HashContenedor csv = new HashContenedor(l2_file[3]);
         csv.addFinal(l1_f[0], ctx.rutafichero().getText());
         csv.addFinal(l1_f[1], ctx.variable().getText() + "."+l2_file[3]);
         file.addNode(csv);

@@ -1,3 +1,1 @@
-JSON=C:\pfinal\dir\test.json DOT=./tomaruta/archivo.dot SVG=../archivo.svg CSV=./../hola/archivo.csv JSON=archivo.json
-
-len_relationship=39 style_node_inheritance="pepe" shape_node_inderect_use=prueba
+JSON=../Documentos/nschema-RelacionFamiliar.json DOT=../Output/archivo_dot.dot SVG=../Output/archivo_svg.svg CSV=../Documentos/ficheros_a_procesar.csv len_relationship=39 style_node_inheritance="pepe" shape_node_inderect_use=prueba
