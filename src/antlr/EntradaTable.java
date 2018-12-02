@@ -217,4 +217,9 @@ public class EntradaTable {
                 return l2_fileContent.get(l2_file[3])[1];            }
         return null;
     }
+
+    public boolean hasParameters (){
+        return l2_parametrosContent!=null;
+    }
+
 }

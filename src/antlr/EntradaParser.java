@@ -1,9 +1,6 @@
+package antlr;
+
 // Generated from EntradaParser.g4 by ANTLR 4.7.1
-
-    package antlr;
-
-
-
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -70,11 +67,9 @@ class EntradaParser extends Parser {
 	private static final String[] _LITERAL_NAMES = {
 		null, "'/*'", "'//'", null, null, null, "','", "'..'", "'.'", null, "'<'", 
 		"'>'", "'('", "')'", "'='", "':='", "'_'", "'['", "']'", "':'", "';'", 
-		null, null, "'JSON'", "'DOT'", "'SVG'", "'CSV'", "'len'", "'fontcolor'", 
-		"'fontname'", "'fontsize'", "'arrowsize'", "'arrowcolor'", "'penwidth'", 
-		"'fillcolor'", "'style'", "'shape'", "'json'", "'svg'", "'dot'", "'csv'", 
-		"'edge'", "'node'", "'relationship'", "'class'", "'property'", "'inheritance'", 
-		"'inderect_use'", null, "'*/'", null, null, null, null, "'\r\n'"
+		null, null, null, null, null, null, null, null, null, null, null, null, 
+		null, null, null, null, "'json'", "'svg'", "'dot'", "'csv'", null, null, 
+		null, null, null, null, null, null, "'*/'", null, null, null, null, "'\r\n'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
 		null, "COMENTARIOABRIR", "COMENTARIOLINEA", "CADENA_ABRIR", "INT", "LETRA", 
