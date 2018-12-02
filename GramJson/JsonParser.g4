@@ -32,7 +32,7 @@ lista: sallave (comillas nombre comillas dos_ptos) sallave objetos* scllave scll
      ;
 objetos: target dos_ptos sacorchete (prop coma?)* sccorchete;
 //list: nombre? sallave (prop|objetos|list)+ scllave coma?;
-prop: sallave (pclass | relationship | property | languageProperty) scllave ;
+prop: (comillas nombre comillas dos_ptos)? sallave (pclass | relationship | property | languageProperty) scllave ;
 
 pclass:  (id | name |label | inherits |properties)+ ;
 id: kw_id  ruta coma?;

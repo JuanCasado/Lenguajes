@@ -61,5 +61,7 @@ class main {
         System.out.println("PRUEBAS DE JSON:"); 
         JsonTable json = new JsonTable(new FileInputStream("./../Documentos/nschema-RelacionFamiliar.json"));
         json.test();
+        GraphGenerator.generateGraph(GraphGenerator.Engine.dot, "../Documentos/familiasimple.dot");
     }
+    
 }

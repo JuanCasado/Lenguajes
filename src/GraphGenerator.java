@@ -1,3 +1,5 @@
+import java.io.*;
+
 class GraphGenerator{
     private GraphGenerator (){}
     public static enum Engine{
@@ -8,7 +10,15 @@ class GraphGenerator{
         osage,
         twopi
     }
-    public static generateGraph (Engine process, String from, String to){
-        Process p = Runtime.getRuntime().exec(process.toString()+" -Tsvg "+from+" > "+to);
+    public static String generateGraph (Engine process, String from) throws Exception{
+        Process p = Runtime.getRuntime().exec(process.toString()+" -Tsvg "+from);
+        p.waitFor();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+        StringBuffer sb = new StringBuffer();
+        String line = "";
+        while ((line = reader.readLine()) != null) {
+            sb.append(line + "\n");
+        }
+        return sb.toString();
     }
 }
