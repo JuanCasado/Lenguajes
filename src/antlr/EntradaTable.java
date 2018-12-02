@@ -65,7 +65,6 @@ public class EntradaTable {
             path.append(str);
             path.append(" ");
         }
-        System.out.println(path.toString());
         input = CharStreams.fromString(path.toString());
     }
 
@@ -95,7 +94,11 @@ public class EntradaTable {
         HashContenedor table = new EntradaVisitor().visit(parserEntrada.init());
         ArrayList<Tag> l1Tag = new ArrayList<>();
         for (String l1String : l1){
-            l1Tag.add(new Tag(l1String));
+            if (l1String.equals(l1[0])){
+                l1Tag.add(new Tag(Tag.State.MANDATORY,l1String));
+            }else{
+                l1Tag.add(new Tag(l1String));
+            }
         }
         HashMap<String,ArrayList<Tag>> l2_Tags = new HashMap<>();
         ArrayList<Tag> l2_fileTag = new ArrayList<>();
@@ -142,27 +145,27 @@ public class EntradaTable {
         return true;
     }
 
-    public static String[] getl1(){
+    protected static String[] getl1(){
         return l1;
     }
     
-    public static String[] getl1_f() {
+    protected static String[] getl1_f() {
         return l1_f;
     }
     
-    public static String[] getl2_file(){
+    protected static String[] getl2_file(){
         return l2_file;
     }
     
-    public static String[] getl2_parametros_f1(){
+    protected static String[] getl2_parametros_f1(){
         return l2_parametros_f1;
     }
     
-    public static String[] getl2_parametros_f2(){
+    protected static String[] getl2_parametros_f2(){
         return l2_parametros_f2;
     }
     
-    public static String[] getl2_parametros_f3(){
+    protected static String[] getl2_parametros_f3(){
         return l2_parametros_f3;
     }
 

@@ -6,9 +6,13 @@ import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 class CsvVisitor extends CsvParserBaseVisitor<HashContenedor> {
     private HashContenedor contenedor;
     private HashContenedor row;
+    private final String rowName;
+    private final String[] colsName;
 
     public CsvVisitor() {
         contenedor = new HashContenedor("csv");
+        rowName = CsvTable.getRow();
+        colsName = CsvTable.getCols();
     }
 
     @Override
@@ -23,7 +27,7 @@ class CsvVisitor extends CsvParserBaseVisitor<HashContenedor> {
     public HashContenedor visitNombre(CsvParser.NombreContext ctx) {
         String token = "";
         token += ctx.dir().getText();
-        row.addFinal("nombre", token);
+        row.addFinal(colsName[0], token);
         return null;
     }
 
@@ -32,7 +36,7 @@ class CsvVisitor extends CsvParserBaseVisitor<HashContenedor> {
         String token = "";
         token += ctx.dir().getText();
         token += ctx.json_file().getText();
-        row.addFinal("fichero", token);
+        row.addFinal(colsName[1], token);
         return null;
     }
 
@@ -41,7 +45,7 @@ class CsvVisitor extends CsvParserBaseVisitor<HashContenedor> {
         String token = "";
         token += ctx.dir().getText();
         token += ctx.dot_file().getText();
-        row.addFinal("dot", token);
+        row.addFinal(colsName[2], token);
         return null;
     }
 
@@ -50,13 +54,13 @@ class CsvVisitor extends CsvParserBaseVisitor<HashContenedor> {
         String token = "";
         token += ctx.dir().getText();
         token += ctx.svg_file().getText();
-        row.addFinal("grafico", token);
+        row.addFinal(colsName[3], token);
         return null;
     }
 
     @Override
     public HashContenedor visitRow(CsvParser.RowContext ctx) {
-        row = new HashContenedor("row");
+        row = new HashContenedor(rowName);
 
         visit(ctx.nombre());
         visit(ctx.rutafichero()); 
