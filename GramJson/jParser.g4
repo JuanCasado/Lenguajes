@@ -9,7 +9,7 @@ init: sallave (descripcion|obj|array)* scllave;
 obj: nombre_obj? sallave (array|obj|estr)* scllave coma?;
 
 array: nombre_array? sacorchete (estr|array|obj)* sccorchete coma?;
-estr:  (reglas coma?) ;
+estr:  (reglas coma?)+ ;
 
 ruta: (nombre|barra|alm|digito|punto|bbaja|guion|dos_ptos)*;
 
@@ -18,7 +18,7 @@ definicion: comillas arroba? nombre comillas dos_ptos comillas (nombre|ruta) com
           | comillas nombre comillas dos_ptos sallave definicion* scllave coma?
           ;
 
-reglas: (pclass  /*/relationship | property | languageProperty*/ )+;
+reglas: (pclass  /*/relationship | property | languageProperty*/ );
 pclass: (id | name | label | inherits | properties)+;
 id: kw_id comillas ruta comillas coma?;
 name: kw_name comillas nombre comillas coma?;
