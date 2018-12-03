@@ -47,7 +47,7 @@ public class Ejecucion {
         }
 
         int numfil = miTablaDeSimbolos.rowSize();
-        for (int x = 0; x < numfil; x++) {
+        for (int x = 1; x <= numfil; x++) {
             System.out.println(miTablaDeSimbolos.getValue(x, "Athlete"));
         }
     }

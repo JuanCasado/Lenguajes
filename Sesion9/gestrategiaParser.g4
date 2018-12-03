@@ -7,7 +7,7 @@ options{
 
 csv: cabecera linea+;
 
-cabecera:  columna (SEPARADOR campo)* INTRO;
+cabecera:  columna (SEPARADOR columna)* INTRO;
 linea: campo (SEPARADOR campo)* INTRO;
 
 columna: TEXTO    #columnaSinComillas

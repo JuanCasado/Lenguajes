@@ -131,19 +131,16 @@ public class gestrategiaParser extends Parser {
 	}
 
 	public static class CabeceraContext extends ParserRuleContext {
-		public ColumnaContext columna() {
-			return getRuleContext(ColumnaContext.class,0);
+		public List<ColumnaContext> columna() {
+			return getRuleContexts(ColumnaContext.class);
+		}
+		public ColumnaContext columna(int i) {
+			return getRuleContext(ColumnaContext.class,i);
 		}
 		public TerminalNode INTRO() { return getToken(gestrategiaParser.INTRO, 0); }
 		public List<TerminalNode> SEPARADOR() { return getTokens(gestrategiaParser.SEPARADOR); }
 		public TerminalNode SEPARADOR(int i) {
 			return getToken(gestrategiaParser.SEPARADOR, i);
-		}
-		public List<CampoContext> campo() {
-			return getRuleContexts(CampoContext.class);
-		}
-		public CampoContext campo(int i) {
-			return getRuleContext(CampoContext.class,i);
 		}
 		public CabeceraContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -169,7 +166,7 @@ public class gestrategiaParser extends Parser {
 				setState(17);
 				match(SEPARADOR);
 				setState(18);
-				campo();
+				columna();
 				}
 				}
 				setState(23);
@@ -392,8 +389,8 @@ public class gestrategiaParser extends Parser {
 		"\13\4\3\4\3\4\3\5\3\5\3\5\5\5*\n\5\3\6\3\6\3\6\5\6/\n\6\3\6\2\2\7\2\4"+
 		"\6\b\n\2\2\2\62\2\f\3\2\2\2\4\22\3\2\2\2\6\34\3\2\2\2\b)\3\2\2\2\n.\3"+
 		"\2\2\2\f\16\5\4\3\2\r\17\5\6\4\2\16\r\3\2\2\2\17\20\3\2\2\2\20\16\3\2"+
-		"\2\2\20\21\3\2\2\2\21\3\3\2\2\2\22\27\5\b\5\2\23\24\7\6\2\2\24\26\5\n"+
-		"\6\2\25\23\3\2\2\2\26\31\3\2\2\2\27\25\3\2\2\2\27\30\3\2\2\2\30\32\3\2"+
+		"\2\2\20\21\3\2\2\2\21\3\3\2\2\2\22\27\5\b\5\2\23\24\7\6\2\2\24\26\5\b"+
+		"\5\2\25\23\3\2\2\2\26\31\3\2\2\2\27\25\3\2\2\2\27\30\3\2\2\2\30\32\3\2"+
 		"\2\2\31\27\3\2\2\2\32\33\7\5\2\2\33\5\3\2\2\2\34!\5\n\6\2\35\36\7\6\2"+
 		"\2\36 \5\n\6\2\37\35\3\2\2\2 #\3\2\2\2!\37\3\2\2\2!\"\3\2\2\2\"$\3\2\2"+
 		"\2#!\3\2\2\2$%\7\5\2\2%\7\3\2\2\2&*\7\3\2\2\'*\7\4\2\2(*\3\2\2\2)&\3\2"+

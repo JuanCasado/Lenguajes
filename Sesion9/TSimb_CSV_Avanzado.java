@@ -11,8 +11,8 @@ public class TSimb_CSV_Avanzado {
     private ArrayList<String> _columnas = new ArrayList<String>();
 
     /**
-     * Método que se encarga de añadir una columna nueva a la lista de columanas d
-     * l CSV No se especifica la posicioón porque esto debe esteblcerse por orden 
+     * Método que se encarga de añadir una columna nueva a la lista de columanas d l
+     *  CSV No se especifica la posicioón porque esto debe esteblcerse por orden
      * lecutra
      * 
      * @param p_nombreColumna Contiene el nombre de la columna a añadir
@@ -96,7 +96,7 @@ public class TSimb_CSV_Avanzado {
      * @return
      */
     public String getValue(int p_fila, String p_columna) {
-        return _filas.get(p_fila).get(p_columna);
+        return _filas.get(p_fila - 1).get(p_columna);
     }
 
     /**
@@ -134,7 +134,7 @@ public class TSimb_CSV_Avanzado {
     }
 
     /**
-     * Método de utilidad para introducir valores al final absoulto de la  ra de
+     * Método de utilidad para introducir valores al final absoulto de la ra de
      * datos
      * 
      * @param p_valor Valor a introducir
