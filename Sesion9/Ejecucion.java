@@ -10,7 +10,7 @@ public class Ejecucion {
         if (args.length > 0)
             inputFile = args[0];
         // Fuerzo la carga del fichero de pruebas
-        inputFile = "C:\\antlr\\Sesion9\\datosprueba.csv";
+        inputFile = "C:\\antlr\\Lenguajes\\Sesion9\\datosprueba.csv";
 
         InputStream is = System.in;
         if (inputFile != null) {
