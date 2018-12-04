@@ -6,7 +6,11 @@ import java.util.*;
 
 public class transformacion {
     public static void main(String[] args) {
-        CSVParser parserCSV = new CSVParser(new FileInputStream("./../Documentos/fichero_a_procesar.csv"));
+        try {
+            CSVParser parserCSV = procesarCSV(new FileInputStream("./../Documentos/fichero_a_procesar.csv"));
+        } catch (Exception e) {
+            System.out.println("ERROR al procesar el archivo CSV");
+        }
 
     }
 
@@ -16,11 +20,10 @@ public class transformacion {
      * @param datos Contenido del archivo CSV
      * @return
      */
-    public CSVParser procesarCSV(String datos) {
-        input = CharStreams.fromString(datos);
-        CSVParser parserCSV = new CSVParser(new CommonTokenStream(new CSVLexer(input)));
+    public static ParseTree procesarCSV(String datos) throws Exception {
+        CSVParser parserCSV = new CSVParser(new CommonTokenStream(new CSVLexer(CharStreams.fromString(datos))));
         parserCSV.setBuildParseTree(true);
-        return parserCSV;
+        return parser.init();
     }
 
     /**
@@ -28,10 +31,9 @@ public class transformacion {
      * 
      * @param datos InputStream desde el que llega el contenido del CSV
      */
-    public void procesarCSV(InputStream datos) {
-        input = CharStreams.fromStream(datos);
-        CSVParser parserCSV = new CSVParser(new CommonTokenStream(new CSVLexer(input)));
+    public static ParseTree procesarCSV(InputStream datos) throws Exception {
+        CSVParser parserCSV = new CSVParser(new CommonTokenStream(new CSVLexer(CharStreams.fromStream(datos))));
         parserCSV.setBuildParseTree(true);
-        return parserCSV;
+        return parser.init();
     }
 }
