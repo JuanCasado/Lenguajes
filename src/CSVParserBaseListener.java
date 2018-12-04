@@ -15,13 +15,13 @@ public class CSVParserBaseListener implements CSVParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCsv(CSVParser.CsvContext ctx) { }
+	@Override public void enterInit(CSVParser.InitContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCsv(CSVParser.CsvContext ctx) { }
+	@Override public void exitInit(CSVParser.InitContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

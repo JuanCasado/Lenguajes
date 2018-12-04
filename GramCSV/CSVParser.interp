@@ -13,7 +13,7 @@ INTRO
 SEPARADOR
 
 rule names:
-csv
+init
 cabecera
 linea
 columna

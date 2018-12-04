@@ -18,9 +18,9 @@ public class CSVParser extends Parser {
 	public static final int
 		TEXTO=1, CADENA=2, INTRO=3, SEPARADOR=4;
 	public static final int
-		RULE_csv = 0, RULE_cabecera = 1, RULE_linea = 2, RULE_columna = 3, RULE_campo = 4;
+		RULE_init = 0, RULE_cabecera = 1, RULE_linea = 2, RULE_columna = 3, RULE_campo = 4;
 	public static final String[] ruleNames = {
-		"csv", "cabecera", "linea", "columna", "campo"
+		"init", "cabecera", "linea", "columna", "campo"
 	};
 
 	private static final String[] _LITERAL_NAMES = {
@@ -78,7 +78,7 @@ public class CSVParser extends Parser {
 		super(input);
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
-	public static class CsvContext extends ParserRuleContext {
+	public static class InitContext extends ParserRuleContext {
 		public CabeceraContext cabecera() {
 			return getRuleContext(CabeceraContext.class,0);
 		}
@@ -88,23 +88,23 @@ public class CSVParser extends Parser {
 		public LineaContext linea(int i) {
 			return getRuleContext(LineaContext.class,i);
 		}
-		public CsvContext(ParserRuleContext parent, int invokingState) {
+		public InitContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_csv; }
+		@Override public int getRuleIndex() { return RULE_init; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CSVParserListener ) ((CSVParserListener)listener).enterCsv(this);
+			if ( listener instanceof CSVParserListener ) ((CSVParserListener)listener).enterInit(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CSVParserListener ) ((CSVParserListener)listener).exitCsv(this);
+			if ( listener instanceof CSVParserListener ) ((CSVParserListener)listener).exitInit(this);
 		}
 	}
 
-	public final CsvContext csv() throws RecognitionException {
-		CsvContext _localctx = new CsvContext(_ctx, getState());
-		enterRule(_localctx, 0, RULE_csv);
+	public final InitContext init() throws RecognitionException {
+		InitContext _localctx = new InitContext(_ctx, getState());
+		enterRule(_localctx, 0, RULE_init);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);

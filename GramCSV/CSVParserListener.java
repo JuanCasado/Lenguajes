@@ -7,15 +7,15 @@ import org.antlr.v4.runtime.tree.ParseTreeListener;
  */
 public interface CSVParserListener extends ParseTreeListener {
 	/**
-	 * Enter a parse tree produced by {@link CSVParser#csv}.
+	 * Enter a parse tree produced by {@link CSVParser#init}.
 	 * @param ctx the parse tree
 	 */
-	void enterCsv(CSVParser.CsvContext ctx);
+	void enterInit(CSVParser.InitContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link CSVParser#csv}.
+	 * Exit a parse tree produced by {@link CSVParser#init}.
 	 * @param ctx the parse tree
 	 */
-	void exitCsv(CSVParser.CsvContext ctx);
+	void exitInit(CSVParser.InitContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link CSVParser#cabecera}.
 	 * @param ctx the parse tree
