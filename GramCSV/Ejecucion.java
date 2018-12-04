@@ -10,7 +10,8 @@ public class Ejecucion {
         if (args.length > 0)
             inputFile = args[0];
         // Fuerzo la carga del fichero de pruebas
-        inputFile = "C:\\antlr\\Lenguajes\\GramCSV\\datosprueba.csv";
+        //inputFile = "C:\\antlr\\Lenguajes\\GramCSV\\datosprueba.csv";
+        inputFile = "/antlr/Lenguajes/Documentos/ficheros_a_procesar.csv";
 
         InputStream is = System.in;
         if (inputFile != null) {
@@ -38,8 +39,8 @@ public class Ejecucion {
         System.out.print(miTablaDeSimbolos.toString());
 
         // Usamos la tabla de símbolos
-        System.out.println(miTablaDeSimbolos.getValue(2, "City"));
-        System.out.println(miTablaDeSimbolos.getValue(2, "Athlete"));
+        //System.out.println(miTablaDeSimbolos.getValue(2, "City"));
+        //System.out.println(miTablaDeSimbolos.getValue(2, "Athlete"));
 
         int numcol = miTablaDeSimbolos.columnSize();
         for (int x = 0; x < numcol; x++) {
@@ -48,7 +49,7 @@ public class Ejecucion {
 
         int numfil = miTablaDeSimbolos.rowSize();
         for (int x = 1; x <= numfil; x++) {
-            System.out.println(miTablaDeSimbolos.getValue(x, "Athlete"));
+            System.out.println(miTablaDeSimbolos.getValue(x, "rutaficherosalida"));
         }
     }
 }
