@@ -22,8 +22,8 @@ public class EntradaTable {
             for (String f2 : parametros_f2) {
                 if (f1 != parametros_f1[0]) {
                     for (String f3 : parametros_f3) {
-                        _parameters.add(f1 + f2 + f3);
-                        _parametersName.add(CAMPO_VACIO);
+                        _parameters.add(CAMPO_VACIO);
+                        _parametersName.add(f1 + f2 + f3);
                     }
                 } else {
                     _parameters.add(f1 + f2);
