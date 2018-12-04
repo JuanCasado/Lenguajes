@@ -1,4 +1,4 @@
-// Generated from c:\antlr\Lenguajes\PRUEBA_1\Sesion9\gestrategiaParser.g4 by ANTLR 4.7.1
+// Generated from .\gestrategiaParser.g4 by ANTLR 4.7.1
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -92,6 +92,14 @@ public class gestrategiaParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_csv; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof gestrategiaParserListener ) ((gestrategiaParserListener)listener).enterCsv(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof gestrategiaParserListener ) ((gestrategiaParserListener)listener).exitCsv(this);
+		}
 	}
 
 	public final CsvContext csv() throws RecognitionException {
@@ -146,6 +154,14 @@ public class gestrategiaParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_cabecera; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof gestrategiaParserListener ) ((gestrategiaParserListener)listener).enterCabecera(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof gestrategiaParserListener ) ((gestrategiaParserListener)listener).exitCabecera(this);
+		}
 	}
 
 	public final CabeceraContext cabecera() throws RecognitionException {
@@ -204,6 +220,14 @@ public class gestrategiaParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_linea; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof gestrategiaParserListener ) ((gestrategiaParserListener)listener).enterLinea(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof gestrategiaParserListener ) ((gestrategiaParserListener)listener).exitLinea(this);
+		}
 	}
 
 	public final LineaContext linea() throws RecognitionException {
@@ -260,13 +284,37 @@ public class gestrategiaParser extends Parser {
 	public static class ColumnaConComillasContext extends ColumnaContext {
 		public TerminalNode CADENA() { return getToken(gestrategiaParser.CADENA, 0); }
 		public ColumnaConComillasContext(ColumnaContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof gestrategiaParserListener ) ((gestrategiaParserListener)listener).enterColumnaConComillas(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof gestrategiaParserListener ) ((gestrategiaParserListener)listener).exitColumnaConComillas(this);
+		}
 	}
 	public static class ColumnaSinComillasContext extends ColumnaContext {
 		public TerminalNode TEXTO() { return getToken(gestrategiaParser.TEXTO, 0); }
 		public ColumnaSinComillasContext(ColumnaContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof gestrategiaParserListener ) ((gestrategiaParserListener)listener).enterColumnaSinComillas(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof gestrategiaParserListener ) ((gestrategiaParserListener)listener).exitColumnaSinComillas(this);
+		}
 	}
 	public static class ColumnaVacioContext extends ColumnaContext {
 		public ColumnaVacioContext(ColumnaContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof gestrategiaParserListener ) ((gestrategiaParserListener)listener).enterColumnaVacio(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof gestrategiaParserListener ) ((gestrategiaParserListener)listener).exitColumnaVacio(this);
+		}
 	}
 
 	public final ColumnaContext columna() throws RecognitionException {
@@ -327,14 +375,38 @@ public class gestrategiaParser extends Parser {
 	}
 	public static class CampoVacioContext extends CampoContext {
 		public CampoVacioContext(CampoContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof gestrategiaParserListener ) ((gestrategiaParserListener)listener).enterCampoVacio(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof gestrategiaParserListener ) ((gestrategiaParserListener)listener).exitCampoVacio(this);
+		}
 	}
 	public static class StringConComillasContext extends CampoContext {
 		public TerminalNode CADENA() { return getToken(gestrategiaParser.CADENA, 0); }
 		public StringConComillasContext(CampoContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof gestrategiaParserListener ) ((gestrategiaParserListener)listener).enterStringConComillas(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof gestrategiaParserListener ) ((gestrategiaParserListener)listener).exitStringConComillas(this);
+		}
 	}
 	public static class TextoSinComillasContext extends CampoContext {
 		public TerminalNode TEXTO() { return getToken(gestrategiaParser.TEXTO, 0); }
 		public TextoSinComillasContext(CampoContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof gestrategiaParserListener ) ((gestrategiaParserListener)listener).enterTextoSinComillas(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof gestrategiaParserListener ) ((gestrategiaParserListener)listener).exitTextoSinComillas(this);
+		}
 	}
 
 	public final CampoContext campo() throws RecognitionException {
