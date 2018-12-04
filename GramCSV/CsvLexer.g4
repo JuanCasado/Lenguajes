@@ -1,11 +1,5 @@
 lexer grammar CsvLexer;
 
-@header{
-    package antlr;
-
-    
-}
-
 COMA: ',';
 INTRO: [\r\n];
 BARRA: '/'|'\\';

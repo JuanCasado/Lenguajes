@@ -1,11 +1,5 @@
 parser grammar CsvParser;
 
-@header{
-    package antlr;
-
-    
-}
-
 options{
     tokenVocab = CsvLexer;
     language = Java;
@@ -13,7 +7,7 @@ options{
 
 init : info row+;
 info : (dir coma dir coma dir coma dir end);
-row : nombre rutafichero rutaficherosalida rutaficherografico end?;
+row : nombre rutafichero rutaficherosalida rutaficherografico end;
 
 dir : (FILE BARRA?)*;
 json_file : (filename json_extension)?;
@@ -25,9 +19,13 @@ filename : FILE;
 json_extension : JSON_EXTENSION?;
 svg_extension : SVG_EXTENSION?;
 dot_extension : DOT_EXTENSION?;
-nombre : dir coma ;
-rutafichero : dir json_file coma;
-rutaficherosalida : dir dot_file coma;
-rutaficherografico : dir svg_file coma?;
+nombre : comillas? dir comillas? coma ;
+rutafichero : comillas? dir json_file comillas? coma
+            |
+            ;
+rutaficherosalida : comillas? dir dot_filecomillas?  coma;
+rutaficherografico : comillas? dir svg_file comillas? coma?;
+
+comillas : COMILLAS;
 
 
