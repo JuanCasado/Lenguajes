@@ -22,12 +22,11 @@ public class transformacion {
         } catch (Exception e) {
             System.out.println("ERROR al procesar el archivo CSV");
         }
-<<<<<<< HEAD
-=======
+/*
         System.out.println("ESTO ES PARA IMPRIMIR JSON");
         try {
             JSONTable tablaJSON = new JSONTable();
-            JsonListener listenerJSON = new JSONListener(tablaJSON);
+             = new JSONListener(tablaJSON);
             ParseTree tree = procesarJSON(new FileInputStream("./../Documentos/ficheros_a_procesar.json"));
             walker.walk(listenerJSON, tree);
             // System.out.println(tablaJSON.toString());
@@ -39,7 +38,7 @@ public class transformacion {
         } catch (Exception e) {
             System.out.println("ERROR al procesar el archivo JSON");
         }
->>>>>>> 7a688d50bc5eba545b545cd652720cad9e715e98
+*/
     }
 
     /**
@@ -71,6 +70,7 @@ public class transformacion {
      * @param datos Contenido del archivo JSON
      * @return
      */
+    /*
     public static ParseTree procesarJSON(String datos) throws Exception {
         JsonParser parserJSON = new JsonParser(new CommonTokenStream(new JsonLexer(CharStreams.fromString(datos))));
         parserJSON.setBuildParseTree(true);
@@ -82,9 +82,9 @@ public class transformacion {
      * 
      * @param datos InputStream desde el que llega el contenido del JSON
      */
-    public static ParseTree procesarJSON(InputStream datos) throws Exception {
+    /*public static ParseTree procesarJSON(InputStream datos) throws Exception {
         JSONParser parserJSON = new JsonParser(new CommonTokenStream(new JsonLexer(CharStreams.fromStream(datos))));
         parserJSON.setBuildParseTree(true);
         return parserJSON.init();
-    }
+    }*/
 }
