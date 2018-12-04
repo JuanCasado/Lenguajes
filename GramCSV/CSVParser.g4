@@ -5,7 +5,7 @@ options{
     language = Java;
 }
 
-csv: cabecera linea+;
+init: cabecera linea+;
 
 cabecera:  columna (SEPARADOR columna)* INTRO;
 linea: campo (SEPARADOR campo)* INTRO;
