@@ -1,8 +1,8 @@
+
 lexer grammar JsonLexer;
 
 @header{
     package antlr;
-
     
 }
 

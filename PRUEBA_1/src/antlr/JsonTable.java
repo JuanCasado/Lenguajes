@@ -5,7 +5,8 @@ import java.util.*;
 import java.io.*;
 
 public class JsonTable {
-    private final HashContenedor table;
+    private final CharStream input;
+    private 
 
     public JsonTable(FileInputStream stream) throws Exception {
         table = evaluateTree(CharStreams.fromStream(stream));
