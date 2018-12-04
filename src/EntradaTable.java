@@ -5,6 +5,9 @@ import java.util.*;
  */
 
 public class EntradaTable {
+    private int indexJSON = 0;
+    private int indexDOT = 0;
+    private int indexSVG = 0;
     private ArrayList<String> _JSONs = new ArrayList<String>();
     private ArrayList<String> _DOTs = new ArrayList<String>();
     private ArrayList<String> _SVGs = new ArrayList<String>();
@@ -23,7 +26,7 @@ public class EntradaTable {
                         _parametersName.add(CAMPO_VACIO);
                     }
                 } else {
-                    parameters.add(f1 + f2);
+                    _parameters.add(f1 + f2);
                     _parametersName.add(CAMPO_VACIO);
                 }
             }
@@ -36,23 +39,77 @@ public class EntradaTable {
     private static final String parametros_f3[] = { "edge", "node", };
 
     /**
-     * Método que se encarga de añadir un json nuevo a la lista de json de la
+     * Método que se encarga de añadir un JSON nuevo a la lista de JSON de la
      * entrada
      * 
-     * @param p_json Nombre del json a insertar
+     * @param p_json JSON a insertar
      */
     public void addJSON(String p_json) {
-        _JSONs.add(p_json);
+        if (indexJSON == _JSONs.size()) {
+            _JSONs.add(p_json);
+        } else {
+            _JSONs.set(indexJSON, p_json);
+        }
+        indexJSON++;
+
+        while (dotSize() < jsonSize()) {
+            _DOTs.add("");
+        }
+        while (svgSize() < jsonSize()) {
+            _SVGs.add("");
+        }
     }
 
+    /**
+     * Método que se encarga de añadir un DOT nuevo a la lista de DOT de la e
+     * trada
+     * 
+     * @param p_dot DOT a insertar
+     */
     public void addDOT(String p_dot) {
-        _DOTs.add(p_dot);
+        if (indexDOT == _DOTs.size()) {
+            _DOTs.add(p_dot);
+        } else {
+            _DOTs.set(indexDOT, p_dot);
+        }
+        indexDOT++;
+
+        while (jsonSize() < dotSize()) {
+            _JSONs.add(CAMPO_VACIO);
+        }
+        while (svgSize() < dotSize()) {
+            _SVGs.add(CAMPO_VACIO);
+        }
     }
 
+    /**
+     * Método que se encarga de añadir un SVG nuevo a la lista de SVG de la e
+     * trada
+     * 
+     * @param p_svg SVG a insertar
+     */
     public void addSVG(String p_svg) {
-        _SVGs.add(p_svg);
+        if (indexSVG == _SVGs.size()) {
+            _SVGs.add(p_svg);
+        } else {
+            _SVGs.set(indexSVG, p_svg);
+        }
+        indexSVG++;
+
+        while (dotSize() < svgSize()) {
+            _DOTs.add(CAMPO_VACIO);
+        }
+        while (jsonSize() < svgSize()) {
+            _JSONs.add(CAMPO_VACIO);
+        }
     }
 
+    /**
+     * Método que se encarga de añadir un CSV nuevo a la lista de CSV de la e
+     * trada
+     * 
+     * @param p_csv CSV a insertar
+     */
     public void addCSV(String p_csv) {
         _CSVs.add(p_csv);
     }
@@ -65,89 +122,6 @@ public class EntradaTable {
      */
     public void addParameters(String p_parameter, String p_content) {
         _parameters.set(_parametersName.indexOf(p_parameter), p_content);
-    }
-
-    /**
-     * Metodo que introduce de manera efectiva los datos de una celda en su
-     * estructura
-     * 
-     * @param p_fila    Numero de la fila
-     * @param p_columna Nombre de la columna
-     * @param p_valor   Valor a introducir
-     */
-    public void addValue(int p_fila, String p_columna, String p_valor) {
-        // Me aseguro que tengo filas donde introducir datos
-        this.crea_filas(p_fila);
-
-        // Añadimos los datos en la fila que me han pedido
-        _filas.get(p_fila - 1).put(p_columna, p_valor);
-    }
-
-    /**
-     * Método que introduce datos de una celda segun su indice de fila,columna
-     * 
-     * @param p_fila    Numero de fila
-     * @param p_columna Numero de columna
-     * @param p_valor   valor a introducir
-     */
-    public void addValue(int p_fila, int p_columna, String p_valor) {
-        // Hacemos uso del método de introduccion de datos
-        this.addValue(p_fila, this.getColumnName(p_columna), p_valor);
-    }
-
-    /**
-     * Metodo para la recuperacion efectiva de los datos de una celda de la
-     * estructura
-     * 
-     * @param p_fila    fila a leer
-     * @param p_columna nombre de columna a recuperar
-     * @return
-     */
-    public String getValue(int p_fila, String p_columna) {
-        return _filas.get(p_fila - 1).get(p_columna);
-    }
-
-    /**
-     * Metodo que recupera los datos segun las coordenadas fila,columna
-     * 
-     * @param p_fila    numero de fila a recuperar (base 1)
-     * @param p_columna numero de columna a recuperar (base 0)
-     * @return
-     */
-    public String getValue(int p_fila, int p_columna) {
-        return this.getValue(p_fila, this.getColumnName(p_columna));
-    }
-
-    /**
-     * Metodo de utilidad para introducir valores en la ultima fila de la estructura
-     * disponible
-     * 
-     * @param p_columna Nombre de la columna
-     * @param p_valor   Valor a introducir
-     */
-    public void addValue(String p_columna, String p_valor) {
-        this.addValue(_filas.size(), p_columna, p_valor);
-    }
-
-    /**
-     * Metodo de utilidad para introducir valores en la ultima fila sin el nombre de
-     * la columna, solo con su indice (base 0)
-     * 
-     * @param p_columna Indice de la columna (base 0)
-     * @param p_valor   valor a introducir
-     */
-    public void addValue(int p_columna, String p_valor) {
-        this.addValue(_filas.size(), p_columna, p_valor);
-    }
-
-    /**
-     * Metodo de utilidad para introducir un valor al final absoluto de la
-     * estructura de datos
-     * 
-     * @param p_valor
-     */
-    public void addValue(String p_valor) {
-        addValue(_filas.size(), _filas.get(_filas.size() - 1).size(), p_valor);
     }
 
     @Override
@@ -170,11 +144,42 @@ public class EntradaTable {
             sb.append(_parametersName.get(i) + " : ");
             sb.append(_parameters.get(i) + "\r\n");
         }
-        return sb;
+        return sb.toString();
+    }
+
+    public String JSONToString() {
+        StringBuffer sb = new StringBuffer();
+        for (int i = 0; i < _JSONs.size(); i++) {
+            sb.append(i + " : ");
+            sb.append(_JSONs.get(i) + "\r\n");
+        }
+        return sb.toString();
+    }
+
+    public String DOTToString() {
+        StringBuffer sb = new StringBuffer();
+        for (int i = 0; i < _DOTs.size(); i++) {
+            sb.append(i + " : ");
+            sb.append(_DOTs.get(i) + "\r\n");
+        }
+        return sb.toString();
+    }
+
+    public String SVGToString() {
+        StringBuffer sb = new StringBuffer();
+        for (int i = 0; i < _SVGs.size(); i++) {
+            sb.append(i + " : ");
+            sb.append(_SVGs.get(i) + "\r\n");
+        }
+        return sb.toString();
     }
 
     public int paramSize() {
         return _parameters.size();
+    }
+
+    public int paramNameSize() {
+        return _parametersName.size();
     }
 
     public int csvSize() {
@@ -193,18 +198,11 @@ public class EntradaTable {
         return _SVGs.size();
     }
 
-    public String get(int row, Content col) {
-        row++;
-        switch (col) {
-        case json:
-            return getValue(row, 1);
-        case dot:
-            return getValue(row, 2);
-        case svg:
-            return getValue(row, 3);
-        }
-        return null;
-    }
+    /*
+     * public String get(int row, Content col) { row++; switch (col) { case json:
+     * return getValue(row, 1); case dot: return getValue(row, 2); case svg: return
+     * getValue(row, 3); } return null; }
+     */
 
     /**
      * Método que nos indica que hacer acción realizar sobre la fila
@@ -212,18 +210,12 @@ public class EntradaTable {
      * @param row Un enetero que nos indica la fila
      * @return
      */
-    public Action toDo(int row) {
-        row++;
-        if (getValue(row, 1).equals(CAMPO_VACIO)) {
-            return Action.skip;
-        } else if (getValue(row, 2).equals(CAMPO_VACIO) && getValue(row, 3).equals(CAMPO_VACIO)) {
-            return Action.skip;
-        } else if (getValue(row, 2).equals(CAMPO_VACIO)) {
-            return Action.saveSvg;
-        } else if (getValue(row, 3).equals(CAMPO_VACIO)) {
-            return Action.saveDot;
-        } else {
-            return Action.saveBoth;
-        }
-    }
+    /*
+     * public Action toDo(int row) { row++; if (getValue(row,
+     * 1).equals(CAMPO_VACIO)) { return Action.skip; } else if (getValue(row,
+     * 2).equals(CAMPO_VACIO) && getValue(row, 3).equals(CAMPO_VACIO)) { return
+     * Action.skip; } else if (getValue(row, 2).equals(CAMPO_VACIO)) { return
+     * Action.saveSvg; } else if (getValue(row, 3).equals(CAMPO_VACIO)) { return
+     * Action.saveDot; } else { return Action.saveBoth; } }
+     */
 }
