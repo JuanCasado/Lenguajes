@@ -1,4 +1,4 @@
-// Generated from c:\antlr\Lenguajes\PRUEBA_1\Sesion9\gestrategiaParser.g4 by ANTLR 4.7.1
+// Generated from c:\antlr\Lenguajes\GramCSV\gestrategiaParser.g4 by ANTLR 4.7.1
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;

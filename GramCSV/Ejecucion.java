@@ -10,7 +10,7 @@ public class Ejecucion {
         if (args.length > 0)
             inputFile = args[0];
         // Fuerzo la carga del fichero de pruebas
-        inputFile = "C:\\antlr\\Lenguajes\\Sesion9\\datosprueba.csv";
+        inputFile = "C:\\antlr\\Lenguajes\\GramCSV\\datosprueba.csv";
 
         InputStream is = System.in;
         if (inputFile != null) {
@@ -18,9 +18,9 @@ public class Ejecucion {
         }
 
         CharStream input = CharStreams.fromStream(is);
-        gestrategiaLexer lexer = new gestrategiaLexer(input);
+        CSVLexer lexer = new CSVLexer(input);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
-        gestrategiaParser parser = new gestrategiaParser(tokens);
+        CSVParser parser = new CSVParser(tokens);
         parser.setBuildParseTree(true);
         ParseTree tree = parser.csv();
 

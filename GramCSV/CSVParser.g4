@@ -1,7 +1,7 @@
-parser grammar gestrategiaParser;
+parser grammar CSVParser;
 
 options{
-    tokenVocab= gestrategiaLexer;
+    tokenVocab= CSVLexer;
     language = Java;
 }
 

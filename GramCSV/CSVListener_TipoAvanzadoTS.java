@@ -3,7 +3,7 @@ import org.antlr.v4.runtime.tree.*;
 
 import java.util.*;
 
-public class CSVListener_TipoAvanzadoTS extends gestrategiaParserBaseListener {
+public class CSVListener_TipoAvanzadoTS extends CSVParserBaseListener {
     public static final String CAMPO_VACIO = "";
 
     private TSimb_CSV_Avanzado _tablasimbolos;
@@ -18,37 +18,37 @@ public class CSVListener_TipoAvanzadoTS extends gestrategiaParserBaseListener {
     }
 
     @Override
-    public void exitColumnaConComillas(gestrategiaParser.ColumnaConComillasContext ctx) {
+    public void exitColumnaConComillas(CSVParser.ColumnaConComillasContext ctx) {
         _tablasimbolos.addColumn(ctx.CADENA().getText());
     }
 
     @Override
-    public void exitColumnaSinComillas(gestrategiaParser.ColumnaSinComillasContext ctx) {
+    public void exitColumnaSinComillas(CSVParser.ColumnaSinComillasContext ctx) {
         _tablasimbolos.addColumn(ctx.TEXTO().getText());
     }
 
     @Override
-    public void exitColumnaVacio(gestrategiaParser.ColumnaVacioContext ctx) {
+    public void exitColumnaVacio(CSVParser.ColumnaVacioContext ctx) {
         _tablasimbolos.addColumn(CSVListener_TipoAvanzadoTS.CAMPO_VACIO);
     }
 
     @Override
-    public void enterLinea(gestrategiaParser.LineaContext ctx) {
+    public void enterLinea(CSVParser.LineaContext ctx) {
         _tablasimbolos.newRow();
     }
 
     @Override
-    public void exitTextoSinComillas(gestrategiaParser.TextoSinComillasContext ctx) {
+    public void exitTextoSinComillas(CSVParser.TextoSinComillasContext ctx) {
         _tablasimbolos.addValue(ctx.TEXTO().getText());
     }
 
     @Override
-    public void exitStringConComillas(gestrategiaParser.StringConComillasContext ctx) {
+    public void exitStringConComillas(CSVParser.StringConComillasContext ctx) {
         _tablasimbolos.addValue(ctx.CADENA().getText());
     }
 
     @Override
-    public void exitCampoVacio(gestrategiaParser.CampoVacioContext ctx) {
+    public void exitCampoVacio(CSVParser.CampoVacioContext ctx) {
         _tablasimbolos.addValue(CSVListener_TipoAvanzadoTS.CAMPO_VACIO);
     }
 }

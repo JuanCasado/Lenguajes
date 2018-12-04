@@ -3,7 +3,7 @@ import org.antlr.v4.runtime.tree.*;
 
 import java.util.*;
 
-public class CSVListener_TipoBasico extends gestrategiaParserBaseListener {
+public class CSVListener_TipoBasico extends CSVParserBaseListener {
     public static final String CAMPO_VACIO = "";
 
     // Cada map representa una fila y está asociado a una cabecera
@@ -16,28 +16,28 @@ public class CSVListener_TipoBasico extends gestrategiaParserBaseListener {
     public List<String> datosFilaActual;
 
     @Override
-    public void enterLinea(gestrategiaParser.LineaContext ctx) {
+    public void enterLinea(CSVParser.LineaContext ctx) {
         datosFilaActual = new ArrayList<String>();
     }
 
     @Override
-    public void exitTextoSinComillas(gestrategiaParser.TextoSinComillasContext ctx) {
+    public void exitTextoSinComillas(CSVParser.TextoSinComillasContext ctx) {
         datosFilaActual.add(ctx.TEXTO().getText());
     }
 
     @Override
-    public void exitStringConComillas(gestrategiaParser.StringConComillasContext ctx) {
+    public void exitStringConComillas(CSVParser.StringConComillasContext ctx) {
         datosFilaActual.add(ctx.CADENA().getText());
     }
 
     @Override
-    public void exitCampoVacio(gestrategiaParser.CampoVacioContext ctx) {
+    public void exitCampoVacio(CSVParser.CampoVacioContext ctx) {
         datosFilaActual.add(CAMPO_VACIO);
     }
 
     @Override
-    public void exitLinea(gestrategiaParser.LineaContext ctx) {
-        if (ctx.getParent().getRuleIndex() == gestrategiaParser.RULE_cabecera) // si la linea es la hija de la cabecera
+    public void exitLinea(CSVParser.LineaContext ctx) {
+        if (ctx.getParent().getRuleIndex() == CSVParser.RULE_cabecera) // si la linea es la hija de la cabecera
             return; // no lo ejecutará
         // Supongo que es una linea de datos
         Map<String, String> lineatemporal = new LinkedHashMap<String, String>();
@@ -50,7 +50,7 @@ public class CSVListener_TipoBasico extends gestrategiaParserBaseListener {
     }
 
     @Override
-    public void exitCabecera(gestrategiaParser.CabeceraContext ctx) {
+    public void exitCabecera(CSVParser.CabeceraContext ctx) {
         nombreCampos = new ArrayList<String>();
         nombreCampos.addAll(datosFilaActual);
     }

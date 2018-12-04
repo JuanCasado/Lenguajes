@@ -1,4 +1,4 @@
-// Generated from .\gestrategiaParser.g4 by ANTLR 4.7.1
+// Generated from .\CSVParser.g4 by ANTLR 4.7.1
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -9,7 +9,7 @@ import java.util.Iterator;
 import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
-public class gestrategiaParser extends Parser {
+public class CSVParser extends Parser {
 	static { RuntimeMetaData.checkVersion("4.7.1", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
@@ -63,7 +63,7 @@ public class gestrategiaParser extends Parser {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "gestrategiaParser.g4"; }
+	public String getGrammarFileName() { return "CSVParser.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
@@ -74,7 +74,7 @@ public class gestrategiaParser extends Parser {
 	@Override
 	public ATN getATN() { return _ATN; }
 
-	public gestrategiaParser(TokenStream input) {
+	public CSVParser(TokenStream input) {
 		super(input);
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
@@ -94,11 +94,11 @@ public class gestrategiaParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_csv; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof gestrategiaParserListener ) ((gestrategiaParserListener)listener).enterCsv(this);
+			if ( listener instanceof CSVParserListener ) ((CSVParserListener)listener).enterCsv(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof gestrategiaParserListener ) ((gestrategiaParserListener)listener).exitCsv(this);
+			if ( listener instanceof CSVParserListener ) ((CSVParserListener)listener).exitCsv(this);
 		}
 	}
 
@@ -145,10 +145,10 @@ public class gestrategiaParser extends Parser {
 		public ColumnaContext columna(int i) {
 			return getRuleContext(ColumnaContext.class,i);
 		}
-		public TerminalNode INTRO() { return getToken(gestrategiaParser.INTRO, 0); }
-		public List<TerminalNode> SEPARADOR() { return getTokens(gestrategiaParser.SEPARADOR); }
+		public TerminalNode INTRO() { return getToken(CSVParser.INTRO, 0); }
+		public List<TerminalNode> SEPARADOR() { return getTokens(CSVParser.SEPARADOR); }
 		public TerminalNode SEPARADOR(int i) {
-			return getToken(gestrategiaParser.SEPARADOR, i);
+			return getToken(CSVParser.SEPARADOR, i);
 		}
 		public CabeceraContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -156,11 +156,11 @@ public class gestrategiaParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_cabecera; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof gestrategiaParserListener ) ((gestrategiaParserListener)listener).enterCabecera(this);
+			if ( listener instanceof CSVParserListener ) ((CSVParserListener)listener).enterCabecera(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof gestrategiaParserListener ) ((gestrategiaParserListener)listener).exitCabecera(this);
+			if ( listener instanceof CSVParserListener ) ((CSVParserListener)listener).exitCabecera(this);
 		}
 	}
 
@@ -211,10 +211,10 @@ public class gestrategiaParser extends Parser {
 		public CampoContext campo(int i) {
 			return getRuleContext(CampoContext.class,i);
 		}
-		public TerminalNode INTRO() { return getToken(gestrategiaParser.INTRO, 0); }
-		public List<TerminalNode> SEPARADOR() { return getTokens(gestrategiaParser.SEPARADOR); }
+		public TerminalNode INTRO() { return getToken(CSVParser.INTRO, 0); }
+		public List<TerminalNode> SEPARADOR() { return getTokens(CSVParser.SEPARADOR); }
 		public TerminalNode SEPARADOR(int i) {
-			return getToken(gestrategiaParser.SEPARADOR, i);
+			return getToken(CSVParser.SEPARADOR, i);
 		}
 		public LineaContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -222,11 +222,11 @@ public class gestrategiaParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_linea; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof gestrategiaParserListener ) ((gestrategiaParserListener)listener).enterLinea(this);
+			if ( listener instanceof CSVParserListener ) ((CSVParserListener)listener).enterLinea(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof gestrategiaParserListener ) ((gestrategiaParserListener)listener).exitLinea(this);
+			if ( listener instanceof CSVParserListener ) ((CSVParserListener)listener).exitLinea(this);
 		}
 	}
 
@@ -282,38 +282,38 @@ public class gestrategiaParser extends Parser {
 		}
 	}
 	public static class ColumnaConComillasContext extends ColumnaContext {
-		public TerminalNode CADENA() { return getToken(gestrategiaParser.CADENA, 0); }
+		public TerminalNode CADENA() { return getToken(CSVParser.CADENA, 0); }
 		public ColumnaConComillasContext(ColumnaContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof gestrategiaParserListener ) ((gestrategiaParserListener)listener).enterColumnaConComillas(this);
+			if ( listener instanceof CSVParserListener ) ((CSVParserListener)listener).enterColumnaConComillas(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof gestrategiaParserListener ) ((gestrategiaParserListener)listener).exitColumnaConComillas(this);
+			if ( listener instanceof CSVParserListener ) ((CSVParserListener)listener).exitColumnaConComillas(this);
 		}
 	}
 	public static class ColumnaSinComillasContext extends ColumnaContext {
-		public TerminalNode TEXTO() { return getToken(gestrategiaParser.TEXTO, 0); }
+		public TerminalNode TEXTO() { return getToken(CSVParser.TEXTO, 0); }
 		public ColumnaSinComillasContext(ColumnaContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof gestrategiaParserListener ) ((gestrategiaParserListener)listener).enterColumnaSinComillas(this);
+			if ( listener instanceof CSVParserListener ) ((CSVParserListener)listener).enterColumnaSinComillas(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof gestrategiaParserListener ) ((gestrategiaParserListener)listener).exitColumnaSinComillas(this);
+			if ( listener instanceof CSVParserListener ) ((CSVParserListener)listener).exitColumnaSinComillas(this);
 		}
 	}
 	public static class ColumnaVacioContext extends ColumnaContext {
 		public ColumnaVacioContext(ColumnaContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof gestrategiaParserListener ) ((gestrategiaParserListener)listener).enterColumnaVacio(this);
+			if ( listener instanceof CSVParserListener ) ((CSVParserListener)listener).enterColumnaVacio(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof gestrategiaParserListener ) ((gestrategiaParserListener)listener).exitColumnaVacio(this);
+			if ( listener instanceof CSVParserListener ) ((CSVParserListener)listener).exitColumnaVacio(this);
 		}
 	}
 
@@ -377,35 +377,35 @@ public class gestrategiaParser extends Parser {
 		public CampoVacioContext(CampoContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof gestrategiaParserListener ) ((gestrategiaParserListener)listener).enterCampoVacio(this);
+			if ( listener instanceof CSVParserListener ) ((CSVParserListener)listener).enterCampoVacio(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof gestrategiaParserListener ) ((gestrategiaParserListener)listener).exitCampoVacio(this);
+			if ( listener instanceof CSVParserListener ) ((CSVParserListener)listener).exitCampoVacio(this);
 		}
 	}
 	public static class StringConComillasContext extends CampoContext {
-		public TerminalNode CADENA() { return getToken(gestrategiaParser.CADENA, 0); }
+		public TerminalNode CADENA() { return getToken(CSVParser.CADENA, 0); }
 		public StringConComillasContext(CampoContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof gestrategiaParserListener ) ((gestrategiaParserListener)listener).enterStringConComillas(this);
+			if ( listener instanceof CSVParserListener ) ((CSVParserListener)listener).enterStringConComillas(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof gestrategiaParserListener ) ((gestrategiaParserListener)listener).exitStringConComillas(this);
+			if ( listener instanceof CSVParserListener ) ((CSVParserListener)listener).exitStringConComillas(this);
 		}
 	}
 	public static class TextoSinComillasContext extends CampoContext {
-		public TerminalNode TEXTO() { return getToken(gestrategiaParser.TEXTO, 0); }
+		public TerminalNode TEXTO() { return getToken(CSVParser.TEXTO, 0); }
 		public TextoSinComillasContext(CampoContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof gestrategiaParserListener ) ((gestrategiaParserListener)listener).enterTextoSinComillas(this);
+			if ( listener instanceof CSVParserListener ) ((CSVParserListener)listener).enterTextoSinComillas(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof gestrategiaParserListener ) ((gestrategiaParserListener)listener).exitTextoSinComillas(this);
+			if ( listener instanceof CSVParserListener ) ((CSVParserListener)listener).exitTextoSinComillas(this);
 		}
 	}
 
