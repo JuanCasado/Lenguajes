@@ -5,77 +5,37 @@ options{
     language = Java;
 }
 
-init: (tipo_archivo|comentario|wsci|parametros)*;
-
-comentario: COMENTARIOABRIR (texto_comen|authorcom|descrcom|targcom|INTRO)* COMENTARIOCERRAR
-            | COMENTARIOLINEA texto_comen* FINAL_COMENTARIO_UL;
-
-authorcom: AUTHOR+;
-descrcom: DESCRIPTION+;
-targcom: TARGET+;
-texto_comen: (TEXTOCOMENTARIO_ML|TEXTOCOMENTARIO_UL)+;
-
-rutafichero: (doblepunto|punto|letra dos_ptos?|variable|barra)*; //variable es el nombre del disco C/
+init: (tipo_archivo|parametros|basura)+;
 
 tipo_archivo: (json|svg|dot|csv);
-json: kw_json wsci* asig wsci* path_json;
-svg: kw_svg wsci* asig wsci* path_svg;
-dot: kw_dot wsci* asig wsci* path_dot;
-csv: kw_csv wsci* asig wsci* path_csv;
 
-path_json : rutafichero variable punto extension_json;
-path_svg : rutafichero variable punto extension_svg;
-path_dot : rutafichero variable punto extension_dot;
-path_csv : rutafichero variable punto extension_csv;
+texto: (TEXTO|CADENA)+;
+basura: (TEXTO|ASIG|SPACE)+;
 
-wsci: (white_space|intro);
-white_space: WS;
-barra: BARRA;
-intro: INTRO;
-letra: LETRA;
-numero: INT;
-variable: IDF;
-sap: SAP;
-scp: SCP;
-asig: ASIG;
-opasig: OPASIG;
-opblt: OPBLT;
-opbgt: OPBGT;
-coma: COMA;
-dos_ptos: KW_DOS_PUNTOS; //:
-punto: PUNTO;
-doblepunto: DOBLEPUNTO; //..
-
-texto_cadena: TEXTO_CADENA+;
-cadena_abrir: CADENA_ABRIR;
-cadena_cerrar: CADENA_CERRAR;
-cadena: cadena_abrir (texto_cadena)* cadena_cerrar;
-
-bbaja: BBAJA; //barrabaja
-cor_abrir: COR_ABRIR; //corchete
-cor_Cerrar: COR_CERRAR;
-
+json: kw_json ASIG texto SPACE?;
 kw_json: KW_JSON;
-extension_json: EXTENSION_JSON;
+
+svg: kw_svg ASIG texto SPACE?;
 kw_svg: KW_SVG;
-extension_svg: EXTENSION_SVG;
+
+dot: kw_dot ASIG texto SPACE?;
 kw_dot: KW_DOT;
-extension_dot: EXTENSION_DOT;
+
+csv: kw_csv ASIG texto SPACE?;
 kw_csv: KW_CSV;
-extension_csv: EXTENSION_CSV;
 
 parametros: (len|fontcolor|fontname|fontsize|arrowsize|arrowcolor|penwidth|fillcolor|style|shape);
 
-len: kw_len bbaja (kw_relationship|kw_class|kw_inheritance|kw_inderect_use) asig numero ;
-fontcolor: kw_fontcolor bbaja (kw_edge|kw_node) bbaja (kw_relationship|kw_class|kw_inheritance|kw_inderect_use) asig  (cadena|variable); //String --> si entra con " usamos cadena
-fontname: kw_fontname bbaja (kw_edge|kw_node) bbaja (kw_relationship|kw_class|kw_inheritance|kw_inderect_use) asig  (cadena|variable);
-fontsize: kw_fontsize bbaja (kw_edge|kw_node) bbaja (kw_relationship|kw_class|kw_inheritance|kw_inderect_use) asig  numero;
-arrowsize: kw_arrowsize bbaja (kw_edge|kw_node) bbaja (kw_relationship|kw_class|kw_inheritance|kw_inderect_use) asig  numero;
-arrowcolor: kw_arrowcolor bbaja (kw_edge|kw_node) bbaja (kw_relationship|kw_class|kw_inheritance|kw_inderect_use) asig  (cadena|variable);
-penwidth: kw_penwidth bbaja (kw_edge|kw_node) bbaja (kw_relationship|kw_class|kw_inheritance|kw_inderect_use) asig  numero;
-fillcolor: kw_fillcolor bbaja (kw_edge|kw_node) bbaja (kw_relationship|kw_class|kw_inheritance|kw_inderect_use) asig  (cadena|variable);
-style: kw_style bbaja (kw_edge|kw_node) bbaja (kw_relationship|kw_class|kw_inheritance|kw_inderect_use) asig  (cadena|variable);
-shape: kw_shape bbaja (kw_edge|kw_node) bbaja (kw_relationship|kw_class|kw_inheritance|kw_inderect_use) asig  (cadena|variable);
+len: kw_len (kw_relationship|kw_class|kw_inheritance|kw_inderect_use) ASIG texto SPACE?;
+fontcolor: kw_fontcolor (kw_edge|kw_node) (kw_relationship|kw_class|kw_inheritance|kw_inderect_use) ASIG texto SPACE?; //String --> si entra con " usamos cadena
+fontname: kw_fontname  (kw_edge|kw_node)  (kw_relationship|kw_class|kw_inheritance|kw_inderect_use) ASIG texto SPACE?;
+fontsize: kw_fontsize (kw_edge|kw_node) (kw_relationship|kw_class|kw_inheritance|kw_inderect_use) ASIG texto SPACE?;
+arrowsize: kw_arrowsize (kw_edge|kw_node) (kw_relationship|kw_class|kw_inheritance|kw_inderect_use) ASIG texto SPACE?;
+arrowcolor: kw_arrowcolor (kw_edge|kw_node) (kw_relationship|kw_class|kw_inheritance|kw_inderect_use) ASIG texto SPACE?;
+penwidth: kw_penwidth (kw_edge|kw_node) (kw_relationship|kw_class|kw_inheritance|kw_inderect_use) ASIG texto SPACE?;
+fillcolor: kw_fillcolor (kw_edge|kw_node) (kw_relationship|kw_class|kw_inheritance|kw_inderect_use) ASIG texto SPACE?;
+style: kw_style (kw_edge|kw_node) (kw_relationship|kw_class|kw_inheritance|kw_inderect_use) ASIG texto SPACE?;
+shape: kw_shape (kw_edge|kw_node) (kw_relationship|kw_class|kw_inheritance|kw_inderect_use) ASIG texto SPACE?;
 
 //variable_param: (kw_fontcolor|kw_fontname) bbaja (kw_edge|kw_node) bbaja
 
