@@ -2,7 +2,6 @@ parser grammar JsonParser;
 
 @header{
     package antlr;
-
     
 }
 
