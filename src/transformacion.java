@@ -6,8 +6,18 @@ import java.util.*;
 
 public class transformacion {
     public static void main(String[] args) {
+        ParseTreeWalker walker = new ParseTreeWalker();
         try {
-            CSVParser parserCSV = procesarCSV(new FileInputStream("./../Documentos/fichero_a_procesar.csv"));
+            CSVTable tablaCSV = new CSVTable();
+            CSVListener listenerCSV = new CSVListener(tablaCSV);
+            ParseTree tree = procesarCSV(new FileInputStream("./../Documentos/ficheros_a_procesar.csv"));
+            walker.walk(listenerCSV, tree);
+            // System.out.println(tablaCSV.toString());
+
+            for (int i = 0; i < tablaCSV.size(); i++) {
+                System.out.println(tablaCSV.get(i, Content.json));
+            }
+            System.out.println(tablaCSV.toDo(0).toString());
         } catch (Exception e) {
             System.out.println("ERROR al procesar el archivo CSV");
         }
@@ -23,7 +33,7 @@ public class transformacion {
     public static ParseTree procesarCSV(String datos) throws Exception {
         CSVParser parserCSV = new CSVParser(new CommonTokenStream(new CSVLexer(CharStreams.fromString(datos))));
         parserCSV.setBuildParseTree(true);
-        return parser.init();
+        return parserCSV.init();
     }
 
     /**
@@ -34,6 +44,6 @@ public class transformacion {
     public static ParseTree procesarCSV(InputStream datos) throws Exception {
         CSVParser parserCSV = new CSVParser(new CommonTokenStream(new CSVLexer(CharStreams.fromStream(datos))));
         parserCSV.setBuildParseTree(true);
-        return parser.init();
+        return parserCSV.init();
     }
 }

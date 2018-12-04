@@ -1,4 +1,3 @@
-enum Content{
+enum Content {
     json, dot, svg
 };
-
