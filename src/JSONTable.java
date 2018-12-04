@@ -22,6 +22,13 @@ public class JSONTable {
     private HashMap< Integer,ArrayList<String>> _propertiesRelationship  = new HashMap <>;
     public static final String CAMPO_VACIO = "";
 
+    private static final String lclas ={
+        "nombre",
+        "valores"
+    };
+
+    
+
    
     
 }
