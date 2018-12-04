@@ -22,24 +22,19 @@ public class transformacion {
         } catch (Exception e) {
             System.out.println("ERROR al procesar el archivo CSV");
         }
-<<<<<<< HEAD
-=======
-        System.out.println("ESTO ES PARA IMPRIMIR JSON");
-        try {
-            JSONTable tablaJSON = new JSONTable();
-            JsonListener listenerJSON = new JSONListener(tablaJSON);
-            ParseTree tree = procesarJSON(new FileInputStream("./../Documentos/ficheros_a_procesar.json"));
-            walker.walk(listenerJSON, tree);
-            // System.out.println(tablaJSON.toString());
 
-            for (int i = 0; i < tablaJSON.size(); i++) {
-                System.out.println(tablaJSON.get(i, Content.json));
-            }
-            System.out.println(tablaJSON.toDo(0).toString());
-        } catch (Exception e) {
-            System.out.println("ERROR al procesar el archivo JSON");
-        }
->>>>>>> 7a688d50bc5eba545b545cd652720cad9e715e98
+        EntradaTable tableEntry = new EntradaTable();
+        tableEntry.addJSON("toma json");
+        tableEntry.addJSON("toma json 21312");
+        tableEntry.addCSV("csv, hoal, qweq");
+        tableEntry.addCSV("c2");
+        tableEntry.addCSV("c3");
+        tableEntry.addCSV("csv5");
+        tableEntry.addCSV("csv, hoal, q12312eq");
+        tableEntry.addDOT("soy un dot");
+        tableEntry.addSVG("ni idea de lo que es un svg");
+
+        System.out.println(tableEntry.toString());
     }
 
     /**
@@ -64,7 +59,7 @@ public class transformacion {
         parserCSV.setBuildParseTree(true);
         return parserCSV.init();
     }
-    
+
     /**
      * Método que devuelve el parser para el JSON
      * 

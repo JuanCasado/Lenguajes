@@ -130,10 +130,10 @@ public class EntradaTable {
         sb.append("\nTabla de simbolos JSON:\r\n");
         sb.append("Numero de JSONs: " + jsonSize() + "Numero de DOTs: " + dotSize() + "Numero de SVGs: " + svgSize()
                 + " - Numero de CSVs: " + csvSize() + "Numero de Parametros: " + paramSize() + "\r\n");
-        sb.append("JSONs disponibles: \r\n" + _JSONs.toString() + "\r\n");
-        sb.append("DOTs disponibles: \r\n" + _DOTs.toString() + "\r\n");
-        sb.append("SVGs disponibles: \r\n" + _SVGs.toString() + "\r\n");
-        sb.append("CSVs disponibles: \r\n" + _SVGs.toString() + "\r\n");
+        sb.append("JSONs disponibles: \r\n" + JSONToString() + "\r\n");
+        sb.append("DOTs disponibles: \r\n" + DOTToString() + "\r\n");
+        sb.append("SVGs disponibles: \r\n" + SVGToString() + "\r\n");
+        sb.append("CSVs disponibles: \r\n" + _CSVs.toString() + "\r\n");
         sb.append("Paramatros disponibles: \r\n" + paramToString() + "\r\n");
         return sb.toString();
     }
