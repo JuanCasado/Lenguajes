@@ -63,16 +63,18 @@ public class JsonVisitor extends JsonParserBaseVisitor<Integer> {
     }
 
     	@Override public Integer visitPclass(JsonParser.PclassContext ctx) {
-            /*
+            
             //Añadimos el id a la tabla de simbolos 
-             tablaJSON.addId(ctx.id().nombre().getText());
+            tablaJSON.addId(ctx.id(0).ruta().getText());
             //Añadimos el nombre a la tabla de simbolos
-            tablaJSON.addName(ctx.name().nombre().getText());
-            // Lo guardamos en clase
-            if (ctx.label()!=null)
-            label = ctx.label().ampli_info().ampli_info_content().contenido().nombre().getText();
-            contenido = ctx.label().ampli_info().ampli_info_content().contenido().otroNombre().getText();
-            tablaJSON.addLabel(label, contenido);
+            tablaJSON.addName(ctx.name(0).nombre().getText());
+            
+            /*// Lo guardamos en clase
+            if (ctx.label()!=null){
+                label = ctx.label().ampli_info().ampli_info_content().contenido().nombre().getText();
+                contenido = ctx.label().ampli_info().ampli_info_content().contenido().otroNombre().getText();
+                tablaJSON.addLabel(label, contenido);
+            }
             
             //Lo guardamos en relaciones
             if (ctx.inherits()!=null)
@@ -83,8 +85,8 @@ public class JsonVisitor extends JsonParserBaseVisitor<Integer> {
             if (ctx.properties()!=null)
             // Properties es lo que tenemos que añadir al arraylist de clase
                 tablaJSON.addProperties();
-                */
-                return 0;
+            */  
+            return 0;
         }
 
 
