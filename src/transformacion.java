@@ -81,6 +81,7 @@ public class transformacion {
         StringBuffer sb = new StringBuffer();
         for (String s : datos) {
             sb.append(s);
+            sb.append(" ");
         }
         EntradaParser parserEntrada = new EntradaParser(
                 new CommonTokenStream(new EntradaLexer(CharStreams.fromString(sb.toString()))));
