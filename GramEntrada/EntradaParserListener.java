@@ -27,15 +27,55 @@ public interface EntradaParserListener extends ParseTreeListener {
 	 */
 	void exitTipo_archivo(EntradaParser.Tipo_archivoContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link EntradaParser#texto}.
+	 * Enter a parse tree produced by {@link EntradaParser#textojson}.
 	 * @param ctx the parse tree
 	 */
-	void enterTexto(EntradaParser.TextoContext ctx);
+	void enterTextojson(EntradaParser.TextojsonContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link EntradaParser#texto}.
+	 * Exit a parse tree produced by {@link EntradaParser#textojson}.
 	 * @param ctx the parse tree
 	 */
-	void exitTexto(EntradaParser.TextoContext ctx);
+	void exitTextojson(EntradaParser.TextojsonContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link EntradaParser#textosvg}.
+	 * @param ctx the parse tree
+	 */
+	void enterTextosvg(EntradaParser.TextosvgContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link EntradaParser#textosvg}.
+	 * @param ctx the parse tree
+	 */
+	void exitTextosvg(EntradaParser.TextosvgContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link EntradaParser#textodot}.
+	 * @param ctx the parse tree
+	 */
+	void enterTextodot(EntradaParser.TextodotContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link EntradaParser#textodot}.
+	 * @param ctx the parse tree
+	 */
+	void exitTextodot(EntradaParser.TextodotContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link EntradaParser#textocsv}.
+	 * @param ctx the parse tree
+	 */
+	void enterTextocsv(EntradaParser.TextocsvContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link EntradaParser#textocsv}.
+	 * @param ctx the parse tree
+	 */
+	void exitTextocsv(EntradaParser.TextocsvContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link EntradaParser#textoparam}.
+	 * @param ctx the parse tree
+	 */
+	void enterTextoparam(EntradaParser.TextoparamContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link EntradaParser#textoparam}.
+	 * @param ctx the parse tree
+	 */
+	void exitTextoparam(EntradaParser.TextoparamContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link EntradaParser#basura}.
 	 * @param ctx the parse tree
@@ -236,6 +276,106 @@ public interface EntradaParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitShape(EntradaParser.ShapeContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link EntradaParser#len_name}.
+	 * @param ctx the parse tree
+	 */
+	void enterLen_name(EntradaParser.Len_nameContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link EntradaParser#len_name}.
+	 * @param ctx the parse tree
+	 */
+	void exitLen_name(EntradaParser.Len_nameContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link EntradaParser#fontcolor_name}.
+	 * @param ctx the parse tree
+	 */
+	void enterFontcolor_name(EntradaParser.Fontcolor_nameContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link EntradaParser#fontcolor_name}.
+	 * @param ctx the parse tree
+	 */
+	void exitFontcolor_name(EntradaParser.Fontcolor_nameContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link EntradaParser#fontname_name}.
+	 * @param ctx the parse tree
+	 */
+	void enterFontname_name(EntradaParser.Fontname_nameContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link EntradaParser#fontname_name}.
+	 * @param ctx the parse tree
+	 */
+	void exitFontname_name(EntradaParser.Fontname_nameContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link EntradaParser#fontsize_name}.
+	 * @param ctx the parse tree
+	 */
+	void enterFontsize_name(EntradaParser.Fontsize_nameContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link EntradaParser#fontsize_name}.
+	 * @param ctx the parse tree
+	 */
+	void exitFontsize_name(EntradaParser.Fontsize_nameContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link EntradaParser#arrowsize_name}.
+	 * @param ctx the parse tree
+	 */
+	void enterArrowsize_name(EntradaParser.Arrowsize_nameContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link EntradaParser#arrowsize_name}.
+	 * @param ctx the parse tree
+	 */
+	void exitArrowsize_name(EntradaParser.Arrowsize_nameContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link EntradaParser#arrowcolor_name}.
+	 * @param ctx the parse tree
+	 */
+	void enterArrowcolor_name(EntradaParser.Arrowcolor_nameContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link EntradaParser#arrowcolor_name}.
+	 * @param ctx the parse tree
+	 */
+	void exitArrowcolor_name(EntradaParser.Arrowcolor_nameContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link EntradaParser#penwidth_name}.
+	 * @param ctx the parse tree
+	 */
+	void enterPenwidth_name(EntradaParser.Penwidth_nameContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link EntradaParser#penwidth_name}.
+	 * @param ctx the parse tree
+	 */
+	void exitPenwidth_name(EntradaParser.Penwidth_nameContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link EntradaParser#fillcolor_name}.
+	 * @param ctx the parse tree
+	 */
+	void enterFillcolor_name(EntradaParser.Fillcolor_nameContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link EntradaParser#fillcolor_name}.
+	 * @param ctx the parse tree
+	 */
+	void exitFillcolor_name(EntradaParser.Fillcolor_nameContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link EntradaParser#style_name}.
+	 * @param ctx the parse tree
+	 */
+	void enterStyle_name(EntradaParser.Style_nameContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link EntradaParser#style_name}.
+	 * @param ctx the parse tree
+	 */
+	void exitStyle_name(EntradaParser.Style_nameContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link EntradaParser#shape_name}.
+	 * @param ctx the parse tree
+	 */
+	void enterShape_name(EntradaParser.Shape_nameContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link EntradaParser#shape_name}.
+	 * @param ctx the parse tree
+	 */
+	void exitShape_name(EntradaParser.Shape_nameContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link EntradaParser#kw_edge}.
 	 * @param ctx the parse tree

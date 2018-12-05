@@ -180,14 +180,16 @@ public class CSVTable {
      * @return
      */
     public String get(int row, Content col) {
-        row++;
-        switch (col) {
-        case json:
-            return getValue(row, 1);
-        case dot:
-            return getValue(row, 2);
-        case svg:
-            return getValue(row, 3);
+        if (row < size()) {
+            row++;
+            switch (col) {
+            case json:
+                return getValue(row, 1);
+            case dot:
+                return getValue(row, 2);
+            case svg:
+                return getValue(row, 3);
+            }
         }
         return null;
     }
@@ -199,17 +201,21 @@ public class CSVTable {
      * @return
      */
     public Action toDo(int row) {
-        row++;
-        if (getValue(row, 1).equals(CAMPO_VACIO)) {
-            return Action.skip;
-        } else if (getValue(row, 2).equals(CAMPO_VACIO) && getValue(row, 3).equals(CAMPO_VACIO)) {
-            return Action.skip;
-        } else if (getValue(row, 2).equals(CAMPO_VACIO)) {
-            return Action.saveSvg;
-        } else if (getValue(row, 3).equals(CAMPO_VACIO)) {
-            return Action.saveDot;
-        } else {
-            return Action.saveBoth;
+        if (row < size()) {
+            row++;
+            if (getValue(row, 1).equals(CAMPO_VACIO)) { // si no tenemos json
+                return Action.skip; // no hacemos nada
+            } else if (getValue(row, 2).equals(CAMPO_VACIO) && getValue(row, 3).equals(CAMPO_VACIO)) { // si no tenemos
+                                                                                                       // dot ni svg
+                return Action.skip; // no hacemos nada
+            } else if (getValue(row, 2).equals(CAMPO_VACIO)) { // si tenemos svg
+                return Action.saveSvg; // solo guardamos svg
+            } else if (getValue(row, 3).equals(CAMPO_VACIO)) { // si solo tenemos dot
+                return Action.saveDot; // solo guardamos el dot
+            } else {
+                return Action.saveBoth; // si tenemos todo, guardamos todo
+            }
         }
+        return null;
     }
 }

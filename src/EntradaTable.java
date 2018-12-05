@@ -17,17 +17,21 @@ public class EntradaTable {
 
     public static final String CAMPO_VACIO = "";
 
+    /**
+     * Método para rellenar el array de _parametersName con sus valores y
+     * _paramaters de campos vacios
+     */
     public EntradaTable() {
         for (String f1 : parametros_f1) {
             for (String f2 : parametros_f2) {
-                if (f1 != parametros_f1[0]) {
+                if (f1 != parametros_f1[0]) { // si el parametro no es len
                     for (String f3 : parametros_f3) {
                         _parameters.add(CAMPO_VACIO);
                         _parametersName.add(f1 + f2 + f3);
                     }
                 } else {
-                    _parameters.add(f1 + f2);
-                    _parametersName.add(CAMPO_VACIO);
+                    _parameters.add(CAMPO_VACIO); // si es len no tiene (edge|node)
+                    _parametersName.add(f1 + f2);
                 }
             }
         }
@@ -61,8 +65,8 @@ public class EntradaTable {
     }
 
     /**
-     * Método que se encarga de añadir un DOT nuevo a la lista de DOT de la e
-     * trada
+     * Método que se encarga de añadir un DOT nuevo a la lista de DOT de la e t
+     * ada
      * 
      * @param p_dot DOT a insertar
      */
@@ -83,8 +87,8 @@ public class EntradaTable {
     }
 
     /**
-     * Método que se encarga de añadir un SVG nuevo a la lista de SVG de la e
-     * trada
+     * Método que se encarga de añadir un SVG nuevo a la lista de SVG de la e t
+     * ada
      * 
      * @param p_svg SVG a insertar
      */
@@ -105,8 +109,8 @@ public class EntradaTable {
     }
 
     /**
-     * Método que se encarga de añadir un CSV nuevo a la lista de CSV de la e
-     * trada
+     * Método que se encarga de añadir un CSV nuevo a la lista de CSV de la e t
+     * ada
      * 
      * @param p_csv CSV a insertar
      */
@@ -138,6 +142,11 @@ public class EntradaTable {
         return sb.toString();
     }
 
+    /**
+     * Método para imprimir los parametros
+     * 
+     * @return
+     */
     public String paramToString() {
         StringBuffer sb = new StringBuffer();
         for (int i = 0; i < _parameters.size(); i++) {
@@ -147,6 +156,11 @@ public class EntradaTable {
         return sb.toString();
     }
 
+    /**
+     * Método para imprimir el array de JSONs
+     * 
+     * @return
+     */
     public String JSONToString() {
         StringBuffer sb = new StringBuffer();
         for (int i = 0; i < _JSONs.size(); i++) {
@@ -156,6 +170,11 @@ public class EntradaTable {
         return sb.toString();
     }
 
+    /**
+     * Método para imprimir el array de DOTs
+     * 
+     * @return
+     */
     public String DOTToString() {
         StringBuffer sb = new StringBuffer();
         for (int i = 0; i < _DOTs.size(); i++) {
@@ -165,6 +184,11 @@ public class EntradaTable {
         return sb.toString();
     }
 
+    /**
+     * Método para imprimri el array de SVGs
+     * 
+     * @return
+     */
     public String SVGToString() {
         StringBuffer sb = new StringBuffer();
         for (int i = 0; i < _SVGs.size(); i++) {
@@ -174,48 +198,113 @@ public class EntradaTable {
         return sb.toString();
     }
 
+    /**
+     * Método que devuelve la longitud del array _parameters
+     * 
+     * @return
+     */
     public int paramSize() {
         return _parameters.size();
     }
 
-    public int paramNameSize() {
+    /**
+     * Método que devuelve la longitud del array _parametersName
+     * 
+     * @return
+     */
+    private int paramNameSize() {
         return _parametersName.size();
     }
 
+    public int getTableSize() {
+        return jsonSize();
+    }
+
+    /**
+     * Método que devuelve la longitud del array _CSVs
+     * 
+     * @return
+     */
     public int csvSize() {
         return _CSVs.size();
     }
 
-    public int jsonSize() {
+    /**
+     * Método que devuelve la longitud del array _JSONs
+     * 
+     * @return
+     */
+    private int jsonSize() {
         return _JSONs.size();
     }
 
-    public int dotSize() {
+    /**
+     * Método que devuelve la longitud del array _DOTs
+     * 
+     * @return
+     */
+    private int dotSize() {
         return _DOTs.size();
     }
 
-    public int svgSize() {
+    /**
+     * Método que devuelve la longitud del array _SVGs
+     * 
+     * @return
+     */
+    private int svgSize() {
         return _SVGs.size();
     }
 
-    /*
-     * public String get(int row, Content col) { row++; switch (col) { case json:
-     * return getValue(row, 1); case dot: return getValue(row, 2); case svg: return
-     * getValue(row, 3); } return null; }
-     */
+    private String getValueJSON(int index) {
+        return _JSONs.get(index);
+    }
 
-    /**
-     * Método que nos indica que hacer acción realizar sobre la fila
-     * 
-     * @param row Un enetero que nos indica la fila
-     * @return
-     */
-    /*
-     * public Action toDo(int row) { row++; if (getValue(row,
-     * 1).equals(CAMPO_VACIO)) { return Action.skip; } else if (getValue(row,
-     * 2).equals(CAMPO_VACIO) && getValue(row, 3).equals(CAMPO_VACIO)) { return
-     * Action.skip; } else if (getValue(row, 2).equals(CAMPO_VACIO)) { return
-     * Action.saveSvg; } else if (getValue(row, 3).equals(CAMPO_VACIO)) { return
-     * Action.saveDot; } else { return Action.saveBoth; } }
-     */
+    private String getValueDOT(int index) {
+        return _DOTs.get(index);
+    }
+
+    private String getValueSVG(int index) {
+        return _SVGs.get(index);
+    }
+
+    private String getCSV(int index) {
+        return _CSVs.get(index);
+    }
+
+    private String getParameters(int index) {
+        return _parameters.get(index);
+    }
+
+    public String get(int row, Content col) {
+        if (row < jsonSize()) { // tal como rellenamos los datos, todos los arrays tienen la misma longitud
+            switch (col) {
+            case json:
+                return getValueJSON(row);
+            case dot:
+                return getValueDOT(row);
+            case svg:
+                return getValueSVG(row);
+            }
+        }
+        return null;
+    }
+
+    public Action toDo(int row) {
+        if (row < jsonSize()) {
+            if (getValueJSON(row).equals(CAMPO_VACIO)) { // si no tenemos el json
+                return Action.skip; // no hacemos nada
+            } else if (getValueDOT(row).equals(CAMPO_VACIO) && getValueSVG(row).equals(CAMPO_VACIO)) { // si no tenemos
+                                                                                                       // dot ni svg
+                return Action.skip; // no hacemos nada
+            } else if (getValueDOT(row).equals(CAMPO_VACIO)) { // si no tenemos el dot
+                return Action.saveSvg; // guardamos el svg
+            } else if (getValueSVG(row).equals(CAMPO_VACIO)) { // si no tenemos svg
+                return Action.saveDot; // guardamos el dot
+            } else {
+                return Action.saveBoth;
+            }
+        }
+        return null;
+    }
 }
