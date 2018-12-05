@@ -4,7 +4,7 @@ import java.util.*;
  * Esta clase se encarga de mantener los datos de un CSV
  */
 
-public class CSVTable {
+public class CSVTable implements ActionTable {
     // que seria una fila?
     // private HashMap<String,String> _unafila = new HashMap<String,String>();
     private ArrayList<HashMap<String, String>> _filas = new ArrayList<HashMap<String, String>>();
@@ -161,6 +161,7 @@ public class CSVTable {
      * 
      * @return
      */
+    @Override
     public int size() {
         return _filas.size();
     }
@@ -179,6 +180,7 @@ public class CSVTable {
      * @param col La columna que se solicita
      * @return
      */
+    @Override
     public String get(int row, Content col) {
         if (row < size()) {
             row++;
@@ -200,6 +202,7 @@ public class CSVTable {
      * @param row Un enetero que nos indica la fila
      * @return
      */
+    @Override
     public Action toDo(int row) {
         if (row < size()) {
             row++;

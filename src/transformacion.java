@@ -10,16 +10,28 @@ public class transformacion {
         try {
             EntradaTable tablaEntrada = new EntradaTable();
             EntradaListener listenerEntrada = new EntradaListener(tablaEntrada);
-            ParseTree tree;
+            ParseTree treeEntrada;
             if (args.length > 0) {
-                tree = procesarEntrada(args); // cuando nos lo pasan por argumento
+                treeEntrada = procesarEntrada(args); // cuando nos lo pasan por argumento
             } else {
-                tree = procesarEntrada(System.in); // cuando no nos pasan argumento
+                treeEntrada = procesarEntrada(System.in); // cuando no nos pasan argumento
             }
-            walker.walk(listenerEntrada, tree);
-
+            walker.walk(listenerEntrada, treeEntrada);
+            processJSON(tablaEntrada);
             if (tablaEntrada.hasCSV()) {
+                for (int i = 0; i < tablaEntrada.csvSize(); i++) {
+                    tablaEntrada.getCSV(i);
+                    try {
+                        CSVTable tablaCSV = new CSVTable();
+                        CSVListener listenerCSV = new CSVListener(tablaCSV);
+                        ParseTree treeCSV = procesarCSV(new FileInputStream(tablaEntrada.getCSV(i)));
+                        walker.walk(listenerCSV, treeCSV);
 
+                        processJSON(tablaCSV);
+                    } catch (Exception e) {
+                        System.out.println("ERROR al procesar el archivo CSV: " + tablaEntrada.getCSV(i));
+                    }
+                }
             }
         } catch (Exception e) {
             System.out.println("ERROR al procesar la ENTRADA");
@@ -27,20 +39,6 @@ public class transformacion {
         }
 
         System.out.println("ESTO ES PARA IMPRIMIR CSV");
-        try {
-            CSVTable tablaCSV = new CSVTable();
-            CSVListener listenerCSV = new CSVListener(tablaCSV);
-            ParseTree tree = procesarCSV(new FileInputStream("./../Documentos/ficheros_a_procesar.csv"));
-            walker.walk(listenerCSV, tree);
-            // System.out.println(tablaCSV.toString());
-
-            for (int i = 0; i < tablaCSV.size(); i++) {
-                System.out.println(tablaCSV.get(i, Content.json));
-            }
-            // System.out.println(tablaCSV.toDo(0).toString());
-        } catch (Exception e) {
-            System.out.println("ERROR al procesar el archivo CSV");
-        }
 
         /*
          * System.out.println("ESTO ES PARA IMPRIMIR JSON"); try { JSONTable tablaJSON =
@@ -80,12 +78,12 @@ public class transformacion {
     }
 
     public static ParseTree procesarEntrada(String[] datos) throws Exception {
-        BufferString sb = new BufferString();
+        StringBuffer sb = new StringBuffer();
         for (String s : datos) {
             sb.append(s);
         }
         EntradaParser parserEntrada = new EntradaParser(
-                new CommonTokenStream(new EntradaLexer(CharStreams.fromString(sb.toString))));
+                new CommonTokenStream(new EntradaLexer(CharStreams.fromString(sb.toString()))));
         parserEntrada.setBuildParseTree(true);
         return parserEntrada.init();
     }
@@ -96,6 +94,7 @@ public class transformacion {
         parserEntrada.setBuildParseTree(true);
         return parserEntrada.init();
     }
+
     /**
      * Método que devuelve el parser para el JSON
      * 
@@ -118,4 +117,25 @@ public class transformacion {
      * JsonLexer(CharStreams.fromStream(datos))));
      * parserJSON.setBuildParseTree(true); return parserJSON.init(); }
      */
+    public static void processJSON(ActionTable at) {
+        for (int i = 0; i < at.size(); i++) {
+            Action action = at.toDo(i);
+            if (action != Action.skip) {
+                // AQUI PROCESAMOS EL JSON
+                System.out.println("Procesando JSON " + at.get(i, Content.json));
+                if (action == Action.saveSvg) {
+                    // AQUI GUARDAMOS EL SVG
+                    System.out.println("Guardando SVG " + at.get(i, Content.svg));
+                } else if (action == Action.saveDot) {
+                    // AQUI GUARDAMOS EL DOT
+                    System.out.println("Guardando DOT " + at.get(i, Content.dot));
+                } else if (action == Action.saveBoth) {
+                    // AQUI GUARDAMOS AMBOS
+                    System.out.println("Guardando AMBOS");
+                    System.out.println("Guardando SVG " + at.get(i, Content.svg));
+                    System.out.println("Guardando DOT " + at.get(i, Content.dot));
+                }
+            }
+        }
+    }
 }

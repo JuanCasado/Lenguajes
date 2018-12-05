@@ -4,7 +4,7 @@ import java.util.*;
  * Esta clase se encarga de mantener los datos de un CSV
  */
 
-public class EntradaTable {
+public class EntradaTable implements ActionTable {
     private int indexJSON = 0;
     private int indexDOT = 0;
     private int indexSVG = 0;
@@ -220,7 +220,8 @@ public class EntradaTable {
         return _parametersName.size();
     }
 
-    public int getTableSize() {
+    @Override
+    public int size() {
         return jsonSize();
     }
 
@@ -272,7 +273,7 @@ public class EntradaTable {
         return _SVGs.get(index);
     }
 
-    private String getCSV(int index) {
+    public String getCSV(int index) {
         return _CSVs.get(index);
     }
 

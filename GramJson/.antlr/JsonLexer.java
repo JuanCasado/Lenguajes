@@ -1,4 +1,8 @@
-// Generated from d:\gituni\Lenguajes\GramJson\JsonLexer.g4 by ANTLR 4.7.1
+// Generated from c:\antlr\Lenguajes\GramJson/JsonLexer.g4 by ANTLR 4.7.1
+
+    package antlr;
+    
+
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Token;

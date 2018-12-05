@@ -1,4 +1,8 @@
-// Generated from d:\gituni\Lenguajes\GramJson\JsonParser.g4 by ANTLR 4.7.1
+// Generated from c:\antlr\Lenguajes\GramJson\JsonParser.g4 by ANTLR 4.7.1
+
+    package antlr;
+    
+
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
