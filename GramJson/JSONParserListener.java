@@ -1,4 +1,4 @@
-// Generated from .\JSONParser.g4 by ANTLR 4.7.1
+// Generated from JSONParser.g4 by ANTLR 4.7.1
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -106,6 +106,86 @@ public interface JSONParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitCuerpo_lista(JSONParser.Cuerpo_listaContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JSONParser#graphs}.
+	 * @param ctx the parse tree
+	 */
+	void enterGraphs(JSONParser.GraphsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#graphs}.
+	 * @param ctx the parse tree
+	 */
+	void exitGraphs(JSONParser.GraphsContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JSONParser#cuerpo_graphs}.
+	 * @param ctx the parse tree
+	 */
+	void enterCuerpo_graphs(JSONParser.Cuerpo_graphsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#cuerpo_graphs}.
+	 * @param ctx the parse tree
+	 */
+	void exitCuerpo_graphs(JSONParser.Cuerpo_graphsContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JSONParser#graph}.
+	 * @param ctx the parse tree
+	 */
+	void enterGraph(JSONParser.GraphContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#graph}.
+	 * @param ctx the parse tree
+	 */
+	void exitGraph(JSONParser.GraphContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JSONParser#cuerpo_graph}.
+	 * @param ctx the parse tree
+	 */
+	void enterCuerpo_graph(JSONParser.Cuerpo_graphContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#cuerpo_graph}.
+	 * @param ctx the parse tree
+	 */
+	void exitCuerpo_graph(JSONParser.Cuerpo_graphContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JSONParser#properties}.
+	 * @param ctx the parse tree
+	 */
+	void enterProperties(JSONParser.PropertiesContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#properties}.
+	 * @param ctx the parse tree
+	 */
+	void exitProperties(JSONParser.PropertiesContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JSONParser#cuerpo_properties}.
+	 * @param ctx the parse tree
+	 */
+	void enterCuerpo_properties(JSONParser.Cuerpo_propertiesContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#cuerpo_properties}.
+	 * @param ctx the parse tree
+	 */
+	void exitCuerpo_properties(JSONParser.Cuerpo_propertiesContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JSONParser#arbol}.
+	 * @param ctx the parse tree
+	 */
+	void enterArbol(JSONParser.ArbolContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#arbol}.
+	 * @param ctx the parse tree
+	 */
+	void exitArbol(JSONParser.ArbolContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JSONParser#cuerpo_tree}.
+	 * @param ctx the parse tree
+	 */
+	void enterCuerpo_tree(JSONParser.Cuerpo_treeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#cuerpo_tree}.
+	 * @param ctx the parse tree
+	 */
+	void exitCuerpo_tree(JSONParser.Cuerpo_treeContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link JSONParser#cadena}.
 	 * @param ctx the parse tree
