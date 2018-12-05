@@ -27,7 +27,7 @@ public class EntradaTable {
                 if (f1 != parametros_f1[0]) { // si el parametro no es len
                     for (String f3 : parametros_f3) {
                         _parameters.add(CAMPO_VACIO);
-                        _parametersName.add(f1 + f2 + f3);
+                        _parametersName.add(f1 + f3 + f2);
                     }
                 } else {
                     _parameters.add(CAMPO_VACIO); // si es len no tiene (edge|node)
@@ -39,8 +39,9 @@ public class EntradaTable {
 
     private static final String parametros_f1[] = { "-len", "-fontcol", "-fontname", "-fontsize", "-arrowsize",
             "-arrowcol", "-penwidth", "-fillcol", "-style", "-shape" };
-    private static final String parametros_f2[] = { "_rel=", "_class=", "_inher=", "_inder=" };
-    private static final String parametros_f3[] = { "_edge=", "_node=", };
+    private static final String parametros_f2[] = { "_relationship=", "_class=", "_property=", "_inheritance=",
+            "_inderect_use=" };
+    private static final String parametros_f3[] = { "_edge", "_node", };
 
     /**
      * Método que se encarga de añadir un JSON nuevo a la lista de JSON de la
@@ -65,8 +66,8 @@ public class EntradaTable {
     }
 
     /**
-     * Método que se encarga de añadir un DOT nuevo a la lista de DOT de la e t
-     * ada
+     * Método que se encarga de añadir un DOT nuevo a la lista de DOT de la e t a
+     * a
      * 
      * @param p_dot DOT a insertar
      */
@@ -87,8 +88,8 @@ public class EntradaTable {
     }
 
     /**
-     * Método que se encarga de añadir un SVG nuevo a la lista de SVG de la e t
-     * ada
+     * Método que se encarga de añadir un SVG nuevo a la lista de SVG de la e t a
+     * a
      * 
      * @param p_svg SVG a insertar
      */
@@ -109,8 +110,8 @@ public class EntradaTable {
     }
 
     /**
-     * Método que se encarga de añadir un CSV nuevo a la lista de CSV de la e t
-     * ada
+     * Método que se encarga de añadir un CSV nuevo a la lista de CSV de la e t a
+     * a
      * 
      * @param p_csv CSV a insertar
      */
@@ -125,7 +126,9 @@ public class EntradaTable {
      * @param p_content   Es el contenido a insertar en el parametro
      */
     public void addParameters(String p_parameter, String p_content) {
-        _parameters.set(_parametersName.indexOf(p_parameter), p_content);
+        // System.out.println(_parametersName.indexOf(p_parameter));
+        if (_parametersName.contains(p_parameter))
+            _parameters.set(_parametersName.indexOf(p_parameter), p_content);
     }
 
     @Override
@@ -137,7 +140,8 @@ public class EntradaTable {
         sb.append("JSONs disponibles: \r\n" + JSONToString() + "\r\n");
         sb.append("DOTs disponibles: \r\n" + DOTToString() + "\r\n");
         sb.append("SVGs disponibles: \r\n" + SVGToString() + "\r\n");
-        sb.append("CSVs disponibles: \r\n" + _CSVs.toString() + "\r\n");
+        sb.append("CSVs disponibles: \r\n" + _CSVs.toString() + "\r\n\r\n");
+        sb.append("------------------------------------------------------------------\r\n\r\n");
         sb.append("Paramatros disponibles: \r\n" + paramToString() + "\r\n");
         return sb.toString();
     }
@@ -274,6 +278,26 @@ public class EntradaTable {
 
     private String getParameters(int index) {
         return _parameters.get(index);
+    }
+
+    public boolean hasJSON() {
+        return _JSONs.size() > 0;
+    }
+
+    public boolean hasDOT() {
+        return _DOTs.size() > 0;
+    }
+
+    public boolean hasSVG() {
+        return _SVGs.size() > 0;
+    }
+
+    public boolean hasCSV() {
+        return _CSVs.size() > 0;
+    }
+
+    public boolean hasParametros() {
+        return _parameters.size() > 0;
     }
 
     public String get(int row, Content col) {

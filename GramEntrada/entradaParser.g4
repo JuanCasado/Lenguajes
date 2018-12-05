@@ -42,16 +42,16 @@ fillcolor: fillcolor_name  textoparam SPACE?;
 style: style_name  textoparam SPACE?;
 shape: shape_name  textoparam SPACE?;
 
-len_name: kw_len (kw_relationship|kw_class|kw_inheritance|kw_inderect_use);
-fontcolor_name: kw_fontcolor (kw_edge|kw_node) (kw_relationship|kw_class|kw_inheritance|kw_inderect_use);
-fontname_name: kw_fontname  (kw_edge|kw_node)  (kw_relationship|kw_class|kw_inheritance|kw_inderect_use);
-fontsize_name: kw_fontsize (kw_edge|kw_node) (kw_relationship|kw_class|kw_inheritance|kw_inderect_use);
-arrowsize_name:  kw_arrowsize (kw_edge|kw_node) (kw_relationship|kw_class|kw_inheritance|kw_inderect_use);
-arrowcolor_name: kw_arrowcolor (kw_edge|kw_node) (kw_relationship|kw_class|kw_inheritance|kw_inderect_use);
-penwidth_name: kw_penwidth (kw_edge|kw_node) (kw_relationship|kw_class|kw_inheritance|kw_inderect_use);
-fillcolor_name: kw_fillcolor (kw_edge|kw_node) (kw_relationship|kw_class|kw_inheritance|kw_inderect_use);
-style_name: kw_style (kw_edge|kw_node) (kw_relationship|kw_class|kw_inheritance|kw_inderect_use);
-shape_name: kw_shape (kw_edge|kw_node) (kw_relationship|kw_class|kw_inheritance|kw_inderect_use);
+len_name: kw_len (kw_relationship|kw_class|kw_property|kw_inheritance|kw_inderect_use);
+fontcolor_name: kw_fontcolor (kw_edge|kw_node) (kw_relationship|kw_class|kw_property|kw_inheritance|kw_inderect_use);
+fontname_name: kw_fontname  (kw_edge|kw_node)  (kw_relationship|kw_class|kw_property|kw_inheritance|kw_inderect_use);
+fontsize_name: kw_fontsize (kw_edge|kw_node) (kw_relationship|kw_class|kw_property|kw_inheritance|kw_inderect_use);
+arrowsize_name:  kw_arrowsize (kw_edge|kw_node) (kw_relationship|kw_class|kw_property|kw_inheritance|kw_inderect_use);
+arrowcolor_name: kw_arrowcolor (kw_edge|kw_node) (kw_relationship|kw_class|kw_property|kw_inheritance|kw_inderect_use);
+penwidth_name: kw_penwidth (kw_edge|kw_node) (kw_relationship|kw_class|kw_property|kw_inheritance|kw_inderect_use);
+fillcolor_name: kw_fillcolor (kw_edge|kw_node) (kw_relationship|kw_class|kw_property|kw_inheritance|kw_inderect_use);
+style_name: kw_style (kw_edge|kw_node) (kw_relationship|kw_class|kw_property|kw_inheritance|kw_inderect_use);
+shape_name: kw_shape (kw_edge|kw_node) (kw_relationship|kw_class|kw_property|kw_inheritance|kw_inderect_use);
 //variable_param: (kw_fontcolor|kw_fontname) bbaja (kw_edge|kw_node) bbaja
 
 kw_edge:  EDGE;
