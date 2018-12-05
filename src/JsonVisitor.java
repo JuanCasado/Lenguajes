@@ -29,7 +29,7 @@ public class JsonVisitor extends JsonParserBaseVisitor<Integer> {
 
     @Override public Integer visitLista(JsonParser.ListaContext ctx) {
          if (ctx.objetos()!=null){
-             for (JsonParser.ObjetosConText numObj: ctx.objetos()){
+             for (JsonParser.ObjetosContext numObj: ctx.objetos()){
                  visit(numObj);
              }
          }
@@ -63,6 +63,7 @@ public class JsonVisitor extends JsonParserBaseVisitor<Integer> {
     }
 
     	@Override public Integer visitPclass(JsonParser.PclassContext ctx) {
+            /*
             //Añadimos el id a la tabla de simbolos 
              tablaJSON.addId(ctx.id().nombre().getText());
             //Añadimos el nombre a la tabla de simbolos
@@ -82,6 +83,8 @@ public class JsonVisitor extends JsonParserBaseVisitor<Integer> {
             if (ctx.properties()!=null)
             // Properties es lo que tenemos que añadir al arraylist de clase
                 tablaJSON.addProperties();
+                */
+                return 0;
         }
 
 
