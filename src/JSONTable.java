@@ -80,7 +80,7 @@ public class JSONTable {
             }
             for (String idNombre : _nombre.get(clase).keySet()) {
                 sb.append("\t" + idNombre + " : ");
-                sb.append(_nombre.get(idNombre) + "\n");
+                sb.append(_nombre.get(clase).get(idNombre) + "\n");
             }
         }
         sb.append("Las relaciones son: \n");

@@ -1,3 +1,3 @@
 enum Relaciones {
-    from, to, inherits
+    from, to
 };

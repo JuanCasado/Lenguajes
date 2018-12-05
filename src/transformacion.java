@@ -38,22 +38,18 @@ public class transformacion {
             // System.out.println(e.toString());
         }
 
-        System.out.println("PRUEBA JSON");
-        System.out.println("ESTO ES PARA IMPRIMIR JSON");
-        try {
-            JSONTable tablaJSON = new JSONTable();
-            JSONListener listenerJSON = new JSONListener(tablaJSON);
-            ParseTree tree = procesarJSON(new FileInputStream("./../Documentos/ficheros_a_procesar.json"));
-            walker.walk(listenerJSON, tree); // System.out.println(tablaJSON.toString());
-
-            for (int i = 0; i < tablaJSON.size(); i++) {
-                System.out.println(tablaJSON.get(i, Content.json));
-            }
-            System.out.println(tablaJSON.toDo(0).toString());
-        } catch (Exception e) {
-            System.out.println("ERROR al procesar el archivo JSON");
-        }
-
+        /*
+         * System.out.
+         * println("-------------------------------------------------------\nPRUEBA JSON"
+         * ); System.out.println("ESTO ES PARA IMPRIMIR JSON"); try { JSONTable
+         * tablaJSON = new JSONTable(); new JsonVisitor(tablaJSON)
+         * .visit(procesarJSON(new
+         * FileInputStream("./../Documentos/nschema-RelacionFamiliar.json")));
+         * 
+         * System.out.println(tablaJSON.toString()); } catch (Exception e) { //
+         * System.out.println("ERROR al procesar el archivo JSON");
+         * System.out.println(e.toString()); }
+         */
     }
 
     /**
@@ -117,7 +113,7 @@ public class transformacion {
      * @param datos InputStream desde el que llega el contenido del JSON
      */
     public static ParseTree procesarJSON(InputStream datos) throws Exception {
-        JSONParser parserJSON = new JsonParser(new CommonTokenStream(new JsonLexer(CharStreams.fromStream(datos))));
+        JsonParser parserJSON = new JsonParser(new CommonTokenStream(new JsonLexer(CharStreams.fromStream(datos))));
         parserJSON.setBuildParseTree(true);
         return parserJSON.init();
     }
