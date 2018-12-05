@@ -118,7 +118,8 @@
             }
         }
     },
-    "graphs": [
+    "graphs": 
+    [
         {
             "domain": {
                 "@graph": [

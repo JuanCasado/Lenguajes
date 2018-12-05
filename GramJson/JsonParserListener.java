@@ -1,8 +1,4 @@
 // Generated from JsonParser.g4 by ANTLR 4.7.1
-
-    package antlr;
-    
-
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -60,6 +56,36 @@ public interface JsonParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitAmpli_info(JsonParser.Ampli_infoContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JsonParser#ampli_info_content}.
+	 * @param ctx the parse tree
+	 */
+	void enterAmpli_info_content(JsonParser.Ampli_info_contentContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JsonParser#ampli_info_content}.
+	 * @param ctx the parse tree
+	 */
+	void exitAmpli_info_content(JsonParser.Ampli_info_contentContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JsonParser#contenido}.
+	 * @param ctx the parse tree
+	 */
+	void enterContenido(JsonParser.ContenidoContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JsonParser#contenido}.
+	 * @param ctx the parse tree
+	 */
+	void exitContenido(JsonParser.ContenidoContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JsonParser#otro_nombre}.
+	 * @param ctx the parse tree
+	 */
+	void enterOtro_nombre(JsonParser.Otro_nombreContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JsonParser#otro_nombre}.
+	 * @param ctx the parse tree
+	 */
+	void exitOtro_nombre(JsonParser.Otro_nombreContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link JsonParser#ruta}.
 	 * @param ctx the parse tree

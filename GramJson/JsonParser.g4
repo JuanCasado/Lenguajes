@@ -1,10 +1,5 @@
 parser grammar JsonParser;
 
-@header{
-    package antlr;
-    
-}
-
 options{
     tokenVocab = JsonLexer;
     language = Java;
@@ -12,9 +7,13 @@ options{
 
 init: sallave context? graphs scllave;
 context:  kw_context sallave (descripcion coma?)+  scllave coma ;
-descripcion: (dos_ptos | cadena| intro | ampli_info| nombre| ruta| declaracion|target|kw| comillas)+;
+descripcion: (dos_ptos | cadena| intro | ampli_info| nombre| ruta| declaracion|target|kw| comillas| coma)+;
 cadena: comillas (nombre (bbaja (nombre|digito)+)?)* comillas;
-ampli_info: sallave (descripcion coma?)+ scllave coma?;
+ampli_info: sallave (ampli_info_content|descripcion)+ scllave coma?;
+ampli_info_content : (contenido coma)+;
+contenido: comillas nombre comillas dos_ptos comillas otro_nombre comillas;
+otro_nombre: nombre;
+
 ruta: comillas kw_http kw_www? ( (nombre|digito)+ punto? barra? alm?)+ comillas;
 declaracion:  comillas arroba nombre comillas dos_ptos comillas nombre dos_ptos nombre comillas coma?
             | comillas arroba nombre comillas dos_ptos ruta coma?
@@ -46,11 +45,12 @@ labelrn: kw_labelrn ampli_info coma? ;
 from: kw_from  ruta coma?;
 to: kw_to  ruta coma?;
 
-property:  id  name (typeOf | label | isList | optional | mulMax | mulMin | usedby /* | languageData */)+ ;
+property:  id  name (typeOf | label | isList | optional | mulMax | mulMin | usedby | languageData )+ ;
 optional: kw_optional nombre coma?  
         | kw_optional ampli_info coma?
         | kw_optional (kw_true|kw_false) coma?
         ;
+
 languageData: kw_languageData nombre_obj coma
             | kw_languageData ampli_info coma
             ;
@@ -64,7 +64,7 @@ isList: kw_isList  bool coma?;
 bool: kw_true|kw_false;
 mulMin: kw_mulmin comillas (nombre|digito) comillas coma?;
 mulMax: kw_mulmax comillas (nombre|digito) comillas coma?;
-//languageData:;
+
 
 languageProperty:  (id| language | gender |number |wordType )+ ;
 language: kw_language nombre coma
