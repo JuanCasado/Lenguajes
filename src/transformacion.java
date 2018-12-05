@@ -23,19 +23,32 @@ public class transformacion {
             System.out.println("ERROR al procesar el archivo CSV");
         }
 
-        EntradaTable tableEntry = new EntradaTable();
-        tableEntry.addJSON("toma json");
-        tableEntry.addJSON("toma json 21312");
-        tableEntry.addCSV("csv, hoal, qweq");
-        tableEntry.addJSON("jason3 ");
-        tableEntry.addCSV("csv, hoal, q12312eq");
-        tableEntry.addDOT("soy un dot");
-        tableEntry.addSVG("ni idea de lo que es un svg");
+        /*
+         * EntradaTable tableEntry = new EntradaTable();
+         * tableEntry.addJSON("toma json"); tableEntry.addJSON("toma json 21312");
+         * tableEntry.addCSV("csv, hoal, qweq"); tableEntry.addJSON("jason3 ");
+         * tableEntry.addCSV("csv, hoal, q12312eq"); tableEntry.addDOT("soy un dot");
+         * tableEntry.addSVG("ni idea de lo que es un svg");
+         * 
+         * System.out.println(tableEntry.toString());
+         * 
+         * for (int i = 0; i < tableEntry.getTableSize(); i++) {
+         * System.out.println(tableEntry.toDo(i).toString()); }
+         */
 
-        System.out.println(tableEntry.toString());
+        try {
+            EntradaTable tablaEntrada = new EntradaTable();
+            EntradaListener listenerEntrada = new EntradaListener(tablaEntrada);
+            ParseTree tree = procesarEntrada(new FileInputStream("./../Documentos/pruebas.prog"));
+            walker.walk(listenerEntrada, tree);
 
-        for (int i = 0; i < tableEntry.getTableSize(); i++) {
-            System.out.println(tableEntry.toDo(i).toString());
+            for (int i = 0; i < 1; i++) {
+                System.out.println(tablaEntrada.get(i, Content.json));
+                System.out.println(tablaEntrada.get(i, Content.svg));
+            }
+            System.out.println(tablaEntrada.toString());
+        } catch (Exception e) {
+            System.out.println("ERROR al procesar la ENTRADA");
         }
         /*
          * System.out.println("ESTO ES PARA IMPRIMIR JSON"); try { JSONTable tablaJSON =
@@ -74,6 +87,19 @@ public class transformacion {
         return parserCSV.init();
     }
 
+    public static ParseTree procesarEntrada(String datos) throws Exception {
+        EntradaParser parserEntrada = new EntradaParser(
+                new CommonTokenStream(new EntradaLexer(CharStreams.fromString(datos))));
+        parserEntrada.setBuildParseTree(true);
+        return parserEntrada.init();
+    }
+
+    public static ParseTree procesarEntrada(InputStream datos) throws Exception {
+        EntradaParser parserEntrada = new EntradaParser(
+                new CommonTokenStream(new EntradaLexer(CharStreams.fromStream(datos))));
+        parserEntrada.setBuildParseTree(true);
+        return parserEntrada.init();
+    }
     /**
      * Método que devuelve el parser para el JSON
      * 
