@@ -15,34 +15,34 @@ textodot: (TEXTO|CADENA)+;
 textocsv: (TEXTO|CADENA)+;
 textoparam: (TEXTO|CADENA)+;
 
-basura: (TEXTO|ASIG|SPACE)+;
+basura: (TEXTO|SPACE)+;
 
-json: kw_json ASIG textojson SPACE?;
+json: kw_json  textojson SPACE?;
 kw_json:  KW_JSON;
 
-svg: kw_svg ASIG textosvg SPACE?;
+svg: kw_svg  textosvg SPACE?;
 kw_svg:  KW_SVG;
 
-dot: kw_dot ASIG textodot SPACE?;
+dot: kw_dot  textodot SPACE?;
 kw_dot:  KW_DOT;
 
-csv: kw_csv ASIG textocsv SPACE?;
+csv: kw_csv  textocsv SPACE?;
 kw_csv:  KW_CSV;
 
 parametros: (len|fontcolor|fontname|fontsize|arrowsize|arrowcolor|penwidth|fillcolor|style|shape);
 
-len: kw_len len_name ASIG textoparam SPACE?;
-fontcolor: fontcolor_name ASIG textoparam SPACE?; //String --> si entra con " usamos cadena
-fontname: fontname_name ASIG textoparam SPACE?;
-fontsize: fontsize_name ASIG textoparam SPACE?;
-arrowsize: arrowsize_name ASIG textoparam SPACE?;
-arrowcolor: arrowcolor_name ASIG textoparam SPACE?;
-penwidth: penwidth_name ASIG textoparam SPACE?;
-fillcolor: fillcolor_name ASIG textoparam SPACE?;
-style: style_name ASIG textoparam SPACE?;
-shape: shape_name ASIG textoparam SPACE?;
+len: len_name textoparam SPACE?;
+fontcolor: fontcolor_name  textoparam SPACE?; //String --> si entra con " usamos cadena
+fontname: fontname_name  textoparam SPACE?;
+fontsize: fontsize_name  textoparam SPACE?;
+arrowsize: arrowsize_name  textoparam SPACE?;
+arrowcolor: arrowcolor_name  textoparam SPACE?;
+penwidth: penwidth_name  textoparam SPACE?;
+fillcolor: fillcolor_name  textoparam SPACE?;
+style: style_name  textoparam SPACE?;
+shape: shape_name  textoparam SPACE?;
 
-len_name: (kw_relationship|kw_class|kw_inheritance|kw_inderect_use);
+len_name: kw_len (kw_relationship|kw_class|kw_inheritance|kw_inderect_use);
 fontcolor_name: kw_fontcolor (kw_edge|kw_node) (kw_relationship|kw_class|kw_inheritance|kw_inderect_use);
 fontname_name: kw_fontname  (kw_edge|kw_node)  (kw_relationship|kw_class|kw_inheritance|kw_inderect_use);
 fontsize_name: kw_fontsize (kw_edge|kw_node) (kw_relationship|kw_class|kw_inheritance|kw_inderect_use);
