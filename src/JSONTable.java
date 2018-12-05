@@ -55,6 +55,26 @@ public class JSONTable {
         _clase.get(ultimaClase).add(proper);
     }
 
-   
+   public String toString(){
+        StringBuffer sb = new StringBuffer();
+        /*private HashMap<String, ArrayList<String>> _clase = new HashMap<>();
+        private HashMap<String, HashMap<String, String>> _nombre = new HashMap<>();
+        private ArrayList<HashMap<String, String>> _relaciones = new ArrayList<>();
+        private HashMap<Integer, ArrayList<String>> _propertiesRelationship = new HashMap<>();*/
+        sb.append("Las clases son: \n");
+        for(String clase: _clase.keySet()){
+            sb.append("Clase :"+clase+"\n");
+            for(String parametro:_clase.get(clase)){
+                sb.append("\t"+parametro+"\n");
+            }
+            for (String idNombre: _nombre.get(clase).keySet()){
+                sb.append("\t"+idNombre+" : ");
+                sb.append(nombres.get(idNombre)+"\n");
+            }
+        }
+        sb.append("Las relaciones son: \n");
+
+   }
+    
     
 }

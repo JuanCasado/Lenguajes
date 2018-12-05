@@ -38,20 +38,17 @@ public class transformacion {
             // System.out.println(e.toString());
         }
 
-        System.out.println("ESTO ES PARA IMPRIMIR CSV");
-
-        /*
-         * System.out.println("ESTO ES PARA IMPRIMIR JSON"); try { JSONTable tablaJSON =
-         * new JSONTable(); = new JSONListener(tablaJSON); ParseTree tree =
-         * procesarJSON(new
-         * FileInputStream("./../Documentos/ficheros_a_procesar.json"));
-         * walker.walk(listenerJSON, tree); // System.out.println(tablaJSON.toString());
-         * 
-         * for (int i = 0; i < tablaJSON.size(); i++) {
-         * System.out.println(tablaJSON.get(i, Content.json)); }
-         * System.out.println(tablaJSON.toDo(0).toString()); } catch (Exception e) {
-         * System.out.println("ERROR al procesar el archivo JSON"); }
-         */
+        System.out.println("PRUEBA JSON");
+        System.out.println("ESTO ES PARA IMPRIMIR JSON"); try { JSONTable tablaJSON =
+        new JSONTable(); = new JSONListener(tablaJSON); ParseTree tree =
+        procesarJSON(new FileInputStream("./../Documentos/ficheros_a_procesar.json"));
+        walker.walk(listenerJSON, tree); // System.out.println(tablaJSON.toString());
+        
+        for (int i = 0; i < tablaJSON.size(); i++) {
+            System.out.println(tablaJSON.get(i, Content.json)); }
+            System.out.println(tablaJSON.toDo(0).toString()); } catch (Exception e) {
+            System.out.println("ERROR al procesar el archivo JSON"); }
+        
     }
 
     /**
