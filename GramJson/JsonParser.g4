@@ -8,14 +8,15 @@ options{
 init: objeto*;
 
 objeto: (nombre_objeto DOSPUNTOS)? cuerpo_objeto COMA?;
-nombre_objeto: CADENA;
+nombre_objeto: cadena;
 cuerpo_objeto: ABRIR_LLAVE (objeto|atributo|lista)+ CERRAR_LLAVE;
 
-atributo: (nombre_atributo DOSPUNTOS)? valor_atributo;
-nombre_atributo: CADENA;
-valor_atributo: CADENA;
+atributo: (nombre_atributo DOSPUNTOS)? valor_atributo COMA?;
+nombre_atributo: cadena;
+valor_atributo: cadena;
 
-lista: (nombre_lista DOSPUNTOS)? cuerpo_lista;
-nombre_lista: CADENA;
+lista: (nombre_lista DOSPUNTOS)? cuerpo_lista COMA?;
+nombre_lista: cadena;
 cuerpo_lista: ABRIR_CORCHETE (objeto|atributo|lista)+ CERRAR_CORCHETE;
 
+cadena: (TEXTO|TRUE|FALSE);
