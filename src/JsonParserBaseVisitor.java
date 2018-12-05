@@ -1,8 +1,4 @@
 // Generated from JsonParser.g4 by ANTLR 4.7.1
-
-    package antlr;
-    
-
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
 /**
@@ -49,6 +45,27 @@ public class JsonParserBaseVisitor<T> extends AbstractParseTreeVisitor<T> implem
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
 	@Override public T visitAmpli_info(JsonParser.Ampli_infoContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitAmpli_info_content(JsonParser.Ampli_info_contentContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitContenido(JsonParser.ContenidoContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitOtro_nombre(JsonParser.Otro_nombreContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *

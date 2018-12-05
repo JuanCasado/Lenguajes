@@ -1,8 +1,4 @@
 // Generated from JsonParser.g4 by ANTLR 4.7.1
-
-    package antlr;
-    
-
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -43,6 +39,24 @@ public interface JsonParserVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitAmpli_info(JsonParser.Ampli_infoContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link JsonParser#ampli_info_content}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAmpli_info_content(JsonParser.Ampli_info_contentContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link JsonParser#contenido}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitContenido(JsonParser.ContenidoContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link JsonParser#otro_nombre}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitOtro_nombre(JsonParser.Otro_nombreContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link JsonParser#ruta}.
 	 * @param ctx the parse tree

@@ -1,9 +1,5 @@
 // Generated from JsonParser.g4 by ANTLR 4.7.1
 
-    package antlr;
-    
-
-
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
@@ -74,6 +70,42 @@ public class JsonParserBaseListener implements JsonParserListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitAmpli_info(JsonParser.Ampli_infoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterAmpli_info_content(JsonParser.Ampli_info_contentContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitAmpli_info_content(JsonParser.Ampli_info_contentContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterContenido(JsonParser.ContenidoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitContenido(JsonParser.ContenidoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterOtro_nombre(JsonParser.Otro_nombreContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitOtro_nombre(JsonParser.Otro_nombreContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
