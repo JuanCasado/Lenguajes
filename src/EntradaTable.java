@@ -37,10 +37,10 @@ public class EntradaTable {
         }
     }
 
-    private static final String parametros_f1[] = { "len", "fontcol", "fontname", "fontsize", "arrowsize", "arrowcol",
-            "penwidth", "fillcol", "style", "shape" };
-    private static final String parametros_f2[] = { "rel", "class", "inher", "inder" };
-    private static final String parametros_f3[] = { "edge", "node", };
+    private static final String parametros_f1[] = { "-len", "-fontcol", "-fontname", "-fontsize", "-arrowsize",
+            "-arrowcol", "-penwidth", "-fillcol", "-style", "-shape" };
+    private static final String parametros_f2[] = { "_rel=", "_class=", "_inher=", "_inder=" };
+    private static final String parametros_f3[] = { "_edge=", "_node=", };
 
     /**
      * Método que se encarga de añadir un JSON nuevo a la lista de JSON de la
