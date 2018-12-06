@@ -38,18 +38,20 @@ public class transformacion {
             // System.out.println(e.toString());
         }
 
-        /*
-         * System.out.
-         * println("-------------------------------------------------------\nPRUEBA JSON"
-         * ); System.out.println("ESTO ES PARA IMPRIMIR JSON"); try { JSONTable
-         * tablaJSON = new JSONTable(); new JsonVisitor(tablaJSON)
-         * .visit(procesarJSON(new
-         * FileInputStream("./../Documentos/nschema-RelacionFamiliar.json")));
-         * 
-         * System.out.println(tablaJSON.toString()); } catch (Exception e) { //
-         * System.out.println("ERROR al procesar el archivo JSON");
-         * System.out.println(e.toString()); }
-         */
+        System.out.println("-------------------------------------------------------\nPRUEBA JSON");
+        System.out.println("ESTO ES PARA IMPRIMIR JSON");
+        try {
+            JSONTable tablaJSON = new JSONTable();
+            JSONListener listenerJSON = new JSONListener(tablaJSON);
+            ParseTree treeJSON = procesarJSON(new FileInputStream("./../Documentos/nschema-RelacionFamiliar.json"));
+            walker.walk(listenerJSON, treeJSON);
+
+            System.out.println(tablaJSON.toString());
+        } catch (Exception e) {
+            System.out.println("ERROR al procesar el archivo JSON");
+            System.out.println(e.toString());
+        }
+
     }
 
     /**

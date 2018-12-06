@@ -16,4 +16,9 @@ public class JSONListener extends JSONParserBaseListener {
         super();
         _tablasimbolos = p_ts;
     }
+
+    @Override
+    public void exitGraph(JSONParser.GraphContext ctx) {
+        System.out.println(ctx.getParent().getParent().getParent().nombre_objeto().getText());
+    }
 }
