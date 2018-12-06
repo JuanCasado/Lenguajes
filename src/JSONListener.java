@@ -18,7 +18,14 @@ public class JSONListener extends JSONParserBaseListener {
     }
 
     @Override
-    public void exitGraph(JSONParser.GraphContext ctx) {
-        System.out.println(ctx.getParent().getParent().getParent().nombre_objeto().getText());
+    public void enterGraph(JSONParser.GraphContext ctx) {
+        System.out.println(ctx.getParent().getParent().getParent().getStart().getText());
+        _tablasimbolos.addGrafo(ctx.getParent().getParent().getParent().getStart().getText());
+    }
+
+    @Override
+    public void enterArbol(JSONParser.ArbolContext ctx) {
+        System.out.println(ctx.getParent().getParent().getParent().getStart().getText());
+        _tablasimbolos.addGrafo(ctx.getParent().getParent().getParent().getStart().getText());
     }
 }
