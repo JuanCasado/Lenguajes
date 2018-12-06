@@ -9,7 +9,7 @@ public class CSVListener extends CSVParserBaseListener {
 
     private CSVTable _tablasimbolos;
 
-    public CSVListener() {
+    private CSVListener() {
         super();
     }
 

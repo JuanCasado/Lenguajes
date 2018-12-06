@@ -8,7 +8,7 @@ public class EntradaListener extends EntradaParserBaseListener {
     public static final String CAMPO_VACIO = "";
     private EntradaTable _tablasimbolos;
 
-    public EntradaListener() {
+    private EntradaListener() {
         super();
     }
 
