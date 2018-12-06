@@ -7,6 +7,8 @@ lexer grammar JSONLexer;
 GRAPH: '"@graph"';
 TREE: '"@tree"';
 PROPERTIES: '"properties"' P_SPACE ':' P_SPACE '[';
+USEDBY: '"usedby"';
+LANGUAGEDATA: '"languageData"';
 fragment P_SPACE: ' '*;
 
 //  ATRIBUTOS
@@ -18,7 +20,15 @@ KW_TYPE_OF: '"typeOf"';
 KW_IS_LIST: '"isList"';
 KW_OPTIONAL: '"optional"';
 KW_MULTIPLICITY_MAX: '"multiplicityMax"';
+KW_MULTIPLICITY_MIN: '"multiplicityMin"';
+KW_REVERSE_NAME: '"reverseName"';
+KW_FROM: '"from"';
+KW_TO: '"to"';
+KW_INHERITS: '"inherits"';
 
+//  OBJETOS
+LABEL: '"label"';
+LABEL_REVERSENAME: '"labelReverseName"';
 
 ESTADO_CONTEXT: '"@context"' -> pushMode(CONTEXT_MODE);
 

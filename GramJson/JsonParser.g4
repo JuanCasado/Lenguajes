@@ -8,10 +8,24 @@ options{
 init: objeto*;
 
 objeto: estado_context 
-    |(nombre_objeto DOSPUNTOS)? cuerpo_objeto COMA?
+    | (nombre_label DOSPUNTOS)? cuerpo_label COMA?
+    | (nombre_label_reversename DOSPUNTOS)? cuerpo_label_reversename COMA?
+    | (nombre_objeto DOSPUNTOS)? cuerpo_objeto COMA?
     ;
 nombre_objeto: cadena;
 cuerpo_objeto: ABRIR_LLAVE (objeto|atributo|lista)+ CERRAR_LLAVE;
+
+nombre_label: LABEL;
+label_clave: cadena;
+label_valor: cadena;
+contenido_label: label_clave DOSPUNTOS label_valor COMA?;
+cuerpo_label: ABRIR_LLAVE contenido_label+ CERRAR_LLAVE;
+
+nombre_label_reversename: LABEL_REVERSENAME;
+label_reversename_clave: cadena;
+label_reversename_valor: cadena;
+contenido_label_reversename: label_reversename_clave DOSPUNTOS label_reversename_valor COMA?;
+cuerpo_label_reversename: ABRIR_LLAVE contenido_label_reversename+ CERRAR_LLAVE;
 
 atributo: kw_id  DOSPUNTOS valor_id COMA?
     | kw_geder DOSPUNTOS  valor_gender  COMA?
@@ -21,15 +35,22 @@ atributo: kw_id  DOSPUNTOS valor_id COMA?
     | kw_is_list DOSPUNTOS valor_is_list COMA?
     | kw_optional DOSPUNTOS valor_optional COMA?
     | kw_multiplicity_max DOSPUNTOS valor_multiplicity_max COMA?
+    | kw_multiplicity_min DOSPUNTOS valor_multiplicity_min COMA?
+    | kw_reverse_name DOSPUNTOS valor_reverse_name COMA?
+    | kw_from DOSPUNTOS valor_from COMA?
+    | kw_to DOSPUNTOS valor_to COMA?
+    | kw_inherits DOSPUNTOS valor_inherits COMA?
     |(nombre_atributo DOSPUNTOS)? valor_atributo COMA?
     ;
 nombre_atributo: cadena;
 valor_atributo: cadena;
 
 lista: //(graphs DOSPUNTOS) cuerpo_graphs COMA?
-     (graph DOSPUNTOS) cuerpo_graph COMA?
+     graph DOSPUNTOS cuerpo_graph COMA?
     | properties cuerpo_properties COMA?
-    | (arbol DOSPUNTOS) cuerpo_tree COMA?
+    | arbol DOSPUNTOS cuerpo_tree COMA?
+    | usedby DOSPUNTOS cuerpo_usedby COMA?
+    | languajedata DOSPUNTOS cuerpo_languagedata COMA?
     | (nombre_lista DOSPUNTOS)? cuerpo_lista COMA?
     ;
 nombre_lista: cadena;
@@ -39,10 +60,21 @@ cuerpo_lista: ABRIR_CORCHETE (objeto|atributo|lista)+ CERRAR_CORCHETE;
 cuerpo_graphs: ABRIR_CORCHETE objeto+ CERRAR_CORCHETE;*/
 graph: GRAPH;
 cuerpo_graph: ABRIR_CORCHETE objeto+ CERRAR_CORCHETE;
+
 properties: PROPERTIES;
-cuerpo_properties: atributo+ CERRAR_CORCHETE;
+valor_propertie: cadena COMA?;
+cuerpo_properties: valor_propertie+ CERRAR_CORCHETE;
+
 arbol: TREE;
 cuerpo_tree: ABRIR_CORCHETE objeto+ CERRAR_CORCHETE;
+
+usedby: USEDBY;
+valor_usedby: cadena COMA?;
+cuerpo_usedby: ABRIR_CORCHETE valor_usedby+ CERRAR_CORCHETE;
+
+languajedata: LANGUAGEDATA;
+cuerpo_languagedata: ABRIR_CORCHETE atributo+ CERRAR_CORCHETE;
+
 
 cadena: (TEXTO|BOOLEANO);
 
@@ -62,6 +94,17 @@ kw_optional: KW_OPTIONAL;
 valor_optional: cadena;
 kw_multiplicity_max: KW_MULTIPLICITY_MAX;
 valor_multiplicity_max: cadena;
+kw_multiplicity_min: KW_MULTIPLICITY_MIN;
+valor_multiplicity_min: cadena;
+kw_reverse_name: KW_REVERSE_NAME;
+valor_reverse_name: cadena;
+kw_from: KW_FROM;
+valor_from: cadena;
+kw_to: KW_TO;
+kw_inherits: KW_INHERITS;
+valor_inherits: cadena;
+
+valor_to: cadena;
 
 
 estado_context: ESTADO_CONTEXT CERRARCONTEXT;

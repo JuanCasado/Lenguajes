@@ -47,6 +47,106 @@ public interface JSONParserListener extends ParseTreeListener {
 	 */
 	void exitCuerpo_objeto(JSONParser.Cuerpo_objetoContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link JSONParser#nombre_label}.
+	 * @param ctx the parse tree
+	 */
+	void enterNombre_label(JSONParser.Nombre_labelContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#nombre_label}.
+	 * @param ctx the parse tree
+	 */
+	void exitNombre_label(JSONParser.Nombre_labelContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JSONParser#label_clave}.
+	 * @param ctx the parse tree
+	 */
+	void enterLabel_clave(JSONParser.Label_claveContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#label_clave}.
+	 * @param ctx the parse tree
+	 */
+	void exitLabel_clave(JSONParser.Label_claveContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JSONParser#label_valor}.
+	 * @param ctx the parse tree
+	 */
+	void enterLabel_valor(JSONParser.Label_valorContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#label_valor}.
+	 * @param ctx the parse tree
+	 */
+	void exitLabel_valor(JSONParser.Label_valorContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JSONParser#contenido_label}.
+	 * @param ctx the parse tree
+	 */
+	void enterContenido_label(JSONParser.Contenido_labelContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#contenido_label}.
+	 * @param ctx the parse tree
+	 */
+	void exitContenido_label(JSONParser.Contenido_labelContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JSONParser#cuerpo_label}.
+	 * @param ctx the parse tree
+	 */
+	void enterCuerpo_label(JSONParser.Cuerpo_labelContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#cuerpo_label}.
+	 * @param ctx the parse tree
+	 */
+	void exitCuerpo_label(JSONParser.Cuerpo_labelContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JSONParser#nombre_label_reversename}.
+	 * @param ctx the parse tree
+	 */
+	void enterNombre_label_reversename(JSONParser.Nombre_label_reversenameContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#nombre_label_reversename}.
+	 * @param ctx the parse tree
+	 */
+	void exitNombre_label_reversename(JSONParser.Nombre_label_reversenameContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JSONParser#label_reversename_clave}.
+	 * @param ctx the parse tree
+	 */
+	void enterLabel_reversename_clave(JSONParser.Label_reversename_claveContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#label_reversename_clave}.
+	 * @param ctx the parse tree
+	 */
+	void exitLabel_reversename_clave(JSONParser.Label_reversename_claveContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JSONParser#label_reversename_valor}.
+	 * @param ctx the parse tree
+	 */
+	void enterLabel_reversename_valor(JSONParser.Label_reversename_valorContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#label_reversename_valor}.
+	 * @param ctx the parse tree
+	 */
+	void exitLabel_reversename_valor(JSONParser.Label_reversename_valorContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JSONParser#contenido_label_reversename}.
+	 * @param ctx the parse tree
+	 */
+	void enterContenido_label_reversename(JSONParser.Contenido_label_reversenameContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#contenido_label_reversename}.
+	 * @param ctx the parse tree
+	 */
+	void exitContenido_label_reversename(JSONParser.Contenido_label_reversenameContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JSONParser#cuerpo_label_reversename}.
+	 * @param ctx the parse tree
+	 */
+	void enterCuerpo_label_reversename(JSONParser.Cuerpo_label_reversenameContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#cuerpo_label_reversename}.
+	 * @param ctx the parse tree
+	 */
+	void exitCuerpo_label_reversename(JSONParser.Cuerpo_label_reversenameContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link JSONParser#atributo}.
 	 * @param ctx the parse tree
 	 */
@@ -137,6 +237,16 @@ public interface JSONParserListener extends ParseTreeListener {
 	 */
 	void exitProperties(JSONParser.PropertiesContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link JSONParser#valor_propertie}.
+	 * @param ctx the parse tree
+	 */
+	void enterValor_propertie(JSONParser.Valor_propertieContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#valor_propertie}.
+	 * @param ctx the parse tree
+	 */
+	void exitValor_propertie(JSONParser.Valor_propertieContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link JSONParser#cuerpo_properties}.
 	 * @param ctx the parse tree
 	 */
@@ -166,6 +276,56 @@ public interface JSONParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitCuerpo_tree(JSONParser.Cuerpo_treeContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JSONParser#usedby}.
+	 * @param ctx the parse tree
+	 */
+	void enterUsedby(JSONParser.UsedbyContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#usedby}.
+	 * @param ctx the parse tree
+	 */
+	void exitUsedby(JSONParser.UsedbyContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JSONParser#valor_usedby}.
+	 * @param ctx the parse tree
+	 */
+	void enterValor_usedby(JSONParser.Valor_usedbyContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#valor_usedby}.
+	 * @param ctx the parse tree
+	 */
+	void exitValor_usedby(JSONParser.Valor_usedbyContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JSONParser#cuerpo_usedby}.
+	 * @param ctx the parse tree
+	 */
+	void enterCuerpo_usedby(JSONParser.Cuerpo_usedbyContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#cuerpo_usedby}.
+	 * @param ctx the parse tree
+	 */
+	void exitCuerpo_usedby(JSONParser.Cuerpo_usedbyContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JSONParser#languajedata}.
+	 * @param ctx the parse tree
+	 */
+	void enterLanguajedata(JSONParser.LanguajedataContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#languajedata}.
+	 * @param ctx the parse tree
+	 */
+	void exitLanguajedata(JSONParser.LanguajedataContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JSONParser#cuerpo_languagedata}.
+	 * @param ctx the parse tree
+	 */
+	void enterCuerpo_languagedata(JSONParser.Cuerpo_languagedataContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#cuerpo_languagedata}.
+	 * @param ctx the parse tree
+	 */
+	void exitCuerpo_languagedata(JSONParser.Cuerpo_languagedataContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link JSONParser#cadena}.
 	 * @param ctx the parse tree
@@ -336,6 +496,106 @@ public interface JSONParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitValor_multiplicity_max(JSONParser.Valor_multiplicity_maxContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JSONParser#kw_multiplicity_min}.
+	 * @param ctx the parse tree
+	 */
+	void enterKw_multiplicity_min(JSONParser.Kw_multiplicity_minContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#kw_multiplicity_min}.
+	 * @param ctx the parse tree
+	 */
+	void exitKw_multiplicity_min(JSONParser.Kw_multiplicity_minContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JSONParser#valor_multiplicity_min}.
+	 * @param ctx the parse tree
+	 */
+	void enterValor_multiplicity_min(JSONParser.Valor_multiplicity_minContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#valor_multiplicity_min}.
+	 * @param ctx the parse tree
+	 */
+	void exitValor_multiplicity_min(JSONParser.Valor_multiplicity_minContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JSONParser#kw_reverse_name}.
+	 * @param ctx the parse tree
+	 */
+	void enterKw_reverse_name(JSONParser.Kw_reverse_nameContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#kw_reverse_name}.
+	 * @param ctx the parse tree
+	 */
+	void exitKw_reverse_name(JSONParser.Kw_reverse_nameContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JSONParser#valor_reverse_name}.
+	 * @param ctx the parse tree
+	 */
+	void enterValor_reverse_name(JSONParser.Valor_reverse_nameContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#valor_reverse_name}.
+	 * @param ctx the parse tree
+	 */
+	void exitValor_reverse_name(JSONParser.Valor_reverse_nameContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JSONParser#kw_from}.
+	 * @param ctx the parse tree
+	 */
+	void enterKw_from(JSONParser.Kw_fromContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#kw_from}.
+	 * @param ctx the parse tree
+	 */
+	void exitKw_from(JSONParser.Kw_fromContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JSONParser#valor_from}.
+	 * @param ctx the parse tree
+	 */
+	void enterValor_from(JSONParser.Valor_fromContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#valor_from}.
+	 * @param ctx the parse tree
+	 */
+	void exitValor_from(JSONParser.Valor_fromContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JSONParser#kw_to}.
+	 * @param ctx the parse tree
+	 */
+	void enterKw_to(JSONParser.Kw_toContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#kw_to}.
+	 * @param ctx the parse tree
+	 */
+	void exitKw_to(JSONParser.Kw_toContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JSONParser#kw_inherits}.
+	 * @param ctx the parse tree
+	 */
+	void enterKw_inherits(JSONParser.Kw_inheritsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#kw_inherits}.
+	 * @param ctx the parse tree
+	 */
+	void exitKw_inherits(JSONParser.Kw_inheritsContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JSONParser#valor_inherits}.
+	 * @param ctx the parse tree
+	 */
+	void enterValor_inherits(JSONParser.Valor_inheritsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#valor_inherits}.
+	 * @param ctx the parse tree
+	 */
+	void exitValor_inherits(JSONParser.Valor_inheritsContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JSONParser#valor_to}.
+	 * @param ctx the parse tree
+	 */
+	void enterValor_to(JSONParser.Valor_toContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#valor_to}.
+	 * @param ctx the parse tree
+	 */
+	void exitValor_to(JSONParser.Valor_toContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link JSONParser#estado_context}.
 	 * @param ctx the parse tree
