@@ -128,4 +128,14 @@ public class JSONListener extends JSONParserBaseListener {
             _tablasimbolos.addLabel(ctx.label_clave().getText(), "");
         }
     }
+
+    @Override
+    public void enterContenido_label_reversename(JSONParser.Contenido_label_reversenameContext ctx) {
+        if (ctx.label_reversename_valor().getText() != null) {
+            _tablasimbolos.addLabelReverseName(ctx.label_reversename_clave().getText(),
+                    ctx.label_reversename_valor().getText());
+        } else {
+            _tablasimbolos.addLabelReverseName(ctx.label_reversename_clave().getText(), "");
+        }
+    }
 }

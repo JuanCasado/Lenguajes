@@ -28,6 +28,7 @@ contenido_label_reversename: label_reversename_clave DOSPUNTOS label_reversename
 cuerpo_label_reversename: ABRIR_LLAVE contenido_label_reversename+ CERRAR_LLAVE;
 
 atributo: kw_id  DOSPUNTOS valor_id COMA?
+    | kw_name  DOSPUNTOS valor_name COMA?
     | kw_geder DOSPUNTOS  valor_gender  COMA?
     | kw_number DOSPUNTOS valor_number COMA?
     | kw_word_type DOSPUNTOS valor_word_type COMA?
@@ -80,6 +81,8 @@ cadena: (TEXTO|BOOLEANO);
 
 kw_id: KW_ID;
 valor_id: cadena;
+kw_name: KW_NAME;
+valor_name: cadena;
 kw_geder: KW_GENDER;
 valor_gender: cadena;
 kw_number: KW_NUMBER;

@@ -13,6 +13,7 @@ fragment P_SPACE: ' '*;
 
 //  ATRIBUTOS
 KW_ID: '"@id"';
+KW_NAME: '"name"';
 KW_GENDER: '"gender"';
 KW_NUMBER: '"number"';
 KW_WORD_TYPE: '"wordType"';

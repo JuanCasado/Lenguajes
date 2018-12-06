@@ -30,6 +30,7 @@ COMA=29
 WS=30
 CERRARCONTEXT=31
 INFO=32
+KW_NAME=33
 '"@graph"'=1
 '"@tree"'=2
 '"usedby"'=4
