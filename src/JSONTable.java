@@ -21,28 +21,32 @@ public class JSONTable {
         _grafos.put(nombreGrafo, ultimoGrafo);
     }
 
-    public void addId(String id) {
-
+    public void addClase(String id) {
+        ultimoGrafo.addClase(id);
     }
 
-    public void addName(String name) {
+    public void addRelationship(String id) {
+        ultimoGrafo.addRelationship(id);
     }
 
-    public void addLabel(String label, String contenido) {
+    public void addProperty(String id) {
+        ultimoGrafo.addProperty(id);
     }
 
-    public void addRelaciones(String rel) {
-
+    public void addPropertyGender(String gender) {
+        ultimoGrafo.addPropertyGender(gender);
     }
 
-    public void addProperties(String proper) {
+    public void addPropertyNumber(String number) {
+        ultimoGrafo.addPropertyGender(number);
     }
 
     public String toString() {
         StringBuffer sb = new StringBuffer();
         for (String nombreGrafo : _grafos.keySet()) {
-            sb.append("Grafos: " + nombreGrafo + "\n");
+            sb.append("\nGrafos: " + nombreGrafo + "\n");
             GrafoJSON grafo = _grafos.get(nombreGrafo);
+            sb.append(grafo.toString());
         }
         return sb.toString();
     }
