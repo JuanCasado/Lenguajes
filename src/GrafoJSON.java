@@ -6,12 +6,18 @@ public class GrafoJSON {
     private ClaseJSON ultimaClase;
     private String ultimaClaseId;
     private RelacionJSON ultimaRelacion;
+    private Engine engine;
     private int ultimoIntroducido; // 0->clase, 1->relacion, 2->property
     private HashMap<String, String> ultimaProperty;
+    private String ultimaPropertyId;
     private HashMap<String, HashMap<String, String>> bufferProperties = new HashMap<>();
 
     public void addUltimo(int num) {
         ultimoIntroducido = num;
+    }
+
+    public void setEngine(Engine engine) {
+        this.engine = engine;
     }
 
     public void addClase(String clase) {
@@ -28,13 +34,40 @@ public class GrafoJSON {
         ultimoIntroducido = 1;
         ultimaRelacion = new RelacionJSON(relationship);
         _relaciones.add(ultimaRelacion);
-
+        if (bufferProperties.keySet().contains(relationship)) {
+            ultimaRelacion.addCreatedProperty(bufferProperties.get(relationship));
+        }
     }
 
     public void addProperty(String property) {
         ultimoIntroducido = 2;
-        ultimaProperty = new HashMap<>();
-        bufferProperties.put(property, ultimaProperty);
+        ultimaPropertyId = property;
+        if (bufferProperties.containsKey(property)) {
+            ultimaProperty = bufferProperties.get(property);
+        } else {
+            ultimaProperty = new HashMap<>();
+            bufferProperties.put(property, ultimaProperty);
+        }
+    }
+
+    public void addUsedBy(String usedBy) {
+        if (usedBy.contains("class#")) {
+            if (_clases.containsKey(usedBy)) {
+                _clases.get(usedBy).addFullProperty(ultimaPropertyId, ultimaProperty);
+                return;
+            }
+        } else if (usedBy.contains("relationship#")) {
+            for (RelacionJSON rel : _relaciones) {
+                if (rel.getID().equals(usedBy)) {
+                    rel.addFullProperty(ultimaPropertyId, ultimaProperty);
+                    return;
+                }
+            }
+        } else {
+            return;
+        }
+        ultimaProperty.put("@ID_PROPRETY@", ultimaPropertyId);
+        bufferProperties.put(usedBy, ultimaProperty);
     }
 
     public void addLabel(String clave, String valor) {
@@ -51,6 +84,29 @@ public class GrafoJSON {
         }
     }
 
+    public void addValorProperty(String property) {
+        if (bufferProperties.containsKey(property)) {
+            switch (ultimoIntroducido) {
+            case 0:
+                ultimaClase.addValorProperty(property, bufferProperties.get(property));
+                break;
+            case 1:
+                ultimaRelacion.addValorProperty(property, bufferProperties.get(property));
+                break;
+            }
+        } else {
+            bufferProperties.put(property, new HashMap<String, String>());
+            switch (ultimoIntroducido) {
+            case 0:
+                ultimaClase.addValorProperty(property);
+                break;
+            case 1:
+                ultimaRelacion.addValorProperty(property);
+                break;
+            }
+        }
+    }
+
     public void addLabelReverseName(String clave, String valor) {
         ultimaRelacion.addLabel("reverse_" + clave, valor);
     }
@@ -64,7 +120,7 @@ public class GrafoJSON {
             ultimaRelacion.addLabel("name", name);
             break;
         case 2:
-            ultimaProperty.put(clave, valor);
+            ultimaProperty.put("name", name);
             break;
         }
     }
@@ -123,6 +179,7 @@ public class GrafoJSON {
     public String toString() {
         StringBuffer sb = new StringBuffer();
 
+        sb.append("TIPO: " + engine.toString() + "\n");
         for (String claseId : _clases.keySet()) {
             ClaseJSON clase = _clases.get(claseId);
             sb.append("\tClase: " + claseId + "\n");

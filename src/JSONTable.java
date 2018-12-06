@@ -21,6 +21,18 @@ public class JSONTable {
         _grafos.put(nombreGrafo, ultimoGrafo);
     }
 
+    public void setEngine(Engine engine) {
+        ultimoGrafo.setEngine(engine);
+    }
+
+    public void addValorProperty(String property) {
+        ultimoGrafo.addValorProperty(property);
+    }
+
+    public void addUsedBy(String usedBy) {
+        ultimoGrafo.addUsedBy(usedBy);
+    }
+
     public void addClase(String id) {
         ultimoGrafo.addClase(id);
     }

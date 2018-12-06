@@ -21,12 +21,14 @@ public class JSONListener extends JSONParserBaseListener {
     public void enterGraph(JSONParser.GraphContext ctx) {
         // System.out.println(ctx.getParent().getParent().getParent().getStart().getText());
         _tablasimbolos.addGrafo(ctx.getParent().getParent().getParent().getStart().getText());
+        _tablasimbolos.setEngine(Engine.neato);
     }
 
     @Override
     public void enterArbol(JSONParser.ArbolContext ctx) {
         // System.out.println(ctx.getParent().getParent().getParent().getStart().getText());
         _tablasimbolos.addGrafo(ctx.getParent().getParent().getParent().getStart().getText());
+        _tablasimbolos.setEngine(Engine.dot);
     }
 
     @Override
@@ -142,5 +144,15 @@ public class JSONListener extends JSONParserBaseListener {
     @Override
     public void enterValor_name(JSONParser.Valor_nameContext ctx) {
         _tablasimbolos.addName(ctx.getText());
+    }
+
+    @Override
+    public void enterValor_propertie(JSONParser.Valor_propertieContext ctx) {
+        _tablasimbolos.addValorProperty(ctx.getText());
+    }
+
+    @Override
+    public void enterUsedby(JSONParser.UsedbyContext ctx) {
+        _tablasimbolos.addUsedBy(ctx.getText());
     }
 }

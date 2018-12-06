@@ -46,8 +46,7 @@ atributo: kw_id  DOSPUNTOS valor_id COMA?
 nombre_atributo: cadena;
 valor_atributo: cadena;
 
-lista: //(graphs DOSPUNTOS) cuerpo_graphs COMA?
-     graph DOSPUNTOS cuerpo_graph COMA?
+lista: graph DOSPUNTOS cuerpo_graph COMA?
     | properties cuerpo_properties COMA?
     | arbol DOSPUNTOS cuerpo_tree COMA?
     | usedby DOSPUNTOS cuerpo_usedby COMA?
@@ -57,8 +56,6 @@ lista: //(graphs DOSPUNTOS) cuerpo_graphs COMA?
 nombre_lista: cadena;
 cuerpo_lista: ABRIR_CORCHETE (objeto|atributo|lista)+ CERRAR_CORCHETE;
 
-/*graphs: GRAPHS;
-cuerpo_graphs: ABRIR_CORCHETE objeto+ CERRAR_CORCHETE;*/
 graph: GRAPH;
 cuerpo_graph: ABRIR_CORCHETE objeto+ CERRAR_CORCHETE;
 
