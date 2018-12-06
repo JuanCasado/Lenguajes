@@ -4,12 +4,20 @@ public class GrafoJSON {
     private HashMap<String, ClaseJSON> _clases = new HashMap<>();
     private ArrayList<RelacionJSON> _relaciones = new ArrayList<>();
     private ClaseJSON ultimaClase;
+    private String ultimaClaseId;
     private RelacionJSON ultimaRelacion;
+    private int ultimoIntroducido; // 0->clase, 1->relacion, 2->property
     private HashMap<String, String> ultimaProperty;
     private HashMap<String, HashMap<String, String>> bufferProperties = new HashMap<>();
 
+    public void addUltimo(int num) {
+        ultimoIntroducido = num;
+    }
+
     public void addClase(String clase) {
         ultimaClase = new ClaseJSON();
+        ultimaClaseId = clase;
+        ultimoIntroducido = 0;
         _clases.put(clase, ultimaClase);
         if (bufferProperties.keySet().contains(clase)) {
             ultimaClase.addCreatedProperty(bufferProperties.get(clase));
@@ -17,14 +25,30 @@ public class GrafoJSON {
     }
 
     public void addRelationship(String relationship) {
+        ultimoIntroducido = 1;
         ultimaRelacion = new RelacionJSON(relationship);
         _relaciones.add(ultimaRelacion);
 
     }
 
     public void addProperty(String property) {
+        ultimoIntroducido = 2;
         ultimaProperty = new HashMap<>();
         bufferProperties.put(property, ultimaProperty);
+    }
+
+    public void addLabel(String clave, String valor) {
+        switch (ultimoIntroducido) {
+        case 0:
+            ultimaClase.addLabel(clave, valor);
+            break;
+        case 1:
+            ultimaRelacion.addLabel(clave, valor);
+            break;
+        case 2:
+            ultimaProperty.put(clave, valor);
+            break;
+        }
     }
 
     public void addPropertyGender(String gender) {
@@ -69,6 +93,13 @@ public class GrafoJSON {
 
     public void addRelationshipTo(String to) {
         ultimaRelacion.addTo(to);
+    }
+
+    public void addRelationshipFromClass(String inherit) {
+        RelacionJSON herencia = new RelacionJSON("");
+        _relaciones.add(herencia);
+        herencia.addFrom(ultimaClaseId);
+        herencia.addTo(inherit);
     }
 
     public String toString() {

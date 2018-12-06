@@ -96,4 +96,36 @@ public class JSONListener extends JSONParserBaseListener {
     public void enterValor_to(JSONParser.Valor_toContext ctx) {
         _tablasimbolos.addRelationshipTo(ctx.getText());
     }
+
+    @Override
+    public void enterValor_inherits(JSONParser.Valor_inheritsContext ctx) {
+        _tablasimbolos.addRelationshipFromClass(ctx.getText());
+    }
+
+    @Override
+    public void enterCuerpo_objeto(JSONParser.Cuerpo_objetoContext ctx) {
+        if (ctx.atributo() != null) {
+            for (JSONParser.AtributoContext atributo : ctx.atributo()) {
+                if (atributo.valor_id() != null) {
+                    String cadena = atributo.valor_id().getText();
+                    if (cadena.contains("class#")) {
+                        _tablasimbolos.addUltimo(0);
+                    } else if (cadena.contains("relationship#")) {
+                        _tablasimbolos.addUltimo(1);
+                    } else if (cadena.contains("property#")) {
+                        _tablasimbolos.addUltimo(2);
+                    }
+                }
+            }
+        }
+    }
+
+    @Override
+    public void enterContenido_label(JSONParser.Contenido_labelContext ctx) {
+        if (ctx.label_valor().getText() != null) {
+            _tablasimbolos.addLabel(ctx.label_clave().getText(), ctx.label_valor().getText());
+        } else {
+            _tablasimbolos.addLabel(ctx.label_clave().getText(), "");
+        }
+    }
 }

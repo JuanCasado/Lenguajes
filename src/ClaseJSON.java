@@ -8,6 +8,10 @@ public class ClaseJSON {
         _properties.put(property.get("@ID_PROPRETY@"), property);
     }
 
+    public void addLabel(String clave, String valor) {
+        _names.put(clave, valor);
+    }
+
     public String toString() {
         StringBuffer sb = new StringBuffer();
 

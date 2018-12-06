@@ -10,6 +10,10 @@ public class RelacionJSON {
         id = relacion;
     }
 
+    public void addLabel(String clave, String valor) {
+        _names.put(clave, valor);
+    }
+
     public void addReverseName(String reverseName) {
         _names.put("reverseName", reverseName);
     }
@@ -29,12 +33,12 @@ public class RelacionJSON {
 
         sb.append("\t\tCLASES: \n");
         for (String nombreClase : _clases.keySet()) {
-            sb.append("\t\t" + nombreClase + " : " + _clases.get(nombreClase) + "\n");
+            sb.append("\t\t\t" + nombreClase + " : " + _clases.get(nombreClase) + "\n");
         }
 
         sb.append("\t\tNOMBRES: \n");
         for (String nombres : _names.keySet()) {
-            sb.append("\t\t" + nombres + " : " + _names.get(nombres) + "\n");
+            sb.append("\t\t\t" + nombres + " : " + _names.get(nombres) + "\n");
         }
 
         sb.append("\t\tPROPERTIES: \n");

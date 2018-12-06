@@ -77,6 +77,18 @@ public class JSONTable {
         ultimoGrafo.addRelationshipTo(to);
     }
 
+    public void addRelationshipFromClass(String inherit) {
+        ultimoGrafo.addRelationshipFromClass(inherit);
+    }
+
+    public void addUltimo(int num) {
+        ultimoGrafo.addUltimo(num);
+    }
+
+    public void addLabel(String clave, String valor) {
+        ultimoGrafo.addLabel(clave, valor);
+    }
+
     public String toString() {
         StringBuffer sb = new StringBuffer();
         for (String nombreGrafo : _grafos.keySet()) {
@@ -86,5 +98,4 @@ public class JSONTable {
         }
         return sb.toString();
     }
-
 }
