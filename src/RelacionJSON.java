@@ -14,6 +14,14 @@ public class RelacionJSON {
         _names.put("reverseName", reverseName);
     }
 
+    public void addFrom(String from) {
+        _clases.put("from", from);
+    }
+
+    public void addTo(String to) {
+        _clases.put("to", to);
+    }
+
     public String toString() {
         StringBuffer sb = new StringBuffer();
 

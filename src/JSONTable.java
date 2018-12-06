@@ -73,6 +73,10 @@ public class JSONTable {
         ultimoGrafo.addRelationshipFrom(from);
     }
 
+    public void addRelationshipTo(String to) {
+        ultimoGrafo.addRelationshipTo(to);
+    }
+
     public String toString() {
         StringBuffer sb = new StringBuffer();
         for (String nombreGrafo : _grafos.keySet()) {

@@ -63,6 +63,14 @@ public class GrafoJSON {
         ultimaRelacion.addReverseName(reverseName);
     }
 
+    public void addRelationshipFrom(String from) {
+        ultimaRelacion.addFrom(from);
+    }
+
+    public void addRelationshipTo(String to) {
+        ultimaRelacion.addTo(to);
+    }
+
     public String toString() {
         StringBuffer sb = new StringBuffer();
 
