@@ -12,17 +12,16 @@ public class GraphGenerator{
         twopi
     }
 
-    public static String generateGraph (Engine process, String from, String to) throws Exception{
+    public static void generateGraphiFromFile (Engine process, String from, String to) throws Exception{
         Process p = Runtime.getRuntime().exec(process.toString()+" -Tsvg " + from + " -o "+ to);
+    }
+
+    public static void generateGraphFromString (Engine process, String dot, String to) throws Exception{
+        Process p = Runtime.getRuntime().exec(process.toString()+" -Tsvg " + dot + " -o "+ to);
         //p.waitFor();
-        BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
-        //BufferedWriter writter = new BufferedWriter (new OutputStreamWriter(p.getOutputStream()));
-        StringBuffer sb = new StringBuffer();
-        String line = "";
-        while ((line = reader.readLine()) != null) {
-            sb.append(line + "\n");
-        }
-        return sb.toString();
+        //BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+        BufferedWriter writter = new BufferedWriter (new OutputStreamWriter(p.getOutputStream()));
+        writter.write(dot);
     }
 
     public static void abrirURL(String url){
