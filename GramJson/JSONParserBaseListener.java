@@ -339,25 +339,73 @@ public class JSONParserBaseListener implements JSONParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterKw_islist(JSONParser.Kw_islistContext ctx) { }
+	@Override public void enterKw_is_list(JSONParser.Kw_is_listContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitKw_islist(JSONParser.Kw_islistContext ctx) { }
+	@Override public void exitKw_is_list(JSONParser.Kw_is_listContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterValor_islist(JSONParser.Valor_islistContext ctx) { }
+	@Override public void enterValor_is_list(JSONParser.Valor_is_listContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitValor_islist(JSONParser.Valor_islistContext ctx) { }
+	@Override public void exitValor_is_list(JSONParser.Valor_is_listContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterKw_optional(JSONParser.Kw_optionalContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitKw_optional(JSONParser.Kw_optionalContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterValor_optional(JSONParser.Valor_optionalContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitValor_optional(JSONParser.Valor_optionalContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterKw_multiplicity_max(JSONParser.Kw_multiplicity_maxContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitKw_multiplicity_max(JSONParser.Kw_multiplicity_maxContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterValor_multiplicity_max(JSONParser.Valor_multiplicity_maxContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitValor_multiplicity_max(JSONParser.Valor_multiplicity_maxContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

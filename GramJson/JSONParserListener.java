@@ -277,25 +277,65 @@ public interface JSONParserListener extends ParseTreeListener {
 	 */
 	void exitValor_type_of(JSONParser.Valor_type_ofContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link JSONParser#kw_islist}.
+	 * Enter a parse tree produced by {@link JSONParser#kw_is_list}.
 	 * @param ctx the parse tree
 	 */
-	void enterKw_islist(JSONParser.Kw_islistContext ctx);
+	void enterKw_is_list(JSONParser.Kw_is_listContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link JSONParser#kw_islist}.
+	 * Exit a parse tree produced by {@link JSONParser#kw_is_list}.
 	 * @param ctx the parse tree
 	 */
-	void exitKw_islist(JSONParser.Kw_islistContext ctx);
+	void exitKw_is_list(JSONParser.Kw_is_listContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link JSONParser#valor_islist}.
+	 * Enter a parse tree produced by {@link JSONParser#valor_is_list}.
 	 * @param ctx the parse tree
 	 */
-	void enterValor_islist(JSONParser.Valor_islistContext ctx);
+	void enterValor_is_list(JSONParser.Valor_is_listContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link JSONParser#valor_islist}.
+	 * Exit a parse tree produced by {@link JSONParser#valor_is_list}.
 	 * @param ctx the parse tree
 	 */
-	void exitValor_islist(JSONParser.Valor_islistContext ctx);
+	void exitValor_is_list(JSONParser.Valor_is_listContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JSONParser#kw_optional}.
+	 * @param ctx the parse tree
+	 */
+	void enterKw_optional(JSONParser.Kw_optionalContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#kw_optional}.
+	 * @param ctx the parse tree
+	 */
+	void exitKw_optional(JSONParser.Kw_optionalContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JSONParser#valor_optional}.
+	 * @param ctx the parse tree
+	 */
+	void enterValor_optional(JSONParser.Valor_optionalContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#valor_optional}.
+	 * @param ctx the parse tree
+	 */
+	void exitValor_optional(JSONParser.Valor_optionalContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JSONParser#kw_multiplicity_max}.
+	 * @param ctx the parse tree
+	 */
+	void enterKw_multiplicity_max(JSONParser.Kw_multiplicity_maxContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#kw_multiplicity_max}.
+	 * @param ctx the parse tree
+	 */
+	void exitKw_multiplicity_max(JSONParser.Kw_multiplicity_maxContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JSONParser#valor_multiplicity_max}.
+	 * @param ctx the parse tree
+	 */
+	void enterValor_multiplicity_max(JSONParser.Valor_multiplicity_maxContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#valor_multiplicity_max}.
+	 * @param ctx the parse tree
+	 */
+	void exitValor_multiplicity_max(JSONParser.Valor_multiplicity_maxContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link JSONParser#estado_context}.
 	 * @param ctx the parse tree

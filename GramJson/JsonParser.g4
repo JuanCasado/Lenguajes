@@ -18,8 +18,9 @@ atributo: kw_id  DOSPUNTOS valor_id COMA?
     | kw_number DOSPUNTOS valor_number COMA?
     | kw_word_type DOSPUNTOS valor_word_type COMA?
     | kw_type_of DOSPUNTOS valor_type_of COMA?
-    | kw_islist DOSPUNTOS valor_islist COMA?
-    /*| kw_optional DOSPUNTOS valor_optional COMA?*/
+    | kw_is_list DOSPUNTOS valor_is_list COMA?
+    | kw_optional DOSPUNTOS valor_optional COMA?
+    | kw_multiplicity_max DOSPUNTOS valor_multiplicity_max COMA?
     |(nombre_atributo DOSPUNTOS)? valor_atributo COMA?
     ;
 nombre_atributo: cadena;
@@ -55,10 +56,12 @@ kw_word_type: KW_WORD_TYPE;
 valor_word_type: cadena;
 kw_type_of: KW_TYPE_OF;
 valor_type_of: cadena;
-kw_islist: KW_ISLIST;
-valor_islist: cadena;
-/*kw_optional: KW_OPTIONAL;
-valor_optional: TEXTO;*/
+kw_is_list: KW_IS_LIST;
+valor_is_list: cadena;
+kw_optional: KW_OPTIONAL;
+valor_optional: cadena;
+kw_multiplicity_max: KW_MULTIPLICITY_MAX;
+valor_multiplicity_max: cadena;
 
 
 estado_context: ESTADO_CONTEXT CERRARCONTEXT;

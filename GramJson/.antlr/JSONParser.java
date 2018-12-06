@@ -17,9 +17,10 @@ public class JSONParser extends Parser {
 		new PredictionContextCache();
 	public static final int
 		GRAPH=1, TREE=2, PROPERTIES=3, KW_ID=4, KW_GENDER=5, KW_NUMBER=6, KW_WORD_TYPE=7, 
-		KW_TYPE_OF=8, KW_ISLIST=9, ESTADO_CONTEXT=10, BOOLEANO=11, TEXTO=12, ABRIR_LLAVE=13, 
-		CERRAR_LLAVE=14, ABRIR_CORCHETE=15, CERRAR_CORCHETE=16, DOSPUNTOS=17, 
-		COMA=18, WS=19, CERRARCONTEXT=20, INFO=21;
+		KW_TYPE_OF=8, KW_ISLIST=9, KW_OPTIONAL=10, ESTADO_CONTEXT=11, BOOLEANO=12, 
+		TEXTO=13, ABRIR_LLAVE=14, CERRAR_LLAVE=15, ABRIR_CORCHETE=16, CERRAR_CORCHETE=17, 
+		DOSPUNTOS=18, COMA=19, WS=20, CERRARCONTEXT=21, INFO=22, KW_IS_LIST=23, 
+		KW_MULTIPLICITY_MAX=24;
 	public static final int
 		RULE_init = 0, RULE_objeto = 1, RULE_nombre_objeto = 2, RULE_cuerpo_objeto = 3, 
 		RULE_atributo = 4, RULE_nombre_atributo = 5, RULE_valor_atributo = 6, 
@@ -28,27 +29,30 @@ public class JSONParser extends Parser {
 		RULE_arbol = 14, RULE_cuerpo_tree = 15, RULE_cadena = 16, RULE_kw_id = 17, 
 		RULE_valor_id = 18, RULE_kw_geder = 19, RULE_valor_gender = 20, RULE_kw_number = 21, 
 		RULE_valor_number = 22, RULE_kw_word_type = 23, RULE_valor_word_type = 24, 
-		RULE_kw_type_of = 25, RULE_valor_type_of = 26, RULE_kw_islist = 27, RULE_valor_islist = 28, 
-		RULE_estado_context = 29;
+		RULE_kw_type_of = 25, RULE_valor_type_of = 26, RULE_kw_is_list = 27, RULE_valor_is_list = 28, 
+		RULE_kw_optional = 29, RULE_valor_optional = 30, RULE_kw_multiplicity_max = 31, 
+		RULE_valor_multiplicity_max = 32, RULE_estado_context = 33;
 	public static final String[] ruleNames = {
 		"init", "objeto", "nombre_objeto", "cuerpo_objeto", "atributo", "nombre_atributo", 
 		"valor_atributo", "lista", "nombre_lista", "cuerpo_lista", "graph", "cuerpo_graph", 
 		"properties", "cuerpo_properties", "arbol", "cuerpo_tree", "cadena", "kw_id", 
 		"valor_id", "kw_geder", "valor_gender", "kw_number", "valor_number", "kw_word_type", 
-		"valor_word_type", "kw_type_of", "valor_type_of", "kw_islist", "valor_islist", 
+		"valor_word_type", "kw_type_of", "valor_type_of", "kw_is_list", "valor_is_list", 
+		"kw_optional", "valor_optional", "kw_multiplicity_max", "valor_multiplicity_max", 
 		"estado_context"
 	};
 
 	private static final String[] _LITERAL_NAMES = {
 		null, "'\"@graph\"'", "'\"@tree\"'", null, "'\"@id\"'", "'\"gender\"'", 
-		"'\"number\"'", "'\"wordType\"'", "'\"typeOf\"'", "'\"isList\"'", "'\"@context\"'", 
-		null, null, "'{'", "'}'", "'['", "']'", "':'", "','"
+		"'\"number\"'", "'\"wordType\"'", "'\"typeOf\"'", "'\"isList\"'", "'\"optional\"'", 
+		"'\"@context\"'", null, null, "'{'", "'}'", "'['", "']'", "':'", "','"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
 		null, "GRAPH", "TREE", "PROPERTIES", "KW_ID", "KW_GENDER", "KW_NUMBER", 
-		"KW_WORD_TYPE", "KW_TYPE_OF", "KW_ISLIST", "ESTADO_CONTEXT", "BOOLEANO", 
-		"TEXTO", "ABRIR_LLAVE", "CERRAR_LLAVE", "ABRIR_CORCHETE", "CERRAR_CORCHETE", 
-		"DOSPUNTOS", "COMA", "WS", "CERRARCONTEXT", "INFO"
+		"KW_WORD_TYPE", "KW_TYPE_OF", "KW_ISLIST", "KW_OPTIONAL", "ESTADO_CONTEXT", 
+		"BOOLEANO", "TEXTO", "ABRIR_LLAVE", "CERRAR_LLAVE", "ABRIR_CORCHETE", 
+		"CERRAR_CORCHETE", "DOSPUNTOS", "COMA", "WS", "CERRARCONTEXT", "INFO", 
+		"KW_IS_LIST", "KW_MULTIPLICITY_MAX"
 	};
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
@@ -119,17 +123,17 @@ public class JSONParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(63);
+			setState(71);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << ESTADO_CONTEXT) | (1L << BOOLEANO) | (1L << TEXTO) | (1L << ABRIR_LLAVE))) != 0)) {
 				{
 				{
-				setState(60);
+				setState(68);
 				objeto();
 				}
 				}
-				setState(65);
+				setState(73);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -169,13 +173,13 @@ public class JSONParser extends Parser {
 		enterRule(_localctx, 2, RULE_objeto);
 		int _la;
 		try {
-			setState(76);
+			setState(84);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case ESTADO_CONTEXT:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(66);
+				setState(74);
 				estado_context();
 				}
 				break;
@@ -184,26 +188,26 @@ public class JSONParser extends Parser {
 			case ABRIR_LLAVE:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(70);
+				setState(78);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==BOOLEANO || _la==TEXTO) {
 					{
-					setState(67);
+					setState(75);
 					nombre_objeto();
-					setState(68);
+					setState(76);
 					match(DOSPUNTOS);
 					}
 				}
 
-				setState(72);
+				setState(80);
 				cuerpo_objeto();
-				setState(74);
+				setState(82);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==COMA) {
 					{
-					setState(73);
+					setState(81);
 					match(COMA);
 					}
 				}
@@ -241,7 +245,7 @@ public class JSONParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(78);
+			setState(86);
 			cadena();
 			}
 		}
@@ -290,41 +294,41 @@ public class JSONParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(80);
+			setState(88);
 			match(ABRIR_LLAVE);
-			setState(84); 
+			setState(92); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
-				setState(84);
+				setState(92);
 				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,4,_ctx) ) {
 				case 1:
 					{
-					setState(81);
+					setState(89);
 					objeto();
 					}
 					break;
 				case 2:
 					{
-					setState(82);
+					setState(90);
 					atributo();
 					}
 					break;
 				case 3:
 					{
-					setState(83);
+					setState(91);
 					lista();
 					}
 					break;
 				}
 				}
-				setState(86); 
+				setState(94); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << GRAPH) | (1L << TREE) | (1L << PROPERTIES) | (1L << KW_ID) | (1L << KW_GENDER) | (1L << KW_NUMBER) | (1L << KW_WORD_TYPE) | (1L << KW_TYPE_OF) | (1L << KW_ISLIST) | (1L << ESTADO_CONTEXT) | (1L << BOOLEANO) | (1L << TEXTO) | (1L << ABRIR_LLAVE) | (1L << ABRIR_CORCHETE))) != 0) );
-			setState(88);
+			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << GRAPH) | (1L << TREE) | (1L << PROPERTIES) | (1L << KW_ID) | (1L << KW_GENDER) | (1L << KW_NUMBER) | (1L << KW_WORD_TYPE) | (1L << KW_TYPE_OF) | (1L << KW_OPTIONAL) | (1L << ESTADO_CONTEXT) | (1L << BOOLEANO) | (1L << TEXTO) | (1L << ABRIR_LLAVE) | (1L << ABRIR_CORCHETE) | (1L << KW_IS_LIST) | (1L << KW_MULTIPLICITY_MAX))) != 0) );
+			setState(96);
 			match(CERRAR_LLAVE);
 			}
 		}
@@ -372,11 +376,23 @@ public class JSONParser extends Parser {
 		public Valor_type_ofContext valor_type_of() {
 			return getRuleContext(Valor_type_ofContext.class,0);
 		}
-		public Kw_islistContext kw_islist() {
-			return getRuleContext(Kw_islistContext.class,0);
+		public Kw_is_listContext kw_is_list() {
+			return getRuleContext(Kw_is_listContext.class,0);
 		}
-		public Valor_islistContext valor_islist() {
-			return getRuleContext(Valor_islistContext.class,0);
+		public Valor_is_listContext valor_is_list() {
+			return getRuleContext(Valor_is_listContext.class,0);
+		}
+		public Kw_optionalContext kw_optional() {
+			return getRuleContext(Kw_optionalContext.class,0);
+		}
+		public Valor_optionalContext valor_optional() {
+			return getRuleContext(Valor_optionalContext.class,0);
+		}
+		public Kw_multiplicity_maxContext kw_multiplicity_max() {
+			return getRuleContext(Kw_multiplicity_maxContext.class,0);
+		}
+		public Valor_multiplicity_maxContext valor_multiplicity_max() {
+			return getRuleContext(Valor_multiplicity_maxContext.class,0);
 		}
 		public Valor_atributoContext valor_atributo() {
 			return getRuleContext(Valor_atributoContext.class,0);
@@ -395,24 +411,24 @@ public class JSONParser extends Parser {
 		enterRule(_localctx, 8, RULE_atributo);
 		int _la;
 		try {
-			setState(135);
+			setState(155);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case KW_ID:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(90);
+				setState(98);
 				kw_id();
-				setState(91);
+				setState(99);
 				match(DOSPUNTOS);
-				setState(92);
+				setState(100);
 				valor_id();
-				setState(94);
+				setState(102);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==COMA) {
 					{
-					setState(93);
+					setState(101);
 					match(COMA);
 					}
 				}
@@ -422,18 +438,18 @@ public class JSONParser extends Parser {
 			case KW_GENDER:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(96);
+				setState(104);
 				kw_geder();
-				setState(97);
+				setState(105);
 				match(DOSPUNTOS);
-				setState(98);
+				setState(106);
 				valor_gender();
-				setState(100);
+				setState(108);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==COMA) {
 					{
-					setState(99);
+					setState(107);
 					match(COMA);
 					}
 				}
@@ -443,18 +459,18 @@ public class JSONParser extends Parser {
 			case KW_NUMBER:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(102);
+				setState(110);
 				kw_number();
-				setState(103);
+				setState(111);
 				match(DOSPUNTOS);
-				setState(104);
+				setState(112);
 				valor_number();
-				setState(106);
+				setState(114);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==COMA) {
 					{
-					setState(105);
+					setState(113);
 					match(COMA);
 					}
 				}
@@ -464,18 +480,18 @@ public class JSONParser extends Parser {
 			case KW_WORD_TYPE:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(108);
+				setState(116);
 				kw_word_type();
-				setState(109);
+				setState(117);
 				match(DOSPUNTOS);
-				setState(110);
+				setState(118);
 				valor_word_type();
-				setState(112);
+				setState(120);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==COMA) {
 					{
-					setState(111);
+					setState(119);
 					match(COMA);
 					}
 				}
@@ -485,39 +501,81 @@ public class JSONParser extends Parser {
 			case KW_TYPE_OF:
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(114);
+				setState(122);
 				kw_type_of();
-				setState(115);
+				setState(123);
 				match(DOSPUNTOS);
-				setState(116);
+				setState(124);
 				valor_type_of();
-				setState(118);
+				setState(126);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==COMA) {
 					{
-					setState(117);
+					setState(125);
 					match(COMA);
 					}
 				}
 
 				}
 				break;
-			case KW_ISLIST:
+			case KW_IS_LIST:
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(120);
-				kw_islist();
-				setState(121);
+				setState(128);
+				kw_is_list();
+				setState(129);
 				match(DOSPUNTOS);
-				setState(122);
-				valor_islist();
-				setState(124);
+				setState(130);
+				valor_is_list();
+				setState(132);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==COMA) {
 					{
-					setState(123);
+					setState(131);
+					match(COMA);
+					}
+				}
+
+				}
+				break;
+			case KW_OPTIONAL:
+				enterOuterAlt(_localctx, 7);
+				{
+				setState(134);
+				kw_optional();
+				setState(135);
+				match(DOSPUNTOS);
+				setState(136);
+				valor_optional();
+				setState(138);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+				if (_la==COMA) {
+					{
+					setState(137);
+					match(COMA);
+					}
+				}
+
+				}
+				break;
+			case KW_MULTIPLICITY_MAX:
+				enterOuterAlt(_localctx, 8);
+				{
+				setState(140);
+				kw_multiplicity_max();
+				setState(141);
+				match(DOSPUNTOS);
+				setState(142);
+				valor_multiplicity_max();
+				setState(144);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+				if (_la==COMA) {
+					{
+					setState(143);
 					match(COMA);
 					}
 				}
@@ -526,28 +584,28 @@ public class JSONParser extends Parser {
 				break;
 			case BOOLEANO:
 			case TEXTO:
-				enterOuterAlt(_localctx, 7);
+				enterOuterAlt(_localctx, 9);
 				{
-				setState(129);
+				setState(149);
 				_errHandler.sync(this);
-				switch ( getInterpreter().adaptivePredict(_input,12,_ctx) ) {
+				switch ( getInterpreter().adaptivePredict(_input,14,_ctx) ) {
 				case 1:
 					{
-					setState(126);
+					setState(146);
 					nombre_atributo();
-					setState(127);
+					setState(147);
 					match(DOSPUNTOS);
 					}
 					break;
 				}
-				setState(131);
+				setState(151);
 				valor_atributo();
-				setState(133);
+				setState(153);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==COMA) {
 					{
-					setState(132);
+					setState(152);
 					match(COMA);
 					}
 				}
@@ -585,7 +643,7 @@ public class JSONParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(137);
+			setState(157);
 			cadena();
 			}
 		}
@@ -616,7 +674,7 @@ public class JSONParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(139);
+			setState(159);
 			cadena();
 			}
 		}
@@ -669,26 +727,26 @@ public class JSONParser extends Parser {
 		enterRule(_localctx, 14, RULE_lista);
 		int _la;
 		try {
-			setState(169);
+			setState(189);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case GRAPH:
 				enterOuterAlt(_localctx, 1);
 				{
 				{
-				setState(141);
+				setState(161);
 				graph();
-				setState(142);
+				setState(162);
 				match(DOSPUNTOS);
 				}
-				setState(144);
+				setState(164);
 				cuerpo_graph();
-				setState(146);
+				setState(166);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==COMA) {
 					{
-					setState(145);
+					setState(165);
 					match(COMA);
 					}
 				}
@@ -698,16 +756,16 @@ public class JSONParser extends Parser {
 			case PROPERTIES:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(148);
+				setState(168);
 				properties();
-				setState(149);
+				setState(169);
 				cuerpo_properties();
-				setState(151);
+				setState(171);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==COMA) {
 					{
-					setState(150);
+					setState(170);
 					match(COMA);
 					}
 				}
@@ -718,19 +776,19 @@ public class JSONParser extends Parser {
 				enterOuterAlt(_localctx, 3);
 				{
 				{
-				setState(153);
+				setState(173);
 				arbol();
-				setState(154);
+				setState(174);
 				match(DOSPUNTOS);
 				}
-				setState(156);
+				setState(176);
 				cuerpo_tree();
-				setState(158);
+				setState(178);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==COMA) {
 					{
-					setState(157);
+					setState(177);
 					match(COMA);
 					}
 				}
@@ -742,26 +800,26 @@ public class JSONParser extends Parser {
 			case ABRIR_CORCHETE:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(163);
+				setState(183);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==BOOLEANO || _la==TEXTO) {
 					{
-					setState(160);
+					setState(180);
 					nombre_lista();
-					setState(161);
+					setState(181);
 					match(DOSPUNTOS);
 					}
 				}
 
-				setState(165);
+				setState(185);
 				cuerpo_lista();
-				setState(167);
+				setState(187);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==COMA) {
 					{
-					setState(166);
+					setState(186);
 					match(COMA);
 					}
 				}
@@ -799,7 +857,7 @@ public class JSONParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(171);
+			setState(191);
 			cadena();
 			}
 		}
@@ -848,41 +906,41 @@ public class JSONParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(173);
+			setState(193);
 			match(ABRIR_CORCHETE);
-			setState(177); 
+			setState(197); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
-				setState(177);
+				setState(197);
 				_errHandler.sync(this);
-				switch ( getInterpreter().adaptivePredict(_input,21,_ctx) ) {
+				switch ( getInterpreter().adaptivePredict(_input,23,_ctx) ) {
 				case 1:
 					{
-					setState(174);
+					setState(194);
 					objeto();
 					}
 					break;
 				case 2:
 					{
-					setState(175);
+					setState(195);
 					atributo();
 					}
 					break;
 				case 3:
 					{
-					setState(176);
+					setState(196);
 					lista();
 					}
 					break;
 				}
 				}
-				setState(179); 
+				setState(199); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << GRAPH) | (1L << TREE) | (1L << PROPERTIES) | (1L << KW_ID) | (1L << KW_GENDER) | (1L << KW_NUMBER) | (1L << KW_WORD_TYPE) | (1L << KW_TYPE_OF) | (1L << KW_ISLIST) | (1L << ESTADO_CONTEXT) | (1L << BOOLEANO) | (1L << TEXTO) | (1L << ABRIR_LLAVE) | (1L << ABRIR_CORCHETE))) != 0) );
-			setState(181);
+			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << GRAPH) | (1L << TREE) | (1L << PROPERTIES) | (1L << KW_ID) | (1L << KW_GENDER) | (1L << KW_NUMBER) | (1L << KW_WORD_TYPE) | (1L << KW_TYPE_OF) | (1L << KW_OPTIONAL) | (1L << ESTADO_CONTEXT) | (1L << BOOLEANO) | (1L << TEXTO) | (1L << ABRIR_LLAVE) | (1L << ABRIR_CORCHETE) | (1L << KW_IS_LIST) | (1L << KW_MULTIPLICITY_MAX))) != 0) );
+			setState(201);
 			match(CERRAR_CORCHETE);
 			}
 		}
@@ -911,7 +969,7 @@ public class JSONParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(183);
+			setState(203);
 			match(GRAPH);
 			}
 		}
@@ -948,23 +1006,23 @@ public class JSONParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(185);
+			setState(205);
 			match(ABRIR_CORCHETE);
-			setState(187); 
+			setState(207); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(186);
+				setState(206);
 				objeto();
 				}
 				}
-				setState(189); 
+				setState(209); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << ESTADO_CONTEXT) | (1L << BOOLEANO) | (1L << TEXTO) | (1L << ABRIR_LLAVE))) != 0) );
-			setState(191);
+			setState(211);
 			match(CERRAR_CORCHETE);
 			}
 		}
@@ -993,7 +1051,7 @@ public class JSONParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(193);
+			setState(213);
 			match(PROPERTIES);
 			}
 		}
@@ -1029,21 +1087,21 @@ public class JSONParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(196); 
+			setState(216); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(195);
+				setState(215);
 				atributo();
 				}
 				}
-				setState(198); 
+				setState(218); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << KW_ID) | (1L << KW_GENDER) | (1L << KW_NUMBER) | (1L << KW_WORD_TYPE) | (1L << KW_TYPE_OF) | (1L << KW_ISLIST) | (1L << BOOLEANO) | (1L << TEXTO))) != 0) );
-			setState(200);
+			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << KW_ID) | (1L << KW_GENDER) | (1L << KW_NUMBER) | (1L << KW_WORD_TYPE) | (1L << KW_TYPE_OF) | (1L << KW_OPTIONAL) | (1L << BOOLEANO) | (1L << TEXTO) | (1L << KW_IS_LIST) | (1L << KW_MULTIPLICITY_MAX))) != 0) );
+			setState(220);
 			match(CERRAR_CORCHETE);
 			}
 		}
@@ -1072,7 +1130,7 @@ public class JSONParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(202);
+			setState(222);
 			match(TREE);
 			}
 		}
@@ -1109,23 +1167,23 @@ public class JSONParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(204);
+			setState(224);
 			match(ABRIR_CORCHETE);
-			setState(206); 
+			setState(226); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(205);
+				setState(225);
 				objeto();
 				}
 				}
-				setState(208); 
+				setState(228); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << ESTADO_CONTEXT) | (1L << BOOLEANO) | (1L << TEXTO) | (1L << ABRIR_LLAVE))) != 0) );
-			setState(210);
+			setState(230);
 			match(CERRAR_CORCHETE);
 			}
 		}
@@ -1156,7 +1214,7 @@ public class JSONParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(212);
+			setState(232);
 			_la = _input.LA(1);
 			if ( !(_la==BOOLEANO || _la==TEXTO) ) {
 			_errHandler.recoverInline(this);
@@ -1193,7 +1251,7 @@ public class JSONParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(214);
+			setState(234);
 			match(KW_ID);
 			}
 		}
@@ -1224,7 +1282,7 @@ public class JSONParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(216);
+			setState(236);
 			cadena();
 			}
 		}
@@ -1253,7 +1311,7 @@ public class JSONParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(218);
+			setState(238);
 			match(KW_GENDER);
 			}
 		}
@@ -1284,7 +1342,7 @@ public class JSONParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(220);
+			setState(240);
 			cadena();
 			}
 		}
@@ -1313,7 +1371,7 @@ public class JSONParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(222);
+			setState(242);
 			match(KW_NUMBER);
 			}
 		}
@@ -1344,7 +1402,7 @@ public class JSONParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(224);
+			setState(244);
 			cadena();
 			}
 		}
@@ -1373,7 +1431,7 @@ public class JSONParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(226);
+			setState(246);
 			match(KW_WORD_TYPE);
 			}
 		}
@@ -1404,7 +1462,7 @@ public class JSONParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(228);
+			setState(248);
 			cadena();
 			}
 		}
@@ -1433,7 +1491,7 @@ public class JSONParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(230);
+			setState(250);
 			match(KW_TYPE_OF);
 			}
 		}
@@ -1464,7 +1522,7 @@ public class JSONParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(232);
+			setState(252);
 			cadena();
 			}
 		}
@@ -1479,22 +1537,22 @@ public class JSONParser extends Parser {
 		return _localctx;
 	}
 
-	public static class Kw_islistContext extends ParserRuleContext {
-		public TerminalNode KW_ISLIST() { return getToken(JSONParser.KW_ISLIST, 0); }
-		public Kw_islistContext(ParserRuleContext parent, int invokingState) {
+	public static class Kw_is_listContext extends ParserRuleContext {
+		public TerminalNode KW_IS_LIST() { return getToken(JSONParser.KW_IS_LIST, 0); }
+		public Kw_is_listContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_kw_islist; }
+		@Override public int getRuleIndex() { return RULE_kw_is_list; }
 	}
 
-	public final Kw_islistContext kw_islist() throws RecognitionException {
-		Kw_islistContext _localctx = new Kw_islistContext(_ctx, getState());
-		enterRule(_localctx, 54, RULE_kw_islist);
+	public final Kw_is_listContext kw_is_list() throws RecognitionException {
+		Kw_is_listContext _localctx = new Kw_is_listContext(_ctx, getState());
+		enterRule(_localctx, 54, RULE_kw_is_list);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(234);
-			match(KW_ISLIST);
+			setState(254);
+			match(KW_IS_LIST);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1508,23 +1566,143 @@ public class JSONParser extends Parser {
 		return _localctx;
 	}
 
-	public static class Valor_islistContext extends ParserRuleContext {
+	public static class Valor_is_listContext extends ParserRuleContext {
 		public CadenaContext cadena() {
 			return getRuleContext(CadenaContext.class,0);
 		}
-		public Valor_islistContext(ParserRuleContext parent, int invokingState) {
+		public Valor_is_listContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_valor_islist; }
+		@Override public int getRuleIndex() { return RULE_valor_is_list; }
 	}
 
-	public final Valor_islistContext valor_islist() throws RecognitionException {
-		Valor_islistContext _localctx = new Valor_islistContext(_ctx, getState());
-		enterRule(_localctx, 56, RULE_valor_islist);
+	public final Valor_is_listContext valor_is_list() throws RecognitionException {
+		Valor_is_listContext _localctx = new Valor_is_listContext(_ctx, getState());
+		enterRule(_localctx, 56, RULE_valor_is_list);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(236);
+			setState(256);
+			cadena();
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class Kw_optionalContext extends ParserRuleContext {
+		public TerminalNode KW_OPTIONAL() { return getToken(JSONParser.KW_OPTIONAL, 0); }
+		public Kw_optionalContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_kw_optional; }
+	}
+
+	public final Kw_optionalContext kw_optional() throws RecognitionException {
+		Kw_optionalContext _localctx = new Kw_optionalContext(_ctx, getState());
+		enterRule(_localctx, 58, RULE_kw_optional);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(258);
+			match(KW_OPTIONAL);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class Valor_optionalContext extends ParserRuleContext {
+		public CadenaContext cadena() {
+			return getRuleContext(CadenaContext.class,0);
+		}
+		public Valor_optionalContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_valor_optional; }
+	}
+
+	public final Valor_optionalContext valor_optional() throws RecognitionException {
+		Valor_optionalContext _localctx = new Valor_optionalContext(_ctx, getState());
+		enterRule(_localctx, 60, RULE_valor_optional);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(260);
+			cadena();
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class Kw_multiplicity_maxContext extends ParserRuleContext {
+		public TerminalNode KW_MULTIPLICITY_MAX() { return getToken(JSONParser.KW_MULTIPLICITY_MAX, 0); }
+		public Kw_multiplicity_maxContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_kw_multiplicity_max; }
+	}
+
+	public final Kw_multiplicity_maxContext kw_multiplicity_max() throws RecognitionException {
+		Kw_multiplicity_maxContext _localctx = new Kw_multiplicity_maxContext(_ctx, getState());
+		enterRule(_localctx, 62, RULE_kw_multiplicity_max);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(262);
+			match(KW_MULTIPLICITY_MAX);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class Valor_multiplicity_maxContext extends ParserRuleContext {
+		public CadenaContext cadena() {
+			return getRuleContext(CadenaContext.class,0);
+		}
+		public Valor_multiplicity_maxContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_valor_multiplicity_max; }
+	}
+
+	public final Valor_multiplicity_maxContext valor_multiplicity_max() throws RecognitionException {
+		Valor_multiplicity_maxContext _localctx = new Valor_multiplicity_maxContext(_ctx, getState());
+		enterRule(_localctx, 64, RULE_valor_multiplicity_max);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(264);
 			cadena();
 			}
 		}
@@ -1550,13 +1728,13 @@ public class JSONParser extends Parser {
 
 	public final Estado_contextContext estado_context() throws RecognitionException {
 		Estado_contextContext _localctx = new Estado_contextContext(_ctx, getState());
-		enterRule(_localctx, 58, RULE_estado_context);
+		enterRule(_localctx, 66, RULE_estado_context);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(238);
+			setState(266);
 			match(ESTADO_CONTEXT);
-			setState(239);
+			setState(267);
 			match(CERRARCONTEXT);
 			}
 		}
@@ -1572,84 +1750,94 @@ public class JSONParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\27\u00f4\4\2\t\2"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\32\u0110\4\2\t\2"+
 		"\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13"+
 		"\t\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
 		"\4\23\t\23\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\4\30\t\30\4\31\t\31"+
-		"\4\32\t\32\4\33\t\33\4\34\t\34\4\35\t\35\4\36\t\36\4\37\t\37\3\2\7\2@"+
-		"\n\2\f\2\16\2C\13\2\3\3\3\3\3\3\3\3\5\3I\n\3\3\3\3\3\5\3M\n\3\5\3O\n\3"+
-		"\3\4\3\4\3\5\3\5\3\5\3\5\6\5W\n\5\r\5\16\5X\3\5\3\5\3\6\3\6\3\6\3\6\5"+
-		"\6a\n\6\3\6\3\6\3\6\3\6\5\6g\n\6\3\6\3\6\3\6\3\6\5\6m\n\6\3\6\3\6\3\6"+
-		"\3\6\5\6s\n\6\3\6\3\6\3\6\3\6\5\6y\n\6\3\6\3\6\3\6\3\6\5\6\177\n\6\3\6"+
-		"\3\6\3\6\5\6\u0084\n\6\3\6\3\6\5\6\u0088\n\6\5\6\u008a\n\6\3\7\3\7\3\b"+
-		"\3\b\3\t\3\t\3\t\3\t\3\t\5\t\u0095\n\t\3\t\3\t\3\t\5\t\u009a\n\t\3\t\3"+
-		"\t\3\t\3\t\3\t\5\t\u00a1\n\t\3\t\3\t\3\t\5\t\u00a6\n\t\3\t\3\t\5\t\u00aa"+
-		"\n\t\5\t\u00ac\n\t\3\n\3\n\3\13\3\13\3\13\3\13\6\13\u00b4\n\13\r\13\16"+
-		"\13\u00b5\3\13\3\13\3\f\3\f\3\r\3\r\6\r\u00be\n\r\r\r\16\r\u00bf\3\r\3"+
-		"\r\3\16\3\16\3\17\6\17\u00c7\n\17\r\17\16\17\u00c8\3\17\3\17\3\20\3\20"+
-		"\3\21\3\21\6\21\u00d1\n\21\r\21\16\21\u00d2\3\21\3\21\3\22\3\22\3\23\3"+
-		"\23\3\24\3\24\3\25\3\25\3\26\3\26\3\27\3\27\3\30\3\30\3\31\3\31\3\32\3"+
-		"\32\3\33\3\33\3\34\3\34\3\35\3\35\3\36\3\36\3\37\3\37\3\37\3\37\2\2 \2"+
-		"\4\6\b\n\f\16\20\22\24\26\30\32\34\36 \"$&(*,.\60\62\64\668:<\2\3\3\2"+
-		"\r\16\2\u00f8\2A\3\2\2\2\4N\3\2\2\2\6P\3\2\2\2\bR\3\2\2\2\n\u0089\3\2"+
-		"\2\2\f\u008b\3\2\2\2\16\u008d\3\2\2\2\20\u00ab\3\2\2\2\22\u00ad\3\2\2"+
-		"\2\24\u00af\3\2\2\2\26\u00b9\3\2\2\2\30\u00bb\3\2\2\2\32\u00c3\3\2\2\2"+
-		"\34\u00c6\3\2\2\2\36\u00cc\3\2\2\2 \u00ce\3\2\2\2\"\u00d6\3\2\2\2$\u00d8"+
-		"\3\2\2\2&\u00da\3\2\2\2(\u00dc\3\2\2\2*\u00de\3\2\2\2,\u00e0\3\2\2\2."+
-		"\u00e2\3\2\2\2\60\u00e4\3\2\2\2\62\u00e6\3\2\2\2\64\u00e8\3\2\2\2\66\u00ea"+
-		"\3\2\2\28\u00ec\3\2\2\2:\u00ee\3\2\2\2<\u00f0\3\2\2\2>@\5\4\3\2?>\3\2"+
-		"\2\2@C\3\2\2\2A?\3\2\2\2AB\3\2\2\2B\3\3\2\2\2CA\3\2\2\2DO\5<\37\2EF\5"+
-		"\6\4\2FG\7\23\2\2GI\3\2\2\2HE\3\2\2\2HI\3\2\2\2IJ\3\2\2\2JL\5\b\5\2KM"+
-		"\7\24\2\2LK\3\2\2\2LM\3\2\2\2MO\3\2\2\2ND\3\2\2\2NH\3\2\2\2O\5\3\2\2\2"+
-		"PQ\5\"\22\2Q\7\3\2\2\2RV\7\17\2\2SW\5\4\3\2TW\5\n\6\2UW\5\20\t\2VS\3\2"+
-		"\2\2VT\3\2\2\2VU\3\2\2\2WX\3\2\2\2XV\3\2\2\2XY\3\2\2\2YZ\3\2\2\2Z[\7\20"+
-		"\2\2[\t\3\2\2\2\\]\5$\23\2]^\7\23\2\2^`\5&\24\2_a\7\24\2\2`_\3\2\2\2`"+
-		"a\3\2\2\2a\u008a\3\2\2\2bc\5(\25\2cd\7\23\2\2df\5*\26\2eg\7\24\2\2fe\3"+
-		"\2\2\2fg\3\2\2\2g\u008a\3\2\2\2hi\5,\27\2ij\7\23\2\2jl\5.\30\2km\7\24"+
-		"\2\2lk\3\2\2\2lm\3\2\2\2m\u008a\3\2\2\2no\5\60\31\2op\7\23\2\2pr\5\62"+
-		"\32\2qs\7\24\2\2rq\3\2\2\2rs\3\2\2\2s\u008a\3\2\2\2tu\5\64\33\2uv\7\23"+
-		"\2\2vx\5\66\34\2wy\7\24\2\2xw\3\2\2\2xy\3\2\2\2y\u008a\3\2\2\2z{\58\35"+
-		"\2{|\7\23\2\2|~\5:\36\2}\177\7\24\2\2~}\3\2\2\2~\177\3\2\2\2\177\u008a"+
-		"\3\2\2\2\u0080\u0081\5\f\7\2\u0081\u0082\7\23\2\2\u0082\u0084\3\2\2\2"+
-		"\u0083\u0080\3\2\2\2\u0083\u0084\3\2\2\2\u0084\u0085\3\2\2\2\u0085\u0087"+
-		"\5\16\b\2\u0086\u0088\7\24\2\2\u0087\u0086\3\2\2\2\u0087\u0088\3\2\2\2"+
-		"\u0088\u008a\3\2\2\2\u0089\\\3\2\2\2\u0089b\3\2\2\2\u0089h\3\2\2\2\u0089"+
-		"n\3\2\2\2\u0089t\3\2\2\2\u0089z\3\2\2\2\u0089\u0083\3\2\2\2\u008a\13\3"+
-		"\2\2\2\u008b\u008c\5\"\22\2\u008c\r\3\2\2\2\u008d\u008e\5\"\22\2\u008e"+
-		"\17\3\2\2\2\u008f\u0090\5\26\f\2\u0090\u0091\7\23\2\2\u0091\u0092\3\2"+
-		"\2\2\u0092\u0094\5\30\r\2\u0093\u0095\7\24\2\2\u0094\u0093\3\2\2\2\u0094"+
-		"\u0095\3\2\2\2\u0095\u00ac\3\2\2\2\u0096\u0097\5\32\16\2\u0097\u0099\5"+
-		"\34\17\2\u0098\u009a\7\24\2\2\u0099\u0098\3\2\2\2\u0099\u009a\3\2\2\2"+
-		"\u009a\u00ac\3\2\2\2\u009b\u009c\5\36\20\2\u009c\u009d\7\23\2\2\u009d"+
-		"\u009e\3\2\2\2\u009e\u00a0\5 \21\2\u009f\u00a1\7\24\2\2\u00a0\u009f\3"+
-		"\2\2\2\u00a0\u00a1\3\2\2\2\u00a1\u00ac\3\2\2\2\u00a2\u00a3\5\22\n\2\u00a3"+
-		"\u00a4\7\23\2\2\u00a4\u00a6\3\2\2\2\u00a5\u00a2\3\2\2\2\u00a5\u00a6\3"+
-		"\2\2\2\u00a6\u00a7\3\2\2\2\u00a7\u00a9\5\24\13\2\u00a8\u00aa\7\24\2\2"+
-		"\u00a9\u00a8\3\2\2\2\u00a9\u00aa\3\2\2\2\u00aa\u00ac\3\2\2\2\u00ab\u008f"+
-		"\3\2\2\2\u00ab\u0096\3\2\2\2\u00ab\u009b\3\2\2\2\u00ab\u00a5\3\2\2\2\u00ac"+
-		"\21\3\2\2\2\u00ad\u00ae\5\"\22\2\u00ae\23\3\2\2\2\u00af\u00b3\7\21\2\2"+
-		"\u00b0\u00b4\5\4\3\2\u00b1\u00b4\5\n\6\2\u00b2\u00b4\5\20\t\2\u00b3\u00b0"+
-		"\3\2\2\2\u00b3\u00b1\3\2\2\2\u00b3\u00b2\3\2\2\2\u00b4\u00b5\3\2\2\2\u00b5"+
-		"\u00b3\3\2\2\2\u00b5\u00b6\3\2\2\2\u00b6\u00b7\3\2\2\2\u00b7\u00b8\7\22"+
-		"\2\2\u00b8\25\3\2\2\2\u00b9\u00ba\7\3\2\2\u00ba\27\3\2\2\2\u00bb\u00bd"+
-		"\7\21\2\2\u00bc\u00be\5\4\3\2\u00bd\u00bc\3\2\2\2\u00be\u00bf\3\2\2\2"+
-		"\u00bf\u00bd\3\2\2\2\u00bf\u00c0\3\2\2\2\u00c0\u00c1\3\2\2\2\u00c1\u00c2"+
-		"\7\22\2\2\u00c2\31\3\2\2\2\u00c3\u00c4\7\5\2\2\u00c4\33\3\2\2\2\u00c5"+
-		"\u00c7\5\n\6\2\u00c6\u00c5\3\2\2\2\u00c7\u00c8\3\2\2\2\u00c8\u00c6\3\2"+
-		"\2\2\u00c8\u00c9\3\2\2\2\u00c9\u00ca\3\2\2\2\u00ca\u00cb\7\22\2\2\u00cb"+
-		"\35\3\2\2\2\u00cc\u00cd\7\4\2\2\u00cd\37\3\2\2\2\u00ce\u00d0\7\21\2\2"+
-		"\u00cf\u00d1\5\4\3\2\u00d0\u00cf\3\2\2\2\u00d1\u00d2\3\2\2\2\u00d2\u00d0"+
-		"\3\2\2\2\u00d2\u00d3\3\2\2\2\u00d3\u00d4\3\2\2\2\u00d4\u00d5\7\22\2\2"+
-		"\u00d5!\3\2\2\2\u00d6\u00d7\t\2\2\2\u00d7#\3\2\2\2\u00d8\u00d9\7\6\2\2"+
-		"\u00d9%\3\2\2\2\u00da\u00db\5\"\22\2\u00db\'\3\2\2\2\u00dc\u00dd\7\7\2"+
-		"\2\u00dd)\3\2\2\2\u00de\u00df\5\"\22\2\u00df+\3\2\2\2\u00e0\u00e1\7\b"+
-		"\2\2\u00e1-\3\2\2\2\u00e2\u00e3\5\"\22\2\u00e3/\3\2\2\2\u00e4\u00e5\7"+
-		"\t\2\2\u00e5\61\3\2\2\2\u00e6\u00e7\5\"\22\2\u00e7\63\3\2\2\2\u00e8\u00e9"+
-		"\7\n\2\2\u00e9\65\3\2\2\2\u00ea\u00eb\5\"\22\2\u00eb\67\3\2\2\2\u00ec"+
-		"\u00ed\7\13\2\2\u00ed9\3\2\2\2\u00ee\u00ef\5\"\22\2\u00ef;\3\2\2\2\u00f0"+
-		"\u00f1\7\f\2\2\u00f1\u00f2\7\26\2\2\u00f2=\3\2\2\2\34AHLNVX`flrx~\u0083"+
-		"\u0087\u0089\u0094\u0099\u00a0\u00a5\u00a9\u00ab\u00b3\u00b5\u00bf\u00c8"+
-		"\u00d2";
+		"\4\32\t\32\4\33\t\33\4\34\t\34\4\35\t\35\4\36\t\36\4\37\t\37\4 \t \4!"+
+		"\t!\4\"\t\"\4#\t#\3\2\7\2H\n\2\f\2\16\2K\13\2\3\3\3\3\3\3\3\3\5\3Q\n\3"+
+		"\3\3\3\3\5\3U\n\3\5\3W\n\3\3\4\3\4\3\5\3\5\3\5\3\5\6\5_\n\5\r\5\16\5`"+
+		"\3\5\3\5\3\6\3\6\3\6\3\6\5\6i\n\6\3\6\3\6\3\6\3\6\5\6o\n\6\3\6\3\6\3\6"+
+		"\3\6\5\6u\n\6\3\6\3\6\3\6\3\6\5\6{\n\6\3\6\3\6\3\6\3\6\5\6\u0081\n\6\3"+
+		"\6\3\6\3\6\3\6\5\6\u0087\n\6\3\6\3\6\3\6\3\6\5\6\u008d\n\6\3\6\3\6\3\6"+
+		"\3\6\5\6\u0093\n\6\3\6\3\6\3\6\5\6\u0098\n\6\3\6\3\6\5\6\u009c\n\6\5\6"+
+		"\u009e\n\6\3\7\3\7\3\b\3\b\3\t\3\t\3\t\3\t\3\t\5\t\u00a9\n\t\3\t\3\t\3"+
+		"\t\5\t\u00ae\n\t\3\t\3\t\3\t\3\t\3\t\5\t\u00b5\n\t\3\t\3\t\3\t\5\t\u00ba"+
+		"\n\t\3\t\3\t\5\t\u00be\n\t\5\t\u00c0\n\t\3\n\3\n\3\13\3\13\3\13\3\13\6"+
+		"\13\u00c8\n\13\r\13\16\13\u00c9\3\13\3\13\3\f\3\f\3\r\3\r\6\r\u00d2\n"+
+		"\r\r\r\16\r\u00d3\3\r\3\r\3\16\3\16\3\17\6\17\u00db\n\17\r\17\16\17\u00dc"+
+		"\3\17\3\17\3\20\3\20\3\21\3\21\6\21\u00e5\n\21\r\21\16\21\u00e6\3\21\3"+
+		"\21\3\22\3\22\3\23\3\23\3\24\3\24\3\25\3\25\3\26\3\26\3\27\3\27\3\30\3"+
+		"\30\3\31\3\31\3\32\3\32\3\33\3\33\3\34\3\34\3\35\3\35\3\36\3\36\3\37\3"+
+		"\37\3 \3 \3!\3!\3\"\3\"\3#\3#\3#\3#\2\2$\2\4\6\b\n\f\16\20\22\24\26\30"+
+		"\32\34\36 \"$&(*,.\60\62\64\668:<>@BD\2\3\3\2\16\17\2\u0114\2I\3\2\2\2"+
+		"\4V\3\2\2\2\6X\3\2\2\2\bZ\3\2\2\2\n\u009d\3\2\2\2\f\u009f\3\2\2\2\16\u00a1"+
+		"\3\2\2\2\20\u00bf\3\2\2\2\22\u00c1\3\2\2\2\24\u00c3\3\2\2\2\26\u00cd\3"+
+		"\2\2\2\30\u00cf\3\2\2\2\32\u00d7\3\2\2\2\34\u00da\3\2\2\2\36\u00e0\3\2"+
+		"\2\2 \u00e2\3\2\2\2\"\u00ea\3\2\2\2$\u00ec\3\2\2\2&\u00ee\3\2\2\2(\u00f0"+
+		"\3\2\2\2*\u00f2\3\2\2\2,\u00f4\3\2\2\2.\u00f6\3\2\2\2\60\u00f8\3\2\2\2"+
+		"\62\u00fa\3\2\2\2\64\u00fc\3\2\2\2\66\u00fe\3\2\2\28\u0100\3\2\2\2:\u0102"+
+		"\3\2\2\2<\u0104\3\2\2\2>\u0106\3\2\2\2@\u0108\3\2\2\2B\u010a\3\2\2\2D"+
+		"\u010c\3\2\2\2FH\5\4\3\2GF\3\2\2\2HK\3\2\2\2IG\3\2\2\2IJ\3\2\2\2J\3\3"+
+		"\2\2\2KI\3\2\2\2LW\5D#\2MN\5\6\4\2NO\7\24\2\2OQ\3\2\2\2PM\3\2\2\2PQ\3"+
+		"\2\2\2QR\3\2\2\2RT\5\b\5\2SU\7\25\2\2TS\3\2\2\2TU\3\2\2\2UW\3\2\2\2VL"+
+		"\3\2\2\2VP\3\2\2\2W\5\3\2\2\2XY\5\"\22\2Y\7\3\2\2\2Z^\7\20\2\2[_\5\4\3"+
+		"\2\\_\5\n\6\2]_\5\20\t\2^[\3\2\2\2^\\\3\2\2\2^]\3\2\2\2_`\3\2\2\2`^\3"+
+		"\2\2\2`a\3\2\2\2ab\3\2\2\2bc\7\21\2\2c\t\3\2\2\2de\5$\23\2ef\7\24\2\2"+
+		"fh\5&\24\2gi\7\25\2\2hg\3\2\2\2hi\3\2\2\2i\u009e\3\2\2\2jk\5(\25\2kl\7"+
+		"\24\2\2ln\5*\26\2mo\7\25\2\2nm\3\2\2\2no\3\2\2\2o\u009e\3\2\2\2pq\5,\27"+
+		"\2qr\7\24\2\2rt\5.\30\2su\7\25\2\2ts\3\2\2\2tu\3\2\2\2u\u009e\3\2\2\2"+
+		"vw\5\60\31\2wx\7\24\2\2xz\5\62\32\2y{\7\25\2\2zy\3\2\2\2z{\3\2\2\2{\u009e"+
+		"\3\2\2\2|}\5\64\33\2}~\7\24\2\2~\u0080\5\66\34\2\177\u0081\7\25\2\2\u0080"+
+		"\177\3\2\2\2\u0080\u0081\3\2\2\2\u0081\u009e\3\2\2\2\u0082\u0083\58\35"+
+		"\2\u0083\u0084\7\24\2\2\u0084\u0086\5:\36\2\u0085\u0087\7\25\2\2\u0086"+
+		"\u0085\3\2\2\2\u0086\u0087\3\2\2\2\u0087\u009e\3\2\2\2\u0088\u0089\5<"+
+		"\37\2\u0089\u008a\7\24\2\2\u008a\u008c\5> \2\u008b\u008d\7\25\2\2\u008c"+
+		"\u008b\3\2\2\2\u008c\u008d\3\2\2\2\u008d\u009e\3\2\2\2\u008e\u008f\5@"+
+		"!\2\u008f\u0090\7\24\2\2\u0090\u0092\5B\"\2\u0091\u0093\7\25\2\2\u0092"+
+		"\u0091\3\2\2\2\u0092\u0093\3\2\2\2\u0093\u009e\3\2\2\2\u0094\u0095\5\f"+
+		"\7\2\u0095\u0096\7\24\2\2\u0096\u0098\3\2\2\2\u0097\u0094\3\2\2\2\u0097"+
+		"\u0098\3\2\2\2\u0098\u0099\3\2\2\2\u0099\u009b\5\16\b\2\u009a\u009c\7"+
+		"\25\2\2\u009b\u009a\3\2\2\2\u009b\u009c\3\2\2\2\u009c\u009e\3\2\2\2\u009d"+
+		"d\3\2\2\2\u009dj\3\2\2\2\u009dp\3\2\2\2\u009dv\3\2\2\2\u009d|\3\2\2\2"+
+		"\u009d\u0082\3\2\2\2\u009d\u0088\3\2\2\2\u009d\u008e\3\2\2\2\u009d\u0097"+
+		"\3\2\2\2\u009e\13\3\2\2\2\u009f\u00a0\5\"\22\2\u00a0\r\3\2\2\2\u00a1\u00a2"+
+		"\5\"\22\2\u00a2\17\3\2\2\2\u00a3\u00a4\5\26\f\2\u00a4\u00a5\7\24\2\2\u00a5"+
+		"\u00a6\3\2\2\2\u00a6\u00a8\5\30\r\2\u00a7\u00a9\7\25\2\2\u00a8\u00a7\3"+
+		"\2\2\2\u00a8\u00a9\3\2\2\2\u00a9\u00c0\3\2\2\2\u00aa\u00ab\5\32\16\2\u00ab"+
+		"\u00ad\5\34\17\2\u00ac\u00ae\7\25\2\2\u00ad\u00ac\3\2\2\2\u00ad\u00ae"+
+		"\3\2\2\2\u00ae\u00c0\3\2\2\2\u00af\u00b0\5\36\20\2\u00b0\u00b1\7\24\2"+
+		"\2\u00b1\u00b2\3\2\2\2\u00b2\u00b4\5 \21\2\u00b3\u00b5\7\25\2\2\u00b4"+
+		"\u00b3\3\2\2\2\u00b4\u00b5\3\2\2\2\u00b5\u00c0\3\2\2\2\u00b6\u00b7\5\22"+
+		"\n\2\u00b7\u00b8\7\24\2\2\u00b8\u00ba\3\2\2\2\u00b9\u00b6\3\2\2\2\u00b9"+
+		"\u00ba\3\2\2\2\u00ba\u00bb\3\2\2\2\u00bb\u00bd\5\24\13\2\u00bc\u00be\7"+
+		"\25\2\2\u00bd\u00bc\3\2\2\2\u00bd\u00be\3\2\2\2\u00be\u00c0\3\2\2\2\u00bf"+
+		"\u00a3\3\2\2\2\u00bf\u00aa\3\2\2\2\u00bf\u00af\3\2\2\2\u00bf\u00b9\3\2"+
+		"\2\2\u00c0\21\3\2\2\2\u00c1\u00c2\5\"\22\2\u00c2\23\3\2\2\2\u00c3\u00c7"+
+		"\7\22\2\2\u00c4\u00c8\5\4\3\2\u00c5\u00c8\5\n\6\2\u00c6\u00c8\5\20\t\2"+
+		"\u00c7\u00c4\3\2\2\2\u00c7\u00c5\3\2\2\2\u00c7\u00c6\3\2\2\2\u00c8\u00c9"+
+		"\3\2\2\2\u00c9\u00c7\3\2\2\2\u00c9\u00ca\3\2\2\2\u00ca\u00cb\3\2\2\2\u00cb"+
+		"\u00cc\7\23\2\2\u00cc\25\3\2\2\2\u00cd\u00ce\7\3\2\2\u00ce\27\3\2\2\2"+
+		"\u00cf\u00d1\7\22\2\2\u00d0\u00d2\5\4\3\2\u00d1\u00d0\3\2\2\2\u00d2\u00d3"+
+		"\3\2\2\2\u00d3\u00d1\3\2\2\2\u00d3\u00d4\3\2\2\2\u00d4\u00d5\3\2\2\2\u00d5"+
+		"\u00d6\7\23\2\2\u00d6\31\3\2\2\2\u00d7\u00d8\7\5\2\2\u00d8\33\3\2\2\2"+
+		"\u00d9\u00db\5\n\6\2\u00da\u00d9\3\2\2\2\u00db\u00dc\3\2\2\2\u00dc\u00da"+
+		"\3\2\2\2\u00dc\u00dd\3\2\2\2\u00dd\u00de\3\2\2\2\u00de\u00df\7\23\2\2"+
+		"\u00df\35\3\2\2\2\u00e0\u00e1\7\4\2\2\u00e1\37\3\2\2\2\u00e2\u00e4\7\22"+
+		"\2\2\u00e3\u00e5\5\4\3\2\u00e4\u00e3\3\2\2\2\u00e5\u00e6\3\2\2\2\u00e6"+
+		"\u00e4\3\2\2\2\u00e6\u00e7\3\2\2\2\u00e7\u00e8\3\2\2\2\u00e8\u00e9\7\23"+
+		"\2\2\u00e9!\3\2\2\2\u00ea\u00eb\t\2\2\2\u00eb#\3\2\2\2\u00ec\u00ed\7\6"+
+		"\2\2\u00ed%\3\2\2\2\u00ee\u00ef\5\"\22\2\u00ef\'\3\2\2\2\u00f0\u00f1\7"+
+		"\7\2\2\u00f1)\3\2\2\2\u00f2\u00f3\5\"\22\2\u00f3+\3\2\2\2\u00f4\u00f5"+
+		"\7\b\2\2\u00f5-\3\2\2\2\u00f6\u00f7\5\"\22\2\u00f7/\3\2\2\2\u00f8\u00f9"+
+		"\7\t\2\2\u00f9\61\3\2\2\2\u00fa\u00fb\5\"\22\2\u00fb\63\3\2\2\2\u00fc"+
+		"\u00fd\7\n\2\2\u00fd\65\3\2\2\2\u00fe\u00ff\5\"\22\2\u00ff\67\3\2\2\2"+
+		"\u0100\u0101\7\31\2\2\u01019\3\2\2\2\u0102\u0103\5\"\22\2\u0103;\3\2\2"+
+		"\2\u0104\u0105\7\f\2\2\u0105=\3\2\2\2\u0106\u0107\5\"\22\2\u0107?\3\2"+
+		"\2\2\u0108\u0109\7\32\2\2\u0109A\3\2\2\2\u010a\u010b\5\"\22\2\u010bC\3"+
+		"\2\2\2\u010c\u010d\7\r\2\2\u010d\u010e\7\27\2\2\u010eE\3\2\2\2\36IPTV"+
+		"^`hntz\u0080\u0086\u008c\u0092\u0097\u009b\u009d\u00a8\u00ad\u00b4\u00b9"+
+		"\u00bd\u00bf\u00c7\u00c9\u00d3\u00dc\u00e6";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

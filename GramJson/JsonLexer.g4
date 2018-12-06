@@ -15,8 +15,9 @@ KW_GENDER: '"gender"';
 KW_NUMBER: '"number"';
 KW_WORD_TYPE: '"wordType"';
 KW_TYPE_OF: '"typeOf"';
-KW_ISLIST: '"isList"';
-/*KW_OPTIONAL: '"optional"';*/
+KW_IS_LIST: '"isList"';
+KW_OPTIONAL: '"optional"';
+KW_MULTIPLICITY_MAX: '"multiplicityMax"';
 
 
 ESTADO_CONTEXT: '"@context"' -> pushMode(CONTEXT_MODE);
