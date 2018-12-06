@@ -1,16 +1,30 @@
 lexer grammar JSONLexer;
 
-WS: [\n\t\r\b ] -> skip;
-
 //JSON ESPECIFICO
-GRAPHS: '"graphs"';
+
+//  LISTAS
+//GRAPHS: '"graphs"';
 GRAPH: '"@graph"';
 TREE: '"@tree"';
-PROPERTIES: '"properties":[';
+PROPERTIES: '"properties"' P_SPACE ':' P_SPACE '[';
+fragment P_SPACE: ' '*;
+
+//  ATRIBUTOS
+KW_ID: '"@id"';
+KW_GENDER: '"gender"';
+KW_NUMBER: '"number"';
+KW_WORD_TYPE: '"wordType"';
+KW_TYPE_OF: '"typeOf"';
+KW_ISLIST: '"isList"';
+/*KW_OPTIONAL: '"optional"';*/
+
+
+ESTADO_CONTEXT: '"@context"' -> pushMode(CONTEXT_MODE);
 
 //JSON GENERAL
-TRUE: 'true';
-FALSE: 'false';
+BOOLEANO: (TRUE|FALSE);
+fragment TRUE: 'true';
+fragment FALSE: 'false';
 TEXTO: '"' ('""'|~'"')* '"' {setText(getText().substring(1, getText().length()-1).replaceAll("\\\\(-)", "$1"));};
 ABRIR_LLAVE: '{';
 CERRAR_LLAVE: '}';
@@ -19,3 +33,9 @@ CERRAR_CORCHETE: ']';
 
 DOSPUNTOS: ':';
 COMA: ',';
+WS: [\n\t\r\b ] -> skip;
+
+mode CONTEXT_MODE;
+CERRARCONTEXT: '"graphs"' C_SPACE* ':' -> popMode;
+INFO: .+? -> skip;
+fragment C_SPACE: ' ';

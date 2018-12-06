@@ -107,26 +107,6 @@ public interface JSONParserListener extends ParseTreeListener {
 	 */
 	void exitCuerpo_lista(JSONParser.Cuerpo_listaContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link JSONParser#graphs}.
-	 * @param ctx the parse tree
-	 */
-	void enterGraphs(JSONParser.GraphsContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JSONParser#graphs}.
-	 * @param ctx the parse tree
-	 */
-	void exitGraphs(JSONParser.GraphsContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JSONParser#cuerpo_graphs}.
-	 * @param ctx the parse tree
-	 */
-	void enterCuerpo_graphs(JSONParser.Cuerpo_graphsContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JSONParser#cuerpo_graphs}.
-	 * @param ctx the parse tree
-	 */
-	void exitCuerpo_graphs(JSONParser.Cuerpo_graphsContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link JSONParser#graph}.
 	 * @param ctx the parse tree
 	 */
@@ -196,4 +176,134 @@ public interface JSONParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitCadena(JSONParser.CadenaContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JSONParser#kw_id}.
+	 * @param ctx the parse tree
+	 */
+	void enterKw_id(JSONParser.Kw_idContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#kw_id}.
+	 * @param ctx the parse tree
+	 */
+	void exitKw_id(JSONParser.Kw_idContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JSONParser#valor_id}.
+	 * @param ctx the parse tree
+	 */
+	void enterValor_id(JSONParser.Valor_idContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#valor_id}.
+	 * @param ctx the parse tree
+	 */
+	void exitValor_id(JSONParser.Valor_idContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JSONParser#kw_geder}.
+	 * @param ctx the parse tree
+	 */
+	void enterKw_geder(JSONParser.Kw_gederContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#kw_geder}.
+	 * @param ctx the parse tree
+	 */
+	void exitKw_geder(JSONParser.Kw_gederContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JSONParser#valor_gender}.
+	 * @param ctx the parse tree
+	 */
+	void enterValor_gender(JSONParser.Valor_genderContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#valor_gender}.
+	 * @param ctx the parse tree
+	 */
+	void exitValor_gender(JSONParser.Valor_genderContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JSONParser#kw_number}.
+	 * @param ctx the parse tree
+	 */
+	void enterKw_number(JSONParser.Kw_numberContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#kw_number}.
+	 * @param ctx the parse tree
+	 */
+	void exitKw_number(JSONParser.Kw_numberContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JSONParser#valor_number}.
+	 * @param ctx the parse tree
+	 */
+	void enterValor_number(JSONParser.Valor_numberContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#valor_number}.
+	 * @param ctx the parse tree
+	 */
+	void exitValor_number(JSONParser.Valor_numberContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JSONParser#kw_word_type}.
+	 * @param ctx the parse tree
+	 */
+	void enterKw_word_type(JSONParser.Kw_word_typeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#kw_word_type}.
+	 * @param ctx the parse tree
+	 */
+	void exitKw_word_type(JSONParser.Kw_word_typeContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JSONParser#valor_word_type}.
+	 * @param ctx the parse tree
+	 */
+	void enterValor_word_type(JSONParser.Valor_word_typeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#valor_word_type}.
+	 * @param ctx the parse tree
+	 */
+	void exitValor_word_type(JSONParser.Valor_word_typeContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JSONParser#kw_type_of}.
+	 * @param ctx the parse tree
+	 */
+	void enterKw_type_of(JSONParser.Kw_type_ofContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#kw_type_of}.
+	 * @param ctx the parse tree
+	 */
+	void exitKw_type_of(JSONParser.Kw_type_ofContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JSONParser#valor_type_of}.
+	 * @param ctx the parse tree
+	 */
+	void enterValor_type_of(JSONParser.Valor_type_ofContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#valor_type_of}.
+	 * @param ctx the parse tree
+	 */
+	void exitValor_type_of(JSONParser.Valor_type_ofContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JSONParser#kw_islist}.
+	 * @param ctx the parse tree
+	 */
+	void enterKw_islist(JSONParser.Kw_islistContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#kw_islist}.
+	 * @param ctx the parse tree
+	 */
+	void exitKw_islist(JSONParser.Kw_islistContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JSONParser#valor_islist}.
+	 * @param ctx the parse tree
+	 */
+	void enterValor_islist(JSONParser.Valor_islistContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#valor_islist}.
+	 * @param ctx the parse tree
+	 */
+	void exitValor_islist(JSONParser.Valor_islistContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JSONParser#estado_context}.
+	 * @param ctx the parse tree
+	 */
+	void enterEstado_context(JSONParser.Estado_contextContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#estado_context}.
+	 * @param ctx the parse tree
+	 */
+	void exitEstado_context(JSONParser.Estado_contextContext ctx);
 }
