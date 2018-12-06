@@ -93,6 +93,10 @@ public class JSONTable {
         ultimoGrafo.addLabelReverseName(clave, valor);
     }
 
+    public void addName(String name) {
+        ultimoGrafo.addName(name);
+    }
+
     public String toString() {
         StringBuffer sb = new StringBuffer();
         for (String nombreGrafo : _grafos.keySet()) {

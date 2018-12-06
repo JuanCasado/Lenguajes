@@ -55,6 +55,20 @@ public class GrafoJSON {
         ultimaRelacion.addLabel("reverse_" + clave, valor);
     }
 
+    public void addName(String name) {
+        switch (ultimoIntroducido) {
+        case 0:
+            ultimaClase.addLabel("name", name);
+            break;
+        case 1:
+            ultimaRelacion.addLabel("name", name);
+            break;
+        case 2:
+            ultimaProperty.put(clave, valor);
+            break;
+        }
+    }
+
     public void addPropertyGender(String gender) {
         ultimaProperty.put("gender", gender);
     }
