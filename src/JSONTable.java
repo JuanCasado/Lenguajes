@@ -38,7 +38,39 @@ public class JSONTable {
     }
 
     public void addPropertyNumber(String number) {
-        ultimoGrafo.addPropertyGender(number);
+        ultimoGrafo.addPropertyNumber(number);
+    }
+
+    public void addPropertyWordType(String wordType) {
+        ultimoGrafo.addPropertyWordType(wordType);
+    }
+
+    public void addPropertyTypeOf(String typeOf) {
+        ultimoGrafo.addPropertyTypeOf(typeOf);
+    }
+
+    public void addPropertyIsList(String isList) {
+        ultimoGrafo.addPropertyIsList(isList);
+    }
+
+    public void addPropertyIsOptional(String isOptional) {
+        ultimoGrafo.addPropertyIsOptional(isOptional);
+    }
+
+    public void addPropertyMultiMax(String multiMax) {
+        ultimoGrafo.addPropertyMultiMax(multiMax);
+    }
+
+    public void addPropertyMultiMin(String multiMin) {
+        ultimoGrafo.addPropertyMultiMin(multiMin);
+    }
+
+    public void addRelationshipReverseName(String reverseName) {
+        ultimoGrafo.addRelationshipReverseName(reverseName);
+    }
+
+    public void addRelationshipFrom(String from) {
+        ultimoGrafo.addRelationshipFrom(from);
     }
 
     public String toString() {

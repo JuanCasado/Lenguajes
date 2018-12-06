@@ -10,6 +10,10 @@ public class RelacionJSON {
         id = relacion;
     }
 
+    public void addReverseName(String reverseName) {
+        _names.put("reverseName", reverseName);
+    }
+
     public String toString() {
         StringBuffer sb = new StringBuffer();
 

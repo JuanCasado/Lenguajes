@@ -28,11 +28,39 @@ public class GrafoJSON {
     }
 
     public void addPropertyGender(String gender) {
-        ultimaProperty.put("Gender", gender);
+        ultimaProperty.put("gender", gender);
     }
 
     public void addPropertyNumber(String number) {
-        ultimaProperty.put("Number", number);
+        ultimaProperty.put("number", number);
+    }
+
+    public void addPropertyWordType(String wordType) {
+        ultimaProperty.put("wordType", wordType);
+    }
+
+    public void addPropertyTypeOf(String typeOf) {
+        ultimaProperty.put("typeOf", typeOf);
+    }
+
+    public void addPropertyIsList(String isList) {
+        ultimaProperty.put("isList", isList);
+    }
+
+    public void addPropertyIsOptional(String isOptional) {
+        ultimaProperty.put("isOptional", isOptional);
+    }
+
+    public void addPropertyMultiMax(String multiMax) {
+        ultimaProperty.put("multiMax", multiMax);
+    }
+
+    public void addPropertyMultiMin(String multiMin) {
+        ultimaProperty.put("multiMin", multiMin);
+    }
+
+    public void addRelationshipReverseName(String reverseName) {
+        ultimaRelacion.addReverseName(reverseName);
     }
 
     public String toString() {
