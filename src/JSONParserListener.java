@@ -357,6 +357,26 @@ public interface JSONParserListener extends ParseTreeListener {
 	 */
 	void exitValor_id(JSONParser.Valor_idContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link JSONParser#kw_name}.
+	 * @param ctx the parse tree
+	 */
+	void enterKw_name(JSONParser.Kw_nameContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#kw_name}.
+	 * @param ctx the parse tree
+	 */
+	void exitKw_name(JSONParser.Kw_nameContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JSONParser#valor_name}.
+	 * @param ctx the parse tree
+	 */
+	void enterValor_name(JSONParser.Valor_nameContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#valor_name}.
+	 * @param ctx the parse tree
+	 */
+	void exitValor_name(JSONParser.Valor_nameContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link JSONParser#kw_geder}.
 	 * @param ctx the parse tree
 	 */
