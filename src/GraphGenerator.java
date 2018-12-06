@@ -3,14 +3,7 @@ import java.lang.reflect.Method;
 
 public class GraphGenerator{
     private GraphGenerator (){}
-    public static enum Engine{
-        neato,
-        dot,
-        circo,
-        fdp,
-        osage,
-        twopi
-    }
+    
 
     public static void generateGraphiFromFile (Engine process, String from, String to) throws Exception{
         Process p = Runtime.getRuntime().exec(process.toString()+" -Tsvg " + from + " -o "+ to);
