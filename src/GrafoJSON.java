@@ -194,12 +194,28 @@ public class GrafoJSON {
             ArrayList<String> _edge_property, ArrayList<String> _node_inheritance, ArrayList<String> _edge_inheritance,
             ArrayList<String> _node_indirect_use, ArrayList<String> _edge_indirect_use) {
         StringBuffer sb = new StringBuffer();
+        // Defecto
         sb.append("graph ejemplo{\n");
         sb.append("//Defecto\n");
         sb.append("node [fontname=\"Arial\"];\n");
         sb.append("edge [fontname=\"Arial\",fontsize=12];\n");
 
+        // Propiedades
+        sb.append(fragmentDot(_node_property, "node"));
+        sb.append(fragmentDot(_edge_property, "edge"));
         return sb.toString();
     }
 
+    private String fragmentDot(ArrayList<String> cadena, String tipo) {
+        StringBuffer sb = new StringBuffer();
+        if (cadena.size() > 0) {
+            sb.append(tipo);
+            sb.append("[");
+            for (String parameter : cadena) {
+                sb.append(parameter + ", ");
+            }
+            sb.append("]\n");
+        }
+        return sb.toString();
+    }
 }

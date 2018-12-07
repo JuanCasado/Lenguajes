@@ -37,8 +37,8 @@ public class EntradaTable implements ActionTable {
         }
     }
 
-    private static final String parametros_f1[] = { "-len", "-fontcol", "-fontname", "-fontsize", "-arrowsize",
-            "-arrowcol", "-penwidth", "-fillcol", "-style", "-shape" };
+    private static final String parametros_f1[] = { "-len", "-fontcolor", "-fontname", "-fontsize", "-arrowsize",
+            "-arrowcolor", "-penwidth", "-fillcolor", "-style", "-shape" };
     private static final String parametros_f2[] = { "_relationship=", "_class=", "_property=", "_inheritance=",
             "_inderect_use=" };
     private static final String parametros_f3[] = { "_edge", "_node", };
@@ -71,6 +71,10 @@ public class EntradaTable implements ActionTable {
      * 
      * 
      * 
+     * 
+     * 
+     * 
+     * 
      * @param p_dot DOT a insertar
      */
     public void addDOT(String p_dot) {
@@ -95,6 +99,10 @@ public class EntradaTable implements ActionTable {
      * 
      * 
      * 
+     * 
+     * 
+     * 
+     * 
      * @param p_svg SVG a insertar
      */
     public void addSVG(String p_svg) {
@@ -115,6 +123,10 @@ public class EntradaTable implements ActionTable {
 
     /**
      * Método que se encarga de añadir un CSV nuevo a la lista de CSV de la e t a a
+     * 
+     * 
+     * 
+     * 
      * 
      * 
      * 
@@ -383,8 +395,11 @@ public class EntradaTable implements ActionTable {
         ArrayList<String> resultado = new ArrayList<>();
         for (int i = 0; i < _parametersName.size(); i++) {
             if (_parametersName.get(i).contains(contenido)) {
-                String cadena = _parametersName.get(i).replaceAll(contenido, CAMPO_VACIO);
-                resultado.add(cadena + "=" + _parameters.get(i));
+                if (!_parameters.get(i).equals(CAMPO_VACIO)) {
+                    String cadena = _parametersName.get(i).replaceAll(contenido, CAMPO_VACIO);
+                    cadena.replaceAll("-", "");
+                    resultado.add(cadena + "=" + _parameters.get(i));
+                }
             }
         }
         return resultado;

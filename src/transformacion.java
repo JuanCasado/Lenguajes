@@ -23,6 +23,7 @@ public class transformacion {
             ArrayList<String> _node_indirect_use = tablaEntrada.getNodeIndirectUseParameters();
             ArrayList<String> _edge_indirect_use = tablaEntrada.getEdgeIndirectUseParameters();
 
+            System.out.println(tablaEntrada.toString());
             if (args.length > 0) {
                 treeEntrada = procesarEntrada(args); // cuando nos lo pasan por argumento
             } else {
