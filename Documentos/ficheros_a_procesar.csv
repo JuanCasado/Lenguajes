@@ -1,4 +1,4 @@
 nombre,rutafichero,rutaficherosalida,rutaficherografico
 archivo1,../Documentos/nschema-RelacionFamiliar.json,../Output/testMedio.dot,../Output/ficheroUnaFamilia.svg
-archivo2,../Documentos/nschema-RelacionFamiliar.json,../Output/testMedio.dot,d:/Output/ficheroUnaFamilia.svg
+archivo2,../Documentos/nschema-RelacionFamiliar.json,../Output/testMedio.dot,../Output/ficheroUnaFamilia.svg
 archivo3,../Documentos/nschema-RelacionFamiliar.json,../Output/testMedio.dot,../Output/ficheroUnaFamilia.svg
