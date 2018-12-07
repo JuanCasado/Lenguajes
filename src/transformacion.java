@@ -132,7 +132,7 @@ public class transformacion {
                 if (action == Action.saveSvg) {
                     // AQUI GUARDAMOS EL SVG
                     try {
-                        GraphGenerator.generateGraphFromString(engine, dotContent, at.get(i, Content.svg));
+                        GraphGenerator.generateGraphFromFileTmp(engine, dotContent, at.get(i, Content.svg));
                         System.out.println("Guardando SVG " + at.get(i, Content.svg));
                     } catch (Exception e) {
                         System.out.println("Error al guardar el SVG");
@@ -156,7 +156,7 @@ public class transformacion {
                         System.out.println("Guardando DOT " + at.get(i, Content.dot));
                         FileManager.write(at.get(i, Content.dot), dotContent);
                         System.out.println("Guardando SVG " + at.get(i, Content.svg));
-                        GraphGenerator.generateGraphFromString(engine, dotContent, at.get(i, Content.svg));
+                        GraphGenerator.generateGraphFromFileTmp(engine, dotContent, at.get(i, Content.svg));
                     } catch (Exception e) {
                         System.out.println("Se ha producido un error");
                         System.out.println(e.toString());
