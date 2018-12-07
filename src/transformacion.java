@@ -30,12 +30,13 @@ public class transformacion {
                         processJSON(tablaCSV);
                     } catch (Exception e) {
                         System.out.println("ERROR al procesar el archivo CSV: " + tablaEntrada.getCSV(i));
+                        System.out.println(e.toString());
                     }
                 }
             }
         } catch (Exception e) {
             System.out.println("ERROR al procesar la ENTRADA");
-            // System.out.println(e.toString());
+            System.out.println(e.toString());
         }
 
         System.out.println("-------------------------------------------------------\nPRUEBA JSON");
@@ -135,6 +136,7 @@ public class transformacion {
                         System.out.println("Guardando SVG " + at.get(i, Content.svg));
                     } catch (Exception e) {
                         System.out.println("Error al guardar el SVG");
+                        System.out.println(e.toString());
                     }
 
                 } else if (action == Action.saveDot) {
@@ -144,18 +146,20 @@ public class transformacion {
                         System.out.println("Guardando DOT " + at.get(i, Content.dot));
                     } catch (Exception e) {
                         System.out.println("Error al guardar el DOT");
+                        System.out.println(e.toString());
                     }
 
                 } else if (action == Action.saveBoth) {
                     // AQUI GUARDAMOS AMBOS
                     try {
                         System.out.println("Guardando AMBOS");
-                        System.out.println("Guardando SVG " + at.get(i, Content.svg));
-                        GraphGenerator.generateGraphFromString(engine, dotContent, at.get(i, Content.svg));
                         System.out.println("Guardando DOT " + at.get(i, Content.dot));
                         FileManager.write(at.get(i, Content.dot), dotContent);
+                        System.out.println("Guardando SVG " + at.get(i, Content.svg));
+                        GraphGenerator.generateGraphFromString(engine, dotContent, at.get(i, Content.svg));
                     } catch (Exception e) {
                         System.out.println("Se ha producido un error");
+                        System.out.println(e.toString());
                     }
 
                 }

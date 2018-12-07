@@ -7,14 +7,14 @@ public class GraphGenerator{
 
     public static void generateGraphiFromFile (Engine process, String from, String to) throws Exception{
         Process p = Runtime.getRuntime().exec(process.toString()+" -Tsvg " + from + " -o "+ to);
+        p.waitFor();
     }
 
     public static void generateGraphFromString (Engine process, String dot, String to) throws Exception{
-        Process p = Runtime.getRuntime().exec(process.toString()+" -Tsvg " + dot + " -o "+ to);
-        //p.waitFor();
-        //BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+        Process p = Runtime.getRuntime().exec(process.toString()+" -Tsvg -o "+ to);
         BufferedWriter writter = new BufferedWriter (new OutputStreamWriter(p.getOutputStream()));
         writter.write(dot);
+        p.waitFor();
     }
 
     public static void abrirURL(String url){
