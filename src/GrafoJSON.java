@@ -5,6 +5,7 @@ public class GrafoJSON {
     private ArrayList<RelacionJSON> _relaciones = new ArrayList<>();
     private ClaseJSON ultimaClase;
     private String ultimaClaseId;
+    private String name;
     private RelacionJSON ultimaRelacion;
     private Engine engine;
     private int ultimoIntroducido; // 0->clase, 1->relacion, 2->property
@@ -20,23 +21,25 @@ public class GrafoJSON {
         this.engine = engine;
     }
 
+    public Engine getEngine() {
+        return this.engine;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public void addClase(String clase) {
         ultimaClase = new ClaseJSON();
         ultimaClaseId = clase;
         ultimoIntroducido = 0;
         _clases.put(clase, ultimaClase);
-        if (bufferProperties.keySet().contains(clase)) {
-            ultimaClase.addCreatedProperty(bufferProperties.get(clase));
-        }
     }
 
     public void addRelationship(String relationship) {
         ultimoIntroducido = 1;
         ultimaRelacion = new RelacionJSON(relationship);
         _relaciones.add(ultimaRelacion);
-        if (bufferProperties.keySet().contains(relationship)) {
-            ultimaRelacion.addCreatedProperty(bufferProperties.get(relationship));
-        }
     }
 
     public void addProperty(String property) {
@@ -53,21 +56,15 @@ public class GrafoJSON {
     public void addUsedBy(String usedBy) {
         if (usedBy.contains("class#")) {
             if (_clases.containsKey(usedBy)) {
-                _clases.get(usedBy).addFullProperty(ultimaPropertyId, ultimaProperty);
-                return;
+                _clases.get(usedBy).addValorProperty(ultimaPropertyId);
             }
         } else if (usedBy.contains("relationship#")) {
             for (RelacionJSON rel : _relaciones) {
                 if (rel.getID().equals(usedBy)) {
-                    rel.addFullProperty(ultimaPropertyId, ultimaProperty);
-                    return;
+                    rel.addValorProperty(ultimaPropertyId);
                 }
             }
-        } else {
-            return;
         }
-        ultimaProperty.put("@ID_PROPRETY@", ultimaPropertyId);
-        bufferProperties.put(usedBy, ultimaProperty);
     }
 
     public void addLabel(String clave, String valor) {
@@ -85,25 +82,15 @@ public class GrafoJSON {
     }
 
     public void addValorProperty(String property) {
-        if (bufferProperties.containsKey(property)) {
-            switch (ultimoIntroducido) {
-            case 0:
-                ultimaClase.addValorProperty(property, bufferProperties.get(property));
-                break;
-            case 1:
-                ultimaRelacion.addValorProperty(property, bufferProperties.get(property));
-                break;
-            }
-        } else {
+        if (!bufferProperties.keySet().contains(property))
             bufferProperties.put(property, new HashMap<String, String>());
-            switch (ultimoIntroducido) {
-            case 0:
-                ultimaClase.addValorProperty(property);
-                break;
-            case 1:
-                ultimaRelacion.addValorProperty(property);
-                break;
-            }
+        switch (ultimoIntroducido) {
+        case 0:
+            ultimaClase.addValorProperty(property);
+            break;
+        case 1:
+            ultimaRelacion.addValorProperty(property);
+            break;
         }
     }
 
@@ -178,6 +165,7 @@ public class GrafoJSON {
 
     public String toString() {
         StringBuffer sb = new StringBuffer();
+        sb.append("Grafo: " + name + "\n");
 
         sb.append("TIPO: " + engine.toString() + "\n");
         for (String claseId : _clases.keySet()) {
@@ -197,6 +185,19 @@ public class GrafoJSON {
                 sb.append("\t\t" + nombreProperty + " : " + property.get(nombreProperty) + "\n");
             }
         }
+
+        return sb.toString();
+    }
+
+    public String toDot(ArrayList<String> _node_relationship, ArrayList<String> _edge_relationship,
+            ArrayList<String> _node_class, ArrayList<String> _edge_class, ArrayList<String> _node_property,
+            ArrayList<String> _edge_property, ArrayList<String> _node_inheritance, ArrayList<String> _edge_inheritance,
+            ArrayList<String> _node_indirect_use, ArrayList<String> _edge_indirect_use) {
+        StringBuffer sb = new StringBuffer();
+        sb.append("graph ejemplo{\n");
+        sb.append("//Defecto\n");
+        sb.append("node [fontname=\"Arial\"];\n");
+        sb.append("edge [fontname=\"Arial\",fontsize=12];\n");
 
         return sb.toString();
     }

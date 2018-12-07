@@ -66,8 +66,10 @@ public class EntradaTable implements ActionTable {
     }
 
     /**
-     * Método que se encarga de añadir un DOT nuevo a la lista de DOT de la e t a
-     * a
+     * Método que se encarga de añadir un DOT nuevo a la lista de DOT de la e t a a
+     * 
+     * 
+     * 
      * 
      * @param p_dot DOT a insertar
      */
@@ -88,8 +90,10 @@ public class EntradaTable implements ActionTable {
     }
 
     /**
-     * Método que se encarga de añadir un SVG nuevo a la lista de SVG de la e t a
-     * a
+     * Método que se encarga de añadir un SVG nuevo a la lista de SVG de la e t a a
+     * 
+     * 
+     * 
      * 
      * @param p_svg SVG a insertar
      */
@@ -110,8 +114,10 @@ public class EntradaTable implements ActionTable {
     }
 
     /**
-     * Método que se encarga de añadir un CSV nuevo a la lista de CSV de la e t a
-     * a
+     * Método que se encarga de añadir un CSV nuevo a la lista de CSV de la e t a a
+     * 
+     * 
+     * 
      * 
      * @param p_csv CSV a insertar
      */
@@ -331,5 +337,56 @@ public class EntradaTable implements ActionTable {
             }
         }
         return null;
+    }
+
+    public ArrayList<String> getNodeRelationshipParameters() {
+        return getParameterByContent("_node_relationship=");
+    }
+
+    public ArrayList<String> getEdgeRelationshipParameters() {
+        return getParameterByContent("_edge_relationship=");
+    }
+
+    public ArrayList<String> getNodeClassParameters() {
+        return getParameterByContent("_node_class=");
+    }
+
+    public ArrayList<String> getEdgeClassParameters() {
+        return getParameterByContent("_edge_class=");
+    }
+
+    public ArrayList<String> getNodePropertyParameters() {
+        return getParameterByContent("_node_property=");
+    }
+
+    public ArrayList<String> getEdgePropertyParameters() {
+        return getParameterByContent("_edge_property=");
+    }
+
+    public ArrayList<String> getNodeInheritanceParameters() {
+        return getParameterByContent("_node_inheritance=");
+    }
+
+    public ArrayList<String> getEdgeInheritanceParameters() {
+        return getParameterByContent("_edge_inheritance=");
+    }
+
+    public ArrayList<String> getNodeIndirectUseParameters() {
+        return getParameterByContent("_node_indirect_use=");
+    }
+
+    public ArrayList<String> getEdgeIndirectUseParameters() {
+        return getParameterByContent("_edge_indirect_use=");
+    }
+
+    private ArrayList<String> getParameterByContent(String contenido) {
+        ArrayList<String> resultado = new ArrayList<>();
+        for (int i = 0; i < _parametersName.size(); i++) {
+            if (_parametersName.get(i).contains(contenido)) {
+                String cadena = _parametersName.get(i).replaceAll(contenido, CAMPO_VACIO);
+                resultado.add(cadena + "=" + _parameters.get(i));
+            }
+        }
+        return resultado;
     }
 }

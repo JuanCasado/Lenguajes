@@ -8,6 +8,12 @@ public class GraphGenerator {
     public static void generateGraphFromFile(Engine process, String from, String to) throws Exception {
         Process p = Runtime.getRuntime().exec(process.toString() + " -Tsvg " + from + " -o " + to);
         p.waitFor();
+        InputStream is = p.getErrorStream();
+        byte[] buffer = new byte[is.available()];
+        is.read(buffer, 0, is.available());
+        for (byte dato : buffer) {
+            System.out.print((char) dato);
+        }
         abrirURL(to);
     }
 
@@ -18,6 +24,12 @@ public class GraphGenerator {
         p.waitFor();
         File archivoTmp = new File(from);
         archivoTmp.delete();
+        InputStream is = p.getErrorStream();
+        byte[] buffer = new byte[is.available()];
+        is.read(buffer, 0, is.available());
+        for (byte dato : buffer) {
+            System.out.print((char) dato);
+        }
         abrirURL(to);
     }
 
@@ -26,7 +38,12 @@ public class GraphGenerator {
         BufferedWriter writter = new BufferedWriter(new OutputStreamWriter(p.getOutputStream()));
         writter.write(dot);
         p.waitFor();
-        abrirURL(to);
+        InputStream is = p.getErrorStream();
+        byte[] buffer = new byte[is.available()];
+        is.read(buffer, 0, is.available());
+        for (byte dato : buffer) {
+            System.out.print((char) dato);
+        }
     }
 
     public static void abrirURL(String url) {

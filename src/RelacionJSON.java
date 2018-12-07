@@ -2,7 +2,7 @@ import java.util.*;
 
 public class RelacionJSON {
     private HashMap<String, String> _clases = new HashMap<>();
-    private HashMap<String, HashMap<String, String>> _properties = new HashMap<>();
+    private ArrayList<String> _properties = new ArrayList<>();
     private HashMap<String, String> _names = new HashMap<>();
     private String id = "";
 
@@ -14,23 +14,9 @@ public class RelacionJSON {
         return id;
     }
 
-    public void addCreatedProperty(HashMap<String, String> property) {
-        _properties.put(property.get("@ID_PROPRETY@"), property);
-        property.remove("@ID_PROPERTY@");
-    }
-
-    public void addFullProperty(String property, HashMap<String, String> contenido) {
-        if (_properties.containsKey(property))
-            _properties.remove(property);
-        this.addValorProperty(property, contenido);
-    }
-
     public void addValorProperty(String property) {
-        _properties.put(property, new HashMap<>());
-    }
-
-    public void addValorProperty(String property, HashMap<String, String> contenido) {
-        _properties.put(property, contenido);
+        if (!_properties.contains(property))
+            _properties.add(property);
     }
 
     public void addLabel(String clave, String valor) {
@@ -65,12 +51,8 @@ public class RelacionJSON {
         }
 
         sb.append("\t\tPROPERTIES: \n");
-        for (String propertyId : _properties.keySet()) {
-            HashMap<String, String> property = _properties.get(propertyId);
+        for (String propertyId : _properties) {
             sb.append("\t\t\t" + propertyId + "\n");
-            for (String nombreProperty : property.keySet()) {
-                sb.append("\t\t\t\t" + nombreProperty + " : " + property.get(nombreProperty) + "\n");
-            }
         }
         return sb.toString();
     }

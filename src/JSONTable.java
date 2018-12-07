@@ -12,13 +12,14 @@ public class JSONTable {
     private GrafoJSON ultimoGrafo;
     private Integer ultimaRelacion;
 
-    private HashMap<String, GrafoJSON> _grafos = new HashMap<>();
+    private ArrayList<GrafoJSON> _grafos = new ArrayList<>();
 
     public static final String CAMPO_VACIO = "";
 
     public void addGrafo(String nombreGrafo) {
         ultimoGrafo = new GrafoJSON();
-        _grafos.put(nombreGrafo, ultimoGrafo);
+        ultimoGrafo.setName(nombreGrafo);
+        _grafos.add(ultimoGrafo);
     }
 
     public void setEngine(Engine engine) {
@@ -109,11 +110,30 @@ public class JSONTable {
         ultimoGrafo.addName(name);
     }
 
+    public int getSize() {
+        return _grafos.size();
+    }
+
+    public String getDotContent(int index, ArrayList<String> _node_relationship, ArrayList<String> _edge_relationship,
+            ArrayList<String> _node_class, ArrayList<String> _edge_class, ArrayList<String> _node_property,
+            ArrayList<String> _edge_property, ArrayList<String> _node_inheritance, ArrayList<String> _edge_inheritance,
+            ArrayList<String> _node_indirect_use, ArrayList<String> _edge_indirect_use) {
+        if (_grafos.size() > index)
+            return _grafos.get(index).toDot(_node_relationship, _edge_relationship, _node_class, _edge_class,
+                    _node_property, _edge_property, _node_inheritance, _edge_inheritance, _node_indirect_use,
+                    _edge_indirect_use);
+        return "";
+    }
+
+    public Engine getEngine(int index) {
+        if (_grafos.size() > index)
+            return _grafos.get(index).getEngine();
+        return null;
+    }
+
     public String toString() {
         StringBuffer sb = new StringBuffer();
-        for (String nombreGrafo : _grafos.keySet()) {
-            sb.append("\nGrafos: " + nombreGrafo + "\n");
-            GrafoJSON grafo = _grafos.get(nombreGrafo);
+        for (GrafoJSON grafo : _grafos) {
             sb.append(grafo.toString());
         }
         return sb.toString();
