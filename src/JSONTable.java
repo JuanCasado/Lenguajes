@@ -131,6 +131,12 @@ public class JSONTable {
         return null;
     }
 
+    public String getName(int index) {
+        if (_grafos.size() > index)
+            return _grafos.get(index).getName();
+        return "";
+    }
+
     public String toString() {
         StringBuffer sb = new StringBuffer();
         for (GrafoJSON grafo : _grafos) {

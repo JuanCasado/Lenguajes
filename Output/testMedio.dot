@@ -1,5 +1,0 @@
-graph ejemplo{
-//Defecto
-node [fontname="Arial"];
-edge [fontname="Arial",fontsize=12];
-

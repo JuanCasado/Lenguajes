@@ -75,6 +75,11 @@ public class EntradaTable implements ActionTable {
      * 
      * 
      * 
+     * 
+     * 
+     * 
+     * 
+     * 
      * @param p_dot DOT a insertar
      */
     public void addDOT(String p_dot) {
@@ -103,6 +108,11 @@ public class EntradaTable implements ActionTable {
      * 
      * 
      * 
+     * 
+     * 
+     * 
+     * 
+     * 
      * @param p_svg SVG a insertar
      */
     public void addSVG(String p_svg) {
@@ -123,6 +133,11 @@ public class EntradaTable implements ActionTable {
 
     /**
      * Método que se encarga de añadir un CSV nuevo a la lista de CSV de la e t a a
+     * 
+     * 
+     * 
+     * 
+     * 
      * 
      * 
      * 
@@ -397,8 +412,12 @@ public class EntradaTable implements ActionTable {
             if (_parametersName.get(i).contains(contenido)) {
                 if (!_parameters.get(i).equals(CAMPO_VACIO)) {
                     String cadena = _parametersName.get(i).replaceAll(contenido, CAMPO_VACIO);
-                    cadena.replaceAll("-", "");
-                    resultado.add(cadena + "=" + _parameters.get(i));
+                    cadena = cadena.substring(1);
+                    if (cadena.equals("len") || cadena.equals("fontsize") || cadena.equals("arrowsize")
+                            || cadena.equals("penwidth")) {
+                        resultado.add(cadena + "=" + _parameters.get(i));
+                    } else
+                        resultado.add(cadena + "=\"" + _parameters.get(i) + "\"");
                 }
             }
         }

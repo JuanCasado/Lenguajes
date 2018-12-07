@@ -17,6 +17,10 @@ public class GrafoJSON {
         ultimoIntroducido = num;
     }
 
+    public String getName() {
+        return this.name;
+    }
+
     public void setEngine(Engine engine) {
         this.engine = engine;
     }
@@ -201,8 +205,28 @@ public class GrafoJSON {
         sb.append("edge [fontname=\"Arial\",fontsize=12];\n");
 
         // Propiedades
+        sb.append("\n//PROPERTIES\n");
         sb.append(fragmentDot(_node_property, "node"));
         sb.append(fragmentDot(_edge_property, "edge"));
+        for (String propertyID : bufferProperties.keySet()) {
+            HashMap<String, String> propertyContent = bufferProperties.get(propertyID);
+            if (propertyContent.containsKey("name")) {
+                sb.append("property_");
+                sb.append(propertyContent.get("name"));
+                sb.append(" [label=\"{" + propertyContent.get("name") + "|");
+                if (propertyContent.containsKey("typeOf"))
+                    sb.append(propertyContent.get("typeOf"));
+                sb.append("}\"];\n");
+            }
+        }
+
+        sb.append("\n//CLASES\n");
+        sb.append(fragmentDot(_node_class, "node"));
+        sb.append(fragmentDot(_edge_class, "edge"));
+
+        sb.append("}\n");
+
+        System.out.println(sb.toString());
         return sb.toString();
     }
 

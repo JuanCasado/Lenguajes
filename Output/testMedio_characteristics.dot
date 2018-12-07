@@ -1,0 +1,13 @@
+graph ejemplo{
+//Defecto
+node [fontname="Arial"];
+edge [fontname="Arial",fontsize=12];
+
+//PROPERTIES
+node[style="pepe", ]
+edge[fontcolor="aerqw", ]
+
+//CLASES
+edge[penwidth=8, ]
+}
+

@@ -12,6 +12,13 @@ public class transformacion {
             EntradaListener listenerEntrada = new EntradaListener(tablaEntrada);
             ParseTree treeEntrada;
 
+            if (args.length > 0) {
+                treeEntrada = procesarEntrada(args); // cuando nos lo pasan por argumento
+            } else {
+                treeEntrada = procesarEntrada(System.in); // cuando no nos pasan argumento
+            }
+            walker.walk(listenerEntrada, treeEntrada);
+
             ArrayList<String> _node_relationship = tablaEntrada.getEdgeRelationshipParameters();
             ArrayList<String> _edge_relationship = tablaEntrada.getNodeRelationshipParameters();
             ArrayList<String> _node_class = tablaEntrada.getNodeClassParameters();
@@ -23,13 +30,8 @@ public class transformacion {
             ArrayList<String> _node_indirect_use = tablaEntrada.getNodeIndirectUseParameters();
             ArrayList<String> _edge_indirect_use = tablaEntrada.getEdgeIndirectUseParameters();
 
-            System.out.println(tablaEntrada.toString());
-            if (args.length > 0) {
-                treeEntrada = procesarEntrada(args); // cuando nos lo pasan por argumento
-            } else {
-                treeEntrada = procesarEntrada(System.in); // cuando no nos pasan argumento
-            }
-            walker.walk(listenerEntrada, treeEntrada);
+            // System.out.println(tablaEntrada.toString());
+
             processJSON(tablaEntrada, walker, _node_relationship, _edge_relationship, _node_class, _edge_class,
                     _node_property, _edge_property, _node_inheritance, _edge_inheritance, _node_indirect_use,
                     _edge_indirect_use);
@@ -138,28 +140,43 @@ public class transformacion {
                     JSONListener listenerJSON = new JSONListener(tablaJSON);
                     ParseTree treeJSON = procesarJSON(new FileInputStream(at.get(i, Content.json)));
                     walker.walk(listenerJSON, treeJSON);
+
+                    System.out.println(tablaJSON.toString());
                     for (int j = 0; j < tablaJSON.getSize(); j++) {
                         String dotContent = tablaJSON.getDotContent(j, _node_relationship, _edge_relationship,
                                 _node_class, _edge_class, _node_property, _edge_property, _node_inheritance,
                                 _edge_inheritance, _node_indirect_use, _edge_indirect_use);
                         Engine engine = tablaJSON.getEngine(j);
+                        String dotName = at.get(i, Content.dot);
+                        if (dotName.endsWith(".dot")) {
+                            dotName = dotName.replace(".dot", "_" + tablaJSON.getName(j) + ".dot");
+                        } else {
+                            dotName += "_" + tablaJSON.getName(j) + ".dot";
+                        }
+
+                        String svgName = at.get(i, Content.svg);
+                        if (svgName.endsWith(".svg")) {
+                            svgName = svgName.replace(".svg", "_" + tablaJSON.getName(j) + ".svg");
+                        } else {
+                            svgName += "_" + tablaJSON.getName(j) + ".svg";
+                        }
                         if (action == Action.saveSvg) {
                             // AQUI GUARDAMOS EL SVG
                             try {
-                                GraphGenerator.generateGraphFromFileTmp(engine, dotContent, at.get(i, Content.svg));
-                                System.out.println("Guardando SVG " + at.get(i, Content.svg));
+                                GraphGenerator.generateGraphFromFileTmp(engine, dotContent, svgName);
+                                System.out.println("Guardando SVG " + svgName);
                             } catch (Exception e) {
-                                System.out.println("Error al guardar el SVG");
+                                System.out.println("Error al guardar el SVG " + svgName);
                                 System.out.println(e.toString());
                             }
 
                         } else if (action == Action.saveDot) {
                             // AQUI GUARDAMOS EL DOT
                             try {
-                                FileManager.write(at.get(i, Content.dot), dotContent);
-                                System.out.println("Guardando DOT " + at.get(i, Content.dot));
+                                FileManager.write(dotName, dotContent);
+                                System.out.println("Guardando DOT " + dotName);
                             } catch (Exception e) {
-                                System.out.println("Error al guardar el DOT");
+                                System.out.println("Error al guardar el DOT " + dotName);
                                 System.out.println(e.toString());
                             }
 
@@ -167,20 +184,24 @@ public class transformacion {
                             // AQUI GUARDAMOS AMBOS
                             try {
                                 System.out.println("Guardando AMBOS");
-                                System.out.println("Guardando DOT " + at.get(i, Content.dot));
-                                FileManager.write(at.get(i, Content.dot), dotContent);
-                                System.out.println("Guardando SVG " + at.get(i, Content.svg));
-                                GraphGenerator.generateGraphFromFile(engine, at.get(i, Content.dot),
-                                        at.get(i, Content.svg));
+                                System.out.println("Guardando DOT " + dotName);
+                                FileManager.write(dotName, dotContent);
                             } catch (Exception e) {
-                                System.out.println("Se ha producido un error");
+                                System.out.println("Error al guardar el DOT " + dotName);
+                                System.out.println(e.toString());
+                            }
+                            try {
+                                System.out.println("Guardando SVG " + svgName);
+                                GraphGenerator.generateGraphFromFile(engine, dotName, svgName);
+                            } catch (Exception e) {
+                                System.out.println("Error al guardar el SVG " + svgName);
                                 System.out.println(e.toString());
                             }
                         }
                     }
                     // System.out.println(tablaJSON.toString());
                 } catch (Exception e) {
-                    System.out.println("ERROR al procesar el archivo JSON");
+                    System.out.println("ERROR al procesar el archivo JSON " + at.get(i, Content.json));
                     System.out.println(e.toString());
                 }
             }
