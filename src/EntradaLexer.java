@@ -39,7 +39,7 @@ public class EntradaLexer extends Lexer {
 		null, "' '", "'-JSON='", "'-DOT='", "'-SVG='", "'-CSV='", "'-len'", "'-fontcolor'", 
 		"'-fontname'", "'-fontsize'", "'-arrowsize'", "'-arrowcolor'", "'-penwidth'", 
 		"'-fillcolor'", "'-style'", "'-shape'", "'_edge'", "'_node'", "'_relationship='", 
-		"'_class='", "'_property='", "'_inheritance='", "'_inderect_use='"
+		"'_class='", "'_property='", "'_inheritance='", "'_indirect_use='"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
 		null, "SPACE", "KW_JSON", "KW_DOT", "KW_SVG", "KW_CSV", "LEN", "FONTCOLOR", 
@@ -189,7 +189,7 @@ public class EntradaLexer extends Lexer {
 		"\u00df\7g\2\2\u00df\u00e0\7t\2\2\u00e0\u00e1\7k\2\2\u00e1\u00e2\7v\2\2"+
 		"\u00e2\u00e3\7c\2\2\u00e3\u00e4\7p\2\2\u00e4\u00e5\7e\2\2\u00e5\u00e6"+
 		"\7g\2\2\u00e6\u00e7\7?\2\2\u00e7,\3\2\2\2\u00e8\u00e9\7a\2\2\u00e9\u00ea"+
-		"\7k\2\2\u00ea\u00eb\7p\2\2\u00eb\u00ec\7f\2\2\u00ec\u00ed\7g\2\2\u00ed"+
+		"\7k\2\2\u00ea\u00eb\7p\2\2\u00eb\u00ec\7f\2\2\u00ec\u00ed\7k\2\2\u00ed"+
 		"\u00ee\7t\2\2\u00ee\u00ef\7g\2\2\u00ef\u00f0\7e\2\2\u00f0\u00f1\7v\2\2"+
 		"\u00f1\u00f2\7a\2\2\u00f2\u00f3\7w\2\2\u00f3\u00f4\7u\2\2\u00f4\u00f5"+
 		"\7g\2\2\u00f5\u00f6\7?\2\2\u00f6.\3\2\2\2\u00f7\u00f9\13\2\2\2\u00f8\u00f7"+

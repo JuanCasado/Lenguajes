@@ -53,7 +53,7 @@ public class EntradaParser extends Parser {
 		null, "' '", "'-JSON='", "'-DOT='", "'-SVG='", "'-CSV='", "'-len'", "'-fontcolor'", 
 		"'-fontname'", "'-fontsize'", "'-arrowsize'", "'-arrowcolor'", "'-penwidth'", 
 		"'-fillcolor'", "'-style'", "'-shape'", "'_edge'", "'_node'", "'_relationship='", 
-		"'_class='", "'_property='", "'_inheritance='", "'_inderect_use='"
+		"'_class='", "'_property='", "'_inheritance='", "'_indirect_use='"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
 		null, "SPACE", "KW_JSON", "KW_DOT", "KW_SVG", "KW_CSV", "LEN", "FONTCOLOR", 
