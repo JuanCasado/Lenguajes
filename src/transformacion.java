@@ -31,11 +31,16 @@ public class transformacion {
             ArrayList<String> _edge_indirect_use = tablaEntrada.getEdgeIndirectUseParameters();
 
             // System.out.println(tablaEntrada.toString());
-
+            System.out.println("----------------------------------------------------------------------------");
+            System.out.println("Parameters:");
+            System.out.println("----------------------------------------------------------------------------");
             processJSON(tablaEntrada, walker, "name",_node_relationship, _edge_relationship, _node_class, _edge_class,
                     _node_property, _edge_property, _node_inheritance, _edge_inheritance, _node_indirect_use,
                     _edge_indirect_use);
+            System.out.println("----------------------------------------------------------------------------");
             if (tablaEntrada.hasCSV()) {
+                System.out.println("CSV:");
+                System.out.println("----------------------------------------------------------------------------");
                 for (int i = 0; i < tablaEntrada.csvSize(); i++) {
                     tablaEntrada.getCSV(i);
                     try {
@@ -52,11 +57,13 @@ public class transformacion {
                         System.out.println(e.toString());
                     }
                 }
+                System.out.println("----------------------------------------------------------------------------");
             }
         } catch (Exception e) {
             System.out.println("ERROR al procesar la ENTRADA");
             System.out.println(e.toString());
         }
+        System.out.print("\n");
     }
 
     /**
@@ -133,7 +140,6 @@ public class transformacion {
         for (int i = 0; i < at.size(); i++) {
             Action action = at.toDo(i);
             if (action != Action.skip) {
-                // AQUI PROCESAMOS EL JSON
                 try {
                     System.out.println("Procesando JSON " + at.get(i, Content.json));
                     JSONTable tablaJSON = new JSONTable();
@@ -141,7 +147,7 @@ public class transformacion {
                     ParseTree treeJSON = procesarJSON(new FileInputStream(at.get(i, Content.json)));
                     walker.walk(listenerJSON, treeJSON);
 
-                    System.out.println(tablaJSON.toString());
+                    //System.out.println(tablaJSON.toString());
                     for (int j = 0; j < tablaJSON.getSize(); j++) {
                         String dotContent = tablaJSON.getDotContent(j, languaje,_node_relationship, _edge_relationship,
                                 _node_class, _edge_class, _node_property, _edge_property, _node_inheritance,
@@ -149,6 +155,7 @@ public class transformacion {
                         Engine engine = tablaJSON.getEngine(j);
                         String dotName = at.get(i, Content.dot);
                         String svgName = at.get(i, Content.svg);
+                        System.out.println("Found : " + tablaJSON.getName(j));
                         if (tablaJSON.getSize() > 1) {
                             if (dotName.endsWith(".dot")) {
                                 dotName = dotName.replace(".dot", "_" + tablaJSON.getName(j) + ".dot");
@@ -165,7 +172,7 @@ public class transformacion {
                             // AQUI GUARDAMOS EL SVG
                             try {
                                 GraphGenerator.generateGraphFromFileTmp(engine, dotContent, svgName);
-                                System.out.println("Guardando SVG " + svgName);
+                                System.out.println("Guardando SVG " + svgName + " with " + engine.toString());
                             } catch (Exception e) {
                                 System.out.println("Error al guardar el SVG " + svgName);
                                 System.out.println(e.toString());
@@ -183,7 +190,7 @@ public class transformacion {
                         } else if (action == Action.saveBoth) {
                             // AQUI GUARDAMOS AMBOS
                             try {
-                                System.out.println("Guardando AMBOS");
+                                //System.out.println("Guardando AMBOS");
                                 System.out.println("Guardando DOT " + dotName);
                                 FileManager.write(dotName, dotContent);
                             } catch (Exception e) {
@@ -191,7 +198,7 @@ public class transformacion {
                                 System.out.println(e.toString());
                             }
                             try {
-                                System.out.println("Guardando SVG " + svgName);
+                                System.out.println("Guardando SVG " + svgName + " with " + engine.toString());
                                 GraphGenerator.generateGraphFromFile(engine, dotName, svgName);
                             } catch (Exception e) {
                                 System.out.println("Error al guardar el SVG " + svgName);

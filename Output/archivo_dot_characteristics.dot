@@ -34,6 +34,7 @@ node[fontsize=15, fillcolor="paleturquoise", style="filled", shape="hexagon", ]
 edge[style="dashed", ]
 
 //RELACION -- PROPIEDAD
+// uso indirecto de definición de tipos
 
 }
 

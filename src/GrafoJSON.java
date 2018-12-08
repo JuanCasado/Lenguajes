@@ -306,6 +306,27 @@ public class GrafoJSON {
             }
         }
 
+        // uso indirecto de definición de tipos
+        sb.append(fragmentDot(_node_indirect_use, "node"));
+        sb.append(fragmentDot(_edge_indirect_use, "edge"));
+        sb.append("// uso indirecto de definición de tipos\n");
+        for (String idProperty : bufferProperties.keySet()){
+            if (bufferProperties.get(idProperty).containsKey("typeOf")){
+                if (_clases.keySet().contains(bufferProperties.get(idProperty).get("typeOf"))){
+                    sb.append("property_");
+                    if (bufferProperties.get(idProperty).containsKey(languaje)) {
+                        sb.append(bufferProperties.get(idProperty).get(languaje));
+                    } else {
+                        sb.append(bufferProperties.get(idProperty).get("name"));
+                    }
+                    sb.append(" -- ");
+                    sb.append("class_");
+                    sb.append(_clases.get(bufferProperties.get(idProperty).get("typeOf")).getName(languaje));
+                    sb.append(" [label=\"TypeOf\"];\n");
+                }
+            }
+        }
+
 
         sb.append("\n}\n");
 

@@ -55,6 +55,11 @@ class_FAMILIA -- property_Descendientes
 class_FAMILIA -- property_Mascotas
 //RELACION -- PROPIEDAD
 relationship_conoceA -- property_FechaUNIX
+// uso indirecto de definición de tipos
+property_Mascotas -- class_MASCOTA [label="TypeOf"];
+property_Descendientes -- class_PERSONA [label="TypeOf"];
+property_Nucleo -- class_PERSONA [label="TypeOf"];
+property_Ascendientes -- class_PERSONA [label="TypeOf"];
 
 }
 

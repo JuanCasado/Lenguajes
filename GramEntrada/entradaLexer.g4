@@ -24,7 +24,7 @@ RELATIONSHIP: '_relationship=';
 CLASS: '_class=';
 PROPERTY: '_property=';
 INHERITANCE: '_inheritance=';
-INDERECT_USE: '_inderect_use=';
+INDERECT_USE: '_indirect_use=';
 
 TEXTO: .+?;
 CADENA: '"'.+?'"' {setText(getText().substring(1, getText().length()-1).replaceAll("\\\\(-)", "$1"));};
