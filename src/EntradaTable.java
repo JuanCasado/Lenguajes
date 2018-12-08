@@ -40,7 +40,7 @@ public class EntradaTable implements ActionTable {
     private static final String parametros_f1[] = { "-len", "-fontcolor", "-fontname", "-fontsize", "-arrowsize",
             "-arrowcolor", "-penwidth", "-fillcolor", "-style", "-shape" };
     private static final String parametros_f2[] = { "_relationship=", "_class=", "_property=", "_inheritance=",
-            "_inderect_use=" };
+            "_indirect_use=" };
     private static final String parametros_f3[] = { "_edge", "_node", };
 
     /**

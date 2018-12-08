@@ -30,7 +30,7 @@ public class transformacion {
             ArrayList<String> _node_indirect_use = tablaEntrada.getNodeIndirectUseParameters();
             ArrayList<String> _edge_indirect_use = tablaEntrada.getEdgeIndirectUseParameters();
 
-            // System.out.println(tablaEntrada.toString());
+            System.out.println(tablaEntrada.toString());
             System.out.println("----------------------------------------------------------------------------");
             System.out.println("Parameters:");
             System.out.println("----------------------------------------------------------------------------");
@@ -215,3 +215,8 @@ public class transformacion {
         }
     }
 }
+
+/* AÑADIR EN ENTRADA LEXER
+ * * ARROWHEAD
+ * * COLOR
+*/

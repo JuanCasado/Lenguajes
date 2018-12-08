@@ -33,7 +33,7 @@ node[fontsize=15, fillcolor="paleturquoise", style="filled", shape="hexagon", ]
 relationship_conoceA [label=conoceA];
 
 //CLASE -- PROPIEDAD
-edge[style="dashed", ]
+edge[fillcolor="grey", style="dashed", ]
 
 class_PERSONA -- property_Nombre
 class_PERSONA -- property_Apellidos
@@ -55,6 +55,7 @@ class_FAMILIA -- property_Descendientes
 class_FAMILIA -- property_Mascotas
 //RELACION -- PROPIEDAD
 relationship_conoceA -- property_FechaUNIX
+edge[style="dotted", ]
 // uso indirecto de definición de tipos
 property_Mascotas -- class_MASCOTA [label="TypeOf"];
 property_Descendientes -- class_PERSONA [label="TypeOf"];

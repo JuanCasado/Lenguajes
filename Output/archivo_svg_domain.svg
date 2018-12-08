@@ -34,7 +34,7 @@
 <!-- property_Mascotas&#45;&#45;class_MASCOTA -->
 <g id="edge20" class="edge">
 <title>property_Mascotas&#45;&#45;class_MASCOTA</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M274.4107,-216.39C280.1788,-220.562 286.3022,-224.9909 292.1249,-229.2023"/>
+<path fill="none" stroke="#000000" stroke-dasharray="1,5" d="M274.4107,-216.39C280.1788,-220.562 286.3022,-224.9909 292.1249,-229.2023"/>
 <text text-anchor="middle" x="263.2678" y="-226.1962" font-family="Arial" font-size="12.00" fill="#000000">TypeOf</text>
 </g>
 <!-- property_Fecha -->
@@ -78,7 +78,7 @@
 <!-- property_Descendientes&#45;&#45;class_PERSONA -->
 <g id="edge21" class="edge">
 <title>property_Descendientes&#45;&#45;class_PERSONA</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M387.7467,-118.0949C387.858,-118.1006 387.9663,-118.1061 388.0714,-118.1114"/>
+<path fill="none" stroke="#000000" stroke-dasharray="1,5" d="M387.7467,-118.0949C387.858,-118.1006 387.9663,-118.1061 388.0714,-118.1114"/>
 <text text-anchor="middle" x="407.9091" y="-121.5032" font-family="Arial" font-size="12.00" fill="#000000">TypeOf</text>
 </g>
 <!-- property_Raza -->
@@ -132,7 +132,7 @@
 <!-- property_Nucleo&#45;&#45;class_PERSONA -->
 <g id="edge22" class="edge">
 <title>property_Nucleo&#45;&#45;class_PERSONA</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M349.0614,-97.1248C350.4961,-97.8552 351.934,-98.5873 353.3676,-99.3172"/>
+<path fill="none" stroke="#000000" stroke-dasharray="1,5" d="M349.0614,-97.1248C350.4961,-97.8552 351.934,-98.5873 353.3676,-99.3172"/>
 <text text-anchor="middle" x="371.2145" y="-88.621" font-family="Arial" font-size="12.00" fill="#000000">TypeOf</text>
 </g>
 <!-- property_Nombre -->
@@ -154,7 +154,7 @@
 <!-- property_Ascendientes&#45;&#45;class_PERSONA -->
 <g id="edge23" class="edge">
 <title>property_Ascendientes&#45;&#45;class_PERSONA</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M442.8761,-135.6166C442.3652,-135.3508 441.8507,-135.0852 441.333,-134.8201"/>
+<path fill="none" stroke="#000000" stroke-dasharray="1,5" d="M442.8761,-135.6166C442.3652,-135.3508 441.8507,-135.0852 441.333,-134.8201"/>
 <text text-anchor="middle" x="462.1046" y="-125.6184" font-family="Arial" font-size="12.00" fill="#000000">TypeOf</text>
 </g>
 <!-- property_Designacion -->

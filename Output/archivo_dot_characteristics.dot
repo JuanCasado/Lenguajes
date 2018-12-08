@@ -31,9 +31,10 @@ class_Parrafo [label=Parrafo];
 node[fontsize=15, fillcolor="paleturquoise", style="filled", shape="hexagon", ]
 
 //CLASE -- PROPIEDAD
-edge[style="dashed", ]
+edge[fillcolor="grey", style="dashed", ]
 
 //RELACION -- PROPIEDAD
+edge[style="dotted", ]
 // uso indirecto de definición de tipos
 
 }
