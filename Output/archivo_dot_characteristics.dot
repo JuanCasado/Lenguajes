@@ -34,8 +34,29 @@ node[fontsize=15, fillcolor="paleturquoise", style="filled", shape="hexagon", ]
 edge[len_relationship="3", style="dashed", color="grey", ]
 
 //RELACION -- PROPIEDAD
-edge[arrowsize=2, style="dotted", arrowhead="vee", dir="forward", ]
+
 // uso indirecto de definición de tipos
+
+// herencias
+class_Idioma -- class_CaracteristicasPlantilla [arrowsize=3, arrowhead="normal", dir="back", label="inherits"];
+class_Espanol -- class_Idioma [arrowsize=3, arrowhead="normal", dir="back", label="inherits"];
+class_Ingles -- class_Idioma [arrowsize=3, arrowhead="normal", dir="back", label="inherits"];
+class_Arabe -- class_Idioma [arrowsize=3, arrowhead="normal", dir="back", label="inherits"];
+class_TiempoVerbal -- class_CaracteristicasPlantilla [arrowsize=3, arrowhead="normal", dir="back", label="inherits"];
+class_Presente -- class_TiempoVerbal [arrowsize=3, arrowhead="normal", dir="back", label="inherits"];
+class_Futuro -- class_TiempoVerbal [arrowsize=3, arrowhead="normal", dir="back", label="inherits"];
+class_PreteritoImperfecto -- class_TiempoVerbal [arrowsize=3, arrowhead="normal", dir="back", label="inherits"];
+class_Espacio -- class_CaracteristicasPlantilla [arrowsize=3, arrowhead="normal", dir="back", label="inherits"];
+class_Cronológico -- class_Espacio [arrowsize=3, arrowhead="normal", dir="back", label="inherits"];
+class_Retrospectivo -- class_Espacio [arrowsize=3, arrowhead="normal", dir="back", label="inherits"];
+class_Anticipativo -- class_Espacio [arrowsize=3, arrowhead="normal", dir="back", label="inherits"];
+class_Elemento -- class_CaracteristicasPlantilla [arrowsize=3, arrowhead="normal", dir="back", label="inherits"];
+class_Texto -- class_Elemento [arrowsize=3, arrowhead="normal", dir="back", label="inherits"];
+class_Parrafo -- class_Elemento [arrowsize=3, arrowhead="normal", dir="back", label="inherits"];
+class_Oracion -- class_Elemento [arrowsize=3, arrowhead="normal", dir="back", label="inherits"];
+class_Palabra -- class_Elemento [arrowsize=3, arrowhead="normal", dir="back", label="inherits"];
+
+// enlaces de relaciones
 
 }
 

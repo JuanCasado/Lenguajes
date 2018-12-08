@@ -24,8 +24,19 @@ node[fontsize=15, fillcolor="paleturquoise", style="filled", shape="hexagon", ]
 edge[len_relationship="3", style="dashed", color="grey", ]
 
 //RELACION -- PROPIEDAD
-edge[arrowsize=2, style="dotted", arrowhead="vee", dir="forward", ]
+
 // uso indirecto de definición de tipos
+
+// herencias
+class_Ambito -- class_PropiedadesPlantilla [arrowsize=3, arrowhead="normal", dir="back", label="inherits"];
+class_RelacionFamiliar -- class_Ambito [arrowsize=3, arrowhead="normal", dir="back", label="inherits"];
+class_FamiliaUnitaria -- class_RelacionFamiliar [arrowsize=3, arrowhead="normal", dir="back", label="inherits"];
+class_NucleoFamiliar -- class_FamiliaUnitaria [arrowsize=3, arrowhead="normal", dir="back", label="inherits"];
+class_Ascendientes -- class_RelacionFamiliar [arrowsize=3, arrowhead="normal", dir="back", label="inherits"];
+class_Descendientes -- class_RelacionFamiliar [arrowsize=3, arrowhead="normal", dir="back", label="inherits"];
+class_Mascotas -- class_FamiliaUnitaria [arrowsize=3, arrowhead="normal", dir="back", label="inherits"];
+
+// enlaces de relaciones
 
 }
 

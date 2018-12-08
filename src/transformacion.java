@@ -18,7 +18,8 @@ public class transformacion {
                 treeEntrada = procesarEntrada(System.in); // cuando no nos pasan argumento
             }
             walker.walk(listenerEntrada, treeEntrada);
-            System.out.println(tablaEntrada.toString());
+            //System.out.println(tablaEntrada.toString());
+            
             ArrayList<String> _node_relationship = tablaEntrada.getNodeRelationshipParameters();
             ArrayList<String> _edge_relationship = tablaEntrada.getEdgeRelationshipParameters();
             ArrayList<String> _node_class = tablaEntrada.getNodeClassParameters();
@@ -63,7 +64,7 @@ public class transformacion {
                                 JSONListener listenerJSON = new JSONListener(tablaJSON);
                                 ParseTree treeJSON = procesarJSON(new FileInputStream(at.get(i, Content.json)));
                                 walker.walk(listenerJSON, treeJSON);
-                                // System.out.println(tablaJSON.toString());
+                                System.out.println(tablaJSON.toString());
                             }
                             for (int j = 0; j < tablaJSON.getSize(); j++) {
                                 String dotContent = tablaJSON.getDotContent(j, languaje, _node_relationship,

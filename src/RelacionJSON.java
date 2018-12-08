@@ -21,8 +21,20 @@ public class RelacionJSON {
     public String getName(String languaje) {
         if (_names.containsKey(languaje))
             return _names.get(languaje);
+        else{
+            if (languaje.contains("reverse_")){
+                return _names.get("reverse_name");
+            }else{
+                return _names.get("name");
+            }
+        }
+    }
+
+    public String getClase(String clase) {
+        if (_clases.containsKey(clase))
+            return _clases.get(clase);
         else
-            return _names.get("name");
+            return "";
     }
 
     public int amountProperties() {
@@ -46,7 +58,7 @@ public class RelacionJSON {
     }
 
     public void addReverseName(String reverseName) {
-        _names.put("reverseName", reverseName);
+        _names.put("reverse_name", reverseName);
     }
 
     public void addFrom(String from) {
@@ -60,7 +72,7 @@ public class RelacionJSON {
     public String toString() {
         StringBuffer sb = new StringBuffer();
 
-        sb.append("\tRELACION: " + (id.equals("") ? "sin nombre" : id) + "\n");
+        sb.append("\tRELACION: " + (id.equals("") ? "herencia" : id) + "\n");
 
         sb.append("\t\tCLASES: \n");
         for (String nombreClase : _clases.keySet()) {

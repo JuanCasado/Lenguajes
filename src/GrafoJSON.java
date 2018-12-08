@@ -269,7 +269,6 @@ public class GrafoJSON {
             //Clase -- Propiedad
             sb.append("\n//CLASE -- PROPIEDAD\n");
             sb.append(fragmentDot(_edge_relationship, "edge"));
-            sb.append("\n");
             for (String claseID : _clases.keySet()){
                 ClaseJSON clase = _clases.get(claseID);
                 for (int i = 0; i<clase.amountProperties();i++){
@@ -283,13 +282,13 @@ public class GrafoJSON {
                         }else{
                             sb.append(bufferProperties.get(clase.getProperty(i)).get("name"));
                         }
-                        sb.append("\n");
+                        sb.append(";\n");
                     }
                 }
             }
 
             //Relacion -- Propiedad
-            sb.append("//RELACION -- PROPIEDAD\n");
+            sb.append("\n//RELACION -- PROPIEDAD\n");
             for (RelacionJSON relacion : _relaciones) {
                 for (int i = 0; i < relacion.amountProperties(); i++) {
                     if (relacion.getName(languaje)!=null){
@@ -303,16 +302,14 @@ public class GrafoJSON {
                             } else {
                                 sb.append(bufferProperties.get(relacion.getProperty(i)).get("name"));
                             }
-                            sb.append("\n");
+                            sb.append(";\n");
                         }
                     }
                 }
             }
 
             // uso indirecto de definición de tipos
-            sb.append(fragmentDot(_node_indirect_use, "node"));
-            sb.append(fragmentDot(_edge_indirect_use, "edge"));
-            sb.append("// uso indirecto de definición de tipos\n");
+            sb.append("\n// uso indirecto de definición de tipos\n");
             for (String idProperty : bufferProperties.keySet()){
                 if (bufferProperties.get(idProperty).containsKey("typeOf")){
                     if (_clases.keySet().contains(bufferProperties.get(idProperty).get("typeOf"))){
@@ -325,11 +322,42 @@ public class GrafoJSON {
                         sb.append(" -- ");
                         sb.append("class_");
                         sb.append(_clases.get(bufferProperties.get(idProperty).get("typeOf")).getName(languaje));
-                        sb.append(" [label=\"TypeOf\"];\n");
+                        sb.append(" ["+ fragmentDot(_edge_indirect_use, "")+ fragmentDot(_node_indirect_use, "")+"label=\"TypeOf\"];\n");
                     }
                 }
             }
+            
+            // herencias
+            sb.append("\n// herencias\n");
+            for (RelacionJSON relation : _relaciones){
+                if (relation.getID().equals("")){
+                    sb.append("class_");
+                    sb.append(_clases.get(relation.getClase("from")).getName(languaje));
+                    sb.append(" -- class_");
+                    sb.append(_clases.get(relation.getClase("to")).getName(languaje));
+                    sb.append(" ["+ fragmentDot(_node_inheritance, "")+ fragmentDot(_edge_inheritance, "")+ "label=\"inherits\"];\n");
+                }
+            }
 
+            // enlaces de relaciones
+            sb.append("\n// enlaces de relaciones\n");
+            for (RelacionJSON relation : _relaciones) {
+                if (!relation.getID().equals("")) {
+                    sb.append("class_");
+                    sb.append(_clases.get(relation.getClase("from")).getName(languaje));
+                    sb.append(" -- relationship_");
+                    sb.append(relation.getName(languaje));
+                    sb.append(" [" + fragmentDot(_node_inheritance, "") + fragmentDot(_edge_inheritance, "")
+                            + "label=\""+ relation.getName(languaje)+"\""+"fontcolor=blue,dir=forward,arrowhead=normal"+"];\n");
+
+                    sb.append("relationship_");
+                    sb.append(relation.getName(languaje));
+                    sb.append(" -- class_");
+                    sb.append(_clases.get(relation.getClase("to")).getName(languaje));
+                    sb.append(" [" + fragmentDot(_node_inheritance, "") + fragmentDot(_edge_inheritance, "")
+                            + "label=\""+ relation.getName("reverse_" + languaje)+"\""+"fontcolor=blue,dir=forward,arrowhead=normal"+"];\n");
+                }
+            }
 
             sb.append("\n}\n");
 
@@ -345,12 +373,15 @@ public class GrafoJSON {
         StringBuffer sb = new StringBuffer();
         if (cadena.size() > 0) {
             sb.append(tipo);
-            sb.append("[");
+            if (!tipo.equals(""))
+                sb.append("[");
             for (String parameter : cadena) {
                 sb.append(parameter + ", ");
             }
-            sb.append("]\n");
+            if (!tipo.equals(""))
+                sb.append("]\n");
+            return sb.toString();
         }
-        return sb.toString();
+        return "";
     }
 }
