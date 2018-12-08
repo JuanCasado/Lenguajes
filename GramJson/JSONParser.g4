@@ -60,8 +60,8 @@ graph: GRAPH;
 cuerpo_graph: ABRIR_CORCHETE objeto+ CERRAR_CORCHETE;
 
 properties: PROPERTIES;
-valor_propertie: cadena COMA?;
-cuerpo_properties: valor_propertie+ CERRAR_CORCHETE;
+valor_propertie: cadena;
+cuerpo_properties: (valor_propertie COMA?)+ CERRAR_CORCHETE;
 
 arbol: TREE;
 cuerpo_tree: ABRIR_CORCHETE objeto+ CERRAR_CORCHETE;

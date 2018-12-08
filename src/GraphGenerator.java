@@ -53,21 +53,24 @@ public class GraphGenerator {
                 Class manager = Class.forName("com.apple.eio.FileManager");
                 Method openURL = manager.getDeclaredMethod("openURL", new Class[] { String.class });
                 openURL.invoke(null, new Object[] { url });
-            } else if (nombreSO.startsWith("Windows"))
-                Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler " + url);
+            } else if (nombreSO.startsWith("Windows")){
+                Process p = Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler " + url);
+                p.waitFor();
+            }
             else {
                 String[] navegadores = { "firefox", "opera", "konqueror", "epiphany", "mozilla", "netscape", "safari",
                         "Safari", "Chrome", "chrome", "Google Chrome", "google chrome" };
                 String navegador = null;
                 for (int contador = 0; contador < navegadores.length && navegador == null; contador++) {
-                    if (Runtime.getRuntime().exec(new String[] { "which", navegadores[contador] }).waitFor() == 0)
+                    if (Runtime.getRuntime().exec(new String[] { "which", navegadores[contador] }).waitFor() == 0){
                         navegador = navegadores[contador];
+                    }
                 }
                 if (navegador != null) {
-                    Runtime.getRuntime().exec(new String[] { navegador, url });
+                    Process p = Runtime.getRuntime().exec(new String[] { navegador, url });
+                    p.waitFor();
                 }
             }
-
         } catch (Exception e) {
             System.out.println(e.toString());
         }

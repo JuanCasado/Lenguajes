@@ -114,12 +114,12 @@ public class JSONTable {
         return _grafos.size();
     }
 
-    public String getDotContent(int index, ArrayList<String> _node_relationship, ArrayList<String> _edge_relationship,
+    public String getDotContent(int index, String languaje,ArrayList<String> _node_relationship, ArrayList<String> _edge_relationship,
             ArrayList<String> _node_class, ArrayList<String> _edge_class, ArrayList<String> _node_property,
             ArrayList<String> _edge_property, ArrayList<String> _node_inheritance, ArrayList<String> _edge_inheritance,
             ArrayList<String> _node_indirect_use, ArrayList<String> _edge_indirect_use) {
         if (_grafos.size() > index)
-            return _grafos.get(index).toDot(_node_relationship, _edge_relationship, _node_class, _edge_class,
+            return _grafos.get(index).toDot(languaje, _node_relationship, _edge_relationship, _node_class, _edge_class,
                     _node_property, _edge_property, _node_inheritance, _edge_inheritance, _node_indirect_use,
                     _edge_indirect_use);
         return "";

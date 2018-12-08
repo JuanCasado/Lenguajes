@@ -19,8 +19,8 @@ public class transformacion {
             }
             walker.walk(listenerEntrada, treeEntrada);
 
-            ArrayList<String> _node_relationship = tablaEntrada.getEdgeRelationshipParameters();
-            ArrayList<String> _edge_relationship = tablaEntrada.getNodeRelationshipParameters();
+            ArrayList<String> _node_relationship = tablaEntrada.getNodeRelationshipParameters();
+            ArrayList<String> _edge_relationship = tablaEntrada.getEdgeRelationshipParameters();
             ArrayList<String> _node_class = tablaEntrada.getNodeClassParameters();
             ArrayList<String> _edge_class = tablaEntrada.getEdgeClassParameters();
             ArrayList<String> _node_property = tablaEntrada.getNodePropertyParameters();
@@ -32,7 +32,7 @@ public class transformacion {
 
             // System.out.println(tablaEntrada.toString());
 
-            processJSON(tablaEntrada, walker, _node_relationship, _edge_relationship, _node_class, _edge_class,
+            processJSON(tablaEntrada, walker, "name",_node_relationship, _edge_relationship, _node_class, _edge_class,
                     _node_property, _edge_property, _node_inheritance, _edge_inheritance, _node_indirect_use,
                     _edge_indirect_use);
             if (tablaEntrada.hasCSV()) {
@@ -44,7 +44,7 @@ public class transformacion {
                         ParseTree treeCSV = procesarCSV(new FileInputStream(tablaEntrada.getCSV(i)));
                         walker.walk(listenerCSV, treeCSV);
 
-                        processJSON(tablaCSV, walker, _node_relationship, _edge_relationship, _node_class, _edge_class,
+                        processJSON(tablaCSV, walker, "name",_node_relationship, _edge_relationship, _node_class, _edge_class,
                                 _node_property, _edge_property, _node_inheritance, _edge_inheritance,
                                 _node_indirect_use, _edge_indirect_use);
                     } catch (Exception e) {
@@ -125,7 +125,7 @@ public class transformacion {
         return parserJSON.init();
     }
 
-    public static void processJSON(ActionTable at, ParseTreeWalker walker, ArrayList<String> _node_relationship,
+    public static void processJSON(ActionTable at, ParseTreeWalker walker, String languaje,ArrayList<String> _node_relationship,
             ArrayList<String> _edge_relationship, ArrayList<String> _node_class, ArrayList<String> _edge_class,
             ArrayList<String> _node_property, ArrayList<String> _edge_property, ArrayList<String> _node_inheritance,
             ArrayList<String> _edge_inheritance, ArrayList<String> _node_indirect_use,
@@ -143,22 +143,23 @@ public class transformacion {
 
                     System.out.println(tablaJSON.toString());
                     for (int j = 0; j < tablaJSON.getSize(); j++) {
-                        String dotContent = tablaJSON.getDotContent(j, _node_relationship, _edge_relationship,
+                        String dotContent = tablaJSON.getDotContent(j, languaje,_node_relationship, _edge_relationship,
                                 _node_class, _edge_class, _node_property, _edge_property, _node_inheritance,
                                 _edge_inheritance, _node_indirect_use, _edge_indirect_use);
                         Engine engine = tablaJSON.getEngine(j);
                         String dotName = at.get(i, Content.dot);
-                        if (dotName.endsWith(".dot")) {
-                            dotName = dotName.replace(".dot", "_" + tablaJSON.getName(j) + ".dot");
-                        } else {
-                            dotName += "_" + tablaJSON.getName(j) + ".dot";
-                        }
-
                         String svgName = at.get(i, Content.svg);
-                        if (svgName.endsWith(".svg")) {
-                            svgName = svgName.replace(".svg", "_" + tablaJSON.getName(j) + ".svg");
-                        } else {
-                            svgName += "_" + tablaJSON.getName(j) + ".svg";
+                        if (tablaJSON.getSize() > 1) {
+                            if (dotName.endsWith(".dot")) {
+                                dotName = dotName.replace(".dot", "_" + tablaJSON.getName(j) + ".dot");
+                            } else {
+                                dotName += "_" + tablaJSON.getName(j) + ".dot";
+                            }
+                            if (svgName.endsWith(".svg")) {
+                                svgName = svgName.replace(".svg", "_" + tablaJSON.getName(j) + ".svg");
+                            } else {
+                                svgName += "_" + tablaJSON.getName(j) + ".svg";
+                            }
                         }
                         if (action == Action.saveSvg) {
                             // AQUI GUARDAMOS EL SVG
@@ -169,7 +170,6 @@ public class transformacion {
                                 System.out.println("Error al guardar el SVG " + svgName);
                                 System.out.println(e.toString());
                             }
-
                         } else if (action == Action.saveDot) {
                             // AQUI GUARDAMOS EL DOT
                             try {

@@ -14,6 +14,28 @@ public class RelacionJSON {
         return id;
     }
 
+    public boolean hasID() {
+        return id!=null;
+    }
+
+    public String getName(String languaje) {
+        if (_names.containsKey(languaje))
+            return _names.get(languaje);
+        else
+            return _names.get("name");
+    }
+
+    public int amountProperties() {
+        return _properties.size();
+    }
+
+    public String getProperty(int index) {
+        if (_properties.size() > index)
+            return _properties.get(index);
+        else
+            return "";
+    }
+
     public void addValorProperty(String property) {
         if (!_properties.contains(property))
             _properties.add(property);

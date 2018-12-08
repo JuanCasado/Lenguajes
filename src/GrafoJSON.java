@@ -3,15 +3,17 @@ import java.util.*;
 public class GrafoJSON {
     private HashMap<String, ClaseJSON> _clases = new HashMap<>();
     private ArrayList<RelacionJSON> _relaciones = new ArrayList<>();
+    private HashMap<String, HashMap<String, String>> bufferProperties = new HashMap<>();
+
+    private String name;
+    private Engine engine;
+
+    private int ultimoIntroducido; // 0->clase, 1->relacion, 2->property
     private ClaseJSON ultimaClase;
     private String ultimaClaseId;
-    private String name;
     private RelacionJSON ultimaRelacion;
-    private Engine engine;
-    private int ultimoIntroducido; // 0->clase, 1->relacion, 2->property
     private HashMap<String, String> ultimaProperty;
     private String ultimaPropertyId;
-    private HashMap<String, HashMap<String, String>> bufferProperties = new HashMap<>();
 
     public void addUltimo(int num) {
         ultimoIntroducido = num;
@@ -193,7 +195,7 @@ public class GrafoJSON {
         return sb.toString();
     }
 
-    public String toDot(ArrayList<String> _node_relationship, ArrayList<String> _edge_relationship,
+    public String toDot(String languaje, ArrayList<String> _node_relationship, ArrayList<String> _edge_relationship,
             ArrayList<String> _node_class, ArrayList<String> _edge_class, ArrayList<String> _node_property,
             ArrayList<String> _edge_property, ArrayList<String> _node_inheritance, ArrayList<String> _edge_inheritance,
             ArrayList<String> _node_indirect_use, ArrayList<String> _edge_indirect_use) {
@@ -212,21 +214,102 @@ public class GrafoJSON {
             HashMap<String, String> propertyContent = bufferProperties.get(propertyID);
             if (propertyContent.containsKey("name")) {
                 sb.append("property_");
-                sb.append(propertyContent.get("name"));
-                sb.append(" [label=\"{" + propertyContent.get("name") + "|");
+                if (propertyContent.containsKey(languaje)){
+                    sb.append(propertyContent.get(languaje));
+                    sb.append(" [label=\"{" + propertyContent.get(languaje) + "|");
+                }else{
+                    sb.append(propertyContent.get("name"));
+                    sb.append(" [label=\"{" + propertyContent.get("name") + "|");
+                }
                 if (propertyContent.containsKey("typeOf"))
                     sb.append(propertyContent.get("typeOf"));
-                sb.append("}\"];\n");
+                sb.append("}\"");
+                if (propertyContent.containsKey("optional")){
+                    if (propertyContent.get("optional").equals("true")){
+                        sb.append(",style=\"filled,dashed\"");
+                    }
+                }
+                sb.append("];\n");
             }
         }
 
+        //Clases
         sb.append("\n//CLASES\n");
         sb.append(fragmentDot(_node_class, "node"));
         sb.append(fragmentDot(_edge_class, "edge"));
+        for (String claseID : _clases.keySet()){
+            String nombreClase = _clases.get(claseID).getName(languaje);
+            sb.append("class_");
+            sb.append(nombreClase);
+            sb.append(" [label=");
+            sb.append(nombreClase);
+            sb.append("];\n");
+        }
 
-        sb.append("}\n");
+        //Relaciones
+        sb.append("\n//RELACIONES\n");
+        sb.append(fragmentDot(_node_relationship, "node"));
+        for (RelacionJSON relacion : _relaciones) {
+            if (relacion.hasID()){
+                String nombreRealcion = relacion.getName(languaje);
+                if (nombreRealcion!=null){
+                    sb.append("relationship_");
+                    sb.append(nombreRealcion);
+                    sb.append(" [label=");
+                    sb.append(nombreRealcion);
+                    sb.append("];\n");
+                }
+            }
+        }
 
-        System.out.println(sb.toString());
+
+        //Clase -- Propiedad
+        sb.append("\n//CLASE -- PROPIEDAD\n");
+        sb.append(fragmentDot(_edge_relationship, "edge"));
+        sb.append("\n");
+        for (String claseID : _clases.keySet()){
+            ClaseJSON clase = _clases.get(claseID);
+            for (int i = 0; i<clase.amountProperties();i++){
+                if (bufferProperties.containsKey(clase.getProperty(i))) {
+                    sb.append("class_");
+                    sb.append(clase.getName(languaje));
+                    sb.append( " -- ");
+                    sb.append("property_");
+                    if (bufferProperties.get(clase.getProperty(i)).containsKey(languaje)){
+                        sb.append(bufferProperties.get(clase.getProperty(i)).get(languaje));
+                    }else{
+                        sb.append(bufferProperties.get(clase.getProperty(i)).get("name"));
+                    }
+                    sb.append("\n");
+                }
+            }
+        }
+
+        //Relacion -- Propiedad
+        sb.append("//RELACION -- PROPIEDAD\n");
+        for (RelacionJSON relacion : _relaciones) {
+            for (int i = 0; i < relacion.amountProperties(); i++) {
+                if (relacion.getName(languaje)!=null){
+                    if (bufferProperties.containsKey(relacion.getProperty(i))) {
+                        sb.append("relationship_");
+                        sb.append(relacion.getName(languaje));
+                        sb.append(" -- ");
+                        sb.append("property_");
+                        if (bufferProperties.get(relacion.getProperty(i)).containsKey(languaje)) {
+                            sb.append(bufferProperties.get(relacion.getProperty(i)).get(languaje));
+                        } else {
+                            sb.append(bufferProperties.get(relacion.getProperty(i)).get("name"));
+                        }
+                        sb.append("\n");
+                    }
+                }
+            }
+        }
+
+
+        sb.append("\n}\n");
+
+        //System.out.println(sb.toString());
         return sb.toString();
     }
 

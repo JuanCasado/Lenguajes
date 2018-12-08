@@ -31,6 +31,7 @@ graph ejemplo{
   edge[style=dashed,len=3,color=grey]
   
   //Clase-propiedad
+  //EN LA CLASE TENEMOS SUS PROPIEDADES, LAS LEEMOS DE BUFFER
   class_Principal -- property_name;
   class_Hijo -- property_name;
   class_Hijo -- property_apellidos;
@@ -40,21 +41,26 @@ graph ejemplo{
   class_Nieto -- property_mascotas;
   class_Mascota -- property_nombreMascota;
   //Relación-propiedad
+  //EN LA RELACION TENEMOS SUS PROPIEDADES, LAS LEEMOS DE BUFFER
   relationship_conoceA -- property_fechaUNIX;  
   
   //uso indirecto de definición de tipos
+  //UNA PROPIEDAD ES DE TIPO UNA CLASE
   property_mascotas -- class_Mascota [style=dotted,arrowhead=vee,dir=forward,arrowsize=2,label="TypeOf"];
   
   //asociaciones a través de atributos marcadas de forma directa
+  //TIENE UNA MULTIPLICIDAD
   class_Nieto -- class_Mascota [label=".mascotas (0..n)", fontcolor=orangered, color=orangered, style=dashed, arrowhead=vee,dir=forward,arrowsize=2]
   
   //Herencias
+  //CUANDO LA RELACION NO TIENE NOMBRE
   edge[len=5,color=black]
   class_Principal -- class_Hijo [arrowhead=normal,arrowsize=3,dir=back,label="inherits"];
   class_Hijo -- class_Nieto [arrowhead=normal,arrowsize=3,dir=back,label="inherits"];
   
   
   //Enlaces de las relaciones
+  //TIENE DOS MULTIPLICIDADES
   edge[len=2,penwidth=3,color=blue]
   class_Nieto -- relationship_conoceA [label="Conoce A (0..n)",fontcolor=blue,dir=forward,arrowhead=normal];
   relationship_conoceA -- class_Nieto [label="es conocido por (0..n)",fontcolor=blue,dir=forward,arrowhead=normal];
