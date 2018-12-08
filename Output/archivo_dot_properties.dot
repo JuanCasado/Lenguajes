@@ -4,8 +4,10 @@ node [fontname="Arial"];
 edge [fontname="Arial",fontsize=12];
 
 //PROPERTIES
+node[fontsize=10, fillcolor="lightgoldenrodyellow", style="filled", shape="record", ]
 
 //CLASES
+node[fontsize=20, fillcolor="lightseagreen", style="filled", shape="ellipse", ]
 class_FamiliaUnitaria [label=FamiliaUnitaria];
 class_NucleoFamiliar [label=NucleoFamiliar];
 class_Ascendientes [label=Ascendientes];
@@ -16,10 +18,13 @@ class_Mascotas [label=Mascotas];
 class_Ambito [label=Ambito];
 
 //RELACIONES
+node[fontsize=15, fillcolor="paleturquoise", style="filled", shape="hexagon", ]
 
 //CLASE -- PROPIEDAD
+edge[len_relationship="3", style="dashed", color="grey", ]
 
 //RELACION -- PROPIEDAD
+edge[arrowsize=2, style="dotted", arrowhead="vee", dir="forward", ]
 // uso indirecto de definición de tipos
 
 }

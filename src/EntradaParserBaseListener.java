@@ -339,6 +339,42 @@ public class EntradaParserBaseListener implements EntradaParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterColor(EntradaParser.ColorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitColor(EntradaParser.ColorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterArrowhead(EntradaParser.ArrowheadContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitArrowhead(EntradaParser.ArrowheadContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterDir(EntradaParser.DirContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDir(EntradaParser.DirContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterLen_name(EntradaParser.Len_nameContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -358,6 +394,18 @@ public class EntradaParserBaseListener implements EntradaParserListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitFontcolor_name(EntradaParser.Fontcolor_nameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterColor_name(EntradaParser.Color_nameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitColor_name(EntradaParser.Color_nameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -411,6 +459,18 @@ public class EntradaParserBaseListener implements EntradaParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterArrowhead_name(EntradaParser.Arrowhead_nameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitArrowhead_name(EntradaParser.Arrowhead_nameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterPenwidth_name(EntradaParser.Penwidth_nameContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -454,6 +514,18 @@ public class EntradaParserBaseListener implements EntradaParserListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitShape_name(EntradaParser.Shape_nameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterDir_name(EntradaParser.Dir_nameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDir_name(EntradaParser.Dir_nameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -567,6 +639,18 @@ public class EntradaParserBaseListener implements EntradaParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterKw_color(EntradaParser.Kw_colorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitKw_color(EntradaParser.Kw_colorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterKw_fontname(EntradaParser.Kw_fontnameContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -598,6 +682,18 @@ public class EntradaParserBaseListener implements EntradaParserListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitKw_arrowsize(EntradaParser.Kw_arrowsizeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterKw_arrowhead(EntradaParser.Kw_arrowheadContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitKw_arrowhead(EntradaParser.Kw_arrowheadContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -658,6 +754,18 @@ public class EntradaParserBaseListener implements EntradaParserListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitKw_shape(EntradaParser.Kw_shapeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterKw_dir(EntradaParser.Kw_dirContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitKw_dir(EntradaParser.Kw_dirContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

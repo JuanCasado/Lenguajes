@@ -4,6 +4,7 @@ node [fontname="Arial"];
 edge [fontname="Arial",fontsize=12];
 
 //PROPERTIES
+node[fontsize=10, fillcolor="lightgoldenrodyellow", style="filled", shape="record", ]
 property_Apellidos [label="{Apellidos|xsd:string}"];
 property_Mascotas [label="{Mascotas|http://PdL.com/class#MASCOTA}"];
 property_Fecha [label="{Fecha|xsd:string}"];
@@ -22,14 +23,17 @@ property_Designacion [label="{Designacion|xsd:string}"];
 property_TipoFamilia [label="{TipoFamilia|xsd:string}"];
 
 //CLASES
+node[fontsize=20, fillcolor="lightseagreen", style="filled", shape="ellipse", ]
 class_PERSONA [label=PERSONA];
 class_MASCOTA [label=MASCOTA];
 class_FAMILIA [label=FAMILIA];
 
 //RELACIONES
+node[fontsize=15, fillcolor="paleturquoise", style="filled", shape="hexagon", ]
 relationship_conoceA [label=conoceA];
 
 //CLASE -- PROPIEDAD
+edge[len_relationship="3", style="dashed", color="grey", ]
 
 class_PERSONA -- property_Nombre
 class_PERSONA -- property_Apellidos
@@ -51,6 +55,7 @@ class_FAMILIA -- property_Descendientes
 class_FAMILIA -- property_Mascotas
 //RELACION -- PROPIEDAD
 relationship_conoceA -- property_FechaUNIX
+edge[arrowsize=2, style="dotted", arrowhead="vee", dir="forward", ]
 // uso indirecto de definición de tipos
 property_Mascotas -- class_MASCOTA [label="TypeOf"];
 property_Descendientes -- class_PERSONA [label="TypeOf"];

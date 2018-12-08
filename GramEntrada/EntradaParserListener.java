@@ -277,6 +277,36 @@ public interface EntradaParserListener extends ParseTreeListener {
 	 */
 	void exitShape(EntradaParser.ShapeContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link EntradaParser#color}.
+	 * @param ctx the parse tree
+	 */
+	void enterColor(EntradaParser.ColorContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link EntradaParser#color}.
+	 * @param ctx the parse tree
+	 */
+	void exitColor(EntradaParser.ColorContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link EntradaParser#arrowhead}.
+	 * @param ctx the parse tree
+	 */
+	void enterArrowhead(EntradaParser.ArrowheadContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link EntradaParser#arrowhead}.
+	 * @param ctx the parse tree
+	 */
+	void exitArrowhead(EntradaParser.ArrowheadContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link EntradaParser#dir}.
+	 * @param ctx the parse tree
+	 */
+	void enterDir(EntradaParser.DirContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link EntradaParser#dir}.
+	 * @param ctx the parse tree
+	 */
+	void exitDir(EntradaParser.DirContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link EntradaParser#len_name}.
 	 * @param ctx the parse tree
 	 */
@@ -296,6 +326,16 @@ public interface EntradaParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitFontcolor_name(EntradaParser.Fontcolor_nameContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link EntradaParser#color_name}.
+	 * @param ctx the parse tree
+	 */
+	void enterColor_name(EntradaParser.Color_nameContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link EntradaParser#color_name}.
+	 * @param ctx the parse tree
+	 */
+	void exitColor_name(EntradaParser.Color_nameContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link EntradaParser#fontname_name}.
 	 * @param ctx the parse tree
@@ -337,6 +377,16 @@ public interface EntradaParserListener extends ParseTreeListener {
 	 */
 	void exitArrowcolor_name(EntradaParser.Arrowcolor_nameContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link EntradaParser#arrowhead_name}.
+	 * @param ctx the parse tree
+	 */
+	void enterArrowhead_name(EntradaParser.Arrowhead_nameContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link EntradaParser#arrowhead_name}.
+	 * @param ctx the parse tree
+	 */
+	void exitArrowhead_name(EntradaParser.Arrowhead_nameContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link EntradaParser#penwidth_name}.
 	 * @param ctx the parse tree
 	 */
@@ -376,6 +426,16 @@ public interface EntradaParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitShape_name(EntradaParser.Shape_nameContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link EntradaParser#dir_name}.
+	 * @param ctx the parse tree
+	 */
+	void enterDir_name(EntradaParser.Dir_nameContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link EntradaParser#dir_name}.
+	 * @param ctx the parse tree
+	 */
+	void exitDir_name(EntradaParser.Dir_nameContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link EntradaParser#kw_edge}.
 	 * @param ctx the parse tree
@@ -467,6 +527,16 @@ public interface EntradaParserListener extends ParseTreeListener {
 	 */
 	void exitKw_fontcolor(EntradaParser.Kw_fontcolorContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link EntradaParser#kw_color}.
+	 * @param ctx the parse tree
+	 */
+	void enterKw_color(EntradaParser.Kw_colorContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link EntradaParser#kw_color}.
+	 * @param ctx the parse tree
+	 */
+	void exitKw_color(EntradaParser.Kw_colorContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link EntradaParser#kw_fontname}.
 	 * @param ctx the parse tree
 	 */
@@ -496,6 +566,16 @@ public interface EntradaParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitKw_arrowsize(EntradaParser.Kw_arrowsizeContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link EntradaParser#kw_arrowhead}.
+	 * @param ctx the parse tree
+	 */
+	void enterKw_arrowhead(EntradaParser.Kw_arrowheadContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link EntradaParser#kw_arrowhead}.
+	 * @param ctx the parse tree
+	 */
+	void exitKw_arrowhead(EntradaParser.Kw_arrowheadContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link EntradaParser#kw_arrowcolor}.
 	 * @param ctx the parse tree
@@ -546,4 +626,14 @@ public interface EntradaParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitKw_shape(EntradaParser.Kw_shapeContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link EntradaParser#kw_dir}.
+	 * @param ctx the parse tree
+	 */
+	void enterKw_dir(EntradaParser.Kw_dirContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link EntradaParser#kw_dir}.
+	 * @param ctx the parse tree
+	 */
+	void exitKw_dir(EntradaParser.Kw_dirContext ctx);
 }

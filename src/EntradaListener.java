@@ -100,4 +100,22 @@ public class EntradaListener extends EntradaParserBaseListener {
         // System.out.println(ctx.shape_name().getText());
         _tablasimbolos.addParameters(ctx.shape_name().getText(), ctx.textoparam().getText());
     }
+
+    @Override
+    public void exitColor(EntradaParser.ColorContext ctx) {
+        // System.out.println(ctx.shape_name().getText());
+        _tablasimbolos.addParameters(ctx.color_name().getText(), ctx.textoparam().getText());
+    }
+
+    @Override
+    public void exitDir(EntradaParser.DirContext ctx) {
+        // System.out.println(ctx.shape_name().getText());
+        _tablasimbolos.addParameters(ctx.dir_name().getText(), ctx.textoparam().getText());
+    }
+
+    @Override
+    public void exitArrowhead(EntradaParser.ArrowheadContext ctx) {
+        // System.out.println(ctx.shape_name().getText());
+        _tablasimbolos.addParameters(ctx.arrowhead_name().getText(), ctx.textoparam().getText());
+    }
 }

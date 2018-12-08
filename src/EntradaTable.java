@@ -38,7 +38,7 @@ public class EntradaTable implements ActionTable {
     }
 
     private static final String parametros_f1[] = { "-len", "-fontcolor", "-fontname", "-fontsize", "-arrowsize",
-            "-arrowcolor", "-penwidth", "-fillcolor", "-style", "-shape" };
+            "-arrowcolor", "-penwidth", "-fillcolor", "-style", "-shape" , "-color", "-arrowhead", "-dir"};
     private static final String parametros_f2[] = { "_relationship=", "_class=", "_property=", "_inheritance=",
             "_indirect_use=" };
     private static final String parametros_f3[] = { "_edge", "_node", };
@@ -409,10 +409,11 @@ public class EntradaTable implements ActionTable {
     private ArrayList<String> getParameterByContent(String contenido) {
         ArrayList<String> resultado = new ArrayList<>();
         for (int i = 0; i < _parametersName.size(); i++) {
-            if (_parametersName.get(i).contains(contenido)) {
+            if (_parametersName.get(i).contains(contenido) || (contenido.contains("_edge")? _parametersName.get(i).contains("-len"+contenido.replace("_edge", "")):false)) {
                 if (!_parameters.get(i).equals(CAMPO_VACIO)) {
                     String cadena = _parametersName.get(i).replaceAll(contenido, CAMPO_VACIO);
-                    cadena = cadena.substring(1);
+                    cadena = cadena.replace("-", "");
+                    cadena = cadena.replace("=", "");
                     if (cadena.equals("len") || cadena.equals("fontsize") || cadena.equals("arrowsize")
                             || cadena.equals("penwidth")) {
                         resultado.add(cadena + "=" + _parameters.get(i));
