@@ -99,6 +99,9 @@ public class CSVTable implements ActionTable {
      * @return
      */
     public String getValue(int p_fila, String p_columna) {
+        if (_filas.get(p_fila - 1).get(p_columna)==null) {
+            return CAMPO_VACIO;
+        }
         return _filas.get(p_fila - 1).get(p_columna);
     }
 

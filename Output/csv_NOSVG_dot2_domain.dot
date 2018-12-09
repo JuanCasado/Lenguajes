@@ -1,0 +1,79 @@
+graph domain{
+	//Defecto
+	node [fontname="Arial"];
+	edge [fontname="Arial",fontsize=12];
+
+	//PROPERTIES
+	node[fontsize="10", fillcolor="lightgoldenrodyellow", style="filled", shape="record", ]
+		property_Apellidos [label="{Apellidos|xsd:string}"];
+	property_Mascotas [label="{Mascotas|http://PdL.com/class#MASCOTA}"];
+	property_Fecha [label="{Fecha|xsd:string}"];
+	property_FechaNacimiento [label="{FechaNacimiento|xsd:string}"];
+	property_Tipo [label="{Tipo|xsd:string}"];
+	property_Descendientes [label="{Descendientes|http://PdL.com/class#PERSONA}"];
+	property_Raza [label="{Raza|xsd:string}"];
+	property_Localidad [label="{Localidad|xsd:string}"];
+	property_Rol [label="{Rol|xsd:string}"];
+	property_SueldoAnual [label="{SueldoAnual|xsd:integer}"];
+	property_FechaUNIX [label="{FechaUNIX|xsd:integer}"];
+	property_Nucleo [label="{Nucleo|http://PdL.com/class#PERSONA}"];
+	property_Nombre [label="{Nombre|xsd:string}"];
+	property_Ascendientes [label="{Ascendientes|http://PdL.com/class#PERSONA}"];
+	property_Designacion [label="{Designacion|xsd:string}"];
+	property_TipoFamilia [label="{TipoFamilia|xsd:string}"];
+
+	//CLASES
+	node[fontsize="20", fillcolor="lightseagreen", style="filled", shape="ellipse", ]
+		class_PERSONA [label=PERSONA];
+	class_MASCOTA [label=MASCOTA];
+	class_FAMILIA [label=FAMILIA];
+
+	//RELACIONES
+	node[fontsize="15", fillcolor="paleturquoise", style="filled", shape="hexagon", ]
+	relationship_conoceA [label=conoceA];
+
+	//CLASE -- PROPIEDAD
+	edge[len="3", style="dashed", color="grey", ]
+	class_PERSONA -- property_Nombre;
+	class_PERSONA -- property_Apellidos;
+	class_PERSONA -- property_Rol;
+	class_PERSONA -- property_FechaNacimiento;
+	class_PERSONA -- property_SueldoAnual;
+	class_PERSONA -- property_Ascendientes;
+	class_MASCOTA -- property_Tipo;
+	class_MASCOTA -- property_Nombre;
+	class_MASCOTA -- property_Raza;
+	class_MASCOTA -- property_FechaNacimiento;
+	class_FAMILIA -- property_FechaUNIX;
+	class_FAMILIA -- property_Fecha;
+	class_FAMILIA -- property_Localidad;
+	class_FAMILIA -- property_TipoFamilia;
+	class_FAMILIA -- property_Designacion;
+	class_FAMILIA -- property_Nucleo;
+	class_FAMILIA -- property_Descendientes;
+	class_FAMILIA -- property_Mascotas;
+
+	//RELACION -- PROPIEDAD
+	relationship_conoceA -- property_FechaUNIX;
+
+	// uso indirecto de definición de tipos
+	property_Mascotas -- class_MASCOTA [arrowsize="2", style="dotted", arrowhead="vee", dir="forward", label="TypeOf"];
+	property_Descendientes -- class_PERSONA [arrowsize="2", style="dotted", arrowhead="vee", dir="forward", label="TypeOf"];
+	property_Nucleo -- class_PERSONA [arrowsize="2", style="dotted", arrowhead="vee", dir="forward", label="TypeOf"];
+	property_Ascendientes -- class_PERSONA [arrowsize="2", style="dotted", arrowhead="vee", dir="forward", label="TypeOf"];
+
+	// asociaciones a través de atributos marcadas de forma directa
+	class_PERSONA -- class_PERSONA [label="Ascendientes (1..n) "fontcolor="orangered", color="orangered", style="dashed", arrowhead="vee",dir="forward",arrowsize="2"];
+	class_FAMILIA -- class_PERSONA [label="Nucleo (1..n) "fontcolor="orangered", color="orangered", style="dashed", arrowhead="vee",dir="forward",arrowsize="2"];
+	class_FAMILIA -- class_PERSONA [label="Descendientes (0..n) "fontcolor="orangered", color="orangered", style="dashed", arrowhead="vee",dir="forward",arrowsize="2"];
+	class_FAMILIA -- class_MASCOTA [label="Mascotas (0..n) "fontcolor="orangered", color="orangered", style="dashed", arrowhead="vee",dir="forward",arrowsize="2"];
+
+	// herencias
+
+	// enlaces de relaciones
+	edge[len="2",penwidth="3",color="blue"]
+	class_PERSONA -- relationship_conoceA [label="conoceA",fontcolor="blue",dir="forward",arrowhead="normal"];
+relationship_conoceA -- class_PERSONA [label="esConocidoPor",fontcolor="blue",dir="forward",arrowhead="normal"];
+
+}
+

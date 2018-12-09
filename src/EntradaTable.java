@@ -411,14 +411,16 @@ public class EntradaTable implements ActionTable {
         for (int i = 0; i < _parametersName.size(); i++) {
             if (_parametersName.get(i).contains(contenido) || (contenido.contains("_edge")? _parametersName.get(i).contains("-len"+contenido.replace("_edge", "")):false)) {
                 if (!_parameters.get(i).equals(CAMPO_VACIO)) {
-                    String cadena = _parametersName.get(i).replaceAll(contenido, CAMPO_VACIO);
+                    String cadena = _parametersName.get(i);
+                    for (String toDelete : parametros_f2){
+                        cadena = cadena.replaceAll(toDelete, CAMPO_VACIO);
+                    }
+                    for (String toDelete : parametros_f3) {
+                        cadena = cadena.replaceAll(toDelete, CAMPO_VACIO);
+                    }
                     cadena = cadena.replace("-", "");
                     cadena = cadena.replace("=", "");
-                    if (cadena.equals("len") || cadena.equals("fontsize") || cadena.equals("arrowsize")
-                            || cadena.equals("penwidth")) {
-                        resultado.add(cadena + "=" + _parameters.get(i));
-                    } else
-                        resultado.add(cadena + "=\"" + _parameters.get(i) + "\"");
+                    resultado.add(cadena + "=\"" + _parameters.get(i) + "\"");
                 }
             }
         }
