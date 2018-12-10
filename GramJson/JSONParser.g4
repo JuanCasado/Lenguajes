@@ -8,8 +8,8 @@ options{
 init: objeto*;
 
 objeto: estado_context 
-    | (nombre_label DOSPUNTOS)? cuerpo_label COMA?
-    | (nombre_label_reversename DOSPUNTOS)? cuerpo_label_reversename COMA?
+    | (nombre_label)? cuerpo_label COMA?
+    | (nombre_label_reversename)? cuerpo_label_reversename COMA?
     | (nombre_objeto DOSPUNTOS)? cuerpo_objeto COMA?
     ;
 nombre_objeto: cadena;
@@ -27,30 +27,30 @@ label_reversename_valor: cadena;
 contenido_label_reversename: label_reversename_clave DOSPUNTOS label_reversename_valor COMA?;
 cuerpo_label_reversename: ABRIR_LLAVE contenido_label_reversename+ CERRAR_LLAVE;
 
-atributo: kw_id  DOSPUNTOS valor_id COMA?
-    | kw_name  DOSPUNTOS valor_name COMA?
-    | kw_geder DOSPUNTOS  valor_gender  COMA?
-    | kw_number DOSPUNTOS valor_number COMA?
-    | kw_word_type DOSPUNTOS valor_word_type COMA?
-    | kw_type_of DOSPUNTOS valor_type_of COMA?
-    | kw_is_list DOSPUNTOS valor_is_list COMA?
-    | kw_optional DOSPUNTOS valor_optional COMA?
-    | kw_multiplicity_max DOSPUNTOS valor_multiplicity_max COMA?
-    | kw_multiplicity_min DOSPUNTOS valor_multiplicity_min COMA?
-    | kw_reverse_name DOSPUNTOS valor_reverse_name COMA?
-    | kw_from DOSPUNTOS valor_from COMA?
-    | kw_to DOSPUNTOS valor_to COMA?
-    | kw_inherits DOSPUNTOS valor_inherits COMA?
+atributo: kw_id valor_id COMA?
+    | kw_name valor_name COMA?
+    | kw_geder valor_gender  COMA?
+    | kw_number valor_number COMA?
+    | kw_word_type valor_word_type COMA?
+    | kw_type_of valor_type_of COMA?
+    | kw_is_list valor_is_list COMA?
+    | kw_optional valor_optional COMA?
+    | kw_multiplicity_max valor_multiplicity_max COMA?
+    | kw_multiplicity_min valor_multiplicity_min COMA?
+    | kw_reverse_name valor_reverse_name COMA?
+    | kw_from valor_from COMA?
+    | kw_to valor_to COMA?
+    | kw_inherits valor_inherits COMA?
     |(nombre_atributo DOSPUNTOS)? valor_atributo COMA?
     ;
 nombre_atributo: cadena;
 valor_atributo: cadena;
 
-lista: graph DOSPUNTOS cuerpo_graph COMA?
+lista: graph cuerpo_graph COMA?
     | properties cuerpo_properties COMA?
-    | arbol DOSPUNTOS cuerpo_tree COMA?
-    | usedby DOSPUNTOS cuerpo_usedby COMA?
-    | languajedata DOSPUNTOS cuerpo_languagedata COMA?
+    | arbol cuerpo_tree COMA?
+    | usedby cuerpo_usedby COMA?
+    | languajedata cuerpo_languagedata COMA?
     | (nombre_lista DOSPUNTOS)? cuerpo_lista COMA?
     ;
 nombre_lista: cadena;

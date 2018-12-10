@@ -1,0 +1,515 @@
+{
+    "@context": {
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "languageProperty": {
+            "@id": "http://PdL.com/langprop",
+            "language": {
+                "@type": "language_BCP47"
+            },
+            "gender": {
+                "@type": "xsd:string"
+            },
+            "number": {
+                "@type": "xsd:string"
+            },
+            "wordType": {
+                "@type": "xsd:string"
+            }
+        },
+        "property": {
+            "@id": "http://PdL.com/property",
+            "name": {
+                "@type": "xsd:string",
+                "@mandatory": true
+            },
+            "label": {
+                "@container": "@language",
+                "@type": "language_BCP47",
+                "@mandatory": false
+            },
+            "typeOf": {
+                "@type": "xsd:types",
+                "@mandatory": true
+            },
+            "isList": {
+                "@type": "xsd:boolean",
+                "@mandatory": false,
+                "@value": false
+            },
+            "optional": {
+                "@type": "xsd:boolean",
+                "@mandatory": false,
+                "@value": false
+            },
+            "multiplicityMax": {
+                "@type": "xsd:string",
+                "@mandatory": false,
+                "@value": "1"
+            },
+            "multiplicityMin": {
+                "@type": "xsd:string",
+                "@mandatory": false,
+                "@value": "0"
+            },
+            "usedby": {
+                "@id": "http://PdL.com/class",
+                "@container": "@list",
+                "@mandatory": false
+            },
+            "languageData": {
+                "@id": "http://PdL.com/langprop",
+                "@container": "@list",
+                "@mandatory": false
+            }
+        },
+        "class": {
+            "@id": "http://PdL.com/class",
+            "name": {
+                "@type": "xsd:string",
+                "@mandatory": true
+            },
+            "label": {
+                "@container": "@language",
+                "@type": "language",
+                "@mandatory": false
+            },
+            "inherits": {
+                "@id": "http://PdL.com/class",
+                "@mandatory": false
+            },
+            "properties": {
+                "@id": "http://PdL.com/property",
+                "@container": "@list",
+                "@mandatory": false
+            }
+        },
+        "relationship": {
+            "@id": "http://PdL.com/relationship",
+            "name": {
+                "@type": "xsd:string",
+                "@mandatory": true
+            },
+            "label": {
+                "@container": "@language",
+                "@type": "language",
+                "@mandatory": false
+            },
+            "reverseName": {
+                "@type": "xsd:string",
+                "@mandatory": true
+            },
+            "labelReverseName": {
+                "@container": "@language",
+                "@type": "language",
+                "@mandatory": false
+            },
+            "from": {
+                "@id": "http://PdL.com/class",
+                "@mandatory": true
+            },
+            "to": {
+                "@id": "http://PdL.com/class",
+                "@mandatory": true
+            },
+            "properties": {
+                "@id": "http://PdL.com/property",
+                "@container": "@list",
+                "@mandatory": false
+            }
+        }
+    },
+    "graphs": [
+        {
+            "domain": {
+                "@graph": [
+                    {
+                        "@id": "http://PdL.com/class#Principal",
+                        "name": "Principal",
+                        "label": {
+                            "es": "Principal",
+                            "eng": "Headof"
+                        },
+                        "properties": [
+                            "http://PdL.com/property#name"
+                        ]
+                    },
+                    {
+                        "@id": "http://PdL.com/relationship#conoceA",
+                        "name": "conoceA",
+                        "reverseName":"esConocidoPor",
+                        "label":{
+                            "es":"Conoce A",
+                            "en":"Knows"
+                        },
+                        "labelReverseName":{
+                            "es":"es conocido por",
+                            "en":"is known by"
+                        },
+                        "from":"http://PdL.com/class#Nieto",
+                        "to":"http://PdL.com/class#Nieto",
+                        "properties":[
+                            "http://PdL.com/property#FechaUNIX"
+                        ]
+                    },
+                    {
+                        "@id": "http://PdL.com/property#fechaUNIX",
+                        "name": "fechaUNIX",
+                        "typeOf": "xsd:DateTime",
+                        "label": {
+                            "es": "fechaUNIX",
+                            "eng": "UNIXDateTime"
+                        },
+                        "usedby": [
+                            "http://PdL.com/class#Principal"
+                        ]
+                    },
+                    {
+                        "@id": "http://PdL.com/property#Mascotas",
+                        "name": "Mascotas",
+                        "typeOf": "http://PdL.com/class#Mascota",
+                        "isList": true,
+                        "multiplicityMax": "n",
+                        "multiplicityMin": "0",
+                        "label": {
+                            "es": "Mascotas",
+                            "eng": "Pets"
+                        },
+                        "usedby": [
+                            "http://PdL.com/class#Nieto"
+                        ]
+                    },
+                    {
+                        "@id": "http://PdL.com/class#Hijo",
+                        "name": "Hijo",
+                        "label": {
+                            "es": "Hijo",
+                            "eng": "Son"
+                        },
+                        "properties": [
+                            "http://PdL.com/property#Apellidos"
+                        ],
+                        "inherits": "http://PdL.com/class#Principal"
+                    },
+                    {
+                        "@id": "http://PdL.com/class#Nieto",
+                        "name": "Nieto",
+                        "inherits": "http://PdL.com/class#Hijo",
+                        "label": {
+                            "es": "Nieto",
+                            "eng": "Grandchild"
+                        },
+                        "properties": [
+                            "http://PdL.com/property#Edad",
+                            "http://PdL.com/property#Mascotas"
+                        ]
+                    },
+                    {
+                        "@id": "http://PdL.com/property#name",
+                        "name": "name",
+                        "typeOf": "xsd:string",
+                        "label": {
+                            "es": "name",
+                            "eng": "name"
+                        },
+                        "usedby": [
+                            "http://PdL.com/class#Principal"
+                        ]
+                    },
+                    {
+                        "@id": "http://PdL.com/property#apellidos",
+                        "name": "apellidos",
+                        "typeOf": "xsd:string",
+                        "optional":true,
+                        "label": {
+                            "es": "apellidos",
+                            "eng": "surname"
+                        },
+                        "usedby": [
+                            "http://PdL.com/class#Hijo"
+                        ]
+                    },
+                   
+                    {
+                        "@id": "http://PdL.com/property#edad",
+                        "name": "edad",
+                        "typeOf": "xsd:integer",
+                        "label": {
+                            "es": "edad",
+                            "eng": "age"
+                        },
+                        "usedby": [
+                            "http://PdL.com/class#Nieto"
+                        ]
+                    },
+                    {
+                        "@id": "http://PdL.com/class#Mascota",
+                        "name": "Mascota",
+                        "label": {
+                            "es": "Mascota",
+                            "eng": "Pet"
+                        },
+                        "properties": [
+                            "http://PdL.com/property#nombreMascota"
+                        ]
+                    },
+                    {
+                        "@id": "http://PdL.com/property#nombreMascota",
+                        "name": "nombreMascota",
+                        "typeOf": "xsd:string",
+                        "label": {
+                            "es": "Nombre del animal",
+                            "eng": "Pet's name"
+                        },
+                        "usedby": [
+                            "http://PdL.com/class#Mascota"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "characteristics": {
+                "@tree": [
+                    {
+                        "@id": "http://PdL.com/class#CaracteristicasPlantilla",
+                        "name": "CaracteristicasPlantilla",
+                        "label": {
+                            "es": "caracteristicas",
+                            "eng": "features"
+                        }
+                    },
+                    {
+                        "@id": "http://PdL.com/class#Idioma",
+                        "name": "Idioma",
+                        "label": {
+                            "es": "idioma",
+                            "eng": "language"
+                        },
+                        "inherits": "http://PdL.com/class#CaracteristicasPlantilla"
+                    },
+                    {
+                        "@id": "http://PdL.com/class#Espanol",
+                        "name": "Espanol",
+                        "label": {
+                            "es": "espa�ol",
+                            "eng": "spanish"
+                        },
+                        "inherits": "http://PdL.com/class#Idioma"
+                    },
+                    {
+                        "@id": "http://PdL.com/class#Ingles",
+                        "name": "Ingles",
+                        "label": {
+                            "es": "ingles",
+                            "eng": "english"
+                        },
+                        "inherits": "http://PdL.com/class#Idioma"
+                    },
+                    {
+                        "@id": "http://PdL.com/class#Arabe",
+                        "name": "Arabe",
+                        "label": {
+                            "es": "árabe",
+                            "eng": "arabic"
+                        },
+                        "inherits": "http://PdL.com/class#Idioma"
+                    },
+                    {
+                        "@id": "http://PdL.com/class#TiempoVerbal",
+                        "name": "TiempoVerbal",
+                        "label": {
+                            "es": "tiempo verbal",
+                            "eng": "verbal tense"
+                        },
+                        "inherits": "http://PdL.com/class#CaracteristicasPlantilla"
+                    },
+                    {
+                        "@id": "http://PdL.com/class#Presente",
+                        "name": "Presente",
+                        "label": {
+                            "es": "presente",
+                            "eng": "present"
+                        },
+                        "inherits": "http://PdL.com/class#TiempoVerbal"
+                    },
+                    {
+                        "@id": "http://PdL.com/class#Futuro",
+                        "name": "Futuro",
+                        "label": {
+                            "es": "futuro",
+                            "eng": "future"
+                        },
+                        "inherits": "http://PdL.com/class#TiempoVerbal"
+                    },
+                    {
+                        "@id": "http://PdL.com/class#PreteritoImperfecto",
+                        "name": "PreteritoImperfecto",
+                        "label": {
+                            "es": "pretérito imperfecto",
+                            "eng": "past"
+                        },
+                        "inherits": "http://PdL.com/class#TiempoVerbal"
+                    },
+                    {
+                        "@id": "http://PdL.com/class#Espacio",
+                        "name": "Espacio",
+                        "label": {
+                            "es": "espacio",
+                            "eng": "space"
+                        },
+                        "inherits": "http://PdL.com/class#CaracteristicasPlantilla"
+                    },
+                    {
+                        "@id": "http://PdL.com/class#Cronologico",
+                        "name": "Cronológico",
+                        "label": {
+                            "es": "cronológico",
+                            "eng": "chronological"
+                        },
+                        "inherits": "http://PdL.com/class#Espacio"
+                    },
+                    {
+                        "@id": "http://PdL.com/class#Retrospectivo",
+                        "name": "Retrospectivo",
+                        "label": {
+                            "es": "retrospectivo",
+                            "eng": "retrospective"
+                        },
+                        "inherits": "http://PdL.com/class#Espacio"
+                    },
+                    {
+                        "@id": "http://PdL.com/class#Anticipativo",
+                        "name": "Anticipativo",
+                        "label": {
+                            "es": "anticipativo",
+                            "eng": "before"
+                        },
+                        "inherits": "http://PdL.com/class#Espacio"
+                    },
+                    {
+                        "@id": "http://PdL.com/class#Elemento",
+                        "name": "Elemento",
+                        "label": {
+                            "es": "elemento",
+                            "eng": "elemento"
+                        },
+                        "inherits": "http://PdL.com/class#CaracteristicasPlantilla"
+                    },
+                    {
+                        "@id": "http://PdL.com/class#Texto",
+                        "name": "Texto",
+                        "label": {
+                            "es": "texto",
+                            "eng": "text"
+                        },
+                        "inherits": "http://PdL.com/class#Elemento"
+                    },
+                    {
+                        "@id": "http://PdL.com/class#Parrafo",
+                        "name": "Parrafo",
+                        "label": {
+                            "es": "párrafo",
+                            "eng": "paragraph"
+                        },
+                        "inherits": "http://PdL.com/class#Elemento"
+                    },
+                    {
+                        "@id": "http://PdL.com/class#Oracion",
+                        "name": "Oracion",
+                        "label": {
+                            "es": "oracion",
+                            "eng": "sentence"
+                        },
+                        "inherits": "http://PdL.com/class#Elemento"
+                    },
+                    {
+                        "@id": "http://PdL.com/class#Palabra",
+                        "name": "Palabra",
+                        "label": {
+                            "es": "palabra",
+                            "eng": "word"
+                        },
+                        "inherits": "http://PdL.com/class#Elemento"
+                    }
+                ]
+            }
+        },
+        {
+            "properties": {
+                "@tree": [
+                    {
+                        "@id": "http://PdL.com/class#PropiedadesPlantilla",
+                        "name": "PropiedadesPlantilla",
+                        "label": {
+                            "es": "propiedades",
+                            "eng": "properties"
+                        }
+                    },
+                    {
+                        "@id": "http://PdL.com/class#Ambito",
+                        "name": "Ambito",
+                        "label": {
+                            "es": "ambito",
+                            "eng": "scope"
+                        },
+                        "inherits": "http://PdL.com/class#PropiedadesPlantilla"
+                    },
+                    {
+                        "@id": "http://PdL.com/class#RelacionFamiliar",
+                        "name": "RelacionFamiliar",
+                        "label": {
+                            "es": "Relacion familiar",
+                            "eng": "Family relationships"
+                        },
+                        "inherits": "http://PdL.com/class#Ambito"
+                    },
+                    {
+                        "@id": "http://PdL.com/class#FamiliaUnitaria",
+                        "name": "FamiliaUnitaria",
+                        "label": {
+                            "es": "Una familia",
+                            "eng": "A family"
+                        },
+                        "inherits": "http://PdL.com/class#RelacionFamiliar"
+                    },
+                    {
+                        "@id": "http://PdL.com/class#NucleoFamiliar",
+                        "name": "NucleoFamiliar",
+                        "label": {
+                            "es": "Núcleo familiar",
+                            "eng": "Family core"
+                        },
+                        "inherits": "http://PdL.com/class#FamiliaUnitaria"
+                    },
+                    {
+                        "@id": "http://PdL.com/class#Ascendientes",
+                        "name": "Ascendientes",
+                        "label": {
+                            "es": "abuelos",
+                            "eng": "grandfather"
+                        },
+                        "inherits": "http://PdL.com/class#RelacionFamiliar"
+                    },
+                    {
+                        "@id": "http://PdL.com/class#Descendientes",
+                        "name": "Descendientes",
+                        "label": {
+                            "es": "hijos",
+                            "eng": "sons"
+                        },
+                        "inherits": "http://PdL.com/class#RelacionFamiliar"
+                    },
+                    {
+                        "@id": "http://PdL.com/class#Mascotas",
+                        "name": "Mascotas",
+                        "label": {
+                            "es": "mascotas",
+                            "eng": "pets"
+                        },
+                        "inherits": "http://PdL.com/class#FamiliaUnitaria"
+                    }
+                ]
+            }
+        }
+    ]
+}
