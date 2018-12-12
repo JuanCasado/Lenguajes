@@ -80,7 +80,7 @@
 <g id="edge10" class="edge"><title>class_Hijo&#45;&#45;class_Nieto</title>
 <path fill="none" stroke="black" stroke-dasharray="5,2" d="M-115.965,165.821C-66.9525,81.2376 34.9379,-94.5984 69.6847,-154.562"/>
 <polygon fill="black" stroke="black" points="-107.029,171.341 -131.155,192.034 -125.198,160.812 -107.029,171.341"/>
-<text text-anchor="middle" x="-42.1404" y="2.2294" font-family="Arial" font-size="12.00" fill="orangered">inherits</text>
+<text text-anchor="middle" x="-42.1404" y="2.2294" font-family="Arial" font-size="12.00">inherits</text>
 </g>
 <!-- class_Principal -->
 <g id="node8" class="node"><title>class_Principal</title>
@@ -95,7 +95,7 @@
 <g id="edge9" class="edge"><title>class_Principal&#45;&#45;class_Hijo</title>
 <path fill="none" stroke="black" stroke-dasharray="5,2" d="M-61.4462,561.067C-82.0458,472.878 -123.69,294.597 -137.971,233.456"/>
 <polygon fill="black" stroke="black" points="-51.1744,558.881 -54.5752,590.483 -71.6239,563.657 -51.1744,558.881"/>
-<text text-anchor="middle" x="-118.709" y="393.862" font-family="Arial" font-size="12.00" fill="orangered">inherits</text>
+<text text-anchor="middle" x="-118.709" y="393.862" font-family="Arial" font-size="12.00">inherits</text>
 </g>
 <!-- class_Mascota&#45;&#45;property_nombreMascota -->
 <g id="edge3" class="edge"><title>class_Mascota&#45;&#45;property_nombreMascota</title>
@@ -124,7 +124,7 @@
 <g id="edge11" class="edge"><title>class_Nieto&#45;&#45;relationship_conoceA</title>
 <path fill="none" stroke="blue" stroke-width="3" stroke-dasharray="5,2" d="M111.469,-191.335C125.285,-196.966 142.36,-203.241 159.296,-208.99"/>
 <polygon fill="blue" stroke="blue" stroke-width="3" points="156.197,-219.023 187.972,-218.239 162.643,-199.037 156.197,-219.023"/>
-<text text-anchor="middle" x="111.882" y="-203.563" font-family="Arial" font-size="12.00" fill="blue">conoceA</text>
+<text text-anchor="middle" x="97.3823" y="-203.563" font-family="Arial" font-size="12.00" fill="blue">conoceA (0..n)</text>
 </g>
 <!-- relationship_conoceA&#45;&#45;property_fechaUNIX -->
 <g id="edge6" class="edge"><title>relationship_conoceA&#45;&#45;property_fechaUNIX</title>
@@ -134,7 +134,7 @@
 <g id="edge12" class="edge"><title>relationship_conoceA&#45;&#45;class_Nieto</title>
 <path fill="none" stroke="blue" stroke-width="3" stroke-dasharray="5,2" d="M201.122,-210.21C186.898,-204.474 169.507,-198.133 152.441,-192.39"/>
 <polygon fill="blue" stroke="blue" stroke-width="3" points="155.515,-182.349 123.743,-183.232 149.131,-202.355 155.515,-182.349"/>
-<text text-anchor="middle" x="218.281" y="-191.7" font-family="Arial" font-size="12.00" fill="blue">esConocidoPor</text>
+<text text-anchor="middle" x="232.781" y="-191.7" font-family="Arial" font-size="12.00" fill="blue">esConocidoPor (0..n)</text>
 </g>
 </g>
 </svg>

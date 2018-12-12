@@ -37,7 +37,7 @@ edge[style="dashed",len="3",color="grey"]
 	edge[fontcolor="orangered", color="orangered", style="dashed", arrowhead="vee",dir="forward",arrowsize="2"];
 
 	// herencias
-	edge[len="5",color="black",arrowhead="normal",arrowsize="3",dir="back",]	class_PropiedadesPlantilla -- class_Ambito [label="inherits"];
+	edge[len="5"fontcolor="black",color="black",arrowhead="normal",arrowsize="3",dir="back",]	class_PropiedadesPlantilla -- class_Ambito [label="inherits"];
 	class_Ambito -- class_RelacionFamiliar [label="inherits"];
 	class_RelacionFamiliar -- class_FamiliaUnitaria [label="inherits"];
 	class_FamiliaUnitaria -- class_NucleoFamiliar [label="inherits"];

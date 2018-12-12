@@ -45,6 +45,17 @@ public class RelacionJSON {
         }
     }
 
+    public boolean isList() {
+        if (_names.containsKey(JSONkey.isList.toString())) {
+            /*
+             * System.out.println("ANTES"); System.out.println("ISLIST --> " +
+             * _names.get(JSONkey.isList.toString())); System.out.println("DESPUÉS");
+             */
+            return _names.get(JSONkey.isList.toString()).equals("true");
+        }
+        return false;
+    }
+
     public String getMulMax() {
         if (_names.containsKey(JSONkey.multiMax.toString())) {
             return _names.get(JSONkey.multiMax.toString());
@@ -85,7 +96,7 @@ public class RelacionJSON {
     }
 
     public void addLabel(String clave, String valor) {
-        System.out.println("CLAVE - " + clave + "  VALOR - " + valor);
+        // System.out.println("CLAVE - " + clave + " VALOR - " + valor);
         _names.put(clave, valor);
     }
 

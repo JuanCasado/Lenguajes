@@ -194,7 +194,7 @@
 <g id="edge28" class="edge"><title>class_PERSONA&#45;&#45;relationship_conoceA</title>
 <path fill="none" stroke="blue" stroke-width="3" stroke-dasharray="5,2" d="M-143.091,116.414C-135.935,134.74 -127.316,161.871 -121.002,185.328"/>
 <polygon fill="blue" stroke="blue" stroke-width="3" points="-110.735,183.119 -114.007,214.735 -131.165,187.979 -110.735,183.119"/>
-<text text-anchor="middle" x="-155.547" y="147.471" font-family="Arial" font-size="12.00" fill="blue">conoceA</text>
+<text text-anchor="middle" x="-170.047" y="147.471" font-family="Arial" font-size="12.00" fill="blue">conoceA (0..n)</text>
 </g>
 <!-- class_MASCOTA&#45;&#45;property_FechaNacimiento -->
 <g id="edge10" class="edge"><title>class_MASCOTA&#45;&#45;property_FechaNacimiento</title>
@@ -275,7 +275,7 @@
 <g id="edge29" class="edge"><title>relationship_conoceA&#45;&#45;class_PERSONA</title>
 <path fill="none" stroke="blue" stroke-width="3" stroke-dasharray="5,2" d="M-123.895,214.737C-130.945,197.311 -139.726,170.097 -146.331,146.03"/>
 <polygon fill="blue" stroke="blue" stroke-width="3" points="-156.542,148.477 -153.529,116.836 -136.153,143.45 -156.542,148.477"/>
-<text text-anchor="middle" x="-176.613" y="176.983" font-family="Arial" font-size="12.00" fill="blue">esConocidoPor</text>
+<text text-anchor="middle" x="-191.113" y="176.983" font-family="Arial" font-size="12.00" fill="blue">esConocidoPor (0..n)</text>
 </g>
 </g>
 </svg>

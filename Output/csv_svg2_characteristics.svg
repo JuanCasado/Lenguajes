@@ -43,7 +43,7 @@
 <g id="edge3" class="edge"><title>class_Idioma&#45;&#45;class_Ingles</title>
 <path fill="none" stroke="black" stroke-dasharray="5,2" d="M174.123,-82.4391C143.497,-67.5546 107.485,-50.0521 82.1991,-37.763"/>
 <polygon fill="black" stroke="black" points="169.737,-91.982 201.309,-95.652 178.917,-73.0945 169.737,-91.982"/>
-<text text-anchor="middle" x="173.205" y="-63.8264" font-family="Arial" font-size="12.00" fill="orangered">inherits</text>
+<text text-anchor="middle" x="173.205" y="-63.8264" font-family="Arial" font-size="12.00">inherits</text>
 </g>
 <!-- class_Arabe -->
 <g id="node14" class="node"><title>class_Arabe</title>
@@ -54,7 +54,7 @@
 <g id="edge4" class="edge"><title>class_Idioma&#45;&#45;class_Arabe</title>
 <path fill="none" stroke="black" stroke-dasharray="5,2" d="M201.655,-67.5369C194.954,-58.4578 188.229,-49.3452 182.584,-41.6967"/>
 <polygon fill="black" stroke="black" points="193.294,-73.8902 219.557,-91.793 210.191,-61.4199 193.294,-73.8902"/>
-<text text-anchor="middle" x="224.205" y="-63.8264" font-family="Arial" font-size="12.00" fill="orangered">inherits</text>
+<text text-anchor="middle" x="224.205" y="-63.8264" font-family="Arial" font-size="12.00">inherits</text>
 </g>
 <!-- class_Espanol -->
 <g id="node15" class="node"><title>class_Espanol</title>
@@ -65,7 +65,7 @@
 <g id="edge2" class="edge"><title>class_Idioma&#45;&#45;class_Espanol</title>
 <path fill="none" stroke="black" stroke-dasharray="5,2" d="M266.926,-67.3035C273.48,-58.4232 280.049,-49.5231 285.598,-42.0043"/>
 <polygon fill="black" stroke="black" points="258.219,-61.4199 248.852,-91.793 275.115,-73.8902 258.219,-61.4199"/>
-<text text-anchor="middle" x="290.205" y="-63.8264" font-family="Arial" font-size="12.00" fill="orangered">inherits</text>
+<text text-anchor="middle" x="290.205" y="-63.8264" font-family="Arial" font-size="12.00">inherits</text>
 </g>
 <!-- class_TiempoVerbal -->
 <g id="node6" class="node"><title>class_TiempoVerbal</title>
@@ -76,7 +76,7 @@
 <g id="edge6" class="edge"><title>class_TiempoVerbal&#45;&#45;class_Presente</title>
 <path fill="none" stroke="black" stroke-dasharray="5,2" d="M686.782,-87.4356C627.211,-70.9427 550.474,-49.6972 501.054,-36.0147"/>
 <polygon fill="black" stroke="black" points="683.998,-97.5597 715.712,-95.4452 689.601,-77.321 683.998,-97.5597"/>
-<text text-anchor="middle" x="651.205" y="-63.8264" font-family="Arial" font-size="12.00" fill="orangered">inherits</text>
+<text text-anchor="middle" x="651.205" y="-63.8264" font-family="Arial" font-size="12.00">inherits</text>
 </g>
 <!-- class_PreteritoImperfecto -->
 <g id="node11" class="node"><title>class_PreteritoImperfecto</title>
@@ -87,7 +87,7 @@
 <g id="edge8" class="edge"><title>class_TiempoVerbal&#45;&#45;class_PreteritoImperfecto</title>
 <path fill="none" stroke="black" stroke-dasharray="5,2" d="M728.935,-71.9507C717.24,-61.6974 705.138,-51.0872 695.131,-42.3136"/>
 <polygon fill="black" stroke="black" points="722.087,-79.911 751.567,-91.793 735.932,-64.1204 722.087,-79.911"/>
-<text text-anchor="middle" x="749.205" y="-63.8264" font-family="Arial" font-size="12.00" fill="orangered">inherits</text>
+<text text-anchor="middle" x="749.205" y="-63.8264" font-family="Arial" font-size="12.00">inherits</text>
 </g>
 <!-- class_Futuro -->
 <g id="node16" class="node"><title>class_Futuro</title>
@@ -98,7 +98,7 @@
 <g id="edge7" class="edge"><title>class_TiempoVerbal&#45;&#45;class_Futuro</title>
 <path fill="none" stroke="black" stroke-dasharray="5,2" d="M819.8,-72.0526C832.342,-61.1641 845.356,-49.8647 855.816,-40.7831"/>
 <polygon fill="black" stroke="black" points="812.833,-64.1963 797.064,-91.793 826.601,-80.0536 812.833,-64.1963"/>
-<text text-anchor="middle" x="851.205" y="-63.8264" font-family="Arial" font-size="12.00" fill="orangered">inherits</text>
+<text text-anchor="middle" x="851.205" y="-63.8264" font-family="Arial" font-size="12.00">inherits</text>
 </g>
 <!-- class_Retrospectivo -->
 <g id="node7" class="node"><title>class_Retrospectivo</title>
@@ -124,19 +124,19 @@
 <g id="edge17" class="edge"><title>class_Elemento&#45;&#45;class_Palabra</title>
 <path fill="none" stroke="black" stroke-dasharray="5,2" d="M1084.18,-75.135C1067.54,-63.2289 1049.77,-50.5188 1035.82,-40.5393"/>
 <polygon fill="black" stroke="black" points="1078.19,-83.7589 1108.7,-92.6746 1090.41,-66.6795 1078.19,-83.7589"/>
-<text text-anchor="middle" x="1099.2" y="-63.8264" font-family="Arial" font-size="12.00" fill="orangered">inherits</text>
+<text text-anchor="middle" x="1099.2" y="-63.8264" font-family="Arial" font-size="12.00">inherits</text>
 </g>
 <!-- class_Elemento&#45;&#45;class_Texto -->
 <g id="edge14" class="edge"><title>class_Elemento&#45;&#45;class_Texto</title>
 <path fill="none" stroke="black" stroke-dasharray="5,2" d="M1135.2,-61.0891C1135.2,-54.6205 1135.2,-48.3176 1135.2,-42.7347"/>
 <polygon fill="black" stroke="black" points="1124.7,-61.3473 1135.2,-91.3474 1145.7,-61.3474 1124.7,-61.3473"/>
-<text text-anchor="middle" x="1154.2" y="-63.8264" font-family="Arial" font-size="12.00" fill="orangered">inherits</text>
+<text text-anchor="middle" x="1154.2" y="-63.8264" font-family="Arial" font-size="12.00">inherits</text>
 </g>
 <!-- class_Elemento&#45;&#45;class_Oracion -->
 <g id="edge16" class="edge"><title>class_Elemento&#45;&#45;class_Oracion</title>
 <path fill="none" stroke="black" stroke-dasharray="5,2" d="M1186.45,-75.5539C1203.48,-63.5632 1221.73,-50.7121 1236.05,-40.6289"/>
 <polygon fill="black" stroke="black" points="1180.31,-67.0356 1161.83,-92.8929 1192.4,-84.206 1180.31,-67.0356"/>
-<text text-anchor="middle" x="1226.2" y="-63.8264" font-family="Arial" font-size="12.00" fill="orangered">inherits</text>
+<text text-anchor="middle" x="1226.2" y="-63.8264" font-family="Arial" font-size="12.00">inherits</text>
 </g>
 <!-- class_Parrafo -->
 <g id="node18" class="node"><title>class_Parrafo</title>
@@ -147,7 +147,7 @@
 <g id="edge15" class="edge"><title>class_Elemento&#45;&#45;class_Parrafo</title>
 <path fill="none" stroke="black" stroke-dasharray="5,2" d="M1209.76,-86.6916C1222.9,-82.2803 1236.46,-77.7245 1249.2,-73.4264 1286.32,-60.9113 1328.54,-46.5848 1358.88,-36.273"/>
 <polygon fill="black" stroke="black" points="1206.36,-76.7549 1181.26,-96.2445 1213.04,-96.6663 1206.36,-76.7549"/>
-<text text-anchor="middle" x="1306.2" y="-63.8264" font-family="Arial" font-size="12.00" fill="orangered">inherits</text>
+<text text-anchor="middle" x="1306.2" y="-63.8264" font-family="Arial" font-size="12.00">inherits</text>
 </g>
 <!-- class_CaracteristicasPlantilla -->
 <g id="node13" class="node"><title>class_CaracteristicasPlantilla</title>
@@ -158,19 +158,19 @@
 <g id="edge1" class="edge"><title>class_CaracteristicasPlantilla&#45;&#45;class_Idioma</title>
 <path fill="none" stroke="black" stroke-dasharray="5,2" d="M811.887,-185.39C649.996,-165.282 394.064,-133.495 285.552,-120.017"/>
 <polygon fill="black" stroke="black" points="810.639,-195.815 841.705,-189.093 813.228,-174.975 810.639,-195.815"/>
-<text text-anchor="middle" x="657.205" y="-155.253" font-family="Arial" font-size="12.00" fill="orangered">inherits</text>
+<text text-anchor="middle" x="657.205" y="-155.253" font-family="Arial" font-size="12.00">inherits</text>
 </g>
 <!-- class_CaracteristicasPlantilla&#45;&#45;class_TiempoVerbal -->
 <g id="edge5" class="edge"><title>class_CaracteristicasPlantilla&#45;&#45;class_TiempoVerbal</title>
 <path fill="none" stroke="black" stroke-dasharray="5,2" d="M887.468,-169.911C861.908,-157.212 833.659,-143.177 811.767,-132.301"/>
 <polygon fill="black" stroke="black" points="883.164,-179.497 914.703,-183.441 892.508,-160.69 883.164,-179.497"/>
-<text text-anchor="middle" x="894.205" y="-155.253" font-family="Arial" font-size="12.00" fill="orangered">inherits</text>
+<text text-anchor="middle" x="894.205" y="-155.253" font-family="Arial" font-size="12.00">inherits</text>
 </g>
 <!-- class_CaracteristicasPlantilla&#45;&#45;class_Elemento -->
 <g id="edge13" class="edge"><title>class_CaracteristicasPlantilla&#45;&#45;class_Elemento</title>
 <path fill="none" stroke="black" stroke-dasharray="5,2" d="M1021.15,-169.991C1047.73,-156.858 1077.23,-142.285 1099.56,-131.249"/>
 <polygon fill="black" stroke="black" points="1016.17,-160.739 993.926,-183.441 1025.47,-179.566 1016.17,-160.739"/>
-<text text-anchor="middle" x="1075.2" y="-155.253" font-family="Arial" font-size="12.00" fill="orangered">inherits</text>
+<text text-anchor="middle" x="1075.2" y="-155.253" font-family="Arial" font-size="12.00">inherits</text>
 </g>
 <!-- class_Espacio -->
 <g id="node17" class="node"><title>class_Espacio</title>
@@ -181,25 +181,25 @@
 <g id="edge9" class="edge"><title>class_CaracteristicasPlantilla&#45;&#45;class_Espacio</title>
 <path fill="none" stroke="black" stroke-dasharray="5,2" d="M1095.49,-185.17C1250.61,-165.522 1492.23,-134.917 1602.19,-120.988"/>
 <polygon fill="black" stroke="black" points="1094.13,-174.759 1065.68,-188.945 1096.76,-195.592 1094.13,-174.759"/>
-<text text-anchor="middle" x="1369.2" y="-155.253" font-family="Arial" font-size="12.00" fill="orangered">inherits</text>
+<text text-anchor="middle" x="1369.2" y="-155.253" font-family="Arial" font-size="12.00">inherits</text>
 </g>
 <!-- class_Espacio&#45;&#45;class_Cronológico -->
 <g id="edge10" class="edge"><title>class_Espacio&#45;&#45;class_Cronológico</title>
 <path fill="none" stroke="black" stroke-dasharray="5,2" d="M1617.27,-71.6447C1606.19,-61.3202 1594.74,-50.6565 1585.33,-41.8883"/>
 <polygon fill="black" stroke="black" points="1610.27,-79.4701 1639.37,-92.2354 1624.58,-64.104 1610.27,-79.4701"/>
-<text text-anchor="middle" x="1637.2" y="-63.8264" font-family="Arial" font-size="12.00" fill="orangered">inherits</text>
+<text text-anchor="middle" x="1637.2" y="-63.8264" font-family="Arial" font-size="12.00">inherits</text>
 </g>
 <!-- class_Espacio&#45;&#45;class_Anticipativo -->
 <g id="edge12" class="edge"><title>class_Espacio&#45;&#45;class_Anticipativo</title>
 <path fill="none" stroke="black" stroke-dasharray="5,2" d="M1703.14,-71.6447C1714.22,-61.3202 1725.67,-50.6565 1735.08,-41.8883"/>
 <polygon fill="black" stroke="black" points="1695.83,-64.104 1681.04,-92.2354 1710.14,-79.4701 1695.83,-64.104"/>
-<text text-anchor="middle" x="1733.2" y="-63.8264" font-family="Arial" font-size="12.00" fill="orangered">inherits</text>
+<text text-anchor="middle" x="1733.2" y="-63.8264" font-family="Arial" font-size="12.00">inherits</text>
 </g>
 <!-- class_Espacio&#45;&#45;class_Retrospectivo -->
 <g id="edge11" class="edge"><title>class_Espacio&#45;&#45;class_Retrospectivo</title>
 <path fill="none" stroke="black" stroke-dasharray="5,2" d="M1735.18,-89.29C1787.67,-73.643 1856.67,-53.0752 1904.36,-38.8605"/>
 <polygon fill="black" stroke="black" points="1731.85,-79.3278 1706.09,-97.9603 1737.84,-99.4527 1731.85,-79.3278"/>
-<text text-anchor="middle" x="1847.2" y="-63.8264" font-family="Arial" font-size="12.00" fill="orangered">inherits</text>
+<text text-anchor="middle" x="1847.2" y="-63.8264" font-family="Arial" font-size="12.00">inherits</text>
 </g>
 </g>
 </svg>

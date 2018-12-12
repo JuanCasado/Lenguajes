@@ -23,7 +23,7 @@
 <g id="edge4" class="edge"><title>class_FamiliaUnitaria&#45;&#45;class_NucleoFamiliar</title>
 <path fill="none" stroke="black" stroke-dasharray="5,2" d="M162.478,-71.3956C151.071,-61.1944 139.313,-50.6798 129.611,-42.0043"/>
 <polygon fill="black" stroke="black" points="155.925,-79.6219 185.287,-91.793 169.924,-63.9681 155.925,-79.6219"/>
-<text text-anchor="middle" x="182.48" y="-63.8264" font-family="Arial" font-size="12.00" fill="orangered">inherits</text>
+<text text-anchor="middle" x="182.48" y="-63.8264" font-family="Arial" font-size="12.00">inherits</text>
 </g>
 <!-- class_Mascotas -->
 <g id="node7" class="node"><title>class_Mascotas</title>
@@ -34,7 +34,7 @@
 <g id="edge7" class="edge"><title>class_FamiliaUnitaria&#45;&#45;class_Mascotas</title>
 <path fill="none" stroke="black" stroke-dasharray="5,2" d="M252.191,-71.6562C263.825,-61.2529 275.844,-50.5041 285.693,-41.6967"/>
 <polygon fill="black" stroke="black" points="245.037,-63.9681 229.673,-91.793 259.035,-79.6219 245.037,-63.9681"/>
-<text text-anchor="middle" x="282.48" y="-63.8264" font-family="Arial" font-size="12.00" fill="orangered">inherits</text>
+<text text-anchor="middle" x="282.48" y="-63.8264" font-family="Arial" font-size="12.00">inherits</text>
 </g>
 <!-- class_Ascendientes -->
 <g id="node3" class="node"><title>class_Ascendientes</title>
@@ -60,7 +60,7 @@
 <g id="edge1" class="edge"><title>class_PropiedadesPlantilla&#45;&#45;class_Ambito</title>
 <path fill="none" stroke="black" stroke-dasharray="5,2" d="M431.48,-335.368C431.48,-328.9 431.48,-322.597 431.48,-317.014"/>
 <polygon fill="black" stroke="black" points="420.98,-335.627 431.48,-365.627 441.98,-335.627 420.98,-335.627"/>
-<text text-anchor="middle" x="450.48" y="-338.106" font-family="Arial" font-size="12.00" fill="orangered">inherits</text>
+<text text-anchor="middle" x="450.48" y="-338.106" font-family="Arial" font-size="12.00">inherits</text>
 </g>
 <!-- class_RelacionFamiliar -->
 <g id="node6" class="node"><title>class_RelacionFamiliar</title>
@@ -71,25 +71,25 @@
 <g id="edge3" class="edge"><title>class_RelacionFamiliar&#45;&#45;class_FamiliaUnitaria</title>
 <path fill="none" stroke="black" stroke-dasharray="5,2" d="M357.016,-173.338C322.784,-159.672 283.263,-143.894 253.45,-131.992"/>
 <polygon fill="black" stroke="black" points="353.312,-183.165 385.067,-184.537 361.099,-163.662 353.312,-183.165"/>
-<text text-anchor="middle" x="352.48" y="-155.253" font-family="Arial" font-size="12.00" fill="orangered">inherits</text>
+<text text-anchor="middle" x="352.48" y="-155.253" font-family="Arial" font-size="12.00">inherits</text>
 </g>
 <!-- class_RelacionFamiliar&#45;&#45;class_Ascendientes -->
 <g id="edge5" class="edge"><title>class_RelacionFamiliar&#45;&#45;class_Ascendientes</title>
 <path fill="none" stroke="black" stroke-dasharray="5,2" d="M431.48,-152.516C431.48,-146.047 431.48,-139.744 431.48,-134.161"/>
 <polygon fill="black" stroke="black" points="420.98,-152.774 431.48,-182.774 441.98,-152.774 420.98,-152.774"/>
-<text text-anchor="middle" x="450.48" y="-155.253" font-family="Arial" font-size="12.00" fill="orangered">inherits</text>
+<text text-anchor="middle" x="450.48" y="-155.253" font-family="Arial" font-size="12.00">inherits</text>
 </g>
 <!-- class_RelacionFamiliar&#45;&#45;class_Descendientes -->
 <g id="edge6" class="edge"><title>class_RelacionFamiliar&#45;&#45;class_Descendientes</title>
 <path fill="none" stroke="black" stroke-dasharray="5,2" d="M505.945,-173.338C540.176,-159.672 579.698,-143.894 609.51,-131.992"/>
 <polygon fill="black" stroke="black" points="501.862,-163.662 477.893,-184.537 509.648,-183.165 501.862,-163.662"/>
-<text text-anchor="middle" x="575.48" y="-155.253" font-family="Arial" font-size="12.00" fill="orangered">inherits</text>
+<text text-anchor="middle" x="575.48" y="-155.253" font-family="Arial" font-size="12.00">inherits</text>
 </g>
 <!-- class_Ambito&#45;&#45;class_RelacionFamiliar -->
 <g id="edge2" class="edge"><title>class_Ambito&#45;&#45;class_RelacionFamiliar</title>
 <path fill="none" stroke="black" stroke-dasharray="5,2" d="M431.48,-243.942C431.48,-237.473 431.48,-231.17 431.48,-225.588"/>
 <polygon fill="black" stroke="black" points="420.98,-244.2 431.48,-274.2 441.98,-244.2 420.98,-244.2"/>
-<text text-anchor="middle" x="450.48" y="-246.679" font-family="Arial" font-size="12.00" fill="orangered">inherits</text>
+<text text-anchor="middle" x="450.48" y="-246.679" font-family="Arial" font-size="12.00">inherits</text>
 </g>
 </g>
 </svg>

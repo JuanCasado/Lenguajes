@@ -375,7 +375,8 @@ public class GrafoJSON {
 
             // herencias
             sb.append("\n\t// herencias\n");
-            sb.append("\tedge[len=\"5\",color=\"black\",arrowhead=\"normal\",arrowsize=\"3\",dir=\"back\",]");
+            sb.append(
+                    "\tedge[len=\"5\"fontcolor=\"black\",color=\"black\",arrowhead=\"normal\",arrowsize=\"3\",dir=\"back\",]");
             for (RelacionJSON relation : _relaciones) {
                 if (relation.getID().equals("")) {
                     sb.append("\tclass_");
@@ -397,18 +398,14 @@ public class GrafoJSON {
                     sb.append(_clases.get(relation.getClase(JSONkey.from.toString())).getName(language_name));
                     sb.append(" -- relationship_");
                     sb.append(relation.getName(language_name));
-                    sb.append(" [label=\"" + relation.getName(language_name) + "\"];\n");
+                    sb.append(" [label=\"" + relation.getName(language_name) + " (0..n)\"];\n");
 
                     sb.append("\trelationship_");
                     sb.append(relation.getName(language_name));
                     sb.append(" -- class_");
                     sb.append(_clases.get(relation.getClase(JSONkey.to.toString())).getName(language_name));
-                    sb.append(" [label=\"" + relation.getName(JSONkey.reverse_.toString(), language_name));
-                    if (!relation.getMulMax().equals("")) {
-                        sb.append(" (" + relation.getClase(JSONkey.multiMin.toString()) + ".."
-                                + relation.getClase(JSONkey.multiMax.toString()) + ")");
-                    }
-                    sb.append("\"];\n");
+                    sb.append(" [label=\"" + relation.getName(JSONkey.reverse_.toString(), language_name)
+                            + " (0..n)\"];\n");
                 }
             }
 

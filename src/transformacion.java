@@ -84,12 +84,15 @@ public class transformacion {
                                 JSONListener listenerJSON = new JSONListener(tablaJSON);
                                 ParseTree treeJSON = procesarJSON(new FileInputStream(at.get(i, Content.json)));
                                 walker.walk(listenerJSON, treeJSON);
-                                // System.out.println(tablaJSON.toString());
+                                System.out.println(tablaJSON.toString());
                             }
                             for (int j = 0; j < tablaJSON.getSize(); j++) {
+
                                 String dotContent = tablaJSON.getDotContent(j, languaje, _node_relationship,
                                         _edge_relationship, _node_class, _edge_class, _node_property, _edge_property,
                                         _node_inheritance, _edge_inheritance, _node_indirect_use, _edge_indirect_use);
+
+                                // String dotContent = "";
                                 Engine engine = tablaJSON.getEngine(j);
                                 String dotName = at.get(i, Content.dot);
                                 String svgName = at.get(i, Content.svg);
@@ -145,7 +148,7 @@ public class transformacion {
                                 }
                             }
                             System.out.println(SEPARATOR);
-                            System.out.println(tablaJSON.toString());
+                            // System.out.println(tablaJSON.toString());
                         } catch (Exception e) {
                             System.out.println("ERROR al procesar el archivo JSON " + at.get(i, Content.json));
                             System.out.println(e.toString());

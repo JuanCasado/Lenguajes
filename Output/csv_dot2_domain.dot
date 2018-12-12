@@ -48,13 +48,13 @@ edge[style="dashed",len="3",color="grey"]
 	class_Nieto -- class_Mascota [label="Mascotas (0..n) "];
 
 	// herencias
-	edge[len="5",color="black",arrowhead="normal",arrowsize="3",dir="back",]	class_Principal -- class_Hijo [label="inherits"];
+	edge[len="5"fontcolor="black",color="black",arrowhead="normal",arrowsize="3",dir="back",]	class_Principal -- class_Hijo [label="inherits"];
 	class_Hijo -- class_Nieto [label="inherits"];
 
 	// enlaces de relaciones
 	edge[len="2",penwidth="3",color="blue",fontcolor="blue",dir="forward",arrowhead="normal"]
-	class_Nieto -- relationship_conoceA [label="conoceA"];
-	relationship_conoceA -- class_Nieto [label="esConocidoPor"];
+	class_Nieto -- relationship_conoceA [label="conoceA (0..n)"];
+	relationship_conoceA -- class_Nieto [label="esConocidoPor (0..n)"];
 
 }
 
