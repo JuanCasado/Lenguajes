@@ -28,11 +28,12 @@ public class ClaseJSON {
         return sb.toString();
     }
 
-    public String getName(String languaje){
+    public String getName(Nombres languaje_name){
+        String languaje = languaje_name.toString();
         if (_names.containsKey(languaje))
             return _names.get(languaje);
         else 
-            return _names.get("name");
+            return _names.get(Nombres.name.toString());
     }
     
     public int amountProperties (){

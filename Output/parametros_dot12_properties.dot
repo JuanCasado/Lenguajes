@@ -12,14 +12,14 @@ graph properties{
 	node[fontsize="20", fillcolor="lightseagreen", style="filled", shape="ellipse", ]
 
 	
-	class_FamiliaUnitaria [label=FamiliaUnitaria];
-	class_NucleoFamiliar [label=NucleoFamiliar];
-	class_Ascendientes [label=Ascendientes];
-	class_Descendientes [label=Descendientes];
-	class_PropiedadesPlantilla [label=PropiedadesPlantilla];
-	class_RelacionFamiliar [label=RelacionFamiliar];
-	class_Mascotas [label=Mascotas];
-	class_Ambito [label=Ambito];
+	class_A family [label=A family];
+	class_Family core [label=Family core];
+	class_grandfather [label=grandfather];
+	class_sons [label=sons];
+	class_properties [label=properties];
+	class_Family relationships [label=Family relationships];
+	class_pets [label=pets];
+	class_scope [label=scope];
 
 	//RELACIONES
 	node[fontsize="15", fillcolor="paleturquoise", style="filled", shape="hexagon", ]
@@ -36,13 +36,13 @@ graph properties{
 	// asociaciones a través de atributos marcadas de forma directa
 
 	// herencias
-	class_PropiedadesPlantilla -- class_Ambito [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
-	class_Ambito -- class_RelacionFamiliar [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
-	class_RelacionFamiliar -- class_FamiliaUnitaria [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
-	class_FamiliaUnitaria -- class_NucleoFamiliar [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
-	class_RelacionFamiliar -- class_Ascendientes [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
-	class_RelacionFamiliar -- class_Descendientes [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
-	class_FamiliaUnitaria -- class_Mascotas [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
+	class_properties -- class_scope [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
+	class_scope -- class_Family relationships [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
+	class_Family relationships -- class_A family [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
+	class_A family -- class_Family core [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
+	class_Family relationships -- class_grandfather [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
+	class_Family relationships -- class_sons [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
+	class_A family -- class_pets [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
 
 	// enlaces de relaciones
 	edge[len="2",penwidth="3",color="blue"]

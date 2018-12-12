@@ -103,53 +103,53 @@ public class GrafoJSON {
     }
 
     public void addLabelReverseName(String clave, String valor) {
-        ultimaRelacion.addLabel("reverse_" + clave, valor);
+        ultimaRelacion.addLabel(JSONkey.reverse_.toString() + clave, valor);
     }
 
     public void addName(String name) {
         switch (ultimoIntroducido) {
         case 0:
-            ultimaClase.addLabel("name", name);
+            ultimaClase.addLabel(Nombres.name.toString(), name);
             break;
         case 1:
-            ultimaRelacion.addLabel("name", name);
+            ultimaRelacion.addLabel(Nombres.name.toString(), name);
             break;
         case 2:
-            ultimaProperty.put("name", name);
+            ultimaProperty.put(Nombres.name.toString(), name);
             break;
         }
     }
 
     public void addPropertyGender(String gender) {
-        ultimaProperty.put("gender", gender);
+        ultimaProperty.put(JSONkey.gender.toString(), gender);
     }
 
     public void addPropertyNumber(String number) {
-        ultimaProperty.put("number", number);
+        ultimaProperty.put(JSONkey.number.toString(), number);
     }
 
     public void addPropertyWordType(String wordType) {
-        ultimaProperty.put("wordType", wordType);
+        ultimaProperty.put(JSONkey.wordType.toString(), wordType);
     }
 
     public void addPropertyTypeOf(String typeOf) {
-        ultimaProperty.put("typeOf", typeOf);
+        ultimaProperty.put(JSONkey.typeOf.toString(), typeOf);
     }
 
     public void addPropertyIsList(String isList) {
-        ultimaProperty.put("isList", isList);
+        ultimaProperty.put(JSONkey.isList.toString(), isList);
     }
 
     public void addPropertyIsOptional(String isOptional) {
-        ultimaProperty.put("isOptional", isOptional);
+        ultimaProperty.put(JSONkey.isOptional.toString(), isOptional);
     }
 
     public void addPropertyMultiMax(String multiMax) {
-        ultimaProperty.put("multiMax", multiMax);
+        ultimaProperty.put(JSONkey.multiMax.toString(), multiMax);
     }
 
     public void addPropertyMultiMin(String multiMin) {
-        ultimaProperty.put("multiMin", multiMin);
+        ultimaProperty.put(JSONkey.multiMin.toString(), multiMin);
     }
 
     public void addRelationshipReverseName(String reverseName) {
@@ -197,11 +197,12 @@ public class GrafoJSON {
         return sb.toString();
     }
 
-    public String toDot(String languaje, ArrayList<String> _node_relationship, ArrayList<String> _edge_relationship,
+    public String toDot(Nombres languaje_name, ArrayList<String> _node_relationship, ArrayList<String> _edge_relationship,
             ArrayList<String> _node_class, ArrayList<String> _edge_class, ArrayList<String> _node_property,
             ArrayList<String> _edge_property, ArrayList<String> _node_inheritance, ArrayList<String> _edge_inheritance,
             ArrayList<String> _node_indirect_use, ArrayList<String> _edge_indirect_use) {
         if (dot==null){
+            String languaje = languaje_name.toString();
             StringBuffer sb = new StringBuffer();
             // Defecto
             sb.append("graph "+this.name+"{\n");
@@ -215,20 +216,20 @@ public class GrafoJSON {
             sb.append("\t"+fragmentDot(_edge_property, "edge") + "\n");
             for (String propertyID : _properties.keySet()) {
                 HashMap<String, String> propertyContent = _properties.get(propertyID);
-                if (propertyContent.containsKey("name")) {
+                if (propertyContent.containsKey(Nombres.name.toString())) {
                     sb.append("\tproperty_");
                     if (propertyContent.containsKey(languaje)){
                         sb.append(propertyContent.get(languaje));
                         sb.append(" [label=\"{" + propertyContent.get(languaje) + "|");
                     }else{
-                        sb.append(propertyContent.get("name"));
-                        sb.append(" [label=\"{" + propertyContent.get("name") + "|");
+                        sb.append(propertyContent.get(Nombres.name.toString()));
+                        sb.append(" [label=\"{" + propertyContent.get(Nombres.name.toString()) + "|");
                     }
-                    if (propertyContent.containsKey("typeOf"))
-                        sb.append(propertyContent.get("typeOf"));
+                    if (propertyContent.containsKey(JSONkey.typeOf.toString()))
+                        sb.append(propertyContent.get(JSONkey.typeOf.toString()));
                     sb.append("}\"");
-                    if (propertyContent.containsKey("isOptional")){
-                        if (propertyContent.get("isOptional").equals("true")){
+                    if (propertyContent.containsKey(JSONkey.isOptional.toString())){
+                        if (propertyContent.get(JSONkey.isOptional.toString()).equals("true")){
                             sb.append(",style=\"filled,dashed\"");
                         }
                     }
@@ -241,7 +242,7 @@ public class GrafoJSON {
             sb.append("\t"+fragmentDot(_node_class, "node") + "\n");
             sb.append("\t"+fragmentDot(_edge_class, "edge") + "\n");
             for (String claseID : _clases.keySet()){
-                String nombreClase = _clases.get(claseID).getName(languaje);
+                String nombreClase = _clases.get(claseID).getName(languaje_name);
                 sb.append("\tclass_");
                 sb.append(nombreClase);
                 sb.append(" [label=");
@@ -254,7 +255,7 @@ public class GrafoJSON {
             sb.append("\t"+fragmentDot(_node_relationship, "node") + "\n");
             for (RelacionJSON relacion : _relaciones) {
                 if (relacion.hasID()){
-                    String nombreRealcion = relacion.getName(languaje);
+                    String nombreRealcion = relacion.getName(languaje_name);
                     if (nombreRealcion!=null){
                         sb.append("\trelationship_");
                         sb.append(nombreRealcion);
@@ -274,13 +275,13 @@ public class GrafoJSON {
                 for (int i = 0; i<clase.amountProperties();i++){
                     if (_properties.containsKey(clase.getProperty(i))) {
                         sb.append("\tclass_");
-                        sb.append(clase.getName(languaje));
+                        sb.append(clase.getName(languaje_name));
                         sb.append( " -- ");
                         sb.append("property_");
                         if (_properties.get(clase.getProperty(i)).containsKey(languaje)){
                             sb.append(_properties.get(clase.getProperty(i)).get(languaje));
                         }else{
-                            sb.append(_properties.get(clase.getProperty(i)).get("name"));
+                            sb.append(_properties.get(clase.getProperty(i)).get(Nombres.name.toString()));
                         }
                         sb.append(";\n");
                     }
@@ -291,16 +292,16 @@ public class GrafoJSON {
             sb.append("\n\t//RELACION -- PROPIEDAD\n");
             for (RelacionJSON relacion : _relaciones) {
                 for (int i = 0; i < relacion.amountProperties(); i++) {
-                    if (relacion.getName(languaje)!=null){
+                    if (relacion.getName(languaje_name)!=null){
                         if (_properties.containsKey(relacion.getProperty(i))) {
                             sb.append("\trelationship_");
-                            sb.append(relacion.getName(languaje));
+                            sb.append(relacion.getName(languaje_name));
                             sb.append(" -- ");
                             sb.append("property_");
                             if (_properties.get(relacion.getProperty(i)).containsKey(languaje)) {
                                 sb.append(_properties.get(relacion.getProperty(i)).get(languaje));
                             } else {
-                                sb.append(_properties.get(relacion.getProperty(i)).get("name"));
+                                sb.append(_properties.get(relacion.getProperty(i)).get(Nombres.name.toString()));
                             }
                             sb.append(";\n");
                         }
@@ -311,17 +312,17 @@ public class GrafoJSON {
             // uso indirecto de definición de tipos
             sb.append("\n\t// uso indirecto de definición de tipos\n");
             for (String idProperty : _properties.keySet()){
-                if (_properties.get(idProperty).containsKey("typeOf")){
-                    if (_clases.keySet().contains(_properties.get(idProperty).get("typeOf"))){
+                if (_properties.get(idProperty).containsKey(JSONkey.typeOf.toString())){
+                    if (_clases.keySet().contains(_properties.get(idProperty).get(JSONkey.typeOf.toString()))){
                         sb.append("\tproperty_");
                         if (_properties.get(idProperty).containsKey(languaje)) {
                             sb.append(_properties.get(idProperty).get(languaje));
                         } else {
-                            sb.append(_properties.get(idProperty).get("name"));
+                            sb.append(_properties.get(idProperty).get(Nombres.name.toString()));
                         }
                         sb.append(" -- ");
                         sb.append("class_");
-                        sb.append(_clases.get(_properties.get(idProperty).get("typeOf")).getName(languaje));
+                        sb.append(_clases.get(_properties.get(idProperty).get(JSONkey.typeOf.toString())).getName(languaje_name));
                         sb.append(" ["+ fragmentDot(_edge_indirect_use, "")+ fragmentDot(_node_indirect_use, "")+"label=\"TypeOf\"];\n");
                     }
                 }
@@ -335,22 +336,22 @@ public class GrafoJSON {
                     String idProperty = clase.getProperty(i);
                     if (_properties.containsKey(idProperty)){
                         HashMap <String, String> property = _properties.get(idProperty);
-                        if (property.containsKey("typeOf")){
-                            if (_clases.containsKey(property.get("typeOf"))){
-                                ClaseJSON referencedClase = _clases.get(property.get("typeOf"));
+                        if (property.containsKey(JSONkey.typeOf.toString())){
+                            if (_clases.containsKey(property.get(JSONkey.typeOf.toString()))){
+                                ClaseJSON referencedClase = _clases.get(property.get(JSONkey.typeOf.toString()));
                                 sb.append("\tclass_");
-                                sb.append(clase.getName(languaje));
+                                sb.append(clase.getName(languaje_name));
                                 sb.append(" -- class_");
-                                sb.append(referencedClase.getName(languaje));
+                                sb.append(referencedClase.getName(languaje_name));
                                 sb.append(" [label=\"");
                                 if (property.containsKey(languaje)) {
                                     sb.append(property.get(languaje));
                                 } else {
-                                    sb.append(property.get("name"));
+                                    sb.append(property.get(Nombres.name.toString()));
                                 }
-                                if (property.containsKey("multiMin")) {
-                                    if (property.containsKey("multiMax")) {
-                                        sb.append(" (" +property.get("multiMin")+".." +property.get("multiMax") +") ");
+                                if (property.containsKey(JSONkey.multiMin.toString())) {
+                                    if (property.containsKey(JSONkey.multiMax.toString())) {
+                                        sb.append(" (" +property.get(JSONkey.multiMin.toString())+".." +property.get(JSONkey.multiMax.toString()) +") ");
                                     }
                                 }
                                 sb.append("\"");
@@ -366,9 +367,9 @@ public class GrafoJSON {
             for (RelacionJSON relation : _relaciones){
                 if (relation.getID().equals("")){
                     sb.append("\tclass_");
-                    sb.append(_clases.get(relation.getClase("from")).getName(languaje));
+                    sb.append(_clases.get(relation.getClase(JSONkey.from.toString())).getName(languaje_name));
                     sb.append(" -- class_");
-                    sb.append(_clases.get(relation.getClase("to")).getName(languaje));
+                    sb.append(_clases.get(relation.getClase(JSONkey.to.toString())).getName(languaje_name));
                     sb.append(" ["+ fragmentDot(_node_inheritance, "")+ fragmentDot(_edge_inheritance, "")+ "label=\"inherits\"];\n");
                 }
             }
@@ -379,16 +380,16 @@ public class GrafoJSON {
             for (RelacionJSON relation : _relaciones) {
                 if (!relation.getID().equals("")) {
                     sb.append("\tclass_");
-                    sb.append(_clases.get(relation.getClase("from")).getName(languaje));
+                    sb.append(_clases.get(relation.getClase(JSONkey.from.toString())).getName(languaje_name));
                     sb.append(" -- relationship_");
-                    sb.append(relation.getName(languaje));
-                    sb.append(" [label=\""+ relation.getName(languaje)+"\","+"fontcolor=\"blue\",dir=\"forward\",arrowhead=\"normal\""+"];\n");
+                    sb.append(relation.getName(languaje_name));
+                    sb.append(" [label=\""+ relation.getName(languaje_name)+"\","+"fontcolor=\"blue\",dir=\"forward\",arrowhead=\"normal\""+"];\n");
 
                     sb.append("relationship_");
-                    sb.append(relation.getName(languaje));
+                    sb.append(relation.getName(languaje_name));
                     sb.append(" -- class_");
-                    sb.append(_clases.get(relation.getClase("to")).getName(languaje));
-                    sb.append(" [label=\""+ relation.getName("reverse_" + languaje)+"\","+"fontcolor=\"blue\",dir=\"forward\",arrowhead=\"normal\""+"];\n");
+                    sb.append(_clases.get(relation.getClase(JSONkey.to.toString())).getName(languaje_name));
+                    sb.append(" [label=\""+ relation.getName(JSONkey.reverse_.toString(), languaje_name)+"\","+"fontcolor=\"blue\",dir=\"forward\",arrowhead=\"normal\""+"];\n");
                 }
             }
 
