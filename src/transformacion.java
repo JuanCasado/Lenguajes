@@ -6,7 +6,8 @@ import java.util.*;
 
 public class transformacion {
     private static final String SEPARATOR = "----------------------------------------------------------------------------------------------------------------------------------";
-    public static void main(String[] args) {        
+
+    public static void main(String[] args) {
         ParseTreeWalker walker = new ParseTreeWalker();
         try {
             EntradaTable tablaEntrada = new EntradaTable();
@@ -19,8 +20,8 @@ public class transformacion {
                 treeEntrada = procesarEntrada(System.in); // cuando no nos pasan argumento
             }
             walker.walk(listenerEntrada, treeEntrada);
-            //System.out.println(tablaEntrada.toString());
-            
+            // System.out.println(tablaEntrada.toString());
+
             ArrayList<String> _node_relationship = tablaEntrada.getNodeRelationshipParameters();
             ArrayList<String> _edge_relationship = tablaEntrada.getEdgeRelationshipParameters();
             ArrayList<String> _node_class = tablaEntrada.getNodeClassParameters();
@@ -32,7 +33,7 @@ public class transformacion {
             ArrayList<String> _node_indirect_use = tablaEntrada.getNodeIndirectUseParameters();
             ArrayList<String> _edge_indirect_use = tablaEntrada.getEdgeIndirectUseParameters();
             ArrayList<ActionTable> actions = new ArrayList<>();
-            Nombres languaje = Nombres.eng;
+            Nombres languaje = Nombres.name;
             actions.add(tablaEntrada);
             if (tablaEntrada.hasCSV()) {
                 for (int i = 0; i < tablaEntrada.csvSize(); i++) {
@@ -49,40 +50,41 @@ public class transformacion {
                     }
                 }
             }
-            System.out.println("\n"+ SEPARATOR);
-            HashMap<String,JSONTable> jsonResult= new HashMap<>();
-            for (ActionTable at : actions){
+            System.out.println("\n" + SEPARATOR);
+            HashMap<String, JSONTable> jsonResult = new HashMap<>();
+            for (ActionTable at : actions) {
                 for (int i = 0; i < at.size(); i++) {
                     Action action = at.toDo(i);
-                    switch (action){
-                        case skip:
-                            System.out.println("No action needed for " + at.get(i, Content.json));
+                    switch (action) {
+                    case skip:
+                        System.out.println("No action needed for " + at.get(i, Content.json));
                         break;
-                        case saveDot:
-                            System.out.println("We only need to save a dot file for" + at.get(i, Content.json));
+                    case saveDot:
+                        System.out.println("We only need to save a dot file for" + at.get(i, Content.json));
                         break;
-                        case saveSvg:
-                            System.out.println("We only need to save a svg file for" + at.get(i, Content.json));
+                    case saveSvg:
+                        System.out.println("We only need to save a svg file for" + at.get(i, Content.json));
                         break;
-                        case saveBoth:
-                            System.out.println("We need to save a dot and a svg files for" + at.get(i, Content.json));
+                    case saveBoth:
+                        System.out.println("We need to save a dot and a svg files for" + at.get(i, Content.json));
                         break;
                     }
                     if (action != Action.skip) {
                         try {
                             JSONTable tablaJSON;
                             System.out.println(SEPARATOR);
-                            if (jsonResult.keySet().contains(at.get(i, Content.json))){
-                                System.out.println("JSON "+ at.get(i, Content.json)+" already processed retrieving from memory");
+                            if (jsonResult.keySet().contains(at.get(i, Content.json))) {
+                                System.out.println("JSON " + at.get(i, Content.json)
+                                        + " already processed retrieving from memory");
                                 tablaJSON = jsonResult.get(at.get(i, Content.json));
-                            }else{
+                            } else {
                                 System.out.println("Procesando JSON " + at.get(i, Content.json));
                                 tablaJSON = new JSONTable();
                                 jsonResult.put(at.get(i, Content.json), tablaJSON);
                                 JSONListener listenerJSON = new JSONListener(tablaJSON);
                                 ParseTree treeJSON = procesarJSON(new FileInputStream(at.get(i, Content.json)));
                                 walker.walk(listenerJSON, treeJSON);
-                                //System.out.println(tablaJSON.toString());
+                                // System.out.println(tablaJSON.toString());
                             }
                             for (int j = 0; j < tablaJSON.getSize(); j++) {
                                 String dotContent = tablaJSON.getDotContent(j, languaje, _node_relationship,
