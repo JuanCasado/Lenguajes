@@ -213,8 +213,9 @@ public class GrafoJSON {
 
             // Propiedades
             sb.append("\n\t//PROPERTIES\n");
+            sb.append(
+                    "\t  node [shape=\"record\",style=\"filled\",fillcolor=\"lightgoldenrodyellow\",fontsize=\"10\"]\n");
             sb.append("\t" + fragmentDot(_node_property, "node") + "\n");
-            sb.append("\t" + fragmentDot(_edge_property, "edge") + "\n");
             for (String propertyID : _properties.keySet()) {
                 HashMap<String, String> propertyContent = _properties.get(propertyID);
                 if (propertyContent.containsKey(Nombres.name.toString())) {
@@ -240,6 +241,7 @@ public class GrafoJSON {
 
             // Clases
             sb.append("\n\t//CLASES\n");
+            sb.append("\tnode [shape=\"ellipse\",style=\"filled\",fillcolor=\"lightseagreen\",fontsize=\"20\"]");
             sb.append("\t" + fragmentDot(_node_class, "node") + "\n");
             sb.append("\t" + fragmentDot(_edge_class, "edge") + "\n");
             for (String claseID : _clases.keySet()) {
@@ -253,7 +255,9 @@ public class GrafoJSON {
 
             // Relaciones
             sb.append("\n\t//RELACIONES\n");
+            sb.append("\tnode [shape=\"hexagon\",style=\"filled\",fillcolor=\"paleturquoise\",fontsize=\"15\"]");
             sb.append("\t" + fragmentDot(_node_relationship, "node") + "\n");
+            sb.append("\t" + fragmentDot(_edge_relationship, "edge") + "\n");
             for (RelacionJSON relacion : _relaciones) {
                 if (relacion.hasID()) {
                     String nombreRealcion = relacion.getName(language_name);
@@ -269,7 +273,8 @@ public class GrafoJSON {
 
             // Clase -- Propiedad
             sb.append("\n\t//CLASE -- PROPIEDAD\n");
-            sb.append("\t" + fragmentDot(_edge_relationship, "edge") + "\n");
+            sb.append("\nedge[style=\"dashed\",len=\"3\",color=\"grey\"]");
+            sb.append("\t" + fragmentDot(_edge_property, "edge") + "\n");
             for (String claseID : _clases.keySet()) {
                 ClaseJSON clase = _clases.get(claseID);
                 for (int i = 0; i < clase.amountProperties(); i++) {
@@ -290,6 +295,7 @@ public class GrafoJSON {
 
             // Relacion -- Propiedad
             sb.append("\n\t//RELACION -- PROPIEDAD\n");
+            sb.append("\t" + fragmentDot(_edge_relationship, "edge") + "\n");
             for (RelacionJSON relacion : _relaciones) {
                 for (int i = 0; i < relacion.amountProperties(); i++) {
                     if (relacion.getName(language_name) != null) {
@@ -311,6 +317,7 @@ public class GrafoJSON {
 
             // uso indirecto de definición de tipos
             sb.append("\n\t// uso indirecto de definición de tipos\n");
+            sb.append("\tedge[style=\"dotted\",arrowhead=\"vee\",dir=\"forward\",arrowsize=\"2\"];\n");
             for (String idProperty : _properties.keySet()) {
                 if (_properties.get(idProperty).containsKey(JSONkey.typeOf.toString())) {
                     if (_clases.keySet().contains(_properties.get(idProperty).get(JSONkey.typeOf.toString()))) {
@@ -332,6 +339,8 @@ public class GrafoJSON {
 
             // asociaciones a través de atributos marcadas de forma directa
             sb.append("\n\t// asociaciones a través de atributos marcadas de forma directa\n");
+            sb.append(
+                    "\tedge[fontcolor=\"orangered\", color=\"orangered\", style=\"dashed\", arrowhead=\"vee\",dir=\"forward\",arrowsize=\"2\"];\n");
             for (String idClase : _clases.keySet()) {
                 ClaseJSON clase = _clases.get(idClase);
                 for (int i = 0; i < clase.amountProperties(); i++) {
@@ -357,9 +366,7 @@ public class GrafoJSON {
                                                 + property.get(JSONkey.multiMax.toString()) + ") ");
                                     }
                                 }
-                                sb.append("\"");
-                                sb.append(
-                                        "fontcolor=\"orangered\", color=\"orangered\", style=\"dashed\", arrowhead=\"vee\",dir=\"forward\",arrowsize=\"2\"];\n");
+                                sb.append("\"];\n");
                             }
                         }
                     }
@@ -368,6 +375,7 @@ public class GrafoJSON {
 
             // herencias
             sb.append("\n\t// herencias\n");
+            sb.append("\tedge[len=\"5\",color=\"black\",arrowhead=\"normal\",arrowsize=\"3\",dir=\"back\",]");
             for (RelacionJSON relation : _relaciones) {
                 if (relation.getID().equals("")) {
                     sb.append("\tclass_");
@@ -381,22 +389,26 @@ public class GrafoJSON {
 
             // enlaces de relaciones
             sb.append("\n\t// enlaces de relaciones\n");
-            sb.append("\tedge[len=\"2\",penwidth=\"3\",color=\"blue\"]\n");
+            sb.append(
+                    "\tedge[len=\"2\",penwidth=\"3\",color=\"blue\",fontcolor=\"blue\",dir=\"forward\",arrowhead=\"normal\"]\n");
             for (RelacionJSON relation : _relaciones) {
                 if (!relation.getID().equals("")) {
                     sb.append("\tclass_");
                     sb.append(_clases.get(relation.getClase(JSONkey.from.toString())).getName(language_name));
                     sb.append(" -- relationship_");
                     sb.append(relation.getName(language_name));
-                    sb.append(" [label=\"" + relation.getName(language_name) + "\","
-                            + "fontcolor=\"blue\",dir=\"forward\",arrowhead=\"normal\"" + "];\n");
+                    sb.append(" [label=\"" + relation.getName(language_name) + "\"];\n");
 
                     sb.append("\trelationship_");
                     sb.append(relation.getName(language_name));
                     sb.append(" -- class_");
                     sb.append(_clases.get(relation.getClase(JSONkey.to.toString())).getName(language_name));
-                    sb.append(" [label=\"" + relation.getName(JSONkey.reverse_.toString(), language_name) + "\","
-                            + "fontcolor=\"blue\",dir=\"forward\",arrowhead=\"normal\"" + "];\n");
+                    sb.append(" [label=\"" + relation.getName(JSONkey.reverse_.toString(), language_name));
+                    if (!relation.getMulMax().equals("")) {
+                        sb.append(" (" + relation.getClase(JSONkey.multiMin.toString()) + ".."
+                                + relation.getClase(JSONkey.multiMax.toString()) + ")");
+                    }
+                    sb.append("\"];\n");
                 }
             }
 

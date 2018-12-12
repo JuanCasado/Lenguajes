@@ -4,8 +4,7 @@ graph domain{
 	edge [fontname="Arial",fontsize=12];
 
 	//PROPERTIES
-	node[fontsize="10", fillcolor="lightgoldenrodyellow", style="filled", shape="record", ]
-
+	  node [shape="record",style="filled",fillcolor="lightgoldenrodyellow",fontsize="10"]
 	
 	property_apellidos [label="{apellidos|xsd:string}",style="filled,dashed"];
 	property_nombreMascota [label="{nombreMascota|xsd:string}"];
@@ -15,8 +14,7 @@ graph domain{
 	property_fechaUNIX [label="{fechaUNIX|xsd:DateTime}"];
 
 	//CLASES
-	node[fontsize="20", fillcolor="lightseagreen", style="filled", shape="ellipse", ]
-
+	node [shape="ellipse",style="filled",fillcolor="lightseagreen",fontsize="20"]	
 	
 	class_Hijo [label="Hijo"];
 	class_Principal [label="Principal"];
@@ -24,13 +22,13 @@ graph domain{
 	class_Nieto [label="Nieto"];
 
 	//RELACIONES
-	node[fontsize="15", fillcolor="paleturquoise", style="filled", shape="hexagon", ]
-
+	node [shape="hexagon",style="filled",fillcolor="paleturquoise",fontsize="15"]	
+	
 	relationship_conoceA [label=conoceA];
 
 	//CLASE -- PROPIEDAD
-	edge[len="3", style="dashed", color="grey", ]
 
+edge[style="dashed",len="3",color="grey"]	
 	class_Hijo -- property_apellidos;
 	class_Principal -- property_name;
 	class_Mascota -- property_nombreMascota;
@@ -38,22 +36,25 @@ graph domain{
 	class_Nieto -- property_Mascotas;
 
 	//RELACION -- PROPIEDAD
+	
 	relationship_conoceA -- property_fechaUNIX;
 
 	// uso indirecto de definiciÃ³n de tipos
-	property_Mascotas -- class_Mascota [arrowsize="2", style="dotted", arrowhead="vee", dir="forward", label="TypeOf"];
+	edge[style="dotted",arrowhead="vee",dir="forward",arrowsize="2"];
+	property_Mascotas -- class_Mascota [label="TypeOf"];
 
 	// asociaciones a travÃ©s de atributos marcadas de forma directa
-	class_Nieto -- class_Mascota [label="Mascotas (0..n) "fontcolor="orangered", color="orangered", style="dashed", arrowhead="vee",dir="forward",arrowsize="2"];
+	edge[fontcolor="orangered", color="orangered", style="dashed", arrowhead="vee",dir="forward",arrowsize="2"];
+	class_Nieto -- class_Mascota [label="Mascotas (0..n) "];
 
 	// herencias
-	class_Principal -- class_Hijo [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
-	class_Hijo -- class_Nieto [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
+	edge[len="5",color="black",arrowhead="normal",arrowsize="3",dir="back",]	class_Principal -- class_Hijo [label="inherits"];
+	class_Hijo -- class_Nieto [label="inherits"];
 
 	// enlaces de relaciones
-	edge[len="2",penwidth="3",color="blue"]
-	class_Nieto -- relationship_conoceA [label="conoceA",fontcolor="blue",dir="forward",arrowhead="normal"];
-	relationship_conoceA -- class_Nieto [label="esConocidoPor",fontcolor="blue",dir="forward",arrowhead="normal"];
+	edge[len="2",penwidth="3",color="blue",fontcolor="blue",dir="forward",arrowhead="normal"]
+	class_Nieto -- relationship_conoceA [label="conoceA"];
+	relationship_conoceA -- class_Nieto [label="esConocidoPor"];
 
 }
 

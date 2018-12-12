@@ -4,13 +4,11 @@ graph properties{
 	edge [fontname="Arial",fontsize=12];
 
 	//PROPERTIES
-	node[fontsize="10", fillcolor="lightgoldenrodyellow", style="filled", shape="record", ]
-
+	  node [shape="record",style="filled",fillcolor="lightgoldenrodyellow",fontsize="10"]
 	
 
 	//CLASES
-	node[fontsize="20", fillcolor="lightseagreen", style="filled", shape="ellipse", ]
-
+	node [shape="ellipse",style="filled",fillcolor="lightseagreen",fontsize="20"]	
 	
 	class_FamiliaUnitaria [label="FamiliaUnitaria"];
 	class_NucleoFamiliar [label="NucleoFamiliar"];
@@ -22,30 +20,33 @@ graph properties{
 	class_Ambito [label="Ambito"];
 
 	//RELACIONES
-	node[fontsize="15", fillcolor="paleturquoise", style="filled", shape="hexagon", ]
-
+	node [shape="hexagon",style="filled",fillcolor="paleturquoise",fontsize="15"]	
+	
 
 	//CLASE -- PROPIEDAD
-	edge[len="3", style="dashed", color="grey", ]
 
+edge[style="dashed",len="3",color="grey"]	
 
 	//RELACION -- PROPIEDAD
+	
 
 	// uso indirecto de definiciÃ³n de tipos
+	edge[style="dotted",arrowhead="vee",dir="forward",arrowsize="2"];
 
 	// asociaciones a travÃ©s de atributos marcadas de forma directa
+	edge[fontcolor="orangered", color="orangered", style="dashed", arrowhead="vee",dir="forward",arrowsize="2"];
 
 	// herencias
-	class_PropiedadesPlantilla -- class_Ambito [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
-	class_Ambito -- class_RelacionFamiliar [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
-	class_RelacionFamiliar -- class_FamiliaUnitaria [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
-	class_FamiliaUnitaria -- class_NucleoFamiliar [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
-	class_RelacionFamiliar -- class_Ascendientes [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
-	class_RelacionFamiliar -- class_Descendientes [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
-	class_FamiliaUnitaria -- class_Mascotas [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
+	edge[len="5",color="black",arrowhead="normal",arrowsize="3",dir="back",]	class_PropiedadesPlantilla -- class_Ambito [label="inherits"];
+	class_Ambito -- class_RelacionFamiliar [label="inherits"];
+	class_RelacionFamiliar -- class_FamiliaUnitaria [label="inherits"];
+	class_FamiliaUnitaria -- class_NucleoFamiliar [label="inherits"];
+	class_RelacionFamiliar -- class_Ascendientes [label="inherits"];
+	class_RelacionFamiliar -- class_Descendientes [label="inherits"];
+	class_FamiliaUnitaria -- class_Mascotas [label="inherits"];
 
 	// enlaces de relaciones
-	edge[len="2",penwidth="3",color="blue"]
+	edge[len="2",penwidth="3",color="blue",fontcolor="blue",dir="forward",arrowhead="normal"]
 
 }
 

@@ -45,6 +45,22 @@ public class RelacionJSON {
         }
     }
 
+    public String getMulMax() {
+        if (_names.containsKey(JSONkey.multiMax.toString())) {
+            return _names.get(JSONkey.multiMax.toString());
+        } else {
+            return "";
+        }
+    }
+
+    public String getMulMin() {
+        if (_names.containsKey(JSONkey.multiMin.toString())) {
+            return _names.get(JSONkey.multiMin.toString());
+        } else {
+            return "";
+        }
+    }
+
     public String getClase(String clase) {
         if (_clases.containsKey(clase))
             return _clases.get(clase);
