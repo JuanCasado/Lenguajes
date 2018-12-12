@@ -84,7 +84,7 @@ public class transformacion {
                                 JSONListener listenerJSON = new JSONListener(tablaJSON);
                                 ParseTree treeJSON = procesarJSON(new FileInputStream(at.get(i, Content.json)));
                                 walker.walk(listenerJSON, treeJSON);
-                                System.out.println(tablaJSON.toString());
+                                //System.out.println(tablaJSON.toString());
                             }
                             for (int j = 0; j < tablaJSON.getSize(); j++) {
 

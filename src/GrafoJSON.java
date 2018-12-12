@@ -197,6 +197,79 @@ public class GrafoJSON {
         return sb.toString();
     }
 
+    private String generarHerencias(ArrayList<RelacionJSON> relaciones, Nombres language, ArrayList<String> estra_properties) {
+        StringBuffer sb = new StringBuffer();
+        ArrayList<String> herenciaTo = new ArrayList<>();
+        ArrayList<String> herenciaFrom = new ArrayList<>();
+        ArrayList<String> padres = new ArrayList<>();
+        ArrayList<RelacionJSON> herenciasSiguientes = new ArrayList<>();
+        ArrayList<String> propiedades = new ArrayList<>();
+        ArrayList<String> hijos = new ArrayList<>();
+        if (relaciones.size()==0){
+            return "";
+        }
+        for (String extra : estra_properties){
+            propiedades.add(extra);
+        }
+        for (RelacionJSON relacion : relaciones) {
+            if (relacion.getID().equals("")) {
+                if (!relacion.getClase("to").equals("")) {
+                    herenciaTo.add(relacion.getClase("to"));
+                }
+                if (!relacion.getClase("from").equals("")) {
+                    herenciaFrom.add(relacion.getClase("from"));
+                }
+            }
+        }
+        for (String herencia : herenciaFrom) {
+            if (!herenciaTo.contains(herencia)) {
+                if (!padres.contains(herencia)) {
+                    padres.add(herencia);
+                }
+            }
+        }
+        if (padres.size()==0){
+            return "";
+        }
+        for (String padre : padres) {
+            for (RelacionJSON relacion : _relaciones) {
+                if (relacion.getClase("from").equals(padre)) {
+                    hijos.add(_clases.get(relacion.getClase("to")).getName(language));
+                }
+            }
+            for (int j = 0; j < _clases.get(padre).amountProperties(); j++) {
+                propiedades.add(getPropertyName(_clases.get(padre).getProperty(j), language));
+            }
+        }
+        for (String hijo : hijos){
+            for (String propiedad : propiedades){
+                sb.append("\tclass_");
+                sb.append(hijo);
+                sb.append(" -- ");
+                sb.append("property_");
+                sb.append(propiedad);
+                sb.append("\n");
+            }
+        }
+        for (RelacionJSON relacion : relaciones){
+            if (!padres.contains(relacion.getClase("from"))){
+                herenciasSiguientes.add(relacion);
+            }
+        }
+        sb.append(generarHerencias(herenciasSiguientes, language, propiedades));
+        return sb.toString();
+    }
+
+    private String getPropertyName(String clave, Nombres language) {
+        if (_properties.containsKey(clave)) {
+            if (_properties.get(clave).containsKey(language.toString())) {
+                if (_properties.get(clave).get(language.toString()) != null)
+                    return _properties.get(clave).get(language.toString());
+            }
+        }
+        return "";
+    }
+
     public String toDot(Nombres language_name, ArrayList<String> _node_relationship,
             ArrayList<String> _edge_relationship, ArrayList<String> _node_class, ArrayList<String> _edge_class,
             ArrayList<String> _node_property, ArrayList<String> _edge_property, ArrayList<String> _node_inheritance,
@@ -292,6 +365,8 @@ public class GrafoJSON {
                     }
                 }
             }
+            //Desde las herencias
+            sb.append(generarHerencias(_relaciones, language_name, new ArrayList<>()));
 
             // Relacion -- Propiedad
             sb.append("\n\t//RELACION -- PROPIEDAD\n");
