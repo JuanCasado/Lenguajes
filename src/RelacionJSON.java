@@ -32,7 +32,7 @@ public class RelacionJSON {
         if (_names.containsKey(languaje))
             return _names.get(languaje);
         else {
-            return _names.get(Nombres.name.toString());
+            return _names.get("reverse_"+Nombres.name.toString());
         }
     }
 

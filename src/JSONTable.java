@@ -102,7 +102,8 @@ public class JSONTable {
         if (valor == null){
             valor = "";
         }
-        valor = valor.replace("'", "");
+        valor = valor.replaceAll("'", "");
+        valor = valor.replaceAll(" ", "");
         ultimoGrafo.addLabel(clave, valor);
     }
 
@@ -110,7 +111,8 @@ public class JSONTable {
         if (valor == null) {
             valor = "";
         }
-        valor = valor.replace("'", "");
+        valor = valor.replaceAll("'", "");
+        valor = valor.replaceAll(" ", "");
         ultimoGrafo.addLabelReverseName(clave, valor);
     }
 

@@ -385,7 +385,7 @@ public class GrafoJSON {
                     sb.append(relation.getName(languaje_name));
                     sb.append(" [label=\""+ relation.getName(languaje_name)+"\","+"fontcolor=\"blue\",dir=\"forward\",arrowhead=\"normal\""+"];\n");
 
-                    sb.append("relationship_");
+                    sb.append("\trelationship_");
                     sb.append(relation.getName(languaje_name));
                     sb.append(" -- class_");
                     sb.append(_clases.get(relation.getClase(JSONkey.to.toString())).getName(languaje_name));
