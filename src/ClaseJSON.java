@@ -28,20 +28,24 @@ public class ClaseJSON {
         return sb.toString();
     }
 
-    public String getName(Nombres languaje_name){
-        String languaje = languaje_name.toString();
-        if (_names.containsKey(languaje))
-            return _names.get(languaje);
-        else 
+    public String getName(Nombres language_name) {
+        String language = language_name.toString();
+        if (_names.containsKey(language))
+            if (_names.get(language).equals("")) {
+                return _names.get(Nombres.name.toString());
+            } else {
+                return _names.get(language);
+            }
+        else
             return _names.get(Nombres.name.toString());
     }
-    
-    public int amountProperties (){
+
+    public int amountProperties() {
         return _properties.size();
     }
 
     public String getProperty(int index) {
-        if (_properties.size()>index)
+        if (_properties.size() > index)
             return _properties.get(index);
         else
             return "";

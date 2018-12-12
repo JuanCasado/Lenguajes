@@ -21,7 +21,11 @@ public class RelacionJSON {
     public String getName(Nombres language_name) {
         String language = language_name.toString();
         if (_names.containsKey(language))
-            return _names.get(language);
+            if (_names.get(language).equals("")) {
+                return _names.get(Nombres.name.toString());
+            } else {
+                return _names.get(language);
+            }
         else {
             return _names.get(Nombres.name.toString());
         }
@@ -29,8 +33,13 @@ public class RelacionJSON {
 
     public String getName(String extra, Nombres language_name) {
         String language = extra + language_name.toString();
+
         if (_names.containsKey(language))
-            return _names.get(language);
+            if (_names.get(language).equals("")) {
+                return _names.get(Nombres.name.toString());
+            } else {
+                return _names.get(language);
+            }
         else {
             return _names.get("reverse_" + Nombres.name.toString());
         }
@@ -60,6 +69,7 @@ public class RelacionJSON {
     }
 
     public void addLabel(String clave, String valor) {
+        System.out.println("CLAVE - " + clave + "  VALOR - " + valor);
         _names.put(clave, valor);
     }
 
