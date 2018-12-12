@@ -38,7 +38,7 @@ public class EntradaTable implements ActionTable {
     }
 
     private static final String parametros_f1[] = { "-len", "-fontcolor", "-fontname", "-fontsize", "-arrowsize",
-            "-arrowcolor", "-penwidth", "-fillcolor", "-style", "-shape" , "-color", "-arrowhead", "-dir"};
+            "-arrowcolor", "-penwidth", "-fillcolor", "-style", "-shape", "-color", "-arrowhead", "-dir" };
     private static final String parametros_f2[] = { "_relationship=", "_class=", "_property=", "_inheritance=",
             "_indirect_use=" };
     private static final String parametros_f3[] = { "_edge", "_node", };
@@ -67,6 +67,7 @@ public class EntradaTable implements ActionTable {
 
     /**
      * Método que se encarga de añadir un DOT nuevo a la lista de DOT de la e t a a
+     * 
      * 
      * 
      * 
@@ -113,6 +114,7 @@ public class EntradaTable implements ActionTable {
      * 
      * 
      * 
+     * 
      * @param p_svg SVG a insertar
      */
     public void addSVG(String p_svg) {
@@ -133,6 +135,7 @@ public class EntradaTable implements ActionTable {
 
     /**
      * Método que se encarga de añadir un CSV nuevo a la lista de CSV de la e t a a
+     * 
      * 
      * 
      * 
@@ -409,10 +412,12 @@ public class EntradaTable implements ActionTable {
     private ArrayList<String> getParameterByContent(String contenido) {
         ArrayList<String> resultado = new ArrayList<>();
         for (int i = 0; i < _parametersName.size(); i++) {
-            if (_parametersName.get(i).contains(contenido) || (contenido.contains("_edge")? _parametersName.get(i).contains("-len"+contenido.replace("_edge", "")):false)) {
+            if (_parametersName.get(i).contains(contenido) || (contenido.contains("_edge")
+                    ? _parametersName.get(i).contains("-len" + contenido.replace("_edge", ""))
+                    : false)) {
                 if (!_parameters.get(i).equals(CAMPO_VACIO)) {
                     String cadena = _parametersName.get(i);
-                    for (String toDelete : parametros_f2){
+                    for (String toDelete : parametros_f2) {
                         cadena = cadena.replaceAll(toDelete, CAMPO_VACIO);
                     }
                     for (String toDelete : parametros_f3) {

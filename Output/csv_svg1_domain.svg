@@ -30,8 +30,9 @@
 </g>
 <!-- property_Mascotas&#45;&#45;class_MASCOTA -->
 <g id="edge20" class="edge"><title>property_Mascotas&#45;&#45;class_MASCOTA</title>
-<path fill="none" stroke="grey" stroke-dasharray="1,5" d="M114.978,-232.074C100.676,-236.183 85.7131,-240.482 71.8989,-244.451"/>
-<text text-anchor="middle" x="74.4382" y="-228.663" font-family="Arial" font-size="12.00">TypeOf</text>
+<path fill="none" stroke="grey" stroke-dasharray="1,5" d="M114.978,-232.074C107.156,-234.321 99.1374,-236.625 91.2168,-238.901"/>
+<polygon fill="grey" stroke="grey" points="71.8989,-244.451 88.6359,-230.278 81.51,-241.69 91.1212,-238.928 91.1212,-238.928 91.1212,-238.928 81.51,-241.69 93.6066,-247.578 71.8989,-244.451 71.8989,-244.451"/>
+<text text-anchor="middle" x="122.097" y="-238.887" font-family="Arial" font-size="12.00">TypeOf</text>
 </g>
 <!-- property_Fecha -->
 <g id="node3" class="node"><title>property_Fecha</title>
@@ -68,8 +69,9 @@
 </g>
 <!-- property_Descendientes&#45;&#45;class_PERSONA -->
 <g id="edge21" class="edge"><title>property_Descendientes&#45;&#45;class_PERSONA</title>
-<path fill="none" stroke="grey" stroke-dasharray="1,5" d="M-46.8131,15.959C-70.0178,32.9706 -103.77,57.7143 -127.363,75.011"/>
-<text text-anchor="middle" x="-106.088" y="42.085" font-family="Arial" font-size="12.00">TypeOf</text>
+<path fill="none" stroke="grey" stroke-dasharray="1,5" d="M-46.8131,15.959C-65.0324,29.3157 -89.7536,47.4391 -110.955,62.9821"/>
+<polygon fill="grey" stroke="grey" points="-127.363,75.011 -105.912,70.4445 -119.298,69.0986 -111.233,63.1861 -111.233,63.1861 -111.233,63.1861 -119.298,69.0986 -116.555,55.9276 -127.363,75.011 -127.363,75.011"/>
+<text text-anchor="middle" x="-97.8841" y="36.0705" font-family="Arial" font-size="12.00">TypeOf</text>
 </g>
 <!-- property_Raza -->
 <g id="node7" class="node"><title>property_Raza</title>
@@ -115,8 +117,9 @@
 </g>
 <!-- property_Nucleo&#45;&#45;class_PERSONA -->
 <g id="edge22" class="edge"><title>property_Nucleo&#45;&#45;class_PERSONA</title>
-<path fill="none" stroke="grey" stroke-dasharray="1,5" d="M-19.1806,142.58C-46.6272,132.997 -79.627,121.475 -106.213,112.192"/>
-<text text-anchor="middle" x="-81.6969" y="136.986" font-family="Arial" font-size="12.00">TypeOf</text>
+<path fill="none" stroke="grey" stroke-dasharray="1,5" d="M-19.1806,142.58C-40.4088,135.168 -64.959,126.596 -87.2944,118.797"/>
+<polygon fill="grey" stroke="grey" points="-106.213,112.192 -90.298,127.281 -96.7721,115.488 -87.3311,118.785 -87.3311,118.785 -87.3311,118.785 -96.7721,115.488 -84.3642,110.288 -106.213,112.192 -106.213,112.192"/>
+<text text-anchor="middle" x="-72.2375" y="127.289" font-family="Arial" font-size="12.00">TypeOf</text>
 </g>
 <!-- property_Nombre -->
 <g id="node13" class="node"><title>property_Nombre</title>
@@ -134,8 +137,9 @@
 </g>
 <!-- property_Ascendientes&#45;&#45;class_PERSONA -->
 <g id="edge23" class="edge"><title>property_Ascendientes&#45;&#45;class_PERSONA</title>
-<path fill="none" stroke="grey" stroke-dasharray="1,5" d="M-180.208,364.979C-180.225,313.151 -168.836,170.938 -160.41,116.645"/>
-<text text-anchor="middle" x="-189.309" y="250.412" font-family="Arial" font-size="12.00">TypeOf</text>
+<path fill="none" stroke="grey" stroke-dasharray="1,5" d="M-180.208,364.979C-180.223,318.617 -171.111,199.931 -163.158,136.548"/>
+<polygon fill="grey" stroke="grey" points="-160.41,116.645 -172.061,135.226 -161.778,126.551 -163.146,136.457 -163.146,136.457 -163.146,136.457 -161.778,126.551 -154.23,137.688 -160.41,116.645 -160.41,116.645"/>
+<text text-anchor="middle" x="-190.683" y="260.364" font-family="Arial" font-size="12.00">TypeOf</text>
 </g>
 <!-- property_Designacion -->
 <g id="node15" class="node"><title>property_Designacion</title>

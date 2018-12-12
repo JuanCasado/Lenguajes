@@ -41,14 +41,14 @@ graph domain{
 	relationship_conoceA -- property_fechaUNIX;
 
 	// uso indirecto de definiciÃ³n de tipos
-	property_Mascotas -- class_Mascota [style="dotted", arrowhead="vee", label="TypeOf"];
+	property_Mascotas -- class_Mascota [arrowsize="2", style="dotted", arrowhead="vee", dir="forward", label="TypeOf"];
 
 	// asociaciones a travÃ©s de atributos marcadas de forma directa
 	class_Nieto -- class_Mascota [label="Mascotas (0..n) "fontcolor="orangered", color="orangered", style="dashed", arrowhead="vee",dir="forward",arrowsize="2"];
 
 	// herencias
-	class_Principal -- class_Hijo [label="inherits"];
-	class_Hijo -- class_Nieto [label="inherits"];
+	class_Principal -- class_Hijo [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
+	class_Hijo -- class_Nieto [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
 
 	// enlaces de relaciones
 	edge[len="2",penwidth="3",color="blue"]

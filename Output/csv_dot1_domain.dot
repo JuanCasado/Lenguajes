@@ -63,10 +63,10 @@ graph domain{
 	relationship_conoceA -- property_FechaUNIX;
 
 	// uso indirecto de definiciÃ³n de tipos
-	property_Mascotas -- class_MASCOTA [style="dotted", arrowhead="vee", label="TypeOf"];
-	property_Descendientes -- class_PERSONA [style="dotted", arrowhead="vee", label="TypeOf"];
-	property_Nucleo -- class_PERSONA [style="dotted", arrowhead="vee", label="TypeOf"];
-	property_Ascendientes -- class_PERSONA [style="dotted", arrowhead="vee", label="TypeOf"];
+	property_Mascotas -- class_MASCOTA [arrowsize="2", style="dotted", arrowhead="vee", dir="forward", label="TypeOf"];
+	property_Descendientes -- class_PERSONA [arrowsize="2", style="dotted", arrowhead="vee", dir="forward", label="TypeOf"];
+	property_Nucleo -- class_PERSONA [arrowsize="2", style="dotted", arrowhead="vee", dir="forward", label="TypeOf"];
+	property_Ascendientes -- class_PERSONA [arrowsize="2", style="dotted", arrowhead="vee", dir="forward", label="TypeOf"];
 
 	// asociaciones a travÃ©s de atributos marcadas de forma directa
 	class_PERSONA -- class_PERSONA [label="Ascendientes (1..n) "fontcolor="orangered", color="orangered", style="dashed", arrowhead="vee",dir="forward",arrowsize="2"];

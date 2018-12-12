@@ -46,23 +46,23 @@ graph characteristics{
 	// asociaciones a travÃ©s de atributos marcadas de forma directa
 
 	// herencias
-	class_CaracteristicasPlantilla -- class_Idioma [label="inherits"];
-	class_Idioma -- class_Espanol [label="inherits"];
-	class_Idioma -- class_Ingles [label="inherits"];
-	class_Idioma -- class_Arabe [label="inherits"];
-	class_CaracteristicasPlantilla -- class_TiempoVerbal [label="inherits"];
-	class_TiempoVerbal -- class_Presente [label="inherits"];
-	class_TiempoVerbal -- class_Futuro [label="inherits"];
-	class_TiempoVerbal -- class_PreteritoImperfecto [label="inherits"];
-	class_CaracteristicasPlantilla -- class_Espacio [label="inherits"];
-	class_Espacio -- class_Cronológico [label="inherits"];
-	class_Espacio -- class_Retrospectivo [label="inherits"];
-	class_Espacio -- class_Anticipativo [label="inherits"];
-	class_CaracteristicasPlantilla -- class_Elemento [label="inherits"];
-	class_Elemento -- class_Texto [label="inherits"];
-	class_Elemento -- class_Parrafo [label="inherits"];
-	class_Elemento -- class_Oracion [label="inherits"];
-	class_Elemento -- class_Palabra [label="inherits"];
+	class_CaracteristicasPlantilla -- class_Idioma [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
+	class_Idioma -- class_Espanol [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
+	class_Idioma -- class_Ingles [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
+	class_Idioma -- class_Arabe [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
+	class_CaracteristicasPlantilla -- class_TiempoVerbal [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
+	class_TiempoVerbal -- class_Presente [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
+	class_TiempoVerbal -- class_Futuro [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
+	class_TiempoVerbal -- class_PreteritoImperfecto [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
+	class_CaracteristicasPlantilla -- class_Espacio [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
+	class_Espacio -- class_Cronológico [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
+	class_Espacio -- class_Retrospectivo [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
+	class_Espacio -- class_Anticipativo [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
+	class_CaracteristicasPlantilla -- class_Elemento [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
+	class_Elemento -- class_Texto [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
+	class_Elemento -- class_Parrafo [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
+	class_Elemento -- class_Oracion [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
+	class_Elemento -- class_Palabra [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
 
 	// enlaces de relaciones
 	edge[len="2",penwidth="3",color="blue"]

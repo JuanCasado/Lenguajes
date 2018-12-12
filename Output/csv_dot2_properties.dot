@@ -36,13 +36,13 @@ graph properties{
 	// asociaciones a travÃ©s de atributos marcadas de forma directa
 
 	// herencias
-	class_PropiedadesPlantilla -- class_Ambito [label="inherits"];
-	class_Ambito -- class_RelacionFamiliar [label="inherits"];
-	class_RelacionFamiliar -- class_FamiliaUnitaria [label="inherits"];
-	class_FamiliaUnitaria -- class_NucleoFamiliar [label="inherits"];
-	class_RelacionFamiliar -- class_Ascendientes [label="inherits"];
-	class_RelacionFamiliar -- class_Descendientes [label="inherits"];
-	class_FamiliaUnitaria -- class_Mascotas [label="inherits"];
+	class_PropiedadesPlantilla -- class_Ambito [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
+	class_Ambito -- class_RelacionFamiliar [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
+	class_RelacionFamiliar -- class_FamiliaUnitaria [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
+	class_FamiliaUnitaria -- class_NucleoFamiliar [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
+	class_RelacionFamiliar -- class_Ascendientes [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
+	class_RelacionFamiliar -- class_Descendientes [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
+	class_FamiliaUnitaria -- class_Mascotas [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
 
 	// enlaces de relaciones
 	edge[len="2",penwidth="3",color="blue"]

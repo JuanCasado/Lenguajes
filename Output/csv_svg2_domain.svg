@@ -37,8 +37,9 @@
 </g>
 <!-- property_Mascotas&#45;&#45;class_Mascota -->
 <g id="edge7" class="edge"><title>property_Mascotas&#45;&#45;class_Mascota</title>
-<path fill="none" stroke="grey" stroke-dasharray="1,5" d="M-95.2036,-281.654C-120.273,-258.946 -161.793,-221.337 -187.376,-198.164"/>
-<text text-anchor="middle" x="-160.29" y="-243.309" font-family="Arial" font-size="12.00">TypeOf</text>
+<path fill="none" stroke="grey" stroke-dasharray="1,5" d="M-95.2036,-281.654C-115.768,-263.027 -147.403,-234.372 -172.23,-211.884"/>
+<polygon fill="grey" stroke="grey" points="-187.376,-198.164 -166.511,-204.921 -179.965,-204.878 -172.553,-211.591 -172.553,-211.591 -172.553,-211.591 -179.965,-204.878 -178.595,-218.261 -187.376,-198.164 -187.376,-198.164"/>
+<text text-anchor="middle" x="-152.717" y="-250.169" font-family="Arial" font-size="12.00">TypeOf</text>
 </g>
 <!-- property_name -->
 <g id="node4" class="node"><title>property_name</title>
@@ -77,8 +78,9 @@
 </g>
 <!-- class_Hijo&#45;&#45;class_Nieto -->
 <g id="edge10" class="edge"><title>class_Hijo&#45;&#45;class_Nieto</title>
-<path fill="none" stroke="grey" stroke-dasharray="5,2" d="M-26.2506,146.357C-15.5304,98.8039 10.4135,-16.279 21.1587,-63.9433"/>
-<text text-anchor="middle" x="-21.5459" y="37.8069" font-family="Arial" font-size="12.00">inherits</text>
+<path fill="none" stroke="grey" stroke-dasharray="5,2" d="M-19.6164,116.929C-7.15237,61.6403 12.2393,-24.3782 21.1587,-63.9433"/>
+<polygon fill="grey" stroke="grey" points="-9.41003,119.401 -26.2506,146.357 -29.8959,114.782 -9.41003,119.401"/>
+<text text-anchor="middle" x="-18.2288" y="23.0927" font-family="Arial" font-size="12.00">inherits</text>
 </g>
 <!-- class_Principal -->
 <g id="node8" class="node"><title>class_Principal</title>
@@ -91,8 +93,9 @@
 </g>
 <!-- class_Principal&#45;&#45;class_Hijo -->
 <g id="edge9" class="edge"><title>class_Principal&#45;&#45;class_Hijo</title>
-<path fill="none" stroke="grey" stroke-dasharray="5,2" d="M72.46,361.836C50.4246,320.44 1.70271,228.912 -20.0953,187.962"/>
-<text text-anchor="middle" x="7.18234" y="271.499" font-family="Arial" font-size="12.00">inherits</text>
+<path fill="none" stroke="grey" stroke-dasharray="5,2" d="M58.3076,335.25C33.7845,289.18 -2.21412,221.554 -20.0953,187.962"/>
+<polygon fill="grey" stroke="grey" points="67.632,330.42 72.46,361.836 49.0947,340.288 67.632,330.42"/>
+<text text-anchor="middle" x="0.106171" y="258.206" font-family="Arial" font-size="12.00">inherits</text>
 </g>
 <!-- class_Mascota&#45;&#45;property_nombreMascota -->
 <g id="edge3" class="edge"><title>class_Mascota&#45;&#45;property_nombreMascota</title>
