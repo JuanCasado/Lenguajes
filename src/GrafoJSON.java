@@ -245,9 +245,9 @@ public class GrafoJSON {
                 String nombreClase = _clases.get(claseID).getName(languaje_name);
                 sb.append("\tclass_");
                 sb.append(nombreClase);
-                sb.append(" [label=");
+                sb.append(" [label=\"");
                 sb.append(nombreClase);
-                sb.append("];\n");
+                sb.append("\"];\n");
             }
 
             //Relaciones

@@ -99,10 +99,18 @@ public class JSONTable {
     }
 
     public void addLabel(String clave, String valor) {
+        if (valor == null){
+            valor = "";
+        }
+        valor = valor.replace("'", "");
         ultimoGrafo.addLabel(clave, valor);
     }
 
     public void addLabelReverseName(String clave, String valor) {
+        if (valor == null) {
+            valor = "";
+        }
+        valor = valor.replace("'", "");
         ultimoGrafo.addLabelReverseName(clave, valor);
     }
 

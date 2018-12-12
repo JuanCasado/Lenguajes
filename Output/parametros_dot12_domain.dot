@@ -8,7 +8,7 @@ graph domain{
 
 	
 	property_surname [label="{surname|xsd:string}",style="filled,dashed"];
-	property_Pet's name [label="{Pet's name|xsd:string}"];
+	property_Pets name [label="{Pets name|xsd:string}"];
 	property_Pets [label="{Pets|http://PdL.com/class#Mascota}"];
 	property_name [label="{name|xsd:string}"];
 	property_age [label="{age|xsd:integer}"];
@@ -18,10 +18,10 @@ graph domain{
 	node[fontsize="20", fillcolor="lightseagreen", style="filled", shape="ellipse", ]
 
 	
-	class_Son [label=Son];
-	class_Headof [label=Headof];
-	class_Pet [label=Pet];
-	class_Grandchild [label=Grandchild];
+	class_Son [label="Son"];
+	class_Headof [label="Headof"];
+	class_Pet [label="Pet"];
+	class_Grandchild [label="Grandchild"];
 
 	//RELACIONES
 	node[fontsize="15", fillcolor="paleturquoise", style="filled", shape="hexagon", ]
@@ -33,7 +33,7 @@ graph domain{
 
 	class_Son -- property_surname;
 	class_Headof -- property_name;
-	class_Pet -- property_Pet's name;
+	class_Pet -- property_Pets name;
 	class_Grandchild -- property_age;
 	class_Grandchild -- property_Pets;
 

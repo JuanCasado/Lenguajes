@@ -12,14 +12,14 @@ graph properties{
 	node[fontsize="20", fillcolor="lightseagreen", style="filled", shape="ellipse", ]
 
 	
-	class_A family [label=A family];
-	class_Family core [label=Family core];
-	class_grandfather [label=grandfather];
-	class_sons [label=sons];
-	class_properties [label=properties];
-	class_Family relationships [label=Family relationships];
-	class_pets [label=pets];
-	class_scope [label=scope];
+	class_A family [label="A family"];
+	class_Family core [label="Family core"];
+	class_grandfather [label="grandfather"];
+	class_sons [label="sons"];
+	class_properties [label="properties"];
+	class_Family relationships [label="Family relationships"];
+	class_pets [label="pets"];
+	class_scope [label="scope"];
 
 	//RELACIONES
 	node[fontsize="15", fillcolor="paleturquoise", style="filled", shape="hexagon", ]
