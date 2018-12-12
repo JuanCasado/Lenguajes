@@ -34,16 +34,19 @@ edge[style="dashed",len="3",color="grey"]
 	class_Mascota -- property_nombreMascota;
 	class_Nieto -- property_edad;
 	class_Nieto -- property_Mascotas;
+	class_Hijo -- property_name
+	class_Nieto -- property_name
+	class_Nieto -- property_apellidos
 
 	//RELACION -- PROPIEDAD
 	
 	relationship_conoceA -- property_fechaUNIX;
 
-	// uso indirecto de definiciÃ³n de tipos
+	// uso indirecto de definición de tipos
 	edge[style="dotted",arrowhead="vee",dir="forward",arrowsize="2"];
 	property_Mascotas -- class_Mascota [label="TypeOf"];
 
-	// asociaciones a travÃ©s de atributos marcadas de forma directa
+	// asociaciones a través de atributos marcadas de forma directa
 	edge[fontcolor="orangered", color="orangered", style="dashed", arrowhead="vee",dir="forward",arrowsize="2"];
 	class_Nieto -- class_Mascota [label="Mascotas (0..n) "];
 

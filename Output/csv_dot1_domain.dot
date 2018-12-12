@@ -61,14 +61,14 @@ edge[style="dashed",len="3",color="grey"]
 	
 	relationship_conoceA -- property_FechaUNIX;
 
-	// uso indirecto de definiciÃ³n de tipos
+	// uso indirecto de definición de tipos
 	edge[style="dotted",arrowhead="vee",dir="forward",arrowsize="2"];
 	property_Mascotas -- class_MASCOTA [label="TypeOf"];
 	property_Descendientes -- class_PERSONA [label="TypeOf"];
 	property_Nucleo -- class_PERSONA [label="TypeOf"];
 	property_Ascendientes -- class_PERSONA [label="TypeOf"];
 
-	// asociaciones a travÃ©s de atributos marcadas de forma directa
+	// asociaciones a través de atributos marcadas de forma directa
 	edge[fontcolor="orangered", color="orangered", style="dashed", arrowhead="vee",dir="forward",arrowsize="2"];
 	class_PERSONA -- class_PERSONA [label="Ascendientes (1..n) "];
 	class_FAMILIA -- class_PERSONA [label="Nucleo (1..n) "];

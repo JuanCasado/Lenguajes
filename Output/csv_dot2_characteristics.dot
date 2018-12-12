@@ -40,10 +40,10 @@ edge[style="dashed",len="3",color="grey"]
 	//RELACION -- PROPIEDAD
 	
 
-	// uso indirecto de definiciÃ³n de tipos
+	// uso indirecto de definición de tipos
 	edge[style="dotted",arrowhead="vee",dir="forward",arrowsize="2"];
 
-	// asociaciones a travÃ©s de atributos marcadas de forma directa
+	// asociaciones a través de atributos marcadas de forma directa
 	edge[fontcolor="orangered", color="orangered", style="dashed", arrowhead="vee",dir="forward",arrowsize="2"];
 
 	// herencias
