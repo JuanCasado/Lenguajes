@@ -139,11 +139,11 @@
                         "reverseName":"esConocidoPor",
                         "label":{
                             "es":"Conoce A",
-                            "en":"Knows"
+                            "eng":"Knows"
                         },
                         "labelReverseName":{
                             "es":"es conocido por",
-                            "en":"is known by"
+                            "eng":"is known by"
                         },
                         "from":"http://PdL.com/class#Nieto",
                         "to":"http://PdL.com/class#Nieto",
