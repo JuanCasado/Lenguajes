@@ -32,7 +32,7 @@ public class transformacion {
             ArrayList<String> _node_indirect_use = tablaEntrada.getNodeIndirectUseParameters();
             ArrayList<String> _edge_indirect_use = tablaEntrada.getEdgeIndirectUseParameters();
             ArrayList<ActionTable> actions = new ArrayList<>();
-            Nombres languaje = Nombres.es;
+            Nombres languaje = Nombres.eng;
             actions.add(tablaEntrada);
             if (tablaEntrada.hasCSV()) {
                 for (int i = 0; i < tablaEntrada.csvSize(); i++) {
