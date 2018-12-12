@@ -11,14 +11,17 @@ FONTCOLOR: '-fontcolor';
 FONTNAME: '-fontname';
 FONTSIZE: '-fontsize';
 ARROWSIZE: '-arrowsize';
+ARROWHEAD: '-arrowhead';
 ARROWCOLOR: '-arrowcolor';
 PENWIDTH: '-penwidth';
 FILLCOLOR: '-fillcolor';
 STYLE: '-style';
 SHAPE: '-shape';
+COLOR: '-color';
 
 EDGE: '_edge';
 NODE: '_node';
+DIR: '-dir';
 
 RELATIONSHIP: '_relationship=';
 CLASS: '_class=';

@@ -28,14 +28,14 @@ graph domain{
 	node[fontsize="20", fillcolor="lightseagreen", style="filled", shape="ellipse", ]
 
 	
-	class_ [label=];
-	class_ [label=];
-	class_ [label=];
+	class_ [label=""];
+	class_ [label=""];
+	class_ [label=""];
 
 	//RELACIONES
 	node[fontsize="15", fillcolor="paleturquoise", style="filled", shape="hexagon", ]
 
-	relationship_conoceA [label=conoceA];
+	relationship_Knows [label=Knows];
 
 	//CLASE -- PROPIEDAD
 	edge[len="3", style="dashed", color="grey", ]
@@ -60,15 +60,15 @@ graph domain{
 	class_ -- property_Pets;
 
 	//RELACION -- PROPIEDAD
-	relationship_conoceA -- property_UNIXDateTime;
+	relationship_Knows -- property_UNIXDateTime;
 
-	// uso indirecto de definición de tipos
+	// uso indirecto de definiciÃ³n de tipos
 	property_Pets -- class_ [arrowsize="2", style="dotted", arrowhead="vee", dir="forward", label="TypeOf"];
 	property_Descendants -- class_ [arrowsize="2", style="dotted", arrowhead="vee", dir="forward", label="TypeOf"];
 	property_CoreMembers -- class_ [arrowsize="2", style="dotted", arrowhead="vee", dir="forward", label="TypeOf"];
 	property_Ascendants -- class_ [arrowsize="2", style="dotted", arrowhead="vee", dir="forward", label="TypeOf"];
 
-	// asociaciones a través de atributos marcadas de forma directa
+	// asociaciones a travÃ©s de atributos marcadas de forma directa
 	class_ -- class_ [label="Ascendants (1..n) "fontcolor="orangered", color="orangered", style="dashed", arrowhead="vee",dir="forward",arrowsize="2"];
 	class_ -- class_ [label="CoreMembers (1..n) "fontcolor="orangered", color="orangered", style="dashed", arrowhead="vee",dir="forward",arrowsize="2"];
 	class_ -- class_ [label="Descendants (0..n) "fontcolor="orangered", color="orangered", style="dashed", arrowhead="vee",dir="forward",arrowsize="2"];
@@ -78,8 +78,8 @@ graph domain{
 
 	// enlaces de relaciones
 	edge[len="2",penwidth="3",color="blue"]
-	class_ -- relationship_conoceA [label="conoceA",fontcolor="blue",dir="forward",arrowhead="normal"];
-relationship_conoceA -- class_ [label="conoceA",fontcolor="blue",dir="forward",arrowhead="normal"];
+	class_ -- relationship_Knows [label="Knows",fontcolor="blue",dir="forward",arrowhead="normal"];
+	relationship_Knows -- class_ [label="isknownby",fontcolor="blue",dir="forward",arrowhead="normal"];
 
 }
 

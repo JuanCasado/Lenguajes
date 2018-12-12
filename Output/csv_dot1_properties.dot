@@ -12,14 +12,14 @@ graph properties{
 	node[fontsize="20", fillcolor="lightseagreen", style="filled", shape="ellipse", ]
 
 	
-	class_A family [label=A family];
-	class_Family core [label=Family core];
-	class_grandfather [label=grandfather];
-	class_sons [label=sons];
-	class_properties [label=properties];
-	class_Family relationships [label=Family relationships];
-	class_pets [label=pets];
-	class_scope [label=scope];
+	class_Afamily [label="Afamily"];
+	class_Familycore [label="Familycore"];
+	class_grandfather [label="grandfather"];
+	class_sons [label="sons"];
+	class_properties [label="properties"];
+	class_Familyrelationships [label="Familyrelationships"];
+	class_pets [label="pets"];
+	class_scope [label="scope"];
 
 	//RELACIONES
 	node[fontsize="15", fillcolor="paleturquoise", style="filled", shape="hexagon", ]
@@ -31,18 +31,18 @@ graph properties{
 
 	//RELACION -- PROPIEDAD
 
-	// uso indirecto de definición de tipos
+	// uso indirecto de definiciÃ³n de tipos
 
-	// asociaciones a través de atributos marcadas de forma directa
+	// asociaciones a travÃ©s de atributos marcadas de forma directa
 
 	// herencias
-	class_properties -- class_scope [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
-	class_scope -- class_Family relationships [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
-	class_Family relationships -- class_A family [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
-	class_A family -- class_Family core [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
-	class_Family relationships -- class_grandfather [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
-	class_Family relationships -- class_sons [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
-	class_A family -- class_pets [arrowsize="3", arrowhead="normal", dir="back", label="inherits"];
+	class_properties -- class_scope [arrowsize="3", arrowhead="normal", dir="backq", label="inherits"];
+	class_scope -- class_Familyrelationships [arrowsize="3", arrowhead="normal", dir="backq", label="inherits"];
+	class_Familyrelationships -- class_Afamily [arrowsize="3", arrowhead="normal", dir="backq", label="inherits"];
+	class_Afamily -- class_Familycore [arrowsize="3", arrowhead="normal", dir="backq", label="inherits"];
+	class_Familyrelationships -- class_grandfather [arrowsize="3", arrowhead="normal", dir="backq", label="inherits"];
+	class_Familyrelationships -- class_sons [arrowsize="3", arrowhead="normal", dir="backq", label="inherits"];
+	class_Afamily -- class_pets [arrowsize="3", arrowhead="normal", dir="backq", label="inherits"];
 
 	// enlaces de relaciones
 	edge[len="2",penwidth="3",color="blue"]

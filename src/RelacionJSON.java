@@ -15,24 +15,24 @@ public class RelacionJSON {
     }
 
     public boolean hasID() {
-        return id!=null;
+        return id != null;
     }
 
-    public String getName(Nombres languaje_name) {
-        String languaje = languaje_name.toString();
-        if (_names.containsKey(languaje))
-            return _names.get(languaje);
-        else{
+    public String getName(Nombres language_name) {
+        String language = language_name.toString();
+        if (_names.containsKey(language))
+            return _names.get(language);
+        else {
             return _names.get(Nombres.name.toString());
         }
     }
 
-    public String getName(String extra, Nombres languaje_name) {
-        String languaje = extra + languaje_name.toString();
-        if (_names.containsKey(languaje))
-            return _names.get(languaje);
+    public String getName(String extra, Nombres language_name) {
+        String language = extra + language_name.toString();
+        if (_names.containsKey(language))
+            return _names.get(language);
         else {
-            return _names.get("reverse_"+Nombres.name.toString());
+            return _names.get("reverse_" + Nombres.name.toString());
         }
     }
 
@@ -64,7 +64,7 @@ public class RelacionJSON {
     }
 
     public void addReverseName(String reverseName) {
-        _names.put(JSONkey.reverse_.toString()+Nombres.name.toString(), reverseName);
+        _names.put(JSONkey.reverse_.toString() + Nombres.name.toString(), reverseName);
     }
 
     public void addFrom(String from) {
