@@ -130,7 +130,7 @@
                             "eng": "Headof"
                         },
                         "properties": [
-                            "http://PdL.com/property#name"
+                            "http://PdL.com/property#Name"
                         ]
                     },
                     {
@@ -152,7 +152,7 @@
                         ]
                     },
                     {
-                        "@id": "http://PdL.com/property#fechaUNIX",
+                        "@id": "http://PdL.com/property#FechaUNIX",
                         "name": "fechaUNIX",
                         "typeOf": "xsd:DateTime",
                         "label": {
@@ -204,7 +204,7 @@
                         ]
                     },
                     {
-                        "@id": "http://PdL.com/property#name",
+                        "@id": "http://PdL.com/property#Name",
                         "name": "name",
                         "typeOf": "xsd:string",
                         "label": {
@@ -216,7 +216,7 @@
                         ]
                     },
                     {
-                        "@id": "http://PdL.com/property#apellidos",
+                        "@id": "http://PdL.com/property#Apellidos",
                         "name": "apellidos",
                         "typeOf": "xsd:string",
                         "optional":true,
@@ -230,7 +230,7 @@
                     },
                    
                     {
-                        "@id": "http://PdL.com/property#edad",
+                        "@id": "http://PdL.com/property#Edad",
                         "name": "edad",
                         "typeOf": "xsd:integer",
                         "label": {
@@ -249,11 +249,11 @@
                             "eng": "Pet"
                         },
                         "properties": [
-                            "http://PdL.com/property#nombreMascota"
+                            "http://PdL.com/property#NombreMascota"
                         ]
                     },
                     {
-                        "@id": "http://PdL.com/property#nombreMascota",
+                        "@id": "http://PdL.com/property#NombreMascota",
                         "name": "nombreMascota",
                         "typeOf": "xsd:string",
                         "label": {

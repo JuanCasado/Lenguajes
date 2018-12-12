@@ -5,10 +5,14 @@ graph properties{
 
 	//PROPERTIES
 	node[fontsize="10", fillcolor="lightgoldenrodyellow", style="filled", shape="record", ]
+
 	
+
 	//CLASES
 	node[fontsize="20", fillcolor="lightseagreen", style="filled", shape="ellipse", ]
-		class_FamiliaUnitaria [label=FamiliaUnitaria];
+
+	
+	class_FamiliaUnitaria [label=FamiliaUnitaria];
 	class_NucleoFamiliar [label=NucleoFamiliar];
 	class_Ascendientes [label=Ascendientes];
 	class_Descendientes [label=Descendientes];
@@ -20,8 +24,10 @@ graph properties{
 	//RELACIONES
 	node[fontsize="15", fillcolor="paleturquoise", style="filled", shape="hexagon", ]
 
+
 	//CLASE -- PROPIEDAD
 	edge[len="3", style="dashed", color="grey", ]
+
 
 	//RELACION -- PROPIEDAD
 

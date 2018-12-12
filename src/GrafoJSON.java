@@ -211,8 +211,8 @@ public class GrafoJSON {
 
             // Propiedades
             sb.append("\n\t//PROPERTIES\n");
-            sb.append("\t"+fragmentDot(_node_property, "node"));
-            sb.append("\t"+fragmentDot(_edge_property, "edge"));
+            sb.append("\t"+fragmentDot(_node_property, "node")+"\n");
+            sb.append("\t"+fragmentDot(_edge_property, "edge") + "\n");
             for (String propertyID : _properties.keySet()) {
                 HashMap<String, String> propertyContent = _properties.get(propertyID);
                 if (propertyContent.containsKey("name")) {
@@ -227,8 +227,8 @@ public class GrafoJSON {
                     if (propertyContent.containsKey("typeOf"))
                         sb.append(propertyContent.get("typeOf"));
                     sb.append("}\"");
-                    if (propertyContent.containsKey("optional")){
-                        if (propertyContent.get("optional").equals("true")){
+                    if (propertyContent.containsKey("isOptional")){
+                        if (propertyContent.get("isOptional").equals("true")){
                             sb.append(",style=\"filled,dashed\"");
                         }
                     }
@@ -238,8 +238,8 @@ public class GrafoJSON {
 
             //Clases
             sb.append("\n\t//CLASES\n");
-            sb.append("\t"+fragmentDot(_node_class, "node"));
-            sb.append("\t"+fragmentDot(_edge_class, "edge"));
+            sb.append("\t"+fragmentDot(_node_class, "node") + "\n");
+            sb.append("\t"+fragmentDot(_edge_class, "edge") + "\n");
             for (String claseID : _clases.keySet()){
                 String nombreClase = _clases.get(claseID).getName(languaje);
                 sb.append("\tclass_");
@@ -251,7 +251,7 @@ public class GrafoJSON {
 
             //Relaciones
             sb.append("\n\t//RELACIONES\n");
-            sb.append("\t"+fragmentDot(_node_relationship, "node"));
+            sb.append("\t"+fragmentDot(_node_relationship, "node") + "\n");
             for (RelacionJSON relacion : _relaciones) {
                 if (relacion.hasID()){
                     String nombreRealcion = relacion.getName(languaje);
@@ -268,7 +268,7 @@ public class GrafoJSON {
 
             //Clase -- Propiedad
             sb.append("\n\t//CLASE -- PROPIEDAD\n");
-            sb.append("\t"+fragmentDot(_edge_relationship, "edge"));
+            sb.append("\t"+fragmentDot(_edge_relationship, "edge") + "\n");
             for (String claseID : _clases.keySet()){
                 ClaseJSON clase = _clases.get(claseID);
                 for (int i = 0; i<clase.amountProperties();i++){

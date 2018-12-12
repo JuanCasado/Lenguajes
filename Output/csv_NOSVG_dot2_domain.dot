@@ -5,7 +5,9 @@ graph domain{
 
 	//PROPERTIES
 	node[fontsize="10", fillcolor="lightgoldenrodyellow", style="filled", shape="record", ]
-		property_Apellidos [label="{Apellidos|xsd:string}"];
+
+	
+	property_Apellidos [label="{Apellidos|xsd:string}"];
 	property_Mascotas [label="{Mascotas|http://PdL.com/class#MASCOTA}"];
 	property_Fecha [label="{Fecha|xsd:string}"];
 	property_FechaNacimiento [label="{FechaNacimiento|xsd:string}"];
@@ -24,16 +26,20 @@ graph domain{
 
 	//CLASES
 	node[fontsize="20", fillcolor="lightseagreen", style="filled", shape="ellipse", ]
-		class_PERSONA [label=PERSONA];
+
+	
+	class_PERSONA [label=PERSONA];
 	class_MASCOTA [label=MASCOTA];
 	class_FAMILIA [label=FAMILIA];
 
 	//RELACIONES
 	node[fontsize="15", fillcolor="paleturquoise", style="filled", shape="hexagon", ]
+
 	relationship_conoceA [label=conoceA];
 
 	//CLASE -- PROPIEDAD
 	edge[len="3", style="dashed", color="grey", ]
+
 	class_PERSONA -- property_Nombre;
 	class_PERSONA -- property_Apellidos;
 	class_PERSONA -- property_Rol;

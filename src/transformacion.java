@@ -143,7 +143,7 @@ public class transformacion {
                                 }
                             }
                             System.out.println(SEPARATOR);
-                            // System.out.println(tablaJSON.toString());
+                            System.out.println(tablaJSON.toString());
                         } catch (Exception e) {
                             System.out.println("ERROR al procesar el archivo JSON " + at.get(i, Content.json));
                             System.out.println(e.toString());

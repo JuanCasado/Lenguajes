@@ -5,34 +5,40 @@ graph domain{
 
 	//PROPERTIES
 	node[fontsize="10", fillcolor="lightgoldenrodyellow", style="filled", shape="record", ]
-		property_Mascotas [label="{Mascotas|http://PdL.com/class#Mascota}"];
+
+	
+	property_apellidos [label="{apellidos|xsd:string}",style="filled,dashed"];
+	property_nombreMascota [label="{nombreMascota|xsd:string}"];
+	property_Mascotas [label="{Mascotas|http://PdL.com/class#Mascota}"];
 	property_name [label="{name|xsd:string}"];
-	property_apellidos [label="{apellidos|xsd:string}"];
 	property_edad [label="{edad|xsd:integer}"];
 	property_fechaUNIX [label="{fechaUNIX|xsd:DateTime}"];
-	property_nombreMascota [label="{nombreMascota|xsd:string}"];
 
 	//CLASES
 	node[fontsize="20", fillcolor="lightseagreen", style="filled", shape="ellipse", ]
-		class_Hijo [label=Hijo];
+
+	
+	class_Hijo [label=Hijo];
 	class_Principal [label=Principal];
 	class_Mascota [label=Mascota];
 	class_Nieto [label=Nieto];
 
 	//RELACIONES
 	node[fontsize="15", fillcolor="paleturquoise", style="filled", shape="hexagon", ]
+
 	relationship_conoceA [label=conoceA];
 
 	//CLASE -- PROPIEDAD
 	edge[len="3", style="dashed", color="grey", ]
-	class_Hijo -- property_null;
+
+	class_Hijo -- property_apellidos;
 	class_Principal -- property_name;
 	class_Mascota -- property_nombreMascota;
-	class_Nieto -- property_null;
+	class_Nieto -- property_edad;
 	class_Nieto -- property_Mascotas;
 
 	//RELACION -- PROPIEDAD
-	relationship_conoceA -- property_null;
+	relationship_conoceA -- property_fechaUNIX;
 
 	// uso indirecto de definición de tipos
 	property_Mascotas -- class_Mascota [arrowsize="2", style="dotted", arrowhead="vee", dir="forward", label="TypeOf"];
