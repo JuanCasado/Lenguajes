@@ -36,8 +36,7 @@ graph characteristics{
 
 	//CLASE -- PROPIEDAD
 
-edge[style="dashed",len="3",color="grey"]	edge[color="green", ]
-
+edge[style="dashed",len="3",color="grey"]	
 	class_CaracteristicasPlantilla -- property_SueldoAnual;
 	class_Idioma -- property_SueldoAnual
 	class_TiempoVerbal -- property_SueldoAnual
