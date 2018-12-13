@@ -428,6 +428,18 @@
                         "label": {
                             "es": "caracteristicas",
                             "eng": "features"
+                        },
+                        "properties": [
+                            "http://PdL.com/property#SueldoAnual"
+                        ]
+                    },
+                    {
+                        "@id": "http://PdL.com/property#SueldoAnual",
+                        "name": "SueldoAnual",
+                        "typeOf": "xsd:integer",
+                        "label": {
+                            "es": "SueldoAnual",
+                            "eng": "Salary"
                         }
                     },
                     {

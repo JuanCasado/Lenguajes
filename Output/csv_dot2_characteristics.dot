@@ -35,7 +35,8 @@ graph characteristics{
 
 	//CLASE -- PROPIEDAD
 
-edge[style="dashed",len="3",color="grey"]	
+edge[style="dashed",len="3",color="grey"]	edge[color="green", ]
+
 
 	//RELACION -- PROPIEDAD
 	

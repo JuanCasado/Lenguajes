@@ -34,8 +34,8 @@
 <!-- property_Mascotas&#45;&#45;class_MASCOTA -->
 <g id="edge20" class="edge">
 <title>property_Mascotas&#45;&#45;class_MASCOTA</title>
-<path fill="none" stroke="#c0c0c0" stroke-dasharray="1,5" d="M445.1064,-691.011C444.9874,-691.0105 444.8684,-691.01 444.7494,-691.0095"/>
-<polygon fill="#c0c0c0" stroke="#c0c0c0" points="433.6691,-690.963 453.7068,-682.0471 443.6691,-691.005 453.669,-691.047 453.669,-691.047 453.669,-691.047 443.6691,-691.005 453.6312,-700.047 433.6691,-690.963 433.6691,-690.963"/>
+<path fill="none" stroke="#00ff00" stroke-dasharray="1,5" d="M445.1064,-691.011C444.9874,-691.0105 444.8684,-691.01 444.7494,-691.0095"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="433.6691,-690.963 453.7068,-682.0471 443.6691,-691.005 453.669,-691.047 453.669,-691.047 453.669,-691.047 443.6691,-691.005 453.6312,-700.047 433.6691,-690.963 433.6691,-690.963"/>
 <text text-anchor="middle" x="434.9279" y="-681.4102" font-family="Arial" font-size="12.00" fill="#000000">TypeOf</text>
 </g>
 <!-- property_Fecha -->
@@ -79,8 +79,8 @@
 <!-- property_Descendientes&#45;&#45;class_PERSONA -->
 <g id="edge21" class="edge">
 <title>property_Descendientes&#45;&#45;class_PERSONA</title>
-<path fill="none" stroke="#c0c0c0" stroke-dasharray="1,5" d="M401.2523,-299.8263C395.7842,-299.9816 390.2394,-300.1389 384.6879,-300.2965"/>
-<polygon fill="#c0c0c0" stroke="#c0c0c0" points="364.6814,-300.8644 384.418,-291.3004 374.6774,-300.5806 384.6734,-300.2968 384.6734,-300.2968 384.6734,-300.2968 374.6774,-300.5806 384.9288,-309.2932 364.6814,-300.8644 364.6814,-300.8644"/>
+<path fill="none" stroke="#00ff00" stroke-dasharray="1,5" d="M401.2523,-299.8263C395.7842,-299.9816 390.2394,-300.1389 384.6879,-300.2965"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="364.6814,-300.8644 384.418,-291.3004 374.6774,-300.5806 384.6734,-300.2968 384.6734,-300.2968 384.6734,-300.2968 374.6774,-300.5806 384.9288,-309.2932 364.6814,-300.8644 364.6814,-300.8644"/>
 <text text-anchor="middle" x="382.9701" y="-290.4614" font-family="Arial" font-size="12.00" fill="#000000">TypeOf</text>
 </g>
 <!-- property_Raza -->
@@ -134,8 +134,8 @@
 <!-- property_Nucleo&#45;&#45;class_PERSONA -->
 <g id="edge22" class="edge">
 <title>property_Nucleo&#45;&#45;class_PERSONA</title>
-<path fill="none" stroke="#c0c0c0" stroke-dasharray="1,5" d="M369.2199,-421.7719C354.2542,-400.8848 329.9309,-366.9375 311.1307,-340.6988"/>
-<polygon fill="#c0c0c0" stroke="#c0c0c0" points="299.4545,-324.4027 318.4191,-335.4184 305.2788,-332.5315 311.1031,-340.6603 311.1031,-340.6603 311.1031,-340.6603 305.2788,-332.5315 303.7872,-345.9022 299.4545,-324.4027 299.4545,-324.4027"/>
+<path fill="none" stroke="#00ff00" stroke-dasharray="1,5" d="M369.2199,-421.7719C354.2542,-400.8848 329.9309,-366.9375 311.1307,-340.6988"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="299.4545,-324.4027 318.4191,-335.4184 305.2788,-332.5315 311.1031,-340.6603 311.1031,-340.6603 311.1031,-340.6603 305.2788,-332.5315 303.7872,-345.9022 299.4545,-324.4027 299.4545,-324.4027"/>
 <text text-anchor="middle" x="320.1753" y="-384.6353" font-family="Arial" font-size="12.00" fill="#000000">TypeOf</text>
 </g>
 <!-- property_Nombre -->
@@ -157,8 +157,8 @@
 <!-- property_Ascendientes&#45;&#45;class_PERSONA -->
 <g id="edge23" class="edge">
 <title>property_Ascendientes&#45;&#45;class_PERSONA</title>
-<path fill="none" stroke="#c0c0c0" stroke-dasharray="1,5" d="M351.0762,-38.9423C335.1104,-84.6061 303.9729,-199.4722 290.2747,-261.6458"/>
-<polygon fill="#c0c0c0" stroke="#c0c0c0" points="286.1436,-281.5915 281.387,-260.1818 288.1717,-271.7993 290.1999,-262.0071 290.1999,-262.0071 290.1999,-262.0071 288.1717,-271.7993 299.0129,-263.8325 286.1436,-281.5915 286.1436,-281.5915"/>
+<path fill="none" stroke="#00ff00" stroke-dasharray="1,5" d="M351.0762,-38.9423C335.1104,-84.6061 303.9729,-199.4722 290.2747,-261.6458"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="286.1436,-281.5915 281.387,-260.1818 288.1717,-271.7993 290.1999,-262.0071 290.1999,-262.0071 290.1999,-262.0071 288.1717,-271.7993 299.0129,-263.8325 286.1436,-281.5915 286.1436,-281.5915"/>
 <text text-anchor="middle" x="300.6754" y="-153.694" font-family="Arial" font-size="12.00" fill="#000000">TypeOf</text>
 </g>
 <!-- property_Designacion -->
@@ -180,32 +180,32 @@
 <!-- class_PERSONA&#45;&#45;property_Apellidos -->
 <g id="edge2" class="edge">
 <title>class_PERSONA&#45;&#45;property_Apellidos</title>
-<path fill="none" stroke="#c0c0c0" stroke-dasharray="5,2" d="M203.9783,-305.7205C154.6877,-307.3007 94.4374,-309.2322 59.1787,-310.3625"/>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M203.9783,-305.7205C154.6877,-307.3007 94.4374,-309.2322 59.1787,-310.3625"/>
 </g>
 <!-- class_PERSONA&#45;&#45;property_FechaNacimiento -->
 <g id="edge4" class="edge">
 <title>class_PERSONA&#45;&#45;property_FechaNacimiento</title>
-<path fill="none" stroke="#c0c0c0" stroke-dasharray="5,2" d="M269.4158,-324.3364C239.4404,-367.2228 171.9924,-463.7223 143.2057,-504.9081"/>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M269.4158,-324.3364C239.4404,-367.2228 171.9924,-463.7223 143.2057,-504.9081"/>
 </g>
 <!-- class_PERSONA&#45;&#45;property_Rol -->
 <g id="edge3" class="edge">
 <title>class_PERSONA&#45;&#45;property_Rol</title>
-<path fill="none" stroke="#c0c0c0" stroke-dasharray="5,2" d="M252.2923,-283.4526C211.855,-258.5121 142.7345,-215.8805 103.4831,-191.6714"/>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M252.2923,-283.4526C211.855,-258.5121 142.7345,-215.8805 103.4831,-191.6714"/>
 </g>
 <!-- class_PERSONA&#45;&#45;property_SueldoAnual -->
 <g id="edge5" class="edge">
 <title>class_PERSONA&#45;&#45;property_SueldoAnual</title>
-<path fill="none" stroke="#c0c0c0" stroke-dasharray="5,2" d="M275.3787,-281.7969C256.1753,-235.45 210.9223,-126.2333 192.5247,-81.8314"/>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M275.3787,-281.7969C256.1753,-235.45 210.9223,-126.2333 192.5247,-81.8314"/>
 </g>
 <!-- class_PERSONA&#45;&#45;property_Nombre -->
 <g id="edge1" class="edge">
 <title>class_PERSONA&#45;&#45;property_Nombre</title>
-<path fill="none" stroke="#c0c0c0" stroke-dasharray="5,2" d="M276.8154,-324.5641C260.9917,-370.2973 224.1124,-476.8845 208.9962,-520.5728"/>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M276.8154,-324.5641C260.9917,-370.2973 224.1124,-476.8845 208.9962,-520.5728"/>
 </g>
 <!-- class_PERSONA&#45;&#45;property_Ascendientes -->
 <g id="edge6" class="edge">
 <title>class_PERSONA&#45;&#45;property_Ascendientes</title>
-<path fill="none" stroke="#c0c0c0" stroke-dasharray="5,2" d="M293.8924,-281.8838C312.2665,-228.5811 349.2503,-89.9526 358.6114,-38.8076"/>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M293.8924,-281.8838C312.2665,-228.5811 349.2503,-89.9526 358.6114,-38.8076"/>
 </g>
 <!-- class_PERSONA&#45;&#45;class_PERSONA -->
 <g id="edge24" class="edge">
@@ -230,22 +230,22 @@
 <!-- class_MASCOTA&#45;&#45;property_FechaNacimiento -->
 <g id="edge10" class="edge">
 <title>class_MASCOTA&#45;&#45;property_FechaNacimiento</title>
-<path fill="none" stroke="#c0c0c0" stroke-dasharray="5,2" d="M325.4672,-670.5389C282.232,-638.1919 197.7409,-574.979 155.3359,-543.2531"/>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M325.4672,-670.5389C282.232,-638.1919 197.7409,-574.979 155.3359,-543.2531"/>
 </g>
 <!-- class_MASCOTA&#45;&#45;property_Tipo -->
 <g id="edge7" class="edge">
 <title>class_MASCOTA&#45;&#45;property_Tipo</title>
-<path fill="none" stroke="#c0c0c0" stroke-dasharray="5,2" d="M357.5898,-712.0916C369.4637,-760.3803 398.122,-876.9276 409.4794,-923.1157"/>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M357.5898,-712.0916C369.4637,-760.3803 398.122,-876.9276 409.4794,-923.1157"/>
 </g>
 <!-- class_MASCOTA&#45;&#45;property_Raza -->
 <g id="edge9" class="edge">
 <title>class_MASCOTA&#45;&#45;property_Raza</title>
-<path fill="none" stroke="#c0c0c0" stroke-dasharray="5,2" d="M336.3898,-711.6426C306.8486,-750.647 243.9675,-833.6711 215.46,-871.3105"/>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M336.3898,-711.6426C306.8486,-750.647 243.9675,-833.6711 215.46,-871.3105"/>
 </g>
 <!-- class_MASCOTA&#45;&#45;property_Nombre -->
 <g id="edge8" class="edge">
 <title>class_MASCOTA&#45;&#45;property_Nombre</title>
-<path fill="none" stroke="#c0c0c0" stroke-dasharray="5,2" d="M331.774,-669.9633C302.7366,-640.753 250.0633,-587.7663 221.6924,-559.2265"/>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M331.774,-669.9633C302.7366,-640.753 250.0633,-587.7663 221.6924,-559.2265"/>
 </g>
 <!-- class_FAMILIA -->
 <g id="node19" class="node">
@@ -256,42 +256,42 @@
 <!-- class_FAMILIA&#45;&#45;property_Mascotas -->
 <g id="edge18" class="edge">
 <title>class_FAMILIA&#45;&#45;property_Mascotas</title>
-<path fill="none" stroke="#c0c0c0" stroke-dasharray="5,2" d="M544.9663,-487.6686C540.9264,-531.5004 531.8235,-630.2652 527.9702,-672.0734"/>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M544.9663,-487.6686C540.9264,-531.5004 531.8235,-630.2652 527.9702,-672.0734"/>
 </g>
 <!-- class_FAMILIA&#45;&#45;property_Fecha -->
 <g id="edge12" class="edge">
 <title>class_FAMILIA&#45;&#45;property_Fecha</title>
-<path fill="none" stroke="#c0c0c0" stroke-dasharray="5,2" d="M572.1046,-446.2074C613.8598,-413.2315 696.969,-347.5963 738.1746,-315.0543"/>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M572.1046,-446.2074C613.8598,-413.2315 696.969,-347.5963 738.1746,-315.0543"/>
 </g>
 <!-- class_FAMILIA&#45;&#45;property_Descendientes -->
 <g id="edge17" class="edge">
 <title>class_FAMILIA&#45;&#45;property_Descendientes</title>
-<path fill="none" stroke="#c0c0c0" stroke-dasharray="5,2" d="M538.7261,-444.7228C525.9515,-411.5963 501.5536,-348.3286 489.3297,-316.6299"/>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M538.7261,-444.7228C525.9515,-411.5963 501.5536,-348.3286 489.3297,-316.6299"/>
 </g>
 <!-- class_FAMILIA&#45;&#45;property_Localidad -->
 <g id="edge13" class="edge">
 <title>class_FAMILIA&#45;&#45;property_Localidad</title>
-<path fill="none" stroke="#c0c0c0" stroke-dasharray="5,2" d="M589.2046,-482.6016C635.1806,-500.595 707.4953,-528.8964 747.7488,-544.6502"/>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M589.2046,-482.6016C635.1806,-500.595 707.4953,-528.8964 747.7488,-544.6502"/>
 </g>
 <!-- class_FAMILIA&#45;&#45;property_FechaUNIX -->
 <g id="edge11" class="edge">
 <title>class_FAMILIA&#45;&#45;property_FechaUNIX</title>
-<path fill="none" stroke="#c0c0c0" stroke-dasharray="5,2" d="M551.5929,-444.524C562.045,-395.9497 587.308,-278.5441 597.2302,-232.4323"/>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M551.5929,-444.524C562.045,-395.9497 587.308,-278.5441 597.2302,-232.4323"/>
 </g>
 <!-- class_FAMILIA&#45;&#45;property_Nucleo -->
 <g id="edge16" class="edge">
 <title>class_FAMILIA&#45;&#45;property_Nucleo</title>
-<path fill="none" stroke="#c0c0c0" stroke-dasharray="5,2" d="M486.817,-456.8499C479.2289,-455.6869 471.3714,-454.4826 463.5312,-453.2809"/>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M486.817,-456.8499C479.2289,-455.6869 471.3714,-454.4826 463.5312,-453.2809"/>
 </g>
 <!-- class_FAMILIA&#45;&#45;property_Designacion -->
 <g id="edge15" class="edge">
 <title>class_FAMILIA&#45;&#45;property_Designacion</title>
-<path fill="none" stroke="#c0c0c0" stroke-dasharray="5,2" d="M562.9637,-486.9534C592.6642,-525.7077 655.8841,-608.1996 684.5452,-645.5977"/>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M562.9637,-486.9534C592.6642,-525.7077 655.8841,-608.1996 684.5452,-645.5977"/>
 </g>
 <!-- class_FAMILIA&#45;&#45;property_TipoFamilia -->
 <g id="edge14" class="edge">
 <title>class_FAMILIA&#45;&#45;property_TipoFamilia</title>
-<path fill="none" stroke="#c0c0c0" stroke-dasharray="5,2" d="M606.0173,-456.2934C655.0625,-448.1768 723.1091,-436.9155 763.4942,-430.232"/>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M606.0173,-456.2934C655.0625,-448.1768 723.1091,-436.9155 763.4942,-430.232"/>
 </g>
 <!-- class_FAMILIA&#45;&#45;class_PERSONA -->
 <g id="edge25" class="edge">
@@ -317,7 +317,7 @@
 <!-- relationship_conoceA&#45;&#45;property_FechaUNIX -->
 <g id="edge19" class="edge">
 <title>relationship_conoceA&#45;&#45;property_FechaUNIX</title>
-<path fill="none" stroke="#c0c0c0" stroke-dasharray="5,2" d="M407.1568,-189.9342C454.975,-195.7094 525.5471,-204.2327 567.1397,-209.256"/>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M407.1568,-189.9342C454.975,-195.7094 525.5471,-204.2327 567.1397,-209.256"/>
 </g>
 <!-- relationship_conoceA&#45;&#45;class_PERSONA -->
 <g id="edge29" class="edge">

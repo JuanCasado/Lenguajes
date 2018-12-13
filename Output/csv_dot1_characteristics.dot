@@ -6,6 +6,7 @@ graph characteristics{
 	//PROPERTIES
 	  node [shape="record",style="filled",fillcolor="lightgoldenrodyellow",fontsize="10"]
 	
+	property_SueldoAnual [label="{SueldoAnual|xsd:integer}"];
 
 	//CLASES
 	node [shape="ellipse",style="filled",fillcolor="lightseagreen",fontsize="20"]	
@@ -35,7 +36,26 @@ graph characteristics{
 
 	//CLASE -- PROPIEDAD
 
-edge[style="dashed",len="3",color="grey"]	
+edge[style="dashed",len="3",color="grey"]	edge[color="green", ]
+
+	class_CaracteristicasPlantilla -- property_SueldoAnual;
+	class_Idioma -- property_SueldoAnual
+	class_TiempoVerbal -- property_SueldoAnual
+	class_Espacio -- property_SueldoAnual
+	class_Elemento -- property_SueldoAnual
+	class_Espanol -- property_SueldoAnual
+	class_Ingles -- property_SueldoAnual
+	class_Arabe -- property_SueldoAnual
+	class_Presente -- property_SueldoAnual
+	class_Futuro -- property_SueldoAnual
+	class_PreteritoImperfecto -- property_SueldoAnual
+	class_Cronológico -- property_SueldoAnual
+	class_Retrospectivo -- property_SueldoAnual
+	class_Anticipativo -- property_SueldoAnual
+	class_Texto -- property_SueldoAnual
+	class_Parrafo -- property_SueldoAnual
+	class_Oracion -- property_SueldoAnual
+	class_Palabra -- property_SueldoAnual
 
 	//RELACION -- PROPIEDAD
 	

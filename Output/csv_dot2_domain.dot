@@ -28,7 +28,8 @@ graph domain{
 
 	//CLASE -- PROPIEDAD
 
-edge[style="dashed",len="3",color="grey"]	
+edge[style="dashed",len="3",color="grey"]	edge[color="green", ]
+
 	class_Hijo -- property_apellidos;
 	class_Principal -- property_name;
 	class_Mascota -- property_nombreMascota;

@@ -37,7 +37,8 @@ graph domain{
 
 	//CLASE -- PROPIEDAD
 
-edge[style="dashed",len="3",color="grey"]	
+edge[style="dashed",len="3",color="grey"]	edge[color="green", ]
+
 	class_PERSONA -- property_Nombre;
 	class_PERSONA -- property_Apellidos;
 	class_PERSONA -- property_Rol;

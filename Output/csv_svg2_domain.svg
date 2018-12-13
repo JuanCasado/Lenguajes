@@ -42,8 +42,8 @@
 <!-- property_Mascotas&#45;&#45;class_Mascota -->
 <g id="edge10" class="edge">
 <title>property_Mascotas&#45;&#45;class_Mascota</title>
-<path fill="none" stroke="#c0c0c0" stroke-dasharray="1,5" d="M191.7139,-344.2715C211.9662,-326.2428 242.6726,-298.908 266.9535,-277.2932"/>
-<polygon fill="#c0c0c0" stroke="#c0c0c0" points="282.1676,-263.7496 273.2134,-283.7701 274.6984,-270.3987 267.2292,-277.0478 267.2292,-277.0478 267.2292,-277.0478 274.6984,-270.3987 261.245,-270.3255 282.1676,-263.7496 282.1676,-263.7496"/>
+<path fill="none" stroke="#00ff00" stroke-dasharray="1,5" d="M191.7139,-344.2715C211.9662,-326.2428 242.6726,-298.908 266.9535,-277.2932"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="282.1676,-263.7496 273.2134,-283.7701 274.6984,-270.3987 267.2292,-277.0478 267.2292,-277.0478 267.2292,-277.0478 274.6984,-270.3987 261.245,-270.3255 282.1676,-263.7496 282.1676,-263.7496"/>
 <text text-anchor="middle" x="209.3337" y="-314.1823" font-family="Arial" font-size="12.00" fill="#000000">TypeOf</text>
 </g>
 <!-- property_name -->
@@ -79,12 +79,12 @@
 <!-- class_Hijo&#45;&#45;property_apellidos -->
 <g id="edge1" class="edge">
 <title>class_Hijo&#45;&#45;property_apellidos</title>
-<path fill="none" stroke="#c0c0c0" stroke-dasharray="5,2" d="M728.976,-413.456C692.1265,-398.1222 629.6585,-372.1281 592.8282,-356.8024"/>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M728.976,-413.456C692.1265,-398.1222 629.6585,-372.1281 592.8282,-356.8024"/>
 </g>
 <!-- class_Hijo&#45;&#45;property_name -->
 <g id="edge6" class="edge">
 <title>class_Hijo&#45;&#45;property_name</title>
-<path fill="none" stroke="#c0c0c0" stroke-dasharray="5,2" d="M741.4734,-444.8334C712.6396,-476.7362 654.8656,-540.6597 626.012,-572.5845"/>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M741.4734,-444.8334C712.6396,-476.7362 654.8656,-540.6597 626.012,-572.5845"/>
 </g>
 <!-- class_Nieto -->
 <g id="node10" class="node">
@@ -108,7 +108,7 @@
 <!-- class_Principal&#45;&#45;property_name -->
 <g id="edge2" class="edge">
 <title>class_Principal&#45;&#45;property_name</title>
-<path fill="none" stroke="#c0c0c0" stroke-dasharray="5,2" d="M767.7018,-719.1228C732.2526,-690.6847 667.4916,-638.7321 632.5883,-610.732"/>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M767.7018,-719.1228C732.2526,-690.6847 667.4916,-638.7321 632.5883,-610.732"/>
 </g>
 <!-- class_Principal&#45;&#45;class_Hijo -->
 <g id="edge12" class="edge">
@@ -120,27 +120,27 @@
 <!-- class_Mascota&#45;&#45;property_nombreMascota -->
 <g id="edge3" class="edge">
 <title>class_Mascota&#45;&#45;property_nombreMascota</title>
-<path fill="none" stroke="#c0c0c0" stroke-dasharray="5,2" d="M298.1014,-222.2553C284.8644,-178.623 255.0378,-80.3077 242.4119,-38.6898"/>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M298.1014,-222.2553C284.8644,-178.623 255.0378,-80.3077 242.4119,-38.6898"/>
 </g>
 <!-- class_Nieto&#45;&#45;property_apellidos -->
 <g id="edge8" class="edge">
 <title>class_Nieto&#45;&#45;property_apellidos</title>
-<path fill="none" stroke="#c0c0c0" stroke-dasharray="5,2" d="M397.5169,-475.0019C433.4602,-446.6797 502.3481,-392.3982 538.9419,-363.5634"/>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M397.5169,-475.0019C433.4602,-446.6797 502.3481,-392.3982 538.9419,-363.5634"/>
 </g>
 <!-- class_Nieto&#45;&#45;property_Mascotas -->
 <g id="edge5" class="edge">
 <title>class_Nieto&#45;&#45;property_Mascotas</title>
-<path fill="none" stroke="#c0c0c0" stroke-dasharray="5,2" d="M347.2398,-476.0177C309.1481,-451.8247 240.0326,-407.9278 200.3319,-382.7129"/>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M347.2398,-476.0177C309.1481,-451.8247 240.0326,-407.9278 200.3319,-382.7129"/>
 </g>
 <!-- class_Nieto&#45;&#45;property_name -->
 <g id="edge7" class="edge">
 <title>class_Nieto&#45;&#45;property_name</title>
-<path fill="none" stroke="#c0c0c0" stroke-dasharray="5,2" d="M407.9519,-507.3428C453.7821,-526.5791 535.2029,-560.7537 578.9767,-579.1268"/>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M407.9519,-507.3428C453.7821,-526.5791 535.2029,-560.7537 578.9767,-579.1268"/>
 </g>
 <!-- class_Nieto&#45;&#45;property_edad -->
 <g id="edge4" class="edge">
 <title>class_Nieto&#45;&#45;property_edad</title>
-<path fill="none" stroke="#c0c0c0" stroke-dasharray="5,2" d="M374.1294,-514.6181C373.5905,-563.617 372.2728,-683.4135 371.7597,-730.0592"/>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M374.1294,-514.6181C373.5905,-563.617 372.2728,-683.4135 371.7597,-730.0592"/>
 </g>
 <!-- class_Nieto&#45;&#45;class_Mascota -->
 <g id="edge11" class="edge">
@@ -165,7 +165,7 @@
 <!-- relationship_conoceA&#45;&#45;property_fechaUNIX -->
 <g id="edge9" class="edge">
 <title>relationship_conoceA&#45;&#45;property_fechaUNIX</title>
-<path fill="none" stroke="#c0c0c0" stroke-dasharray="5,2" d="M216.0458,-598.9555C177.3152,-624.5406 107.1788,-670.8722 67.8072,-696.8807"/>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M216.0458,-598.9555C177.3152,-624.5406 107.1788,-670.8722 67.8072,-696.8807"/>
 </g>
 <!-- relationship_conoceA&#45;&#45;class_Nieto -->
 <g id="edge15" class="edge">

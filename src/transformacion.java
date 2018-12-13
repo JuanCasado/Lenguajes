@@ -1,5 +1,6 @@
 import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.tree.*;
+import java.lang.reflect.Method;
 
 import java.io.*;
 import java.util.*;
@@ -74,11 +75,11 @@ public class transformacion {
                             JSONTable tablaJSON;
                             System.out.println(SEPARATOR);
                             if (jsonResult.keySet().contains(at.get(i, Content.json))) {
-                                System.out.println("JSON " + at.get(i, Content.json)
+                                System.out.println("JSON: " + at.get(i, Content.json)
                                         + " already processed retrieving from memory");
                                 tablaJSON = jsonResult.get(at.get(i, Content.json));
                             } else {
-                                System.out.println("Procesando JSON " + at.get(i, Content.json));
+                                System.out.println("Procesando JSON: " + at.get(i, Content.json));
                                 tablaJSON = new JSONTable();
                                 jsonResult.put(at.get(i, Content.json), tablaJSON);
                                 JSONListener listenerJSON = new JSONListener(tablaJSON);
@@ -96,7 +97,7 @@ public class transformacion {
                                 Engine engine = tablaJSON.getEngine(j);
                                 String dotName = at.get(i, Content.dot);
                                 String svgName = at.get(i, Content.svg);
-                                System.out.println("Found : " + tablaJSON.getName(j));
+                                System.out.println("\nFound : " + tablaJSON.getName(j));
                                 if (tablaJSON.getSize() > 1) {
                                     if (dotName.endsWith(".dot")) {
                                         dotName = dotName.replace(".dot", "_" + tablaJSON.getName(j) + ".dot");
@@ -113,18 +114,19 @@ public class transformacion {
                                     // AQUI GUARDAMOS EL SVG
                                     try {
                                         GraphGenerator.generateGraphFromFileTmp(engine, dotContent, svgName);
-                                        System.out.println("Guardando SVG " + svgName + " with " + engine.toString());
+                                        System.out.println("Guardando SVG: " + svgName + " with " + engine.toString());
+                                        abrirURL(svgName);
                                     } catch (Exception e) {
-                                        System.out.println("Error al guardar el SVG " + svgName);
+                                        System.out.println("Error al guardar el SVG: " + svgName);
                                         System.out.println(e.toString());
                                     }
                                 } else if (action == Action.saveDot) {
                                     // AQUI GUARDAMOS EL DOT
                                     try {
                                         FileManager.write(dotName, dotContent);
-                                        System.out.println("Guardando DOT " + dotName);
+                                        System.out.println("Guardando DOT: " + dotName);
                                     } catch (Exception e) {
-                                        System.out.println("Error al guardar el DOT " + dotName);
+                                        System.out.println("Error al guardar el DOT: " + dotName);
                                         System.out.println(e.toString());
                                     }
 
@@ -132,17 +134,18 @@ public class transformacion {
                                     // AQUI GUARDAMOS AMBOS
                                     try {
                                         // System.out.println("Guardando AMBOS");
-                                        System.out.println("Guardando DOT " + dotName);
+                                        System.out.println("Guardando DOT: " + dotName);
                                         FileManager.write(dotName, dotContent);
                                     } catch (Exception e) {
-                                        System.out.println("Error al guardar el DOT " + dotName);
+                                        System.out.println("Error al guardar el DOT: " + dotName);
                                         System.out.println(e.toString());
                                     }
                                     try {
-                                        System.out.println("Guardando SVG " + svgName + " with " + engine.toString());
+                                        System.out.println("Guardando SVG: " + svgName + " with " + engine.toString());
                                         GraphGenerator.generateGraphFromFile(engine, dotName, svgName);
+                                        abrirURL(svgName);
                                     } catch (Exception e) {
-                                        System.out.println("Error al guardar el SVG " + svgName);
+                                        System.out.println("Error al guardar el SVG: " + svgName);
                                         System.out.println(e.toString());
                                     }
                                 }
@@ -150,7 +153,7 @@ public class transformacion {
                             System.out.println(SEPARATOR);
                             // System.out.println(tablaJSON.toString());
                         } catch (Exception e) {
-                            System.out.println("ERROR al procesar el archivo JSON " + at.get(i, Content.json));
+                            System.out.println("ERROR al procesar el archivo JSON: " + at.get(i, Content.json));
                             System.out.println(e.toString());
                         }
                     }
@@ -227,5 +230,35 @@ public class transformacion {
         JSONParser parserJSON = new JSONParser(new CommonTokenStream(new JSONLexer(CharStreams.fromStream(datos))));
         parserJSON.setBuildParseTree(true);
         return parserJSON.init();
+    }
+    public static void abrirURL(String url) {
+        String nombreSO = System.getProperty("os.name");
+        url = "file://"+ System.getProperty("user.dir") + "/" + url;
+        System.out.println("Opening: "+url);
+        try {
+            if (nombreSO.startsWith("Mac OS")) {
+                Class manager = Class.forName("com.apple.eio.FileManager");
+                Method openURL = manager.getDeclaredMethod("openURL", new Class[] { String.class });
+                openURL.invoke(null, new Object[] { url });
+            } else if (nombreSO.startsWith("Windows")) {
+                Process p = Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler " + url);
+                p.waitFor();
+            } else {
+                String[] navegadores = { "firefox", "opera", "konqueror", "epiphany", "mozilla", "netscape", "safari",
+                        "Safari", "Chrome", "chrome", "Google Chrome", "google chrome" };
+                String navegador = null;
+                for (int contador = 0; contador < navegadores.length && navegador == null; contador++) {
+                    if (Runtime.getRuntime().exec(new String[] { "which", navegadores[contador] }).waitFor() == 0) {
+                        navegador = navegadores[contador];
+                    }
+                }
+                if (navegador != null) {
+                    Process p = Runtime.getRuntime().exec(new String[] { navegador, url });
+                    p.waitFor();
+                }
+            }
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
     }
 }
