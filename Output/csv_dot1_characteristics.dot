@@ -36,7 +36,7 @@ graph characteristics{
 
 	//CLASE -- PROPIEDAD
 
-edge[style="dashed",len="3",color="grey"]	
+	edge[style="dashed",len="3",color="grey"]	
 	class_CaracteristicasPlantilla -- property_SueldoAnual;
 	class_Idioma -- property_SueldoAnual
 	class_TiempoVerbal -- property_SueldoAnual
@@ -66,7 +66,8 @@ edge[style="dashed",len="3",color="grey"]
 	edge[fontcolor="orangered", color="orangered", style="dashed", arrowhead="vee",dir="forward",arrowsize="2"];
 
 	// herencias
-	edge[len="5"fontcolor="black",color="black",arrowhead="normal",arrowsize="3",dir="back",]	class_CaracteristicasPlantilla -- class_Idioma [label="inherits"];
+	edge[len="5"fontcolor="black",color="black",arrowhead="normal",arrowsize="3",dir="back",]
+	class_CaracteristicasPlantilla -- class_Idioma [label="inherits"];
 	class_Idioma -- class_Espanol [label="inherits"];
 	class_Idioma -- class_Ingles [label="inherits"];
 	class_Idioma -- class_Arabe [label="inherits"];

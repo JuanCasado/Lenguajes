@@ -348,7 +348,7 @@ public class GrafoJSON {
 
             // Clase -- Propiedad
             sb.append("\n\t//CLASE -- PROPIEDAD\n");
-            sb.append("\nedge[style=\"dashed\",len=\"3\",color=\"grey\"]");
+            sb.append("\n\tedge[style=\"dashed\",len=\"3\",color=\"grey\"]");
             sb.append("\t" + fragmentDot(_edge_property, "edge") + "\n");
             for (String claseID : _clases.keySet()) {
                 ClaseJSON clase = _clases.get(claseID);
@@ -453,7 +453,7 @@ public class GrafoJSON {
             // herencias
             sb.append("\n\t// herencias\n");
             sb.append(
-                    "\tedge[len=\"5\"fontcolor=\"black\",color=\"black\",arrowhead=\"normal\",arrowsize=\"3\",dir=\"back\",]");
+                    "\tedge[len=\"5\"fontcolor=\"black\",color=\"black\",arrowhead=\"normal\",arrowsize=\"3\",dir=\"back\",]\n");
             for (RelacionJSON relation : _relaciones) {
                 if (relation.getID().equals("")) {
                     sb.append("\tclass_");

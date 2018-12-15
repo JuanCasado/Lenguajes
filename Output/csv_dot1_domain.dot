@@ -37,7 +37,7 @@ graph domain{
 
 	//CLASE -- PROPIEDAD
 
-edge[style="dashed",len="3",color="grey"]	
+	edge[style="dashed",len="3",color="grey"]	
 	class_PERSONA -- property_Nombre;
 	class_PERSONA -- property_Apellidos;
 	class_PERSONA -- property_Rol;
@@ -77,6 +77,7 @@ edge[style="dashed",len="3",color="grey"]
 
 	// herencias
 	edge[len="5"fontcolor="black",color="black",arrowhead="normal",arrowsize="3",dir="back",]
+
 	// enlaces de relaciones
 	edge[len="2",penwidth="3",color="blue",fontcolor="blue",dir="forward",arrowhead="normal"]
 	class_PERSONA -- relationship_conoceA [label="conoceA (0..n)"];
